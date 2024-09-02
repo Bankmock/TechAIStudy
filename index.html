@@ -3,134 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Study Material and Free Mock Test">
-    <meta name="keywords" content="TechAIStudy.com, Free Study Materials, Free Banking and SSC Mock Test, Indian Sarkari Job Alert">
-    <meta name="author" content="TechAIStudy.com">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.techaistudy.com">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="TechAIStudy.com | Welcome">
-    <meta property="og:description" content="Study Material and Free Mock Test">
-    <meta property="og:image" content="https://www.techaistudy.com/img/og-image.jpg">
-    <meta property="og:url" content="https://www.techaistudy.com">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="TechAIStudy.com | Welcome">
-    <meta name="twitter:description" content="Study Material and Free Mock Test">
-    <meta name="twitter:image" content="https://www.techaistudy.com/img/og-image.jpg">
+    <title>3D Animation for Rachana</title>
 
-    <title>TechAIStudy.com | Welcome</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/homepost.css">
-    <link rel="icon" href="img/favicon.jpg">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+   
+    <!-- Google tag (gtag.js) -->
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WEZ36N4FPF');
+
     
-    <!-- Schema Markup for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Website",
-      "name": "TechAIStudy.com",
-      "url": "https://www.techaistudy.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.techaistudy.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
+    
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .scene {
+            perspective: 1000px;
+        }
+
+        .cube {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(-20deg) rotateY(20deg);
+            animation: rotateCube 5s infinite linear;
+        }
+
+        .cube div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: #ff4081;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cube .front  { transform: translateZ(100px); }
+        .cube .back   { transform: rotateY(180deg) translateZ(100px); }
+        .cube .right  { transform: rotateY(90deg) translateZ(100px); }
+        .cube .left   { transform: rotateY(-90deg) translateZ(100px); }
+        .cube .top    { transform: rotateX(90deg) translateZ(100px); }
+        .cube .bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+        @keyframes rotateCube {
+            from { transform: rotateX(-20deg) rotateY(20deg); }
+            to { transform: rotateX(-20deg) rotateY(380deg); }
+        }
+
+        .heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            font-size: 50px;
+            color: #ff4081;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(0.9); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+    </style>
 </head>
 <body>
-    <!-- ads7 -->
-    <div class="adsc">
-        <script src="./ads/ads7.js"></script>
-    </div>
-    
-    <!-- ads1 -->
-    <div class="adsc">
-        <script src="./ads/ads1.js"></script>
-    </div>
-    
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1><span class="highlight">Tech</span>AIStudy.com</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li class="current"><a href="index.html">Home</a></li>
-                    <li><a href="./Bank/Banking-Free-Mock.html">BANK</a></li>
-                    <li><a href="./SSC/Ssc-Free-Mock-Test.html">SSC</a></li>
-                    <li><a href="./Govt/sarkarinaukri.html">GOVT JOBS</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- ads2 -->
-    <div class="adsc">
-        <script src="./ads/ads2.js"></script>
-    </div>
-  
-    <hr>
- 
-    <div class="containerh">
-        
-        <!-- card1 -->
-        <div class="card">
-            <a href="./home/post/Post.html" class="read-more">
-                <img src="home/img/ibps1.jpg" alt="IBPS Calendar 2024-25">
-                <div class="card-content">  <h2 class="card-title">IBPS Calendar 2024-25 Remember Date of Exam Months jhbbhhbb hhhh hh hhh</h2>
-                    <p class="card-description">IBPS Calendar Reminder.</p>
-                    <div class="author-info">
-                        <div class="author-logo">AI</div>
-                        <span class="author-name">AIPost | July 26, 2024</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-       
-        
-      
-
-        <!-- ads4 -->
-        <div class="adsc">
-            <script src="./ads/ads4.js"></script>
-        </div>
-        
-        
-
-        <!-- ads5 -->
-        <div class="adsc">
-            <script src="./ads/ads5.js"></script>
-        </div>
-        
-        <!-- Telegram Links -->
-        <div class="card">
-            <h3>Join Telegram Group for Study Materials</h3>
-            <div class="card-content">
-                <a href="https://t.me/BANKERS_HUBS" class="buttonso"><b>Free Mock Test</b></a>
-                <hr>
-                <a href="https://t.me/BankingFreemocktest" class="buttonso"><b>Mock Test 2</b></a>
-                <hr>
-                <a href="https://t.me/India_Job_Alart" class="buttonso"><b>India Job Alert</b></a>
-                <hr>
-                <a href="https://t.me/GkAdda_Govt_Job_Notification" class="buttonso"><b>GK UPSC Study Material</b></a>
-                <hr>
-                <a href="https://t.me/Russian_English_Chating" class="buttonso"><b>English Chatting</b></a>
-            </div>
+    <div class="scene">
+        <div class="cube">
+            <div class="front">Rachana</div>
+            <div class="back">From My</div>
+            <div class="right">Heart</div>
+            <div class="left">❤️</div>
+            <div class="top">With Love</div>
+            <div class="bottom">🤩</div>
         </div>
     </div>
-
-    <!-- ads6 -->
-    <div class="adsc">
-        <script src="./ads/ads6.js"></script>
-    </div>
-    
-    <footer>
-        <p>TechAIStudy.com, Copyright &copy; 2024</p>
-    </footer>
+    <div class="heart">❤️</div>
 </body>
 </html>
