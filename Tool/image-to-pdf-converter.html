@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free online image to PDF converter tool. Easily convert text to PDF with customizable options. Generate Pdf and downloads Pdf . Fast, secure, and user-friendly!">
+  <meta name="keywords" content="image to PDF converter, Convert image to PDF online, Free PDF converter, Fast image to PDF tool, Create PDF from image, Secure PDF conversion online">
+  <title>Image to Pdf Converter: Free Online image to PDF Converter And Download Pdf</title>
+ 
+  
+    <meta name="author" content="Techaistudy.com">
+ <meta property="og:title" content="image to Pdf Converter: Free Online image to PDF Converter And Download Pdf">
+    <meta property="og:description" content="Free online image to PDF converter tool. Easily convert image to PDF with customizable options. Generate Pdf and downloads Pdf . Fast, secure, and user-friendly!">
+    <meta property="og:type" content="website">
+   <meta property="og:url" content="https://www.techaistudy.com/image-to-pdf-converter.html">
+    <meta property="og:image" content="https://www.techaistudy.com/img/image-to-pdf-converter.webp">
+
+    <!-- Twitter Card Tags for Sharing on Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Image to Pdf Converter: Free Online image to PDF Converter And Download Pdf">
+    <meta name="twitter:description" content="Free online image to PDF converter tool. Easily convert image to PDF with customizable options. Generate Pdf and downloads Pdf . Fast, secure, and user-friendly!">
+    <meta name="twitter:image" content="https://www.techaistudy.com/img/image-to-pdf-converter.webp">
+
+   
+    <link rel="canonical" href="https://www.techaistudy.com/image-to-pdf-converter.html">
+
+    
+    <link rel="icon" href="../img/techaistudy.webp" type="image/x-icon">
+
+   
+    <meta name="robots" content="index, follow">
+
+
+    <link rel="alternate" lang="en" href="https://www.techaistudy.com/image-to-pdf-converter.html">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Image to PDF Converter",
+      "description": "Free online image to PDF converter tool. Easily convert image to PDF with customizable options. Generate Pdf and downloads Pdf . Fast, secure, and user-friendly!",
+      "url": "https://www.techaistudy.com/image-to-pdf-converter.html",
+      
+       "datePublished": "2024-09-19",
+  "image": "https://www.techaistudy.com/img/image-to-pdf-converter.webp"
+    }
+    </script>
+
+
+
+
+<script src="../js/dynamicContent.js" defer></script>
+  <script src="../js/headerScript.js"></script>
+  <script src="../js/removehtmlextention.js"></script>
+  <script src="../js/googletrackingid.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+
+  <link rel="stylesheet" href="../css/style.css">
+
+   <link rel="stylesheet" href="../css/post.css">
+  
+  
+  
+  
+  
+  
+  
+  
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+      .txtbox {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      padding: 20px;
+      
+      line-height: 1.6;
+    
+      max-width: 800px;
+      margin: auto;
+     
+      
+    }
+
+  
+
+    #containerpdf {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .drop-area {
+      border: 2px dashed #4CAF50;
+      padding: 20px;
+      text-align: center;
+      margin: 20px 0;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .drop-area.hover {
+      background-color: #e0f7e0;
+    }
+
+    input[type="file"] {
+      display: none; /* Hide the default file input */
+    }
+
+    .custom-file-input {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    button {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    
+    
+    .h1bi {
+        
+        color: blue;
+        text-align: center; 
+        
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #deleteButton {
+      background-color: #f44336;
+      margin-top: 10px;
+    }
+
+    #deleteButton:hover {
+      background-color: #e53935;
+    }
+
+    #imagePreview {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 20px;
+      cursor: move; /* Indicate draggable */
+    }
+
+    .preview-item {
+      position: relative;
+      margin: 10px;
+    }
+
+    .preview-item img {
+      max-width: 100px;
+      max-height: 100px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      padding: 5px;
+      transition: 0.3s;
+    }
+
+    .preview-item img.selected {
+      border-color: red;
+      opacity: 0.6;
+    }
+
+    #status {
+      font-size: 1em;
+      color: #555;
+      margin-top: 15px;
+    }
+
+    a#downloadLink {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1em;
+      margin-top: 15px;
+      display: none; /* Initially hidden */
+    }
+
+    a#downloadLink:hover {
+      background-color: #0069d9;
+    }
+
+    /* Progress Bar Styles */
+    .progress-container {
+      width: 100%;
+      background-color: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 20px;
+      background-color: #4CAF50;
+      text-align: center;
+      line-height: 20px;
+      color: white;
+      transition: width 0.4s;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+    
+
+      #containerpdf {
+        padding: 15px;
+        margin: 10px;
+      }
+
+ .h1bi {
+        
+        color: blue;
+        text-align: center; 
+     
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+
+
+      button, a#downloadLink {
+        font-size: 1.3em;
+        padding: 10px 15px;
+      }
+
+      .preview-item img {
+        max-width: 80px;
+        max-height: 80px;
+      }
+      
+      
+      
+      
+      
+    
+     h2, h3 {
+      color: #333;
+      
+      margin-bottom: 15px;
+    }
+     
+     p {
+        
+        
+        font-size: 1.6em; line-height: 1.6;
+         color: #555;
+         margin-bottom: 15px;
+         
+         
+    }
+     
+    .txt {
+        margin-top: 50px;
+    }
+    
+    ul {   
+        font-size: 1.2em; line-height: 1.6; color: #555; margin-left: 20px;
+    }
+    li {
+        
+        font-size: 1.1em;
+        
+    }
+      
+      
+      
+      
+    }
+
+    @media (max-width: 480px) {
+ .h1bi {
+        
+        color: blue;
+        text-align: center; 
+     
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+      .custom-file-input, input[type="file"], button, a#downloadLink {
+        font-size: 1.em;
+      }
+
+      .preview-item img {
+        max-width: 70px;
+        max-height: 70px;
+      }
+  
+  
+  
+    
+     h2, h3 {
+      color: #333;
+      
+      margin-bottom: 15px;
+    }
+     
+     p {
+        
+        
+        font-size: 1.6em; line-height: 1.6;
+         color: #555;
+         margin-bottom: 15px;
+         
+         
+    }
+     
+    .txt {
+        margin-top: 50px;
+    }
+    
+    ul {   
+        font-size: 1.2em; line-height: 1.6; color: #555; margin-left: 20px;
+    }
+    li {
+        
+        font-size: 1.1em;
+        
+    }
+  
+  
+  
+  
+    }
+    
+     h2, h3 {
+      color: #333;
+      
+      margin-bottom: 15px;
+    }
+     
+     p {
+        
+        
+        font-size: 1.6em; line-height: 1.6;
+         color: #555;
+         margin-bottom: 15px;
+         
+         
+    }
+     
+    .txt {
+        margin-top: 50px;
+    }
+    
+    ul {   
+        font-size: 1.2em; line-height: 1.6; color: #555; margin-left: 20px;
+    }
+    li {
+        
+        font-size: 1.1em;
+        
+    }
+    
+    
+    
+  </style>
+</head>
+
+    
+    <body onload="includeHTML()">
+   
+   <div include-html="../header.html"></div>
+    <br>
+   <div class="txtbox">
+<div id="txt">
+   
+    
+    
+    <h1>Image to Pdf Converter: Free Online image to PDF Converter And Download Pdf.</h1>
+      <!-- writer date -->
+          <span id="wd">by Kuldip Singh | 19 September 2024</span><br><br><br>
+    <br>
+           
+           
+           
+           
+           
+<div class="separator" style="clear: both; text-align: center;">
+   <img border="0" data-original-height="194" data-original-width="259" height="194" src="../img/image-to-pdf-converter.webp" width="299" alt="image to pdf converter"/>
+  
+  </div>
+    
+    
+    <br>
+ <h1 class="h1bi">👇Image To Pdf Converter👇<hr>  Scroll & Check Down 👇</h1>
+    
+    
+    
+    <br>
+    
+<h2>What is Image to PDF Conversion?</h2>
+
+  <p><strong>Image to PDF conversion</strong> is the process of transforming image files, such as JPEG, PNG, or GIF, into a Portable Document Format (PDF) file. This allows you to combine multiple images into a single document, preserve image quality, and make sharing or printing easier. PDFs are universally supported and provide a more structured way to store or distribute visual content.</p>
+    
+    
+  <h2>How Convert image to PDF Using Our Tool</h2>
+
+  <p>Follow these simple steps to convert your images to PDF:</p>
+
+  <h3>1. Upload or Drag & Drop Images</h3>
+  <p>Click the “Choose Images” button or drag images into the drop area.</p>
+
+  <h3>2. Rearrange or Delete Images</h3>
+  <p>Use the image preview section to reorder images by dragging or delete by clicking on the images you no longer need.</p>
+
+  <h3>3. Click "Convert to PDF"</h3>
+  <p>Once you're satisfied with the images and their order, click the "Convert to PDF" button. Watch the progress bar to see the conversion in real-time.</p>
+
+  <h3>4. Download the PDF</h3>
+  <p>After conversion, a download link will appear. Click the link to download your PDF.</p>
+
+ 
+     <h2>Who Can Benefit from This Tool?</h2>
+
+  <p>Our <strong>Image to PDF</strong> tool is designed for a broad audience, including:</p>
+  <ul>
+    <li><strong>Students</strong>: Combining scanned homework or projects into a single file for easy submission.</li>
+    <li><strong>Professionals</strong>: Organizing and sharing multiple design drafts or product photos in one compact document.</li>
+    <li><strong>Artists</strong>: Compiling their portfolio of artwork or photographs into a presentable format.</li>
+    <li><strong>Teachers</strong>: Creating resource materials by compiling various image-based resources into a unified document.</li>
+  </ul></div>
+    <br>
+  <div id="containerpdf">
+    <h1 class="h1bi">Image to PDF Converter</h1>
+    
+    <div class="drop-area" id="dropArea">
+      <p>Drag & drop images here or</p>
+      <label class="custom-file-input">
+        Choose Images
+        <input type="file" id="imageInput" accept="image/*" multiple onchange="handleFiles(this.files)">
+      </label>
+    </div>
+
+    <button onclick="convertImagesToPDF()">Convert to PDF</button>
+    <button id="deleteButton" onclick="deleteSelectedImages()">Delete Selected Images</button>
+
+    <div id="imagePreview"></div>
+
+    <h3 id="status"></h3><br>
+    <div class="progress-container" id="progressContainer" style="display: none;">
+      <div class="progress-bar" id="progressBar">0%</div>
+    </div>
+    <a id="downloadLink" href="#">Download PDF</a>
+  </div>
+
+
+<br>
+
+<div class="txt">
+
+<h2>Features of Our Image to PDF Tool</h2>
+
+  <p>Our <strong>Image to PDF</strong> tool offers several key features that set it apart:</p>
+  <ul>
+    <li><strong>Drag-and-drop interface</strong>: Simply drag your images into the designated area.</li>
+    <li><strong>Multiple file formats</strong>: Supports JPG, PNG, GIF, and BMP image types.</li>
+    <li><strong>Reorder images</strong>: Drag to rearrange images before conversion.</li>
+    <li><strong>Delete selected images</strong>: Easily remove unwanted images with a click.</li>
+    <li><strong>Preview images</strong>: See all selected images in a preview window before converting.</li>
+    <li><strong>Fast conversion</strong>: Convert your images into a high-quality PDF with just one click.</li>
+    <li><strong>Progress bar</strong>: Monitor the conversion progress in real-time.</li>
+    <li><strong>Download link</strong>: A simple button to download the converted PDF.</li>
+  </ul>
+
+<br>
+  <h1>How to Convert Image to PDF: A Step-by-Step Guide</h1>
+
+  <p>Converting images to PDF is essential for many tasks, from sharing multiple images in a single file to preparing documents for printing. This guide will walk you through the process of converting images to PDFs and introduce our custom-built tool that simplifies the task.</p>
+
+ <h2>FAQs about Image to PDF Conversion</h2>
+
+  <h3>Q1: Can I convert multiple images into one PDF?</h3>
+  <p>Yes! Our tool allows you to upload multiple images and combine them into a single PDF file.</p>
+
+  <h3>Q2: What image formats are supported?</h3>
+  <p>You can upload images in JPEG, PNG, BMP, or GIF formats.</p>
+
+  <h3>Q3: Is this tool free to use?</h3>
+  <p>Yes, our Image to PDF tool is completely free to use.</p>
+
+  <h3>Q4: Can I reorder my images before converting?</h3>
+  <p>Absolutely! You can drag and drop your images to reorder them before creating the PDF.</p>
+
+  <h3>Q5: How can I delete unwanted images?</h3>
+  <p>You can select and delete any images before conversion by clicking on the preview image and hitting the "Delete Selected" button.</p>
+    </div>
+
+</div>
+ <!-- Include jsPDF library from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  
+  <script>
+    let imageFiles = [];
+
+    // Drag-and-drop events
+    const dropArea = document.getElementById('dropArea');
+    dropArea.addEventListener('dragover', (event) => {
+      event.preventDefault();
+      dropArea.classList.add('hover');
+    });
+
+    dropArea.addEventListener('dragleave', () => {
+      dropArea.classList.remove('hover');
+    });
+
+    dropArea.addEventListener('drop', (event) => {
+      event.preventDefault();
+      dropArea.classList.remove('hover');
+      const files = event.dataTransfer.files;
+      handleFiles(files);
+    });
+
+    // Handle files (from input or drop)
+    function handleFiles(files) {
+      const fileArray = Array.from(files);
+      imageFiles.push(...fileArray);
+      previewImages();
+    }
+
+    // Preview selected images before converting to PDF
+    function previewImages() {
+      const imagePreview = document.getElementById('imagePreview');
+      imagePreview.innerHTML = '';
+
+      imageFiles.forEach((file, index) => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const imgElement = document.createElement('img');
+          imgElement.src = e.target.result;
+          imgElement.setAttribute('data-index', index); // Associate the image with its index
+          imgElement.classList.add('draggable');
+          imgElement.onclick = toggleImageSelection;
+
+          const div = document.createElement('div');
+          div.className = 'preview-item';
+          div.appendChild(imgElement);
+          imagePreview.appendChild(div);
+        };
+        reader.readAsDataURL(file);
+      });
+
+      makeImagesDraggable();
+    }
+
+    // Make images draggable
+    function makeImagesDraggable() {
+      const images = document.querySelectorAll('.preview-item img');
+      images.forEach((img) => {
+        img.addEventListener('dragstart', dragStart);
+        img.addEventListener('dragover', dragOver);
+        img.addEventListener('drop', drop);
+      });
+    }
+
+    // Drag and Drop Functions
+    let draggedImg = null;
+
+    function dragStart(event) {
+      draggedImg = event.target;
+      event.dataTransfer.effectAllowed = 'move';
+      event.dataTransfer.setData('text/plain', null); // For Firefox
+    }
+
+    function dragOver(event) {
+      event.preventDefault();
+      event.dataTransfer.dropEffect = 'move';
+    }
+
+    function drop(event) {
+      event.preventDefault();
+      const target = event.target;
+      if (target.tagName === 'IMG' && target !== draggedImg) {
+        const allImages = Array.from(document.querySelectorAll('.preview-item img'));
+        const draggedIndex = parseInt(draggedImg.getAttribute('data-index'));
+        const targetIndex = parseInt(target.getAttribute('data-index'));
+
+        // Swap images in the imageFiles array
+        [imageFiles[draggedIndex], imageFiles[targetIndex]] = [imageFiles[targetIndex], imageFiles[draggedIndex]];
+
+        // Update the data-index attributes
+        allImages.forEach((img, index) => img.setAttribute('data-index', index));
+        previewImages(); // Refresh preview
+      }
+    }
+
+    // Toggle image selection for deletion
+    function toggleImageSelection(event) {
+      const imgElement = event.target;
+      imgElement.classList.toggle('selected');
+    }
+
+    // Delete selected images
+    function deleteSelectedImages() {
+      imageFiles = imageFiles.filter((file, index) => {
+        const imgElement = document.querySelector(`img[data-index='${index}']`);
+        if (imgElement && imgElement.classList.contains('selected')) {
+          imgElement.parentElement.remove(); // Remove from DOM
+          return false; // Filter out from the imageFiles array
+        }
+        return true; // Keep the unmarked images
+      });
+
+      // Refresh preview with remaining images
+      previewImages();
+    }
+
+    // Convert selected images to PDF
+    async function convertImagesToPDF() {
+      if (imageFiles.length === 0) {
+        alert('Please select images first.');
+        return;
+      }
+
+      document.getElementById('status').innerText = 'Generating PDF...';
+      document.getElementById('progressContainer').style.display = 'block'; // Show progress bar
+      const progressBar = document.getElementById('progressBar');
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF();
+
+      for (let i = 0; i < imageFiles.length; i++) {
+        const file = imageFiles[i];
+        const imageDataUrl = await readFileAsDataURL(file);
+        
+        const img = new Image();
+        img.src = imageDataUrl;
+
+        await new Promise(resolve => {
+          img.onload = function() {
+            const imgWidth = pdf.internal.pageSize.getWidth();
+            const imgHeight = (img.height * imgWidth) / img.width;
+
+            if (i > 0) pdf.addPage();
+            pdf.addImage(img, 'JPEG', 0, 0, imgWidth, imgHeight);
+            progressBar.style.width = `${((i + 1) / imageFiles.length) * 100}%`; // Update progress bar
+            progressBar.innerText = `${Math.round(((i + 1) / imageFiles.length) * 100)}%`;
+            resolve();
+          };
+        });
+      }
+
+      const pdfBlob = pdf.output('blob');
+      const downloadUrl = URL.createObjectURL(pdfBlob);
+      const downloadLink = document.getElementById('downloadLink');
+      downloadLink.href = downloadUrl;
+      downloadLink.download = 'images.pdf';
+      downloadLink.style.display = 'inline';
+
+      document.getElementById('status').innerText = 'Conversion complete! Click to download';
+      progressBar.style.width = '100%'; // Complete progress bar
+      progressBar.innerText = '100%';
+      setTimeout(() => {
+        document.getElementById('progressContainer').style.display = 'none'; // Hide progress bar after a moment
+      }, 2000);
+    }
+
+    // Helper function to read file as DataURL (for previewing and adding to PDF)
+    function readFileAsDataURL(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+        reader.readAsDataURL(file);
+      });
+    }
+  </script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+<!-- list  -->
+        
+    <!-- list  -->
+    <div include-html="../list.html"></div>
+        
+     <div include-html="../footer.html"></div>
+</body>
+</html>
