@@ -1,0 +1,15 @@
+# robots.txt for TechAIStudy.com
+
+User-agent: *
+Disallow: /admin/      # Prevent crawlers from accessing admin sections if they exist
+Disallow: /cgi-bin/    # Block any CGI scripts (if applicable)
+Disallow: /private/    # Block a private directory (if it exists)
+Disallow: /tmp/        # Prevent access to temporary files
+Disallow: /scripts/    # Block access to any backend scripts
+
+# Allow all bots to crawl the entire website
+User-agent: *
+Allow: /
+
+# Sitemap link
+Sitemap: https://www.techaistudy.com/sitemap.xml

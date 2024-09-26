@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.techaistudy.com/</loc>
+    <lastmod>2024-09-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Study Materials Page -->
+  <url>
+    <loc>https://www.techaistudy.com/Tool/image-Resizer-width-height-changer.html</loc>
+    <lastmod>2024-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Example Article 1 -->
+  <url>
+    <loc>https://www.techaistudy.com/Notification/Arunachal-Pradesh-APSSB-CSLE-Recruitment-Notification.html</loc>
+    <lastmod>2024-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Example Article 2 -->
+  <url>
+    <loc>https://www.techaistudy.com/Sbi/Sbi-Po-Cut-Off-Marks.html</loc>
+    <lastmod>2024-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Example Article 3 -->
+  <url>
+    <loc>https://www.techaistudy.com/Tool/image-cropper.html</loc>
+    <lastmod>2024-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+
+
+<!-- Example Article 4 -->
+  <url>
+    <loc>https://www.techaistudy.com/Tool/image-format-converter.html</loc>
+    <lastmod>2024-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+
+<!-- Example Article 5 -->
+  <url>
+    <loc>https://www.techaistudy.com/Tool/image-size-compressor.html</loc>
+    <lastmod>2024-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+
+
+<!-- Example Article 6 -->
+  <url>
+    <loc>https://www.techaistudy.com/image-to-pdf-converter.html</loc>
+    <lastmod>2024-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+
+
+
+
+<!-- Example Article 7 -->
+  <url>
+    <loc>https://www.techaistudy.com/Tool/text-to-pdf-converter.html</loc>
+    <lastmod>2024-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+
+
+
+
+
+
+
+
+  <!-- Add additional URLs for important pages/posts here -->
+
+</urlset>
