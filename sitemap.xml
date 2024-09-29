@@ -90,11 +90,19 @@
 
 
 
-
-  <!-- Example Article 8 -->
+<!-- Example Article 8 -->
   <url>
     <loc>https://techaistudy.com/education/how-to-get-a-job-at-google-without-a-degree.html</loc>
     <lastmod>2024-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+
+  <!-- Example Article 9 -->
+  <url>
+    <loc>https://techaistudy.com/Sbi/SBI-PO-Prelims-Sectional-Cut-Off-2024.html</loc>
+    <lastmod>2024-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
