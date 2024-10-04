@@ -325,7 +325,7 @@ Text to PDF refers to the process of converting a plain text document, typically
     <button onclick="convertTextToPDF()">Convert to PDF</button>
 
     <h3 id="status"></h3>
-    <a id="downloadLink" href="#">Download PDF | Wait 10 Sec Untill Download Complete</a>
+    <a id="downloadLink" href="#">Download PDF | Wait Untill Complete</a>
     </div>
     
     
@@ -470,7 +470,7 @@ In short, converting text to PDF ensures your document is reliable, secure, and 
       downloadLink.href = pdfUrl;
       downloadLink.download = 'text.pdf'; // Name the downloaded file
       downloadLink.style.display = 'inline-block'; // Show the download link
-      statusText.innerText = `Conversion complete! Click to download. (${totalPages} page(s))`;
+      statusText.innerText = `Converted! Click to download. (${totalPages} page(s))`;
     }
   </script>
 
