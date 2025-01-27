@@ -5,7 +5,4 @@ var urlTotal,nextPageToken,postsDatePrefix=!1,accessOnly=!1,useApiV3=!1,apiKey="
 
 
 
-const script = document.createElement('script');
-script.className = 'admoloScript';
-script.src = 'https://admolo.com/assets/ads/ad.js';
-document.head.appendChild(script);
+
