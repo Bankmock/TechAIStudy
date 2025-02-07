@@ -1,0 +1,85 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header {
+    background: #d32f2f;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header p {
+    font-size: 14px;
+}
+
+/* Article */
+article {
+    padding: 20px;
+}
+
+article h2 {
+    color: #d32f2f;
+    border-bottom: 2px solid #d32f2f;
+    padding-bottom: 5px;
+}
+
+article ul {
+    padding: 10px;
+    list-style: square;
+}
+
+article p {
+    margin: 10px 0;
+}
+
+/* Ads Section */
+.ads {
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    background: #ffebee;
+    border: 1px solid #d32f2f;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+      }
