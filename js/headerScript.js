@@ -21,7 +21,6 @@
 
 
 
-**// baner
 
 (function () {
     var d = "gizokraijaw.net";
