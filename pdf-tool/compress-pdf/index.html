@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compress PDF File Online | Reduce PDF Size Free & Secure</title>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="../../css/footer.css">
+<link rel="stylesheet" href="../../css/header.css">
+<script defer src="../../js/component1.js"></script>
+
+<!-- Google Analytics (Tracking) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+
+<!-- Load Scripts -->
+<script src="../../js/ads.js"></script>
+<script src="../../js/headerScript.js"></script>
+<script src="../../js/googletrackingid.js"></script>
+
+<!-- Primary Meta Tags -->
+<meta name="title" content="Compress PDF File Online | Reduce PDF Size Free & Secure">
+<meta name="description" content="Compress PDF files online for free. Quickly reduce PDF file size without losing quality. No signup required. Safe, secure, and fast compression.">
+<meta name="keywords" content="compress PDF, reduce PDF size, PDF compressor online, shrink PDF file, free PDF compression, minimize PDF, compress PDF without losing quality">
+<meta name="robots" content="index, follow">
+<meta name="author" content="TechAIStudy">
+<meta name="language" content="English">
+<link rel="canonical" href="https://techaistudy.com/pdf-tool/compress-pdf/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://techaistudy.com/pdf-tool/compress-pdf/">
+<meta property="og:title" content="Compress PDF File Online | Reduce PDF Size Free & Secure">
+<meta property="og:description" content="Compress PDF files online for free. Quickly reduce PDF file size without losing quality. No signup required. Safe, secure, and fast compression.">
+<meta property="og:image" content="https://techaistudy.com/images/compress-pdf.webp">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://techaistudy.com/pdf-tool/compress-pdf/">
+<meta name="twitter:title" content="Compress PDF File Online | Reduce PDF Size Free & Secure">
+<meta name="twitter:description" content="Compress PDF files online for free. Quickly reduce PDF file size without losing quality. No signup required. Safe, secure, and fast compression.">
+<meta name="twitter:image" content="https://techaistudy.com/images/compress-pdf.webp">
+
+<!-- Schema JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Compress PDF File Online | Reduce PDF Size Free & Secure",
+  "url": "https://techaistudy.com/pdf-tool/compress-pdf/",
+  "description": "Compress PDF files online for free. Quickly reduce PDF file size without losing quality. No signup required. Safe, secure, and fast compression.",
+  "keywords": [
+    "compress PDF",
+    "reduce PDF size",
+    "PDF compressor online",
+    "shrink PDF file",
+    "free PDF compression",
+    "minimize PDF",
+    "compress PDF without losing quality"
+  ],
+  "inLanguage": "en",
+  "publisher": {
+    "@type": "Organization",
+    "name": "TechAIStudy",
+    "url": "https://techaistudy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://techaistudy.com/images/logo.webp"
+    }
+  },
+  "image": "https://techaistudy.com/images/compress-pdf.webp",
+  "datePublished": "2025-05-21",
+  "dateModified": "2025-05-21"
+}
+</script>
+  
+  
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <script src="https://unpkg.com/pdf-lib"></script>
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3f37c9;
+      --light-color: #f8f9fa;
+      --dark-color: #212529;
+      --success-color: #4bb543;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    
+.container {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin: 6%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .upload-area {
+            border: 2px dashed #3498db;
+            border-radius: 5px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .upload-area:hover {
+            background-color: #eaf2f8;
+        }
+        .upload-area p {
+            margin: 0;
+            color: #7f8c8d;
+        }
+        #pdfFile {
+            display: none;
+        }
+
+
+    
+    
+    
+    h1 {
+      color:blue;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--dark-color);
+    }
+    
+    input[type="file"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-size: 16px;
+      transition: var(--transition);
+    }
+    
+    input[type="file"]:hover {
+      border-color: var(--primary-color);
+    }
+    
+    input[type="range"] {
+      width: 100%;
+      height: 8px;
+      -webkit-appearance: none;
+      background: #ddd;
+      border-radius: 5px;
+      margin: 15px 0;
+      cursor: pointer;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    
+    input[type="range"]::-webkit-slider-thumb:hover {
+      background: var(--secondary-color);
+      transform: scale(1.1);
+    }
+    
+    .scale-value {
+      text-align: center;
+      font-weight: 500;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+    
+    button {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      width: 100%;
+      font-weight: 500;
+      transition: var(--transition);
+      margin-top: 10px;
+    }
+    
+    button:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    #status, #fileInfo {
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: var(--border-radius);
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+    
+    #status {
+      background: #e9ecef;
+      color: var(--dark-color);
+    }
+    
+    #fileInfo {
+      background: #e7f5ff;
+      border-left: 4px solid var(--primary-color);
+    }
+    
+    .file-info-item {
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .file-info-item strong {
+      color: var(--primary-color);
+    }
+    
+    
+    @media (max-width: 768px) {
+      .upload-area {
+        padding: 20px;
+      }
+      
+     
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        margin:6%;
+      }
+      
+      .upload-area {
+        padding: 15px;
+      }
+      
+      input, button {
+        padding: 10px;
+      }
+    }
+    
+    /* Loading animation */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  	<h1>Compress PDF , PDF Compresser</h1><br> 
+        <div class="upload-area" id="upload-area">
+            <p>Click to upload or drag and drop your PDF file</p>
+            <label for="pdfFile">Select PDF File</label>
+            <input type="file" id="pdfFile" accept="application/pdf">
+        </div>
+      
+      
+      
+      <label for="scale">Compression Level:</label>
+      <input type="range" id="scale" min="20" max="100" value="50" 
+             oninput="document.getElementById('scaleVal').innerText = this.value + '%'">
+      <div class="scale-value">Image Scale: <span id="scaleVal">50%</span></div>
+      
+      <button onclick="compressPDF()">
+        <span id="buttonText">Compress & Download</span>
+      </button>
+      
+      <div id="status">Ready to compress PDF files</div>
+      
+      <div id="fileInfo"></div>
+<br><div class="ads9"></div>
+    </div>
+
+  <script>
+    async function compressPDF() {
+      const file = document.getElementById('pdfFile').files[0];
+      const scale = parseInt(document.getElementById('scale').value) / 100;
+      const status = document.getElementById('status');
+      const info = document.getElementById('fileInfo');
+      const buttonText = document.getElementById('buttonText');
+      
+      // Clear previous results
+      info.innerHTML = '';
+      status.innerHTML = '<span class="loading"></span> Processing...';
+      buttonText.textContent = 'Processing...';
+      
+      if (!file) {
+        status.innerHTML = '<span style="color: #dc3545;">⚠️ Please select a PDF file</span>';
+        buttonText.textContent = 'Compress & Download';
+        return;
+      }
+
+      try {
+        const originalSize = file.size;
+        const fileName = file.name;
+        const startTime = performance.now();
+
+        const arrayBuffer = await file.arrayBuffer();
+        const pdfjsLib = window['pdfjs-dist/build/pdf'];
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+
+        const pdfDoc = await PDFLib.PDFDocument.create();
+
+        for (let i = 0; i < pdf.numPages; i++) {
+          status.innerHTML = `<span class="loading"></span> Processing page ${i + 1} of ${pdf.numPages}...`;
+
+          const page = await pdf.getPage(i + 1);
+          const viewport = page.getViewport({ scale: 2.0 });
+
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+
+          await page.render({ canvasContext: context, viewport }).promise;
+
+          // Downscale
+          const smallCanvas = document.createElement("canvas");
+          smallCanvas.width = canvas.width * scale;
+          smallCanvas.height = canvas.height * scale;
+          const ctx2 = smallCanvas.getContext("2d");
+          ctx2.drawImage(canvas, 0, 0, smallCanvas.width, smallCanvas.height);
+
+          const imageData = smallCanvas.toDataURL("image/jpeg", 0.7);
+          const img = await pdfDoc.embedJpg(imageData);
+          const page1 = pdfDoc.addPage([smallCanvas.width, smallCanvas.height]);
+          page1.drawImage(img, {
+            x: 0,
+            y: 0,
+            width: smallCanvas.width,
+            height: smallCanvas.height
+          });
+        }
+
+        const newPdfBytes = await pdfDoc.save();
+        const newBlob = new Blob([newPdfBytes], { type: "application/pdf" });
+        const newSize = newBlob.size;
+        const endTime = performance.now();
+        const processingTime = ((endTime - startTime) / 1000).toFixed(2);
+
+        // Create download link
+        const url = URL.createObjectURL(newBlob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = fileName.replace('.pdf', '') + '_compressed.pdf';
+        a.click();
+        URL.revokeObjectURL(url);
+
+        // Show details
+        info.innerHTML = `
+          <div class="file-info-item">
+            <strong>Original File:</strong> 
+            <span>${fileName}</span>
+          </div>
+          <div class="file-info-item">
+            <strong>Original Size:</strong> 
+            <span>${(originalSize / 1024 / 1024).toFixed(2)} MB</span>
+          </div>
+          <div class="file-info-item">
+            <strong>Compressed Size:</strong> 
+            <span>${(newSize / 1024 / 1024).toFixed(2)} MB</span>
+          </div>
+          <div class="file-info-item">
+            <strong>Reduction:</strong> 
+            <span style="color: ${newSize < originalSize ? 'var(--success-color)' : '#dc3545'}">
+              ${((1 - (newSize / originalSize)) * 100).toFixed(2)}%
+            </span>
+          </div>
+          <div class="file-info-item">
+            <strong>Processing Time:</strong> 
+            <span>${processingTime} seconds</span>
+          </div>
+        `;
+
+        status.innerHTML = '<span style="color: var(--success-color)">✓ Compression complete! File downloaded.</span>';
+        buttonText.textContent = 'Compress & Download';
+        
+      } catch (error) {
+        console.error(error);
+        status.innerHTML = `<span style="color: #dc3545;">⚠️ Error: ${error.message}</span>`;
+        buttonText.textContent = 'Compress & Download';
+      }
+    }
+  </script>
+</body>
+</html>
