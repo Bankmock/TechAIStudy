@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Split and Delete PDF Pages Online | Free PDF Editor Tool</title>
+
+  <link rel="stylesheet" href="../../css/footer.css">
+  <link rel="stylesheet" href="../../css/header.css">
+  <script defer src="../../js/component1.js"></script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+  <script src="../../js/ads.js"></script>
+  <script src="../../js/headerScript.js"></script>
+  <script src="../../js/googletrackingid.js"></script>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Split and Delete PDF Pages Online | Free PDF Editor Tool">
+  <meta name="description" content="Easily split or delete pages from your PDF with this free, browser-based tool. No watermark, no sign-up, secure and fast.">
+  <meta name="keywords" content="split pdf pages, delete pdf pages, remove pages from pdf, pdf splitter, pdf editor, free pdf tool, online pdf editor, extract pdf pages">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="TechAIStudy">
+  <meta name="language" content="English">
+  <link rel="canonical" href="https://techaistudy.com/pdf-tool/split-and-delete-pdf-pages/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://techaistudy.com/pdf-tool/split-and-delete-pdf-pages/">
+  <meta property="og:title" content="Split and Delete PDF Pages Online | Free PDF Editor Tool">
+  <meta property="og:description" content="Easily split or delete pages from your PDF with this free, browser-based tool. No watermark, no sign-up, secure and fast.">
+  <meta property="og:image" content="https://techaistudy.com/images/split-and-delete-pdf.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://techaistudy.com/pdf-tool/split-and-delete-pdf-pages/">
+  <meta name="twitter:title" content="Split and Delete PDF Pages Online | Free PDF Editor Tool">
+  <meta name="twitter:description" content="Easily split or delete pages from your PDF with this free, browser-based tool. No watermark, no sign-up, secure and fast.">
+  <meta name="twitter:image" content="https://techaistudy.com/images/split-and-delete-pdf.webp">
+
+  <!-- Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Split and Delete PDF Pages Online | Free PDF Editor Tool",
+    "url": "https://techaistudy.com/pdf-tool/split-and-delete-pdf-pages/",
+    "description": "Easily split or delete pages from your PDF with this free, browser-based tool. No watermark, no sign-up, secure and fast.",
+    "keywords": [
+      "split pdf pages",
+      "delete pdf pages",
+      "remove pages from pdf",
+      "pdf splitter",
+      "pdf editor",
+      "free pdf tool",
+      "online pdf editor",
+      "extract pdf pages"
+    ],
+    "inLanguage": "en",
+    "publisher": {
+      "@type": "Organization",
+      "name": "TechAIStudy",
+      "url": "https://techaistudy.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://techaistudy.com/images/logo.webp"
+      }
+    },
+    "image": "https://techaistudy.com/images/split-and-delete-pdf.webp",
+    "datePublished": "2025-05-21",
+    "dateModified": "2025-05-21"
+  }
+  </script>
+  
+  
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <script src="https://unpkg.com/pdf-lib"></script>
+  <style>
+    
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: blue;
+    }
+    .upload-area {
+      border: 2px dashed #aaa;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      margin-bottom: 20px;
+      background: #fafafa;
+      cursor: pointer;
+    }
+    .upload-area.dragover {
+      background-color: #e3f2fd;
+      border-color: #2196f3;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    canvas {
+      margin: 5px;
+      border: 3px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      max-width: 100px;
+    }
+    canvas.selected {
+      border-color: red;
+    }
+    #pdfPreview {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    #progress {
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Delete & Split Pages</h1>
+<br>
+    <div class="upload-area" id="uploadArea">
+      <p>Drag & Drop PDF or Click to Upload</p>
+      <input type="file" id="pdfFile" accept="application/pdf">
+    </div>
+
+    <input type="text" id="pageNumbers" placeholder="Enter pages to delete (e.g. 1,3,5)">
+    <button onclick="deleteSelectedPages()">Delete Pages & Download</button>
+
+    <input type="text" id="splitPages" placeholder="Enter page numbers to split (e.g. 2 or 2,5)">
+    <button onclick="splitPdfByPageNumbers()">Split by Page Number</button>
+
+    <button onclick="splitPdfBySelection()">Split by Selected Pages</button>
+
+    <div id="progress"></div>
+    <div id="pdfPreview"></div>
+    <br><div class="ads9"></div>
+  </div>
+
+  <script>
+    let pdfDocGlobal = null;
+    let selectedPages = new Set();
+
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('pdfFile');
+
+    uploadArea.addEventListener('click', () => fileInput.click());
+    uploadArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      uploadArea.classList.add('dragover');
+    });
+    uploadArea.addEventListener('dragleave', () => {
+      uploadArea.classList.remove('dragover');
+    });
+    uploadArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadArea.classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file) handleFile(file);
+    });
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      if (file) handleFile(file);
+    });
+
+    async function handleFile(file) {
+      document.getElementById('pdfPreview').innerHTML = '';
+      document.getElementById('progress').innerText = 'Loading PDF...';
+      selectedPages.clear();
+
+      const arrayBuffer = await file.arrayBuffer();
+      const pdfjsLib = window['pdfjs-dist/build/pdf'];
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
+
+      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      pdfDocGlobal = { file, arrayBuffer, pdf };
+
+      for (let i = 0; i < pdf.numPages; i++) {
+        const page = await pdf.getPage(i + 1);
+        const viewport = page.getViewport({ scale: 0.5 });
+
+        const canvas = document.createElement("canvas");
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        const context = canvas.getContext("2d");
+        await page.render({ canvasContext: context, viewport }).promise;
+
+        canvas.dataset.pageNumber = i + 1;
+        canvas.onclick = function () {
+          const pageNum = parseInt(this.dataset.pageNumber);
+          if (selectedPages.has(pageNum)) {
+            selectedPages.delete(pageNum);
+            this.classList.remove('selected');
+          } else {
+            selectedPages.add(pageNum);
+            this.classList.add('selected');
+          }
+        };
+
+        document.getElementById('pdfPreview').appendChild(canvas);
+      }
+
+      document.getElementById('progress').innerText = "PDF Loaded. Select pages or use inputs.";
+    }
+
+    async function deleteSelectedPages() {
+      if (!pdfDocGlobal) return alert("Upload a PDF first.");
+      const input = document.getElementById('pageNumbers').value.trim();
+      if (input) {
+        input.split(',').forEach(p => selectedPages.add(parseInt(p.trim())));
+      }
+
+      const pdfBytes = pdfDocGlobal.arrayBuffer;
+      const originalPdf = await PDFLib.PDFDocument.load(pdfBytes);
+      const newPdf = await PDFLib.PDFDocument.create();
+      const total = originalPdf.getPageCount();
+
+      for (let i = 0; i < total; i++) {
+        if (!selectedPages.has(i + 1)) {
+          const [page] = await newPdf.copyPages(originalPdf, [i]);
+          newPdf.addPage(page);
+        }
+      }
+
+      const bytes = await newPdf.save();
+      const blob = new Blob([bytes], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "deleted_pages.pdf";
+      a.click();
+      URL.revokeObjectURL(url);
+
+      document.getElementById('progress').innerText = "Deleted and downloaded.";
+    }
+
+    async function splitPdfByPageNumbers() {
+      if (!pdfDocGlobal) return alert("Upload a PDF first.");
+      const input = document.getElementById('splitPages').value.trim();
+      if (!input) return alert("Enter page numbers to split.");
+
+      const splitPoints = input.split(',').map(n => parseInt(n.trim())).filter(n => !isNaN(n)).sort((a, b) => a - b);
+      const pdfBytes = pdfDocGlobal.arrayBuffer;
+      const originalPdf = await PDFLib.PDFDocument.load(pdfBytes);
+      const totalPages = originalPdf.getPageCount();
+
+      splitPoints.push(totalPages); // Add end point
+      let start = 0;
+
+      for (let i = 0; i < splitPoints.length; i++) {
+        const end = splitPoints[i];
+        const newPdf = await PDFLib.PDFDocument.create();
+        for (let j = start; j < end; j++) {
+          const [page] = await newPdf.copyPages(originalPdf, [j]);
+          newPdf.addPage(page);
+        }
+        const bytes = await newPdf.save();
+        const blob = new Blob([bytes], { type: "application/pdf" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `split_part_${i + 1}.pdf`;
+        a.click();
+        URL.revokeObjectURL(url);
+        start = end;
+      }
+
+      document.getElementById('progress').innerText = "Split by page number completed.";
+    }
+
+    async function splitPdfBySelection() {
+      if (!pdfDocGlobal || selectedPages.size === 0)
+        return alert("Select pages to split.");
+
+      const selected = Array.from(selectedPages).sort((a, b) => a - b);
+      const pdfBytes = pdfDocGlobal.arrayBuffer;
+      const originalPdf = await PDFLib.PDFDocument.load(pdfBytes);
+      const newPdf = await PDFLib.PDFDocument.create();
+
+      for (const pageNum of selected) {
+        const [page] = await newPdf.copyPages(originalPdf, [pageNum - 1]);
+        newPdf.addPage(page);
+      }
+
+      const bytes = await newPdf.save();
+      const blob = new Blob([bytes], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `split_selected_pages.pdf`;
+      a.click();
+      URL.revokeObjectURL(url);
+
+      document.getElementById('progress').innerText = "Split by selection completed.";
+    }
+  </script>
+</body>
+</html>
