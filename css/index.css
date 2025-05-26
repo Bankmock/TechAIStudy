@@ -1,0 +1,127 @@
+
+
+/* For mobile devices (min-width: 320px, max-width: 767px) */
+@media (min-width: 320px) and (max-width: 767px) {
+  
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Mobile par responsive */
+        gap: 8px;
+      display: grid;
+     padding: 10px;
+        background-color: #f8f9fa;
+    
+    }
+
+
+.bcard {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+    border: 1px blue solid;
+}
+
+
+.bcard:hover {
+    transform: scale(1.05);
+}
+
+.bcard img {
+    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.bcard span {
+    font-size: 16px;
+    font-weight: bold;
+    color: blue;
+}
+a {
+    text-decoration: none;
+    color: blue;
+    
+}
+
+a:hover {
+    color: red;
+}
+}
+
+/* For tablets (min-width: 768px, max-width: 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  
+  a {
+    text-decoration: none;
+    color: blue;
+   
+}
+
+a:hover {
+    color: red;
+}
+  .bcard span {
+    font-size: 18px;
+    font-weight: bold;
+    color: blue;
+}
+}
+
+/* For desktop (min-width: 1025px and above) */
+@media (min-width: 768px) {
+  
+  
+  
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* PC par 3 cards per row */
+    gap: 12px;
+
+background-color: #f8f9fa;
+    margin:3%;
+    }
+    .bcard {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+    border: 1px blue solid;
+}
+
+.bcard:hover {
+    transform: scale(1.05);
+}
+
+.bcard img {
+    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.bcard span {
+    font-size: 18px;
+    font-weight: bold;
+    color: blue;
+}
+
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    color: red;
+}
+}
