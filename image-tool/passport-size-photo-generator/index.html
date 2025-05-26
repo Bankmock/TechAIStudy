@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Passport Size Photo Generator Online | Create Perfect Passport Photos Free</title>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="../../css/footer.css">
+<link rel="stylesheet" href="../../css/header.css">
+<script defer src="../../js/component1.js"></script>
+
+<!-- Google Analytics (Tracking) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+<script src="../../js/ads.js"></script>
+<script src="../../js/headerScript.js"></script>
+<script src="../../js/googletrackingid.js"></script>
+
+<!-- Primary Meta Tags -->
+<meta name="title" content="Passport Size Photo Generator Online | Create Perfect Passport Photos Free">
+<meta name="description" content="Generate passport size photos online instantly. Upload, crop, and download standard size passport photos (2x2 inch, 35x45mm) for free. No signup, easy to use.">
+<meta name="keywords" content="passport photo generator, passport size photo maker, passport photo online, crop passport photo, passport image resizer, 2x2 photo generator, 35x45mm passport photo">
+<meta name="robots" content="index, follow">
+<meta name="author" content="TechAIStudy">
+<meta name="language" content="English">
+<link rel="canonical" href="https://techaistudy.com/image-tool/passport-size-photo-generator/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://techaistudy.com/image-tool/passport-size-photo-generator/">
+<meta property="og:title" content="Passport Size Photo Generator Online | Create Perfect Passport Photos Free">
+<meta property="og:description" content="Generate passport size photos online instantly. Upload, crop, and download standard size passport photos (2x2 inch, 35x45mm) for free. No signup, easy to use.">
+<meta property="og:image" content="https://techaistudy.com/images/passport-size-photo-generator.webp">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://techaistudy.com/image-tool/passport-size-photo-generator/">
+<meta name="twitter:title" content="Passport Size Photo Generator Online | Create Perfect Passport Photos Free">
+<meta name="twitter:description" content="Generate passport size photos online instantly. Upload, crop, and download standard size passport photos (2x2 inch, 35x45mm) for free. No signup, easy to use.">
+<meta name="twitter:image" content="https://techaistudy.com/images/passport-photo-generator.webp">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Passport Size Photo Generator Online | Create Perfect Passport Photos Free",
+  "url": "https://techaistudy.com/image-tool/passport-size-photo-generator/",
+  "description": "Generate passport size photos online instantly. Upload, crop, and download standard size passport photos (2x2 inch, 35x45mm) for free. No signup, easy to use.",
+  "keywords": [
+    "passport photo generator",
+    "passport size photo maker",
+    "passport photo online",
+    "crop passport photo",
+    "passport image resizer",
+    "2x2 photo generator",
+    "35x45mm passport photo"
+  ],
+  "inLanguage": "en",
+  "publisher": {
+    "@type": "Organization",
+    "name": "TechAIStudy",
+    "url": "https://techaistudy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://techaistudy.com/images/logo.webp"
+    }
+  },
+  "image": "https://techaistudy.com/images/passport-size-photo-generator.webp",
+  "datePublished": "2025-05-19",
+  "dateModified": "2025-05-19"
+}
+</script>
+  <style>
+  
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color:blue;
+    }
+
+    label {
+      margin-top: 10px;
+      display: block;
+      font-weight: bold;
+    }
+
+    select, input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .input-group input {
+      flex: 1;
+    }
+
+    .pixel-display {
+      text-align: center;
+      font-size: 14px;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      margin: 10px 0;
+    }
+
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+    #drop-area {
+      border: 2px dashed #4CAF50;
+      border-radius: 10px;
+      padding: 40px;
+      text-align: center;
+      color: blue;
+      font-size: 26px;
+      transition: background-color 0.3s, border-color 0.3s;
+      cursor: pointer;
+    }
+
+    #drop-area.highlight {
+      background-color: #f0fff0;
+      border-color: #45a049;
+      color: #222;
+    }
+  </style>
+</head>
+<body><br>
+  <div class="container">
+    <h1>Passport Size Photo Generator</h1><br>
+
+   
+    <div id="drop-area" onclick="document.getElementById('upload').click();">
+    <p>Drag & Drop Image Here or Click to Upload</p>
+    <input type="file" id="upload" accept="image/*" hidden>
+      
+    </div>
+   
+    <label for="country">Select Country:</label>
+    <select id="country">
+      <option value="india">India (51x51 mm)</option>
+      <option value="usa">USA (51x51 mm)</option>
+      <option value="uk">UK (35x45 mm)</option>
+      <option value="canada">Canada (50x70 mm)</option>
+      <option value="china">China (33x48 mm)</option>
+      <option value="uae">UAE (40x60 mm)</option>
+      <option value="egypt">Egypt/Mishra (40x60 mm)</option>
+      <option value="saudi">Saudi Arabia (40x60 mm)</option>
+      <option value="nigeria">Nigeria (35x45 mm)</option>
+      <option value="kenya">Kenya (50x50 mm)</option>
+      <option value="indonesia">Indonesia (40x60 mm)</option>
+      <option value="bangladesh">Bangladesh (45x55 mm)</option>
+      <option value="pakistan">Pakistan (35x45 mm)</option>
+      <option value="afghanistan">Afghanistan (40x50 mm)</option>
+      <option value="srilanka">Sri Lanka (35x45 mm)</option>
+      <option value="australia">Australia (35x45 mm)</option>
+      <option value="russia">Russia (35x45 mm)</option>
+      <option value="korea">Korea (35x45 mm)</option>
+      <option value="ethopia">Ethiopia (40x50 mm)</option>
+      <option value="uzbekistan">Uzbekistan (35x45 mm)</option>
+      <option value="malaysia">Malaysia (35x50 mm)</option>
+      <option value="singapore">Singapore (35x45 mm)</option>
+      <option value="thailand">Thailand (35x45 mm)</option>
+      <option value="custom">Custom</option>
+    </select>
+
+    
+
+    <div class="input-group">
+      <div>
+        <label for="width">Width (mm):</label>
+        <input type="number" id="width" value="51" min="10" />
+      </div>
+      <div>
+        <label for="height">Height (mm):</label>
+        <input type="number" id="height" value="51" min="10" />
+      </div>
+    </div>
+
+    <div class="pixel-display" id="pixelInfo">Size in Pixels: 0 x 0</div>
+
+    <canvas id="canvas"></canvas>
+
+    <button onclick="downloadImage()">Download Passport Image</button>
+<br><br><br><br><div class="ads9"></div>  </div>
+
+  <script>
+    const DPI = 300;
+    const countrySelect = document.getElementById('country');
+    const widthInput = document.getElementById('width');
+    const heightInput = document.getElementById('height');
+    const uploadInput = document.getElementById('upload');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const pixelInfo = document.getElementById('pixelInfo');
+    let uploadedImage = null;
+
+    const countrySizes = {
+      india: [51, 51],
+      usa: [51, 51],
+      uk: [35, 45],
+      canada: [50, 70],
+      china: [33, 48],
+      uae: [40, 60],
+      egypt: [40, 60],
+      saudi: [40, 60],
+      nigeria: [35, 45],
+      kenya: [50, 50],
+      indonesia: [40, 60],
+      bangladesh: [45, 55],
+      pakistan: [35, 45],
+      afghanistan: [40, 50],
+      srilanka: [35, 45],
+      australia: [35, 45],
+      russia: [35, 45],
+      korea: [35, 45],
+      ethopia: [40, 50],
+      uzbekistan: [35, 45],
+      malaysia: [35, 50],
+      singapore: [35, 45],
+      thailand: [35, 45]
+    };
+
+    function mmToPixels(mm) {
+      return Math.round((mm / 25.4) * DPI);
+    }
+
+    function updatePixelInfo() {
+      const w = mmToPixels(parseFloat(widthInput.value));
+      const h = mmToPixels(parseFloat(heightInput.value));
+      pixelInfo.textContent = `Size in Pixels: ${w} x ${h}`;
+    }
+
+    countrySelect.addEventListener('change', () => {
+      const selected = countrySelect.value;
+      if (selected !== 'custom') {
+        const [w, h] = countrySizes[selected];
+        widthInput.value = w;
+        heightInput.value = h;
+      }
+      if (uploadedImage) drawImage();
+      updatePixelInfo();
+    });
+
+    [widthInput, heightInput].forEach(input => {
+      input.addEventListener('input', () => {
+        updatePixelInfo();
+        if (uploadedImage) drawImage();
+      });
+    });
+
+    uploadInput.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (evt) {
+        const img = new Image();
+        img.onload = function () {
+          uploadedImage = img;
+          drawImage();
+        };
+        img.src = evt.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function drawImage() {
+      const widthMM = parseFloat(widthInput.value);
+      const heightMM = parseFloat(heightInput.value);
+      const widthPx = mmToPixels(widthMM);
+      const heightPx = mmToPixels(heightMM);
+
+      canvas.width = widthPx;
+      canvas.height = heightPx;
+
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, widthPx, heightPx);
+
+      const ratio = Math.min(widthPx / uploadedImage.width, heightPx / uploadedImage.height);
+      const imgWidth = uploadedImage.width * ratio;
+      const imgHeight = uploadedImage.height * ratio;
+      const x = (widthPx - imgWidth) / 2;
+      const y = (heightPx - imgHeight) / 2;
+      ctx.drawImage(uploadedImage, x, y, imgWidth, imgHeight);
+    }
+
+    function downloadImage() {
+      const link = document.createElement('a');
+      link.download = 'passport-photo.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    }
+
+    updatePixelInfo();
+  </script>
+</body>
+</html>
