@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF to Image Converter | Convert PDF to JPG & PNG Free</title>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="../../css/footer.css">
+<link rel="stylesheet" href="../../css/header.css">
+<script defer src="../../js/component1.js"></script>
+
+<!-- Google Analytics (Tracking) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+
+<!-- Load Scripts -->
+<script src="../../js/ads.js"></script>
+<script src="../../js/headerScript.js"></script>
+<script src="../../js/googletrackingid.js"></script>
+
+<!-- Primary Meta Tags -->
+<meta name="title" content="PDF to Image Converter | Convert PDF to JPG & PNG Free">
+<meta name="description" content="Convert PDF to high-quality images like JPG or PNG instantly and securely in your browser. No upload, no watermark, and totally free.">
+<meta name="keywords" content="pdf to image, convert pdf to jpg, convert pdf to png, free pdf to image tool, online pdf converter, techaistudy">
+<meta name="robots" content="index, follow">
+<meta name="author" content="TechAIStudy">
+<meta name="language" content="English">
+<link rel="canonical" href="https://techaistudy.com/pdf-tool/pdf-to-image/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://techaistudy.com/pdf-tool/pdf-to-image/">
+<meta property="og:title" content="PDF to Image Converter | Convert PDF to JPG & PNG Free">
+<meta property="og:description" content="Convert PDF to high-quality images like JPG or PNG instantly and securely in your browser. No upload, no watermark, and totally free.">
+<meta property="og:image" content="https://techaistudy.com/images/pdf-to-image.webp">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://techaistudy.com/pdf-tool/pdf-to-image/">
+<meta name="twitter:title" content="PDF to Image Converter | Convert PDF to JPG & PNG Free">
+<meta name="twitter:description" content="Convert PDF to high-quality images like JPG or PNG instantly and securely in your browser. No upload, no watermark, and totally free.">
+<meta name="twitter:image" content="https://techaistudy.com/images/pdf-to-image.webp">
+
+<!-- Schema JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "PDF to Image Converter | Convert PDF to JPG & PNG Free",
+  "url": "https://techaistudy.com/pdf-tool/pdf-to-image/",
+  "description": "Convert PDF to high-quality images like JPG or PNG instantly and securely in your browser. No upload, no watermark, and totally free.",
+  "keywords": [
+    "pdf to image",
+    "convert pdf to jpg",
+    "convert pdf to png",
+    "free pdf to image tool",
+    "online pdf converter",
+    "techaistudy"
+  ],
+  "inLanguage": "en",
+  "publisher": {
+    "@type": "Organization",
+    "name": "TechAIStudy",
+    "url": "https://techaistudy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://techaistudy.com/images/logo.webp"
+    }
+  },
+  "image": "https://techaistudy.com/images/pdf-to-image.webp",
+  "datePublished": "2025-05-21",
+  "dateModified": "2025-05-21"
+}
+</script>
+  
+  
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <style>
+    
+    
+    h1 {
+      margin-top: 0;
+      text-align: center;
+      color:blue;
+    }
+    
+    #controls {
+      margin-bottom: 15px;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin:6%;
+    }
+    
+    #controls label {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+    
+    select, button {
+      padding: 8px 12px;
+      font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: white;
+    }
+    
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    button:hover {
+      background: #0056b3;
+    }
+    
+    button:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+    }
+    
+    #preview {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin:3%;
+    }
+    
+    canvas {
+      border: 1px solid #ccc;
+      background: white;
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .img-download {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .img-download a {
+      margin-top: 10px;
+      text-decoration: none;
+      background: #28a745;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    
+    .img-download a:hover {
+      background: #218838;
+    }
+    
+    /* Drag and drop styles */
+    .upload-area {
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      background: white;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-bottom: 15px;
+      margin:6%;
+    }
+    
+    .upload-area:hover, .upload-area.dragover {
+      border-color: #007bff;
+      background: #f0f8ff;
+    }
+    
+    .upload-area p {
+      margin: 0;
+      color: #666;
+    }
+    
+    .upload-area strong {
+      color: #007bff;
+    }
+    
+    #file-input {
+      display: none;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      
+      
+      #controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      select, button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      
+      .img-download {
+        width: 100%;
+      }
+      
+      canvas {
+        width: 100%;
+      }
+      
+      .upload-area {
+        padding: 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+  
+    
+      
+      #controls {
+        padding: 10px;
+      }
+      
+      .upload-area {
+        padding: 15px;
+      }
+    }
+    .container {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+           margin:6%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+  </style>
+</head>
+<body>
+<div class="container" >
+<h1>PDF to Image Generator</h1>
+<div class="upload-area" id="upload-area">
+  <p><strong>Click to select</strong> or drag and drop PDF file here</p>
+  <input type="file" id="file-input" accept="application/pdf">
+</div>
+<div id="controls">
+  <label for="format"><strong>Select Format:</strong></label>
+  <select id="format">
+    <option value="png">PNG</option>
+    <option value="jpeg">JPG</option>
+    <option value="webp">WEBP</option>
+  </select>
+  <button id="download-all" disabled>Download All as ZIP</button>
+<br><div class="ads9"></div></div>
+
+
+
+<div id="preview"></div>
+</div>
+<script>
+  const fileInput = document.getElementById('file-input');
+  const uploadArea = document.getElementById('upload-area');
+  const formatSelect = document.getElementById('format');
+  const preview = document.getElementById('preview');
+  const downloadAllBtn = document.getElementById('download-all');
+
+  let canvasList = [];
+  let currentPDF = null;
+
+  // Handle click on upload area
+  uploadArea.addEventListener('click', () => {
+    fileInput.click();
+  });
+
+  // Handle file selection
+  fileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      handleFile(file);
+    }
+  });
+
+  // Handle drag over
+  uploadArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadArea.classList.add('dragover');
+  });
+
+  // Handle drag leave
+  uploadArea.addEventListener('dragleave', () => {
+    uploadArea.classList.remove('dragover');
+  });
+
+  // Handle drop
+  uploadArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadArea.classList.remove('dragover');
+    
+    const file = e.dataTransfer.files[0];
+    if (file && file.type === 'application/pdf') {
+      handleFile(file);
+    } else {
+      alert('Please upload a PDF file');
+    }
+  });
+
+  // Process the PDF file
+  function handleFile(file) {
+    uploadArea.innerHTML = `<p>Processing: <strong>${file.name}</strong></p>`;
+    
+    const reader = new FileReader();
+    reader.onload = function() {
+      const typedarray = new Uint8Array(this.result);
+      renderPDF(typedarray, formatSelect.value);
+    };
+    reader.readAsArrayBuffer(file);
+  }
+
+  async function renderPDF(pdfData, format) {
+    preview.innerHTML = '';
+    canvasList = [];
+
+    const pdf = await pdfjsLib.getDocument({ data: pdfData }).promise;
+    currentPDF = pdf;
+
+    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+      const page = await pdf.getPage(pageNum);
+      const scale = 2;
+      const viewport = page.getViewport({ scale });
+
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+
+      await page.render({ canvasContext: context, viewport }).promise;
+
+      const container = document.createElement('div');
+      container.className = 'img-download';
+      container.appendChild(canvas);
+
+      const downloadLink = document.createElement('a');
+      container.appendChild(downloadLink);
+      preview.appendChild(container);
+
+      canvasList.push({ canvas, pageNum, link: downloadLink });
+    }
+
+    updateDownloadLinks(format);
+    downloadAllBtn.disabled = false;
+    uploadArea.innerHTML = `<p><strong>Click to select</strong> or drag and drop another PDF file here</p>`;
+  }
+
+  function updateDownloadLinks(format) {
+    canvasList.forEach(({ canvas, pageNum, link }) => {
+      const ext = format === 'jpeg' ? 'jpg' : format;
+      const mime = `image/${format}`;
+      const imageData = canvas.toDataURL(mime);
+      link.href = imageData;
+      link.download = `page-${pageNum}.${ext}`;
+      link.textContent = `Download ${ext.toUpperCase()}`;
+    });
+  }
+
+  formatSelect.addEventListener('change', () => {
+    if (canvasList.length > 0) {
+      updateDownloadLinks(formatSelect.value);
+    }
+  });
+
+  downloadAllBtn.addEventListener('click', async () => {
+    const format = formatSelect.value;
+    const ext = format === 'jpeg' ? 'jpg' : format;
+    const mime = `image/${format}`;
+    const zip = new JSZip();
+
+    for (const { canvas, pageNum } of canvasList) {
+      const blob = await new Promise(resolve => canvas.toBlob(resolve, mime));
+      zip.file(`page-${pageNum}.${ext}`, blob);
+    }
+
+    const zipBlob = await zip.generateAsync({ type: 'blob' });
+    saveAs(zipBlob, `pdf_images_${Date.now()}.zip`);
+  });
+</script>
+
+</body>
+</html>
