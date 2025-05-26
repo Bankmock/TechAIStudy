@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merge PDF Files Online | Combine Multiple PDFs Free & Secure</title>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="../../css/footer.css">
+<link rel="stylesheet" href="../../css/header.css">
+<script defer src="../../js/component1.js"></script>
+
+<!-- Google Analytics (Tracking) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+
+<!-- Load Scripts -->
+<script src="../../js/ads.js"></script>
+<script src="../../js/headerScript.js"></script>
+<script src="../../js/googletrackingid.js"></script>
+
+<!-- Primary Meta Tags -->
+<meta name="title" content="Merge PDF Files Online | Combine Multiple PDFs Free & Secure">
+<meta name="description" content="Merge multiple PDF files into one with our free and secure online tool. No watermark, no upload, and no sign-up required. Instant PDF combining in your browser.">
+<meta name="keywords" content="merge pdf, combine pdf, merge pdf files online, free pdf merger, online pdf joiner, merge multiple pdfs, secure pdf merge tool">
+<meta name="robots" content="index, follow">
+<meta name="author" content="TechAIStudy">
+<meta name="language" content="English">
+<link rel="canonical" href="https://techaistudy.com/pdf-tool/merge-pdf/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://techaistudy.com/pdf-tool/merge-pdf/">
+<meta property="og:title" content="Merge PDF Files Online | Combine Multiple PDFs Free & Secure">
+<meta property="og:description" content="Merge multiple PDF files into one with our free and secure online tool. No watermark, no upload, and no sign-up required. Instant PDF combining in your browser.">
+<meta property="og:image" content="https://techaistudy.com/images/merge-pdf.webp">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://techaistudy.com/pdf-tool/merge-pdf/">
+<meta name="twitter:title" content="Merge PDF Files Online | Combine Multiple PDFs Free & Secure">
+<meta name="twitter:description" content="Merge multiple PDF files into one with our free and secure online tool. No watermark, no upload, and no sign-up required. Instant PDF combining in your browser.">
+<meta name="twitter:image" content="https://techaistudy.com/images/merge-pdf.webp">
+
+<!-- Schema JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Merge PDF Files Online | Combine Multiple PDFs Free & Secure",
+  "url": "https://techaistudy.com/pdf-tool/merge-pdf/",
+  "description": "Merge multiple PDF files into one with our free and secure online tool. No watermark, no upload, and no sign-up required. Instant PDF combining in your browser.",
+  "keywords": [
+    "merge pdf",
+    "combine pdf",
+    "merge pdf files online",
+    "free pdf merger",
+    "online pdf joiner",
+    "merge multiple pdfs",
+    "secure pdf merge tool"
+  ],
+  "inLanguage": "en",
+  "publisher": {
+    "@type": "Organization",
+    "name": "TechAIStudy",
+    "url": "https://techaistudy.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://techaistudy.com/images/logo.webp"
+    }
+  },
+  "image": "https://techaistudy.com/images/merge-pdf.webp",
+  "datePublished": "2025-05-21",
+  "dateModified": "2025-05-21"
+}
+</script>
+  
+  
+  
+  
+  
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <style>
+    
+    .container {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+          .upload-area {
+            border: 2px dashed #3498db;
+            border-radius: 5px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .upload-area:hover {
+            background-color: #eaf2f8;
+        }
+        .upload-area p {
+            margin: 0;
+            color: #7f8c8d;
+        }
+        #pdfFiles {
+            display: none;
+        }
+    h1 {
+      text-align: center;
+      
+      color:blue;
+    }
+   
+    
+    input[type="file"] {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    #status {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container"><br> 
+    <h1>Merge PDF Files</h1>
+    <br> <div class="upload-area" id="upload-area" onclick="document.getElementById('pdfFiles').click();">
+  <p>Click to upload or drag and drop your PDF file</p>
+  <input type="file" id="pdfFiles" multiple accept="application/pdf">
+</div>
+    <button onclick="mergePDFs()">Merge PDFs</button>
+    <div id="status"></div>
+<br><div class="ads9"></div>  </div>
+<script>
+  const uploadArea = document.getElementById("upload-area");
+  const input = document.getElementById("pdfFiles");
+
+  uploadArea.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    uploadArea.style.backgroundColor = "#eaf2f8";
+  });
+
+  uploadArea.addEventListener("dragleave", () => {
+    uploadArea.style.backgroundColor = "";
+  });
+
+  uploadArea.addEventListener("drop", (e) => {
+    e.preventDefault();
+    uploadArea.style.backgroundColor = "";
+    input.files = e.dataTransfer.files;
+  });
+</script>
+  <script>
+    async function mergePDFs() {
+      const input = document.getElementById('pdfFiles');
+      const status = document.getElementById('status');
+      const files = input.files;
+
+      if (files.length < 2) {
+        status.innerText = "Please select at least 2 PDF files.";
+        return;
+      }
+
+      status.innerText = "Merging PDFs...";
+
+      const mergedPdf = await PDFLib.PDFDocument.create();
+
+      for (let file of files) {
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await PDFLib.PDFDocument.load(arrayBuffer);
+        const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+        copiedPages.forEach((page) => mergedPdf.addPage(page));
+      }
+
+      const mergedPdfFile = await mergedPdf.save();
+      const blob = new Blob([mergedPdfFile], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "merged.pdf";
+      a.click();
+
+      URL.revokeObjectURL(url);
+      status.innerText = "Done! Merged PDF downloaded.";
+    }
+  </script>
+</body>
+</html>
