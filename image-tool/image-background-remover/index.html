@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -565,4 +565,141 @@ image for free </title>
         <div class="seo-footer">
             <p><em>Optimized for SEO with relevant keywords: free background remover, remove image background online, transparent PNG tool, AI background removal, no watermark, eCommerce image editing.</em></p>
         </div>
-    <
+    </article>
+    
+    
+    
+    
+  </div>
+
+  <script>
+    const dropArea = document.getElementById('drop-area');
+    const imageInput = document.getElementById('image-input');
+    const originalImage = document.getElementById('original-image');
+    const resultImage = document.getElementById('result-image');
+    const processBtn = document.getElementById('process-btn');
+    const downloadBtn = document.getElementById('download-btn');
+    const statusEl = document.getElementById('status');
+    const progressBar = document.getElementById('progress-bar');
+    const progressFill = document.getElementById('progress-bar-fill');
+
+    let currentImage = null;
+
+    dropArea.addEventListener('click', () => imageInput.click());
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropArea.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        dropArea.classList.add('highlight');
+      });
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropArea.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        dropArea.classList.remove('highlight');
+      });
+    });
+
+    dropArea.addEventListener('drop', (e) => {
+      const files = e.dataTransfer.files;
+      if (files.length > 0) handleImageUpload({ target: { files } });
+    });
+
+    imageInput.addEventListener('change', handleImageUpload);
+    processBtn.addEventListener('click', processImage);
+    downloadBtn.addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.download = 'background-removed.png';
+      link.href = resultImage.src;
+      link.click();
+    });
+
+    function handleImageUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      statusEl.textContent = "Loading image...";
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const img = new Image();
+        img.onload = function() {
+          currentImage = img;
+          originalImage.src = event.target.result;
+          originalImage.style.display = 'block';
+          resultImage.style.display = 'none';
+          processBtn.disabled = false;
+          downloadBtn.disabled = true;
+          statusEl.textContent = "Click 'Remove Background' to process";
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function updateProgress(percent) {
+      progressBar.style.display = 'block';
+      progressFill.style.width = percent + '%';
+    }
+
+    async function processImage() {
+      if (!currentImage) {
+        alert('Please upload an image first');
+        return;
+      }
+
+      const API_KEY = '6V2EEY3aKxBSFWJLGsEXtbK1'; // Replace with your own API key
+      processBtn.disabled = true;
+      statusEl.textContent = "Processing image...";
+      updateProgress(0);
+
+      try {
+        const formData = new FormData();
+        formData.append('image_file', imageInput.files[0]);
+        formData.append('size', 'auto');
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://api.remove.bg/v1.0/removebg');
+        xhr.setRequestHeader('X-Api-Key', API_KEY);
+
+        xhr.upload.onprogress = (e) => {
+          if (e.lengthComputable) {
+            const percent = Math.round((e.loaded / e.total) * 100);
+            updateProgress(percent);
+          }
+        };
+
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            const blob = new Blob([xhr.response], { type: 'image/png' });
+            const resultUrl = URL.createObjectURL(blob);
+            resultImage.src = resultUrl;
+            resultImage.style.display = 'block';
+            downloadBtn.disabled = false;
+            statusEl.textContent = "Background removed successfully!";
+            updateProgress(100);
+          } else {
+            const error = JSON.parse(xhr.responseText);
+            statusEl.textContent = "Error: " + (error.errors?.[0]?.title || 'Unknown error');
+            updateProgress(0);
+          }
+        };
+
+        xhr.onerror = () => {
+          statusEl.textContent = "Network Error!";
+          updateProgress(0);
+        };
+
+        xhr.responseType = 'blob';
+        xhr.send(formData);
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = "Error: " + err.message;
+        updateProgress(0);
+      } finally {
+        processBtn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>
