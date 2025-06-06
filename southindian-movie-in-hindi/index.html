@@ -1,11 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0;url=https://techaistudy.com" />
+<meta http-equiv="refresh" content="0;url=https://techaistudy.com" />
+</head>
+  <meta charset="UTF-8" />
+  <title>Redirecting to TechAI Study</title>
+
+  <!-- Open Graph & Twitter Tags (Optional for Preview) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="TechAI Study" />
+  <meta property="og:url" content="https://techaistudy.com" />
+  <meta property="og:description" content="Visit TechAI Study now" />
+  <meta property="og:image" content="https://techaistudy.com/cover.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TechAI Study" />
+  <meta name="twitter:description" content="Visit TechAI Study now" />
+  <meta name="twitter:image" content="https://techaistudy.com/cover.jpg" />
+
+  <!-- Android App Link (Optional, not mandatory for redirect) -->
+  <meta property="al:android:url" content="https://techaistudy.com" />
+  <meta property="al:android:package" content="com.android.chrome" />
+  <meta property="al:android:app_name" content="Chrome" />
+
+  <!-- Telegram WebView Detection -->
+  <script>
+    if (navigator.userAgent.includes("Telegram")) {
+      // Force open in external browser
+      window.location.href = "https://techaistudy.com";
+    }
+  </script>
+
+  <!-- Fallback JS Redirect (all browsers) -->
+  <script>
+    window.location.replace("https://techaistudy.com");
+  </script>
 </head>
 <body>
- <script type="text/javascript">
-      window.location.replace("https://techaistudy.com");
-    </script>
+  <p>Redirecting to <a href="https://techaistudy.com">https://techaistudy.com</a>...</p>
 </body>
 </html>
+
