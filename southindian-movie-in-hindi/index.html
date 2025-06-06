@@ -5,29 +5,30 @@
   <title>Opening in Browser...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Android App Link Meta -->
+  <!-- App Links for Android -->
   <meta property="al:android:url" content="https://techaistudy.com">
   <meta property="al:android:package" content="com.android.chrome">
   <meta property="al:android:app_name" content="Chrome">
   <meta property="al:web:url" content="https://techaistudy.com">
 
+  <!-- Fallback meta for Telegram -->
+  <meta http-equiv="refresh" content="1; url=https://techaistudy.com">
+
   <script>
     const ua = navigator.userAgent.toLowerCase();
+    const isInApp = ua.includes("telegram") || ua.includes("instagram") || ua.includes("fbav") || ua.includes("fban");
 
-    const isTelegram = ua.includes("telegram");
-    const isInstagram = ua.includes("instagram");
-    const isFacebook = ua.includes("fbav") || ua.includes("fban");
-
-    if (isTelegram || isInstagram || isFacebook) {
-      // Force open in Chrome or external browser
-      window.location = "intent://techaistudy.com#Intent;scheme=https;package=com.android.chrome;end;";
+    if (isInApp) {
+      // Try to force open in external browser via intent (Android only)
+      window.location.href = "intent://techaistudy.com#Intent;scheme=https;package=com.android.chrome;end;";
     } else {
-      // Open normally
-      window.location = "https://techaistudy.com";
+      // Normal browsers
+      window.location.href = "https://techaistudy.com";
     }
   </script>
 </head>
 <body>
   <h2>Redirecting to browser...</h2>
+  <p>If you are not redirected, <a href="https://techaistudy.com">click here</a>.</p>
 </body>
 </html>
