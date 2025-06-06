@@ -2,17 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Redirect to Browser</title>
+  <title>Opening in Browser...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  
-<script>
-  window.onload = function() {
-    window.location = "https://techaistudy.com";
-  }
-</script>
-  
-  
+  <!-- Android App Link Meta -->
+  <meta property="al:android:url" content="https://techaistudy.com">
+  <meta property="al:android:package" content="com.android.chrome">
+  <meta property="al:android:app_name" content="Chrome">
+  <meta property="al:web:url" content="https://techaistudy.com">
+
+  <script>
+    const ua = navigator.userAgent.toLowerCase();
+
+    const isTelegram = ua.includes("telegram");
+    const isInstagram = ua.includes("instagram");
+    const isFacebook = ua.includes("fbav") || ua.includes("fban");
+
+    if (isTelegram || isInstagram || isFacebook) {
+      // Force open in Chrome or external browser
+      window.location = "intent://techaistudy.com#Intent;scheme=https;package=com.android.chrome;end;";
+    } else {
+      // Open normally
+      window.location = "https://techaistudy.com";
+    }
+  </script>
 </head>
 <body>
+  <h2>Redirecting to browser...</h2>
 </body>
 </html>
