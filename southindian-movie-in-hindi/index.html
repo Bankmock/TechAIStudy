@@ -1,25 +1,33 @@
-            <html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirect to Browser</title>
 
-            <head>
-                <title>Landing..</title>
-                <meta name="referrer" content="no-referrer">
-                <META NAME="robots" CONTENT="noindex,nofollow">
-            </head>
+  <!-- Android App Link Meta Tags -->
+  <meta property="al:android:url" content="https://techaistudy.com">
+  <meta property="al:android:package" content="com.android.chrome">
+  <meta property="al:android:app_name" content="Chrome">
+  <meta property="al:web:url" content="https://techaistudy.com">
 
-            <body>
-            <form id="landing" method="POST" action="https://techaistudy.com/">
-                <input type="hidden" name="go" value="aHR0cHM6Ly93LmpvYnF3ZS5jb20/YWRsaW5rZmx5PS9pQTkxNkg="/>
-            </form>
-            <script>
-                document.getElementById('landing').submit();
-            </script>
-            </body>
+  <script>
+    // Detect in-app browsers (Telegram, FB, Instagram, etc.)
+    const ua = navigator.userAgent.toLowerCase();
 
-            </html>
-            
-<!--
-Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/
+    const isTelegram = ua.includes("telegram");
+    const isFacebook = ua.includes("fbav") || ua.includes("fban");
+    const isInstagram = ua.includes("instagram");
 
-
-Served from: jobqwe.com @ 2025-06-06 17:54:40 by W3 Total Cache
--->
+    if (isTelegram || isFacebook || isInstagram) {
+      // Redirect to external browser via intent link
+      window.location.href = "intent://techaistudy.com#Intent;scheme=https;package=com.android.chrome;end;";
+    } else {
+      // Open site normally if not in an in-app browser
+      window.location.href = "https://techaistudy.com";
+    }
+  </script>
+</head>
+<body>
+  <p>Opening in external browser...</p>
+</body>
+</html>
