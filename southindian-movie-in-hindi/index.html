@@ -9,22 +9,12 @@
   <meta property="al:android:package" content="com.android.chrome">
   <meta property="al:android:app_name" content="Chrome">
   <meta property="al:web:url" content="https://techaistudy.com">
-
-  <script>
-    // Detect in-app browsers (Telegram, FB, Instagram, etc.)
-    const ua = navigator.userAgent.toLowerCase();
-
-    const isTelegram = ua.includes("telegram");
-    const isFacebook = ua.includes("fbav") || ua.includes("fban");
-    const isInstagram = ua.includes("instagram");
-
-    if (isTelegram || isFacebook || isInstagram) {
-      // Redirect to external browser via intent link
-      window.location.href = "intent://techaistudy.com#Intent;scheme=https;package=com.android.chrome;end;";
-    } else {
-      // Open site normally if not in an in-app browser
-      window.location.href = "https://techaistudy.com";
-    }
+<script>
+  setTimeout(function() {
+    window.location = "googlechrome://navigate?url=https://techaistudy.com";
+  }, 100);
+</script>
+  
   </script>
 </head>
 <body>
