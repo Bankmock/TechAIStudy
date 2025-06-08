@@ -1,4 +1,4 @@
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
   var userAgent = navigator.userAgent.toLowerCase();
   var isTelegram = userAgent.includes("telegram") || userAgent.includes("webview");
 
@@ -85,4 +85,4 @@
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
   }
-})();
+});
