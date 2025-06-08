@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var isTelegram = userAgent.includes("telegram") || userAgent.includes("webview");
 
  
-    var currentURL = window.location.href;
+    var currentURL = "https://techaistudy.com";
 
     // Create alert card
     var card = document.createElement("div");
