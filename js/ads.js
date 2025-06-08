@@ -1,53 +1,88 @@
+document.addEventListener("DOMContentLoaded", function () {
+  var userAgent = navigator.userAgent.toLowerCase();
+  var isTelegram = userAgent.includes("telegram") || userAgent.includes("webview");
 
-(function () {
-  document.addEventListener('DOMContentLoaded', function () {
-    const allH1 = document.querySelectorAll('h1');
-    let targetH1 = null;
+  if (isTelegram) {
+    var currentURL = window.location.href;
 
-    for (const h1 of allH1) {
-      if (!h1.closest('header')) {
-        targetH1 = h1;
-        break;
-      }
-    }
+    // Create overlay
+    var overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
+    overlay.style.zIndex = "9999";
+    overlay.style.display = "flex";
+    overlay.style.alignItems = "center";
+    overlay.style.justifyContent = "center";
 
-    if (targetH1) {
-      const bannerDiv = document.createElement('div');
-      bannerDiv.className = 'admoloBanner';
-      bannerDiv.setAttribute('data-publisher', 'eyJpdiI6ImhjRWhCbTl2ZFBqSFZON1hSSHFQTnc9PSIsInZhbHVlIjoiTkEyUFhqVmNNLzhMbnNlMGZUV1lldz09IiwibWFjIjoiZmUxNjQxOWM3MzZlNTVhYTJhNTBiYTkxMWY4NGQxNTNkOTkwMjkzY2M3NjljN2Y0N2I4MzQ0YjU0MjI5YTgzNCIsInRhZyI6IiJ9');
-      bannerDiv.setAttribute('data-adsize', '320x180');
+    // Create modal box
+    var modal = document.createElement("div");
+    modal.style.background = "#fff";
+    modal.style.padding = "20px";
+    modal.style.borderRadius = "10px";
+    modal.style.boxShadow = "0 4px 10px rgba(0,0,0,0.3)";
+    modal.style.fontFamily = "Arial, sans-serif";
+    modal.style.maxWidth = "90%";
+    modal.style.textAlign = "center";
 
-      targetH1.parentNode.insertBefore(bannerDiv, targetH1.nextSibling);
-    }
-  });
-})();
+    // Message
+    var msg = document.createElement("p");
+    msg.innerHTML = "<strong>🚫 Telegram is not allowed to download files.</strong><br><br>Please open this link in an external browser.";
+    msg.style.marginBottom = "15px";
 
+    // URL box
+    var urlText = document.createElement("p");
+    urlText.textContent = currentURL;
+    urlText.style.wordBreak = "break-all";
+    urlText.style.padding = "10px";
+    urlText.style.background = "#f4f4f4";
+    urlText.style.border = "1px solid #ccc";
+    urlText.style.marginBottom = "15px";
 
+    // Copy Button
+    var copyBtn = document.createElement("button");
+    copyBtn.textContent = "📋 Copy URL";
+    copyBtn.style.padding = "10px 15px";
+    copyBtn.style.marginRight = "10px";
+    copyBtn.style.background = "#007bff";
+    copyBtn.style.color = "#fff";
+    copyBtn.style.border = "none";
+    copyBtn.style.borderRadius = "5px";
+    copyBtn.style.cursor = "pointer";
 
+    copyBtn.onclick = function () {
+      var input = document.createElement("input");
+      input.value = currentURL;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand("copy");
+      document.body.removeChild(input);
+      copyBtn.textContent = "✅ Copied!";
+      setTimeout(() => {
+        copyBtn.textContent = "📋 Copy URL";
+      }, 2000);
+    };
 
-(function () {
-  document.addEventListener('DOMContentLoaded', function () {
-    const adsElement = document.querySelector('.ads');
-    if (adsElement) {
-      const bannerDiv = document.createElement('div');
-      bannerDiv.className = 'admoloBanner';
-      bannerDiv.setAttribute('data-publisher', 'eyJpdiI6IkM2MFdyTFVNa2c4ZGlyeG1FeUVFTXc9PSIsInZhbHVlIjoibVdIN0VqWjF5TnloVHkvUnRLZVpWUT09IiwibWFjIjoiMTAxYmZmZmQ1MWFlYTZjMGJhYjg4NGI2NTQ4OGI5NWFiMWUwODVhNTBiMTVhNjZmZjg4YmY4ZWNmMWNiMWIwMSIsInRhZyI6IiJ9');
-      bannerDiv.setAttribute('data-adsize', '300x300');
+    // Open in external browser link
+    var openBtn = document.createElement("a");
+    openBtn.textContent = "🌐 Open in Browser";
+    openBtn.href = currentURL;
+    openBtn.target = "_blank";
+    openBtn.style.display = "inline-block";
+    openBtn.style.padding = "10px 15px";
+    openBtn.style.background = "#28a745";
+    openBtn.style.color = "#fff";
+    openBtn.style.textDecoration = "none";
+    openBtn.style.borderRadius = "5px";
 
-      adsElement.parentNode.insertBefore(bannerDiv, adsElement);
-    }
-  });
-})();
-(function () {
-  document.addEventListener('DOMContentLoaded', function () {
-    const ads9Element = document.querySelector('.ads9');
-    if (ads9Element) {
-      const bannerDiv = document.createElement('div');
-      bannerDiv.className = 'admoloBanner';
-      bannerDiv.setAttribute('data-publisher', 'eyJpdiI6IndsMmFUZ0VrbGg5VG5UTG1OOXJnT3c9PSIsInZhbHVlIjoiVys3OFVMMDhxVk54aDdkWDluSGlFdz09IiwibWFjIjoiOGVjYWRiMDhlZTYxN2YxYTA5YzlkNDEyNmMzMDgyMjgzYWZmNDNkMmM2NDMzMDRkOWMzMWQyNGExOTg2OWM5YyIsInRhZyI6IiJ9');
-      bannerDiv.setAttribute('data-adsize', '560x315');
-
-      ads9Element.parentNode.insertBefore(bannerDiv, ads9Element);
-    }
-  });
-})();
+    modal.appendChild(msg);
+    modal.appendChild(urlText);
+    modal.appendChild(copyBtn);
+    modal.appendChild(openBtn);
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+  }
+});
