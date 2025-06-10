@@ -1,33 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="refresh" content="0;url=https://techaistudy.com" />
-  <meta charset="UTF-8">
-  <title>Opening in Browser...</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- App Links for Android -->
-  <meta property="al:android:url" content="https://techaistudy.com">
-  <meta property="al:android:package" content="com.android.chrome">
-  <meta property="al:android:app_name" content="Chrome">
-  <meta property="al:web:url" content="https://techaistudy.com">
-
-
-  <script>
-    const ua = navigator.userAgent.toLowerCase();
-    const isInApp = ua.includes("telegram") || ua.includes("instagram") || ua.includes("fbav") || ua.includes("fban");
-
-    if (isInApp) {
-      // Try to force open in external browser via intent (Android only)
-      window.location.href = "intent://techaistudy.com#Intent;scheme=https;package=com.android.chrome;end;";
-    } else {
-      // Normal browsers
-      window.location.href = "https://techaistudy.com";
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="referrer" content="no-referrer" />
+  <title>Download PDF in Telegram Mini App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+      text-align: center;
     }
-  </script>
+    button {
+      font-size: 16px;
+      padding: 12px 24px;
+      background: #0088cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0077b3;
+    }
+  </style>
 </head>
 <body>
-  <h2>Redirecting to browser...</h2>
-  <p>If you are not redirected, <a href="https://techaistudy.com">click here</a>.</p>
+
+  <h2>Telegram Mini App PDF Download Demo</h2>
+  <button onclick="downloadPDF()">Download PDF</button>
+
+  <script>
+    function downloadPDF() {
+      // 1. Create a simple PDF content (can be from jsPDF/pdf-lib)
+      const content = 'Hello from frontend-generated PDF!';
+      const blob = new Blob([content], { type: 'application/pdf' });
+
+      // 2. Create object URL from blob
+      const url = URL.createObjectURL(blob);
+
+      // 3. Try to open in external browser (preferred in Telegram)
+      const win = window.open(url, '_blank');
+
+      // 4. Fallback if popup blocked or WebView doesn't support window.open
+      if (!win || win.closed || typeof win.closed === 'undefined') {
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'file.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+
+      // 5. Cleanup the object URL
+      setTimeout(() => {
+        URL.revokeObjectURL(url);
+      }, 2000);
+    }
+
+    // Optional: Telegram Mini App Optimization
+    if (window.Telegram && Telegram.WebApp) {
+      Telegram.WebApp.ready();
+      Telegram.WebApp.expand();
+    }
+  </script>
 </body>
 </html>
