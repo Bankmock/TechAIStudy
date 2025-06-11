@@ -1,220 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compress PDF File Online | Reduce PDF Size Free & Secure</title>
-
-  <!-- PDF.js and pdf-lib -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compress PDF - Telegram Compatible</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
   <script src="https://unpkg.com/pdf-lib"></script>
-
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: #f2f2f2;
-    }
-
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      text-align: center;
-      color: #3f37c9;
-      margin-bottom: 20px;
-    }
-
-    .upload-area {
-      border: 2px dashed #3498db;
-      padding: 30px;
-      text-align: center;
-      border-radius: 8px;
-      background: #ecf6fd;
-      cursor: pointer;
-      margin-bottom: 20px;
-    }
-
-    input[type="file"] {
-      display: none;
-    }
-
-    input[type="range"] {
-      width: 100%;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      border: none;
-      border-radius: 6px;
-      background: #3f37c9;
-      color: white;
-      cursor: pointer;
-      margin-top: 15px;
-    }
-
-    #status, #fileInfo {
-      margin-top: 20px;
-      padding: 15px;
-      background: #f8f9fa;
-      border-left: 4px solid #3f37c9;
-      border-radius: 6px;
-    }
-
-    .file-info-item {
-      display: flex;
-      justify-content: space-between;
-      margin: 4px 0;
-    }
-
-    .fallback-download {
-      margin-top: 15px;
-      display: block;
-      color: blue;
-      text-align: center;
-      font-weight: bold;
-    }
+    body { font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; background: #f5f5f5; }
+    .upload { border: 2px dashed #aaa; padding: 30px; text-align: center; background: #fff; cursor: pointer; }
+    input[type=file] { display: none; }
+    button { margin-top: 20px; padding: 12px; font-size: 16px; width: 100%; background: #0066cc; color: white; border: none; border-radius: 5px; }
+    #status { margin-top: 20px; padding: 10px; background: #e7f3fe; border-left: 4px solid #2196F3; }
+    .hidden { display: none; }
+    .fallback-download { margin-top: 15px; text-align: center; display: block; font-weight: bold; color: green; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Compress PDF</h1>
+  <h2>Compress PDF (Telegram Supported)</h2>
+  <div class="upload" onclick="document.getElementById('pdfFile').click()">Click or Drop PDF Here</div>
+  <input type="file" id="pdfFile" accept="application/pdf"/>
 
-    <div class="upload-area" onclick="document.getElementById('pdfFile').click()">
-      <p>Click or drag PDF here to upload</p>
-      <input type="file" id="pdfFile" accept="application/pdf">
-    </div>
+  <label for="scale">Compression Level: <span id="scaleVal">50%</span></label>
+  <input type="range" id="scale" min="20" max="100" value="50" oninput="scaleVal.textContent = this.value + '%'" />
 
-    <label>Compression Level: <span id="scaleVal">50%</span></label>
-    <input type="range" id="scale" min="20" max="100" value="50" 
-           oninput="document.getElementById('scaleVal').innerText = this.value + '%'">
-
-    <button onclick="compressPDF()">Compress & Download</button>
-
-    <div id="status">Ready to compress PDF files</div>
-    <div id="fileInfo"></div>
-  </div>
+  <button onclick="compressPDF()">Compress PDF</button>
+  <div id="status">Ready</div>
+  <a id="manualDownloadLink" class="fallback-download hidden" download>📥 Tap here to download manually</a>
 
   <script>
-    function isTelegramWebView() {
-      return navigator.userAgent.toLowerCase().includes("telegram");
-    }
+    const status = document.getElementById('status');
+    const fallbackLink = document.getElementById('manualDownloadLink');
 
     async function compressPDF() {
-      const file = document.getElementById("pdfFile").files[0];
+      const fileInput = document.getElementById("pdfFile");
       const scale = parseInt(document.getElementById("scale").value) / 100;
-      const status = document.getElementById("status");
-      const info = document.getElementById("fileInfo");
-
-      info.innerHTML = '';
-      status.textContent = "Processing...";
-
-      if (!file) {
-        status.innerHTML = "<span style='color:red'>⚠️ Please select a PDF file</span>";
+      if (!fileInput.files[0]) {
+        status.innerHTML = "⚠️ Please select a PDF file.";
         return;
       }
 
+      status.innerHTML = "Reading PDF...";
+      fallbackLink.classList.add('hidden');
+      const file = fileInput.files[0];
+      const arrayBuffer = await file.arrayBuffer();
+
+      const pdfjsLib = window["pdfjs-dist/build/pdf"];
+      pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js";
+      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      const pdfDoc = await PDFLib.PDFDocument.create();
+
+      for (let i = 0; i < pdf.numPages; i++) {
+        status.innerHTML = `Compressing page ${i + 1}/${pdf.numPages}`;
+        const page = await pdf.getPage(i + 1);
+        const viewport = page.getViewport({ scale: 2.0 });
+
+        const canvas = document.createElement("canvas");
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        await page.render({ canvasContext: canvas.getContext("2d"), viewport }).promise;
+
+        const smallCanvas = document.createElement("canvas");
+        smallCanvas.width = canvas.width * scale;
+        smallCanvas.height = canvas.height * scale;
+        const ctx = smallCanvas.getContext("2d");
+        ctx.drawImage(canvas, 0, 0, smallCanvas.width, smallCanvas.height);
+
+        const imgData = smallCanvas.toDataURL("image/jpeg", 0.6);
+        const img = await pdfDoc.embedJpg(imgData);
+        const p = pdfDoc.addPage([smallCanvas.width, smallCanvas.height]);
+        p.drawImage(img, { x: 0, y: 0, width: smallCanvas.width, height: smallCanvas.height });
+      }
+
+      const compressedBytes = await pdfDoc.save();
+      const blob = new Blob([compressedBytes], { type: "application/pdf" });
+      const blobUrl = URL.createObjectURL(blob);
+      const fileName = file.name.replace(".pdf", "_compressed.pdf");
+
       try {
-        const originalSize = file.size;
-        const fileName = file.name;
-        const startTime = performance.now();
-
-        const arrayBuffer = await file.arrayBuffer();
-        const pdfjsLib = window["pdfjs-dist/build/pdf"];
-        pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js";
-        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-
-        const pdfDoc = await PDFLib.PDFDocument.create();
-
-        for (let i = 0; i < pdf.numPages; i++) {
-          status.textContent = `Processing page ${i + 1} of ${pdf.numPages}...`;
-
-          const page = await pdf.getPage(i + 1);
-          const viewport = page.getViewport({ scale: 2.0 });
-
-          const canvas = document.createElement("canvas");
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-
-          await page.render({
-            canvasContext: canvas.getContext("2d"),
-            viewport,
-          }).promise;
-
-          const smallCanvas = document.createElement("canvas");
-          smallCanvas.width = canvas.width * scale;
-          smallCanvas.height = canvas.height * scale;
-          const ctx2 = smallCanvas.getContext("2d");
-          ctx2.drawImage(canvas, 0, 0, smallCanvas.width, smallCanvas.height);
-
-          const imageData = smallCanvas.toDataURL("image/jpeg", 0.7);
-          const img = await pdfDoc.embedJpg(imageData);
-          const page1 = pdfDoc.addPage([smallCanvas.width, smallCanvas.height]);
-          page1.drawImage(img, {
-            x: 0,
-            y: 0,
-            width: smallCanvas.width,
-            height: smallCanvas.height,
-          });
-        }
-
-        const newPdfBytes = await pdfDoc.save();
-        const newBlob = new Blob([newPdfBytes], { type: "application/pdf" });
-        const newSize = newBlob.size;
-        const endTime = performance.now();
-        const processingTime = ((endTime - startTime) / 1000).toFixed(2);
-
-        const url = URL.createObjectURL(newBlob);
+        // Try programmatic download (will fail in Telegram WebView)
         const a = document.createElement("a");
-        a.href = url;
-        a.download = fileName.replace(".pdf", "") + "_compressed.pdf";
-
+        a.href = blobUrl;
+        a.download = fileName;
         document.body.appendChild(a);
         a.click();
+        document.body.removeChild(a);
 
+        // Fallback in case download is blocked
         setTimeout(() => {
-          URL.revokeObjectURL(url);
-          document.body.removeChild(a);
-        }, 100);
+          fallbackLink.href = blobUrl;
+          fallbackLink.download = fileName;
+          fallbackLink.classList.remove('hidden');
+        }, 1000);
 
-        // Fallback download link
-        setTimeout(() => {
-          if (!document.hidden) {
-            const manualLink = document.createElement("a");
-            manualLink.href = url;
-            manualLink.download = a.download;
-            manualLink.textContent = "📥 Tap here to manually download PDF";
-            manualLink.className = "fallback-download";
-            info.appendChild(manualLink);
-          }
-        }, 500);
-
-        info.innerHTML += `
-          <div class="file-info-item"><strong>Original Size:</strong><span>${(originalSize / 1024 / 1024).toFixed(2)} MB</span></div>
-          <div class="file-info-item"><strong>Compressed Size:</strong><span>${(newSize / 1024 / 1024).toFixed(2)} MB</span></div>
-          <div class="file-info-item"><strong>Reduction:</strong><span>${((1 - (newSize / originalSize)) * 100).toFixed(2)}%</span></div>
-          <div class="file-info-item"><strong>Time:</strong><span>${processingTime} sec</span></div>
-        `;
-
-        status.innerHTML = "<span style='color:green'>✅ Compression complete</span>";
-
+        status.innerHTML = `✅ Compression Complete`;
       } catch (err) {
-        console.error(err);
-        status.innerHTML = `<span style="color:red">⚠️ Error: ${err.message}</span>`;
+        status.innerHTML = `❌ Error: ${err.message}`;
+        fallbackLink.href = blobUrl;
+        fallbackLink.download = fileName;
+        fallbackLink.classList.remove('hidden');
       }
     }
 
-    // Optional: Alert Telegram users
-    if (isTelegramWebView()) {
-      alert("📱 Please open this page in your browser (Chrome/Safari) to enable file downloads.");
+    // Optional warning if in Telegram
+    if (navigator.userAgent.toLowerCase().includes("telegram")) {
+      alert("⚠️ Downloads may be blocked inside Telegram. We will show a fallback download button.");
     }
   </script>
 </body>
