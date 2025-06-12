@@ -1,0 +1,46 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Video Downloader - TechAIStudy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      background-color: #f4f4f4;
+    }
+    input, button {
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📥 All Video Downloader</h2>
+  <input type="text" id="video-url" placeholder="Paste video URL..." />
+  <button onclick="goToDownload()">🔍 Preview</button>
+
+  <script>
+    function goToDownload() {
+      const url = document.getElementById('video-url').value.trim();
+      if (!url) return alert("Please enter a valid video URL.");
+      window.location.href = `download.html?url=${encodeURIComponent(url)}`;
+    }
+  </script>
+
+</body>
+</html>
