@@ -1,358 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Telegram PDF Compressor</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-  <script src="https://unpkg.com/pdf-lib@1.16.0/dist/pdf-lib.min.js"></script>
+  <meta charset="UTF-8">
+  <title>All Video Downloader - TechAIStudy</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      background: #f0f2f5;
-      color: #333;
-    }
-    h2 {
-      color: #0088cc;
-      text-align: center;
-    }
-    .upload-area {
-      border: 2px dashed #0088cc;
-      padding: 40px 20px;
-      text-align: center;
-      background: #fff;
-      cursor: pointer;
-      border-radius: 8px;
-      margin: 20px 0;
-      transition: all 0.3s;
-    }
-    .upload-area:hover {
-      background: #f5fbff;
-      border-color: #006699;
-    }
-    .upload-area.drag-over {
-      background: #e6f7ff;
-      border-color: #004466;
-    }
-    input[type=file] {
-      display: none;
-    }
-    button {
-      margin-top: 15px;
-      padding: 12px 24px;
-      font-size: 16px;
-      width: 100%;
-      background: #0088cc;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background: #006699;
-    }
-    button:disabled {
-      background: #cccccc;
-      cursor: not-allowed;
-    }
-    #status {
-      margin-top: 20px;
-      padding: 15px;
-      background: #e7f3fe;
-      border-left: 4px solid #2196F3;
-      border-radius: 4px;
-      display: none;
-    }
-    .progress-container {
-      width: 100%;
-      background-color: #e0e0e0;
-      border-radius: 8px;
-      margin: 15px 0;
-      display: none;
-    }
-    #progressBar {
-      width: 0%;
-      height: 10px;
-      background-color: #0088cc;
-      border-radius: 8px;
-      transition: width 0.3s;
-    }
-    .download-section {
-      text-align: center;
-      margin-top: 20px;
-      display: none;
-    }
-    .download-btn {
-      display: inline-block;
-      padding: 12px 24px;
-      background: #4CAF50;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .download-btn:hover {
-      background: #3e8e41;
-    }
-    .telegram-info {
-      background: #e6f7ff;
-      padding: 10px;
-      border-radius: 8px;
-      margin-top: 20px;
-      border-left: 4px solid #0088cc;
-      display: none;
-    }
-    .settings {
-      background: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      margin: 15px 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .slider-container {
-      margin: 15px 0;
-    }
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 30px auto; text-align: center; }
+    input, button { padding: 10px; margin: 10px 0; width: 90%; max-width: 500px; }
+    img { max-width: 100%; border-radius: 12px; margin: 10px 0; }
+    .format-box { border: 1px solid #ddd; border-radius: 6px; padding: 10px; margin: 5px 0; }
+    .hidden { display: none; }
+    .loading { font-style: italic; color: green; }
   </style>
 </head>
 <body>
-  <h2>📁 Telegram PDF Compressor</h2>
-  
-  <div class="telegram-info" id="telegramInfo">
-    <strong>ℹ️ Telegram Users:</strong> After compression, tap the download button below. If it doesn't work, try opening in browser.
-  </div>
-  
-  <div class="upload-area" id="uploadArea">
-    <div style="font-size: 48px;">📤</div>
-    <h3>Drag & Drop PDF File</h3>
-    <p>or click to select file</p>
-    <input type="file" id="pdfFile" accept="application/pdf"/>
-  </div>
-  
-  <div class="settings">
-    <div class="slider-container">
-      <label for="quality">Compression Quality: <span id="qualityValue">70</span>%</label>
-      <input type="range" id="quality" min="20" max="95" value="70" 
-             oninput="qualityValue.textContent = this.value" />
-    </div>
-    
-    <div class="slider-container">
-      <label for="scale">Image Scale: <span id="scaleValue">80</span>%</label>
-      <input type="range" id="scale" min="30" max="100" value="80" 
-             oninput="scaleValue.textContent = this.value" />
-    </div>
-  </div>
-  
-  <button id="compressBtn" onclick="compressPDF()" disabled>Compress PDF</button>
-  
-  <div class="progress-container" id="progressContainer">
-    <div id="progressBar"></div>
-  </div>
-  
-  <div id="status"></div>
-  
-  <div class="download-section" id="downloadSection">
-    <a id="downloadLink" class="download-btn" download>
-      💾 Download Compressed PDF
-    </a>
-    <p style="margin-top: 10px; color: #666;">
-      File size: <span id="fileSize">0</span> MB
-    </p>
+
+  <h2>📥 All Social Media Video Downloader</h2>
+
+  <input type="text" id="video-url" placeholder="Paste video URL here..." />
+  <button onclick="fetchPreview()">🔍 Preview</button>
+
+  <div id="loading" class="loading hidden">⏳ Loading...</div>
+  <div id="result" class="hidden">
+    <h3 id="title"></h3>
+    <img id="thumbnail" alt="Video thumbnail" />
+    <div id="formats"></div>
   </div>
 
   <script>
-    // Check if running in Telegram
-    const isTelegram = navigator.userAgent.toLowerCase().includes("telegram");
-    if (isTelegram) {
-      document.getElementById('telegramInfo').style.display = 'block';
-    }
+    async function fetchPreview() {
+      const url = document.getElementById('video-url').value.trim();
+      if (!url) return alert("Please enter a video URL.");
 
-    // DOM elements
-    const uploadArea = document.getElementById('uploadArea');
-    const pdfInput = document.getElementById('pdfFile');
-    const compressBtn = document.getElementById('compressBtn');
-    const statusDiv = document.getElementById('status');
-    const progressContainer = document.getElementById('progressContainer');
-    const progressBar = document.getElementById('progressBar');
-    const downloadSection = document.getElementById('downloadSection');
-    const downloadLink = document.getElementById('downloadLink');
-    const fileSizeSpan = document.getElementById('fileSize');
-
-    // File drag and drop handling
-    uploadArea.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      uploadArea.classList.add('drag-over');
-    });
-
-    uploadArea.addEventListener('dragleave', () => {
-      uploadArea.classList.remove('drag-over');
-    });
-
-    uploadArea.addEventListener('drop', (e) => {
-      e.preventDefault();
-      uploadArea.classList.remove('drag-over');
-      if (e.dataTransfer.files.length) {
-        pdfInput.files = e.dataTransfer.files;
-        handleFileSelection();
-      }
-    });
-
-    pdfInput.addEventListener('change', handleFileSelection);
-
-    function handleFileSelection() {
-      if (pdfInput.files.length) {
-        const file = pdfInput.files[0];
-        if (file.type === 'application/pdf') {
-          compressBtn.disabled = false;
-          statusDiv.style.display = 'block';
-          statusDiv.textContent = `Ready to compress: ${file.name} (${formatFileSize(file.size)})`;
-          downloadSection.style.display = 'none';
-        } else {
-          statusDiv.style.display = 'block';
-          statusDiv.textContent = '⚠️ Please select a PDF file';
-          compressBtn.disabled = true;
-        }
-      }
-    }
-
-    async function compressPDF() {
-      const file = pdfInput.files[0];
-      if (!file) {
-        showStatus('⚠️ Please select a PDF file first', 'error');
-        return;
-      }
-
-      const quality = parseInt(document.getElementById('quality').value) / 100;
-      const scale = parseInt(document.getElementById('scale').value) / 100;
-
-      // Initialize UI for compression
-      compressBtn.disabled = true;
-      progressContainer.style.display = 'block';
-      progressBar.style.width = '0%';
-      showStatus('Starting PDF compression...', 'info');
+      document.getElementById('loading').classList.remove('hidden');
+      document.getElementById('result').classList.add('hidden');
 
       try {
-        // Read the PDF file
-        showStatus('Reading PDF file...', 'info');
-        const arrayBuffer = await file.arrayBuffer();
+        const response = await fetch("https://xvideoa.fun/preview", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({ url: url })
+        });
 
-        // Initialize PDF.js
-        const pdfjsLib = window['pdfjs-dist/build/pdf'];
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 
-          'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
+        const html = await response.text();
 
-        // Load the PDF document
-        showStatus('Loading PDF document...', 'info');
-        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-        const { PDFDocument } = PDFLib;
-        const pdfDoc = await PDFDocument.create();
+        // Inject response into a temp DOM to extract values
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
 
-        // Process each page
-        const numPages = pdf.numPages;
-        for (let i = 0; i < numPages; i++) {
-          // Update progress
-          const progress = Math.floor(((i + 1) / numPages) * 100);
-          progressBar.style.width = `${progress}%`;
-          showStatus(`Processing page ${i + 1} of ${numPages}...`, 'info');
+        // Extract values from returned HTML
+        const title = doc.querySelector("title")?.textContent || "No title";
+        const thumbnail = doc.querySelector("img")?.src || "";
 
-          // Get the page
-          const page = await pdf.getPage(i + 1);
-          const viewport = page.getViewport({ scale: 2.0 });
+        const formatsEl = doc.querySelectorAll(".format-box") || [];
 
-          // Create canvas for original page
-          const canvas = document.createElement('canvas');
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-          await page.render({
-            canvasContext: canvas.getContext('2d'),
-            viewport
-          }).promise;
+        document.getElementById("title").innerText = title;
+        document.getElementById("thumbnail").src = thumbnail;
 
-          // Create scaled-down canvas
-          const smallCanvas = document.createElement('canvas');
-          smallCanvas.width = canvas.width * scale;
-          smallCanvas.height = canvas.height * scale;
-          const ctx = smallCanvas.getContext('2d');
-          ctx.drawImage(canvas, 0, 0, smallCanvas.width, smallCanvas.height);
+        const formatsDiv = document.getElementById("formats");
+        formatsDiv.innerHTML = "";
 
-          // Convert to JPEG with specified quality
-          const imgData = smallCanvas.toDataURL('image/jpeg', quality);
-          const img = await pdfDoc.embedJpg(imgData);
-          
-          // Add to new PDF document
-          const newPage = pdfDoc.addPage([smallCanvas.width, smallCanvas.height]);
-          newPage.drawImage(img, {
-            x: 0,
-            y: 0,
-            width: smallCanvas.width,
-            height: smallCanvas.height
-          });
-        }
+        formatsEl.forEach(box => {
+          formatsDiv.appendChild(box.cloneNode(true));
+        });
 
-        // Save the compressed PDF
-        showStatus('Finalizing compressed PDF...', 'info');
-        const compressedBytes = await pdfDoc.save();
-        const blob = new Blob([compressedBytes], { type: 'application/pdf' });
-        const blobUrl = URL.createObjectURL(blob);
-        const fileName = file.name.replace('.pdf', '') + '_compressed.pdf';
+        document.getElementById('loading').classList.add('hidden');
+        document.getElementById('result').classList.remove('hidden');
 
-        // Update download link
-        downloadLink.href = blobUrl;
-        downloadLink.download = fileName;
-        fileSizeSpan.textContent = formatFileSize(blob.size);
-        
-        // Show download section
-        progressBar.style.width = '100%';
-        downloadSection.style.display = 'block';
-        showStatus('✅ PDF compression complete!', 'success');
-        
-        // Auto-download if not in Telegram
-        if (!isTelegram) {
-          setTimeout(() => {
-            downloadLink.click();
-          }, 500);
-        }
       } catch (error) {
-        showStatus(`❌ Error: ${error.message}`, 'error');
         console.error(error);
-      } finally {
-        compressBtn.disabled = false;
+        alert("❌ Error fetching preview.");
+        document.getElementById('loading').classList.add('hidden');
       }
-    }
-
-    function showStatus(message, type) {
-      statusDiv.style.display = 'block';
-      statusDiv.textContent = message;
-      
-      // Reset classes
-      statusDiv.className = '';
-      
-      // Add type-specific class
-      switch (type) {
-        case 'error':
-          statusDiv.style.backgroundColor = '#ffebee';
-          statusDiv.style.borderLeft = '4px solid #f44336';
-          break;
-        case 'success':
-          statusDiv.style.backgroundColor = '#e8f5e9';
-          statusDiv.style.borderLeft = '4px solid #4caf50';
-          break;
-        default: // info
-          statusDiv.style.backgroundColor = '#e7f3fe';
-          statusDiv.style.borderLeft = '4px solid #2196f3';
-      }
-    }
-
-    function formatFileSize(bytes) {
-      if (bytes === 0) return '0 Bytes';
-      const k = 1024;
-      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-      const i = Math.floor(Math.log(bytes) / Math.log(k));
-      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     }
   </script>
 </body>
