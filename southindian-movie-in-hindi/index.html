@@ -3,14 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LocalStorage to PDF + Ad</title>
+  <title>Telegram MiniApp PDF Download</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f8f9fa;
-    }
     textarea {
       width: 100%;
       height: 150px;
@@ -18,37 +13,21 @@
       padding: 10px;
     }
     button {
-      padding: 10px 20px;
+      padding: 10px;
       margin: 5px;
-      cursor: pointer;
-    }
-    .ad-box {
-      border: 2px dashed #ccc;
-      padding: 20px;
-      margin: 20px 0;
-      text-align: center;
-      color: #777;
-      background-color: #fff;
+      font-size: 16px;
     }
   </style>
 </head>
 <body>
 
-  <h2>Save Text, Retrieve, and Generate PDF</h2>
+  <h2>Telegram MiniApp PDF Generator</h2>
 
-  <!-- Ad Placeholder -->
-  <div class="ad-box">
-    <!-- You can replace this with actual ad code -->
-    🔔 Advertisement Here (Google AdSense or Custom HTML)
-  </div>
+  <textarea id="textInput" placeholder="Type something..."></textarea><br>
 
-  <!-- Text Area Input -->
-  <textarea id="textInput" placeholder="Type your text here..."></textarea><br>
-
-  <!-- Action Buttons -->
   <button onclick="saveText()">💾 Save</button>
   <button onclick="loadText()">📂 Load</button>
-  <button onclick="createPDF()">📥 Download PDF</button>
+  <button onclick="downloadPDF()">📥 Download PDF</button>
 
   <script>
     const STORAGE_KEY = "mySavedText";
@@ -56,44 +35,39 @@
     function saveText() {
       const text = document.getElementById("textInput").value;
       localStorage.setItem(STORAGE_KEY, text);
-      alert("✅ Text saved to LocalStorage!");
+      alert("✅ Saved!");
     }
 
     function loadText() {
       const text = localStorage.getItem(STORAGE_KEY);
-      if (text !== null) {
-        document.getElementById("textInput").value = text;
-        alert("📂 Text loaded from LocalStorage!");
-      } else {
-        alert("⚠️ No saved text found.");
-      }
+      document.getElementById("textInput").value = text || "";
+      alert("📂 Loaded!");
     }
 
-    async function createPDF() {
+    async function downloadPDF() {
       const { jsPDF } = window.jspdf;
       const text = localStorage.getItem(STORAGE_KEY) || "";
 
-      if (text.trim() === "") {
-        alert("⚠️ No text found in LocalStorage to generate PDF.");
+      if (!text.trim()) {
+        alert("❌ No text found!");
         return;
       }
 
       const doc = new jsPDF();
-      const margin = 10;
-      const pageHeight = doc.internal.pageSize.height;
-      let y = margin;
-
       const lines = doc.splitTextToSize(text, 180);
-      for (let i = 0; i < lines.length; i++) {
-        if (y > pageHeight - margin) {
-          doc.addPage();
-          y = margin;
-        }
-        doc.text(lines[i], margin, y);
-        y += 10;
-      }
+      doc.text(lines, 10, 10);
 
-      doc.save("LocalStorageText.pdf");
+      // Workaround for Telegram WebView: use Blob and manual link trigger
+      const blob = doc.output("blob");
+      const blobURL = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = blobURL;
+      link.download = "LocalStorageText.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(blobURL);
     }
   </script>
 
