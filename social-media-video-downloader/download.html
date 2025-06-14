@@ -25,7 +25,6 @@
       border-radius: 5px;
       display: inline-block;
       margin-top: 10px;
-      margin-right: 10px;
       cursor: pointer;
     }
     .button:hover {
@@ -78,19 +77,19 @@
         infoDiv.innerHTML += `<h3>Select format to preview or download:</h3>`;
 
         doc.querySelectorAll(".video-card").forEach((card, index) => {
+          // Inject download-wrapper span
           const source = card.querySelector("source");
           if (source) {
             const videoUrl = source.src;
             const ext = videoUrl.split('.').pop().split('?')[0].split('#')[0];
             const filename = `video_${index}.${ext}`;
-            const mp3name = `audio_${index}.mp3`;
 
-            const wrapper = document.createElement("div");
+            const wrapper = document.createElement("span");
             wrapper.className = "download-wrapper";
             wrapper.setAttribute("data-url", videoUrl);
             wrapper.setAttribute("data-name", filename);
-            wrapper.setAttribute("data-mp3", mp3name);
 
+            // Insert wrapper before <video> tag
             const videoTag = card.querySelector("video");
             if (videoTag) {
               videoTag.parentNode.insertBefore(wrapper, videoTag);
@@ -102,7 +101,7 @@
           }
         });
 
-        insertDownloadButtons();
+        insertDownloadButtons(); // Inject download logic
 
       } catch (err) {
         console.error(err);
@@ -121,7 +120,7 @@
       document.getElementById('video-info').innerHTML = `<p style="color:red;">❌ No URL provided.</p>`;
     }
 
-    // Download Video
+    // ✅ Download Logic From Second Code
     function downloadDirect(videoUrl, filename) {
       fetch(videoUrl, { mode: 'cors' })
         .then(res => res.blob())
@@ -138,28 +137,15 @@
         });
     }
 
-    // Convert Video to MP3 and Download
-    function downloadAsMp3(videoUrl, filename) {
-      const a = document.createElement("a");
-      a.href = `https://api.techaistudy.com/convert-mp3?url=${encodeURIComponent(videoUrl)}&filename=${filename}`;
-      a.download = filename;
-      a.click();
-    }
-
-    // Insert buttons
     function insertDownloadButtons() {
       document.querySelectorAll(".download-wrapper").forEach(wrapper => {
         const url = wrapper.getAttribute("data-url");
         const name = wrapper.getAttribute("data-name");
-        const mp3 = wrapper.getAttribute("data-mp3");
 
         if (url.includes("youtube.com") || url.includes("googlevideo.com")) {
-          wrapper.innerHTML = "<span style='color:red;'>Click 3 dot from video, check audio + download sign</span>";
+          wrapper.innerHTML = "<span style='color:red;'>Click 3 dot from video, check audio then available download sign</span>";
         } else {
-          wrapper.innerHTML = `
-            <button class="button" onclick="downloadDirect('${url}', '${name}')">Download Video</button>
-            <button class="button" onclick="downloadAsMp3('${url}', '${mp3}')">Download MP3</button>
-          `;
+          wrapper.innerHTML = `<button class="button" onclick="downloadDirect('${url}', '${name}')">Download</button>`;
         }
       });
     }
