@@ -145,7 +145,7 @@
         if (url.includes("youtube.com") || url.includes("googlevideo.com")) {
           wrapper.innerHTML = "<span style='color:red;'>Click 3 dot from video, check audio then available download sign</span>";
         } else {
-          wrapper.innerHTML = `<button class="button" onclick="downloadDirect('${url}', '${name}')">Download</button>`;
+          wrapper.innerHTML = `<button class="button" onclick="downloadDirect('${url}', '${name}')">Download : Check Audio then Download </button>`;
         }
       });
     }
