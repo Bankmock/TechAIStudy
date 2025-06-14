@@ -77,19 +77,26 @@
         infoDiv.innerHTML += `<h3>Select format to preview or download:</h3>`;
 
         doc.querySelectorAll(".video-card").forEach((card, index) => {
-          // Inject download-wrapper span
           const source = card.querySelector("source");
           if (source) {
             const videoUrl = source.src;
             const ext = videoUrl.split('.').pop().split('?')[0].split('#')[0];
-            const filename = `video_${index}.${ext}`;
 
+            // Block mhtml and YouTube 144p/240p
+            const isYouTube = videoUrl.includes("youtube.com") || videoUrl.includes("googlevideo.com");
+            const isMhtml = ext === 'mhtml';
+            const isLowQuality = /144p|240p/i.test(videoUrl);
+
+            if (isMhtml || (isYouTube && isLowQuality)) {
+              return; // Skip this format
+            }
+
+            const filename = `video_${index}.${ext}`;
             const wrapper = document.createElement("span");
             wrapper.className = "download-wrapper";
             wrapper.setAttribute("data-url", videoUrl);
             wrapper.setAttribute("data-name", filename);
 
-            // Insert wrapper before <video> tag
             const videoTag = card.querySelector("video");
             if (videoTag) {
               videoTag.parentNode.insertBefore(wrapper, videoTag);
@@ -101,7 +108,7 @@
           }
         });
 
-        insertDownloadButtons(); // Inject download logic
+        insertDownloadButtons();
 
       } catch (err) {
         console.error(err);
@@ -120,7 +127,6 @@
       document.getElementById('video-info').innerHTML = `<p style="color:red;">❌ No URL provided.</p>`;
     }
 
-    // ✅ Download Logic From Second Code
     function downloadDirect(videoUrl, filename) {
       fetch(videoUrl, { mode: 'cors' })
         .then(res => res.blob())
