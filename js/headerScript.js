@@ -1,3 +1,17 @@
+
+
+
+
+
+
+const script = document.createElement('script');
+script.id = 'aclib';
+script.type = 'text/javascript';
+script.src = '//acscdn.com/script/aclib.js';
+document.head.appendChild(script);
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   var userAgent = navigator.userAgent.toLowerCase();
   var isTelegram = userAgent.includes("telegram") || userAgent.includes("webview");
