@@ -1,4 +1,28 @@
 
+
+// Make sure aclib is loaded before running this
+const runAd = () => {
+    if (typeof aclib !== 'undefined' && typeof aclib.runBanner === 'function') {
+        aclib.runBanner({
+            zoneId: '10084830',
+        });
+    } else {
+        // Retry after short delay if aclib not loaded yet
+        setTimeout(runAd, 100);
+    }
+};
+
+// Load the aclib script dynamically
+const script = document.createElement('script');
+script.id = 'aclib';
+script.type = 'text/javascript';
+script.src = '//acscdn.com/script/aclib.js';
+script.onload = runAd; // Run banner after script loads
+document.head.appendChild(script);
+
+
+
+
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
     const allH1 = document.querySelectorAll('h1');
