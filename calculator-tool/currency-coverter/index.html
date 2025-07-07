@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script defer src="../../js/component1.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://techaistudy.com/images/logo.webp" type="image/webp">  
+
+    <title>Currency Converter Online - Real-Time Exchange Rates & Conversions | TechAI Study</title>
+    <meta name="description" content="Convert any currency instantly with live exchange rates using our free online currency converter. Ideal for travelers, shoppers, and businesses. Supports all major global currencies.">
+    <meta name="keywords" content="currency converter, online currency converter, free currency converter, live exchange rates, foreign exchange, convert money, international currency, forex converter, USD to INR, EUR to USD, GBP to JPY, TechAI Study">
+    <meta name="author" content="TechAI Study">
+    <link rel="canonical" href="https://techaistudy.com/calculator-tool/currency-converter/" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techaistudy.com/calculator-tool/currency-converter/">
+    <meta property="og:title" content="Currency Converter Online - Real-Time Exchange Rates & Conversions | TechAI Study">
+    <meta property="og:description" content="Access up-to-the-minute currency exchange rates and convert between over 150 global currencies. Perfect for planning international travel, online shopping, or managing global finances.">
+    <meta property="og:image" content="https://techaistudy.com/images/currency-converter.webp">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://techaistudy.com/calculator-tool/currency-converter/">
+    <meta name="twitter:title" content="Free Online Currency Converter - Live Exchange Rates">
+    <meta name="twitter:description" content="Convert foreign currency quickly and accurately. Our free currency converter provides real-time rates for all major world currencies.">
+    <meta property="twitter:image" content="https://techaistudy.com/images/currency-converter.webp">
+
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/blogpost.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+    <script src="../../js/ads.js"></script>
+    <script src="../../js/headerScript.js"></script>
+    <script src="../../js/googletrackingid.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Currency Converter Online",
+      "url": "https://techaistudy.com/calculator-tool/currency-converter/",
+      "description": "Free online tool for real-time currency conversions, supporting a wide range of global currencies with live exchange rates.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TechAI Study",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://techaistudy.com/images/logo.webp"
+        }
+      },
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does the currency converter get live rates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our currency converter sources real-time exchange rate data from reliable financial data providers and global exchanges. This data is updated frequently to reflect the latest market fluctuations, ensuring the most current conversions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this currency converter free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our online currency converter is completely free to use for unlimited conversions across all supported currencies, with no hidden costs or registration required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What currencies can I convert?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our tool supports over 150 global currencies, including major currencies like USD, EUR, GBP, JPY, INR, CAD, AUD, and many more less common ones."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are the rates on the converter exactly what I'll get at a bank or exchange office?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The rates provided are interbank rates, which are wholesale rates used between banks. Retail rates offered by banks, exchange offices, or credit card companies will typically include a spread or commission, meaning the rate you get might be slightly less favorable than the live interbank rate displayed here."
+            }
+          }
+        ]
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://techaistudy.com/calculator-tool/currency-converter/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://techaistudy.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Finance Tools",
+        "item": "https://techaistudy.com/calculator-tool/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Currency Converter",
+        "item": "https://techaistudy.com/calculator-tool/currency-converter/"
+      }]
+    }
+    </script>
+    <style>
+        
+
+        .input-group {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px; /* Space between elements */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .input-group label {
+            font-weight: 600;
+            color: #555;
+            font-size: 0.95em;
+            flex-shrink: 0; /* Prevent label from shrinking */
+        }
+
+        .input-group input[type="number"],
+        .input-group select {
+            flex-grow: 1; /* Allow inputs/selects to take available space */
+            padding: 12px;
+            border: 1px solid #cdd5df;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            max-width: 180px; /* Limit individual input/select width */
+        }
+
+        .input-group select {
+            cursor: pointer;
+            background-color: #fcfdfe;
+        }
+
+        .input-group input[type="number"]:focus,
+        .input-group select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+        .swap-button {
+            background: none;
+            border: 1px solid #cdd5df;
+            border-radius: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 1.2em;
+            color: #007bff;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1; /* Prevent extra spacing */
+            height: 45px; /* Match input height */
+        }
+
+        .swap-button:hover {
+            background-color: #f0f8ff;
+            transform: rotate(90deg); /* Nice little effect */
+        }
+
+        .result-box {
+            background-color: #f8fcfd;
+            border: 1px solid #d1ecf1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2c3e50;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .result-box p {
+            margin: 0;
+            font-size: 1em;
+            color: #555;
+        }
+
+        .result-box strong {
+            font-size: 1.5em;
+            color: #007bff;
+        }
+
+        .exchange-rate-display {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 10px;
+        }
+
+        .loading-message, .error-message {
+            color: #dc3545;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+
+        .loading-message {
+            color: #007bff;
+            background-color: #e0f2ff;
+            border-color: #a7d9ff;
+        }
+
+        /* Hide number input arrows */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .input-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .input-group input[type="number"],
+            .input-group select {
+                width: 100%;
+                max-width: none;
+            }
+
+            .swap-button {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .result-box {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <section class="hero">
+        <h1>Currency Converter Online</h1>
+        <p>Get Live Exchange Rates & Convert Currencies Instantly!</p>
+    </section>
+
+        <div class="input-group">
+            <input type="number" id="amount" value="1" min="0" step="any">
+            <select id="fromCurrency"></select>
+            <button class="swap-button" id="swapBtn" aria-label="Swap currencies">&#x21C6;</button> <select id="toCurrency"></select>
+        </div>
+
+        <div class="loading-message" id="loadingMessage">
+            Loading exchange rates...
+        </div>
+        <div class="error-message" id="errorMessage">
+            Failed to fetch exchange rates. Please try again later or check your API key/internet connection.
+        </div>
+
+        <div class="result-box" id="resultBox">
+            <p>Select currencies and enter an amount to convert.</p>
+        </div>
+        <p class="exchange-rate-display" id="exchangeRateDisplay"></p>
+        <p class="exchange-rate-display" id="lastUpdatedDisplay"></p>
+    </div>
+<div class="blog">
+    <section>
+        <h2>What is a Currency Converter Tool?</h2>
+        <p>A **currency converter** is an essential online utility that allows you to quickly and accurately determine the equivalent value of one currency in terms of another, based on current exchange rates. It's a dynamic tool that pulls real-time data from global financial markets to provide up-to-the-minute conversions, making it indispensable for anyone dealing with international transactions or travel.</p>
+        
+        <img src="https://techaistudy.com/images/currency-converter-process.webp" alt="Currency Conversion Process" style="max-width: 100%; display: block; margin: 20px auto;">
+        
+        <p>Our **free online currency converter** simplifies the complexities of foreign exchange. Whether you're planning a trip abroad, shopping from an international website, managing global business finances, or just curious about the value of your money overseas, this tool provides instant and reliable answers.</p>
+    
+        <p><strong>Key advantages:</strong> Real-time exchange rates, wide range of currencies, easy to use, ideal for travel and trade, and completely free.</p>
+    </section>
+
+    <section>
+        <h2>Why Use Our Online Currency Converter?</h2>
+        <p>Navigating global currencies can be tricky without the right tools. Our currency converter offers significant advantages:</p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>Real-Time Accuracy</h3>
+                <p>Access the latest exchange rates, reflecting current market conditions, to ensure precise conversions.</p>
+            </div>
+            <div class="feature">
+                <h3>Global Coverage</h3>
+                <p>Convert between over 150 major and minor currencies worldwide, covering almost every country.</p>
+            </div>
+            <div class="feature">
+                <h3>Financial Planning</h3>
+                <p>Easily budget for international trips, online purchases, or overseas investments.</p>
+            </div>
+            <div class="feature">
+                <h3>Business Efficiency</h3>
+                <p>Streamline international invoicing, payroll, and financial reporting for global businesses.</p>
+            </div>
+            <div class="feature">
+                <h3>Prevent Overpaying</h3>
+                <p>Make informed decisions when exchanging money, avoiding unfavorable rates at physical exchange booths.</p>
+            </div>
+            <div class="feature">
+                <h3>Free & Accessible</h3>
+                <p>Enjoy unlimited conversions from any device, anytime, at absolutely no cost.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>How to Use Our Free Currency Converter</h2>
+        <p>Converting currencies with our tool is fast and intuitive:</p>
+        
+        <div class="steps">
+            <div class="step">
+                <h3>1. Enter Amount</h3>
+                <p>Input the numerical value you wish to convert (e.g., 500).</p>
+            </div>
+            <div class="step">
+                <h3>2. Select 'From' Currency</h3>
+                <p>Choose the currency you are starting with from the dropdown list (e.g., USD - US Dollar).</p>
+            </div>
+            <div class="step">
+                <h3>3. Select 'To' Currency</h3>
+                <p>Choose the currency you want to convert to (e.g., INR - Indian Rupee).</p>
+            </div>
+            <div class="step">
+                <h3>View Instant Conversion</h3>
+                <p>The converted amount will be displayed immediately, reflecting the current exchange rate.</p>
+            </div>
+        </div>
+        
+        <p>The tool updates results in real-time as you type or change currencies, providing a dynamic conversion experience.</p>
+    </section>
+
+    <section>
+        <h2>Key Information Our Currency Converter Provides</h2>
+        <p>Our tool gives you the essential details for your currency needs:</p>
+        
+        <div class="formats">
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/currency-from.svg" alt="From Currency">
+                <span>From Currency</span>
+                <p>The original currency you are converting from (e.g., US Dollar).</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/currency-to.svg" alt="To Currency">
+                <span>To Currency</span>
+                <p>The target currency you want to convert into (e.g., Indian Rupee).</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/currency-rate.svg" alt="Live Exchange Rate">
+                <span>Live Exchange Rate</span>
+                <p>The current conversion ratio between the two selected currencies.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/currency-converted.svg" alt="Converted Amount">
+                <span>Converted Amount</span>
+                <p>The final value after applying the live exchange rate.</p>
+            </div>
+        </div>
+        <p>This ensures you have a clear understanding of your currency's value.</p>
+    </section>
+
+    <section>
+        <h2>Common Currency Conversions Supported</h2>
+        <p>Our converter handles a wide range of popular currency pairs for various needs:</p>
+        <ul>
+            <li><strong>USD to INR:</strong> US Dollar to Indian Rupee (critical for Indian users for trade, remittances, and travel)</li>
+            <li><strong>EUR to USD:</strong> Euro to US Dollar (one of the most traded pairs globally)</li>
+            <li><strong>GBP to JPY:</strong> British Pound to Japanese Yen</li>
+            <li><strong>USD to CAD:</strong> US Dollar to Canadian Dollar</li>
+            <li><strong>AUD to NZD:</strong> Australian Dollar to New Zealand Dollar</li>
+            <li><strong>CHF to EUR:</strong> Swiss Franc to Euro</li>
+            <li><strong>USD to CNY:</strong> US Dollar to Chinese Yuan Renminbi</li>
+            <li>And many more, covering most countries' official currencies.</li>
+        </ul>
+        <p>Whether you're a traveler, online shopper, or engaged in international business, our tool has you covered.</p>
+    </section>
+
+    <section>
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">How often are the exchange rates updated?</div>
+            <p>Our exchange rates are updated frequently, often every few minutes, to reflect the dynamic nature of the global foreign exchange market. This ensures you're always getting very close to live, real-time rates.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">What is an interbank rate, and why is it different from retail rates?</div>
+            <p>The interbank rate is the wholesale exchange rate at which banks trade currencies with each other. Retail rates, which you get from banks, exchange bureaus, or credit card companies, include a markup or commission. This markup covers their operational costs and profit margins, making them slightly less favorable than the interbank rate you see here.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Can I use this for future exchange rate predictions?</div>
+            <p>No, our currency converter provides current, live exchange rates. It does not offer predictive capabilities for future rate movements, as currency markets are highly volatile and influenced by many factors.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Is my financial information secure with this tool?</div>
+            <p>Absolutely. Our currency converter only takes numerical amounts and currency selections. No personal financial information, account details, or sensitive data is ever requested, transmitted, or stored. All conversions happen directly in your browser.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Why do exchange rates fluctuate?</div>
+            <p>Exchange rates fluctuate due to various economic and geopolitical factors, including interest rates, inflation, political stability, economic performance, supply and demand for currencies, and speculation in the foreign exchange market.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Keywords</h2>
+        <p>Our Currency Converter is optimized for the following Google search terms:</p>
+        <ul>
+            <li>currency converter</li>
+            <li>online currency converter</li>
+            <li>free currency converter</li>
+            <li>live exchange rates</li>
+            <li>foreign exchange converter</li>
+            <li>convert money online</li>
+            <li>international currency converter</li>
+            <li>forex converter</li>
+            <li>USD to INR converter</li>
+            <li>EUR to USD exchange rate</li>
+            <li>GBP to JPY converter</li>
+            <li>CAD to USD exchange</li>
+            <li>real time currency converter</li>
+            <li>global currency rates</li>
+            <li>money converter tool</li>
+            <li>exchange rate calculator</li>
+            <li>best currency converter</li>
+            <li>currency conversion</li>
+            <li>convert foreign currency</li>
+            <li>live forex rates</li>
+        </ul>
+    </section>
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const API_KEY = '9041481067c1870c21f3f78f'; // <-- REPLACE THIS WITH YOUR ACTUAL API KEY
+            const API_BASE_URL = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/`;
+
+            const amountInput = document.getElementById('amount');
+            const fromCurrencySelect = document.getElementById('fromCurrency');
+            const toCurrencySelect = document.getElementById('toCurrency');
+            const swapBtn = document.getElementById('swapBtn');
+            const resultBox = document.getElementById('resultBox');
+            const loadingMessage = document.getElementById('loadingMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const exchangeRateDisplay = document.getElementById('exchangeRateDisplay');
+            const lastUpdatedDisplay = document.getElementById('lastUpdatedDisplay');
+
+            let exchangeRates = {}; // To store fetched rates
+            let supportedCurrencies = []; // To store list of currencies
+
+            // Function to fetch currencies and initial rates
+            async function fetchCurrenciesAndRates() {
+                loadingMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+                resultBox.innerHTML = '<p>Loading...</p>';
+                exchangeRateDisplay.textContent = '';
+                lastUpdatedDisplay.textContent = '';
+
+                try {
+                    // Fetch full list of codes
+                    const codesResponse = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/codes`);
+                    const codesData = await codesResponse.json();
+
+                    if (codesData.result === 'success') {
+                        supportedCurrencies = codesData.supported_codes; // [["USD", "United States Dollar"], ...]
+                        populateCurrencySelects(supportedCurrencies);
+
+                        // Fetch initial rates for default 'from' currency (USD or INR if available)
+                        const defaultFromCurrency = fromCurrencySelect.value || 'USD'; // Default to USD if not set
+                        await fetchExchangeRates(defaultFromCurrency);
+                        convertCurrency(); // Perform initial conversion
+                    } else {
+                        throw new Error(codesData['error-type'] || 'Failed to fetch currency codes.');
+                    }
+
+                } catch (error) {
+                    console.error('Error fetching currencies or initial rates:', error);
+                    errorMessage.textContent = `Error: ${error.message}. Please check your API key and internet connection.`;
+                    errorMessage.style.display = 'block';
+                    resultBox.innerHTML = '<p>Could not load currency data.</p>';
+                    loadingMessage.style.display = 'none';
+                } finally {
+                    loadingMessage.style.display = 'none';
+                }
+            }
+
+            // Populate select dropdowns with currency options
+            function populateCurrencySelects(currencies) {
+                fromCurrencySelect.innerHTML = '';
+                toCurrencySelect.innerHTML = '';
+
+                // Sort currencies alphabetically by code for better UX
+                currencies.sort((a, b) => a[0].localeCompare(b[0]));
+
+                currencies.forEach(([code, name]) => {
+                    const optionFrom = document.createElement('option');
+                    optionFrom.value = code;
+                    optionFrom.textContent = `${code} - ${name}`;
+                    fromCurrencySelect.appendChild(optionFrom);
+
+                    const optionTo = document.createElement('option');
+                    optionTo.value = code;
+                    optionTo.textContent = `${code} - ${name}`;
+                    toCurrencySelect.appendChild(optionTo);
+                });
+
+                // Set default selections (e.g., INR as 'to' currency for India context)
+                fromCurrencySelect.value = 'USD'; // A common default
+                toCurrencySelect.value = 'INR'; // Specific for India context
+
+                // Adjust if one is not available or if they are the same
+                if (!supportedCurrencies.some(c => c[0] === 'USD')) {
+                    fromCurrencySelect.value = supportedCurrencies[0][0]; // Fallback
+                }
+                if (!supportedCurrencies.some(c => c[0] === 'INR')) {
+                    toCurrencySelect.value = supportedCurrencies[1][0]; // Fallback, pick another
+                }
+
+                if (fromCurrencySelect.value === toCurrencySelect.value && supportedCurrencies.length > 1) {
+                    // If default from and to are the same, try to make them different
+                    toCurrencySelect.value = supportedCurrencies.find(c => c[0] !== fromCurrencySelect.value)?.[0] || supportedCurrencies[1][0];
+                }
+            }
+
+            // Function to fetch exchange rates for a given base currency
+            async function fetchExchangeRates(baseCode) {
+                loadingMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+                exchangeRateDisplay.textContent = '';
+                lastUpdatedDisplay.textContent = '';
+
+                try {
+                    const response = await fetch(`${API_BASE_URL}${baseCode}`);
+                    const data = await response.json();
+
+                    if (data.result === 'success') {
+                        exchangeRates = data.conversion_rates;
+                        const lastUpdate = new Date(data.time_last_update_utc).toLocaleString('en-IN', {
+                            day: 'numeric', month: 'short', year: 'numeric',
+                            hour: '2-digit', minute: '2-digit', second: '2-digit',
+                            hour12: true, timeZoneName: 'short'
+                        });
+                        lastUpdatedDisplay.textContent = `Rates last updated: ${lastUpdate}`;
+                    } else {
+                        throw new Error(data['error-type'] || 'Failed to fetch exchange rates.');
+                    }
+                } catch (error) {
+                    console.error(`Error fetching rates for ${baseCode}:`, error);
+                    errorMessage.textContent = `Error fetching rates for ${baseCode}: ${error.message}.`;
+                    errorMessage.style.display = 'block';
+                    exchangeRates = {}; // Clear rates on error
+                } finally {
+                    loadingMessage.style.display = 'none';
+                }
+            }
+
+            // Main conversion logic
+            async function convertCurrency() {
+                const amount = parseFloat(amountInput.value);
+                const fromCurrency = fromCurrencySelect.value;
+                const toCurrency = toCurrencySelect.value;
+
+                if (isNaN(amount) || amount < 0) {
+                    resultBox.innerHTML = '<p>Please enter a valid positive amount.</p>';
+                    resultBox.classList.add('error');
+                    exchangeRateDisplay.textContent = '';
+                    return;
+                } else {
+                    resultBox.classList.remove('error');
+                }
+
+                // If base currency changes, fetch new rates
+                if (!exchangeRates[fromCurrency] && fromCurrency !== 'USD') { // Try to avoid re-fetching if USD is base and already fetched
+                    await fetchExchangeRates(fromCurrency);
+                }
+                
+                if (Object.keys(exchangeRates).length === 0) {
+                     resultBox.innerHTML = '<p>Exchange rates not available. Check connection or API key.</p>';
+                     resultBox.classList.add('error');
+                     return;
+                }
+
+                const rate = exchangeRates[toCurrency];
+
+                if (!rate) {
+                    resultBox.innerHTML = `<p>Exchange rate from ${fromCurrency} to ${toCurrency} not available.</p>`;
+                    resultBox.classList.add('error');
+                    exchangeRateDisplay.textContent = '';
+                    return;
+                }
+
+                const convertedAmount = amount * rate;
+
+                resultBox.innerHTML = `
+                    <p>${amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${fromCurrency}</p>
+                    <p>is approximately</p>
+                    <strong>${convertedAmount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 4 })} ${toCurrency}</strong>
+                `;
+                exchangeRateDisplay.textContent = `1 ${fromCurrency} = ${rate.toLocaleString(undefined, { maximumFractionDigits: 6 })} ${toCurrency}`;
+            }
+
+            // Event Listeners
+            amountInput.addEventListener('input', convertCurrency);
+            fromCurrencySelect.addEventListener('change', async () => {
+                await fetchExchangeRates(fromCurrencySelect.value); // Fetch new rates if base changes
+                convertCurrency();
+            });
+            toCurrencySelect.addEventListener('change', convertCurrency);
+
+            swapBtn.addEventListener('click', () => {
+                const tempFrom = fromCurrencySelect.value;
+                fromCurrencySelect.value = toCurrencySelect.value;
+                toCurrencySelect.value = tempFrom;
+                // Trigger change event on fromCurrency to re-fetch rates if needed and re-convert
+                const event = new Event('change');
+                fromCurrencySelect.dispatchEvent(event);
+            });
+
+            // Initial load: Fetch currencies and then populate/convert
+            fetchCurrenciesAndRates();
+        });
+    </script>
+</body>
+</html>
