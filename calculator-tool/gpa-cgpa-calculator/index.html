@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script defer src="../../js/component1.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://techaistudy.com/images/logo.webp" type="image/webp">  
+
+    <title>GPA & CGPA Calculator Online - Free Academic Grade Point Average Tool | TechAI Study</title>
+    <meta name="description" content="Calculate your GPA and CGPA instantly with our free online calculator. Accurately assess your academic performance semester-wise or overall. Essential for students! ">
+    <meta name="keywords" content="GPA calculator, CGPA calculator, online GPA calculator, free CGPA calculator, calculate GPA, calculate CGPA, grade point average, cumulative grade point average, academic calculator, university grades, college GPA, semester GPA, overall CGPA, grade calculation, TechAI Study">
+    <meta name="author" content="TechAI Study">
+    <link rel="canonical" href="https://techaistudy.com/calculator-tool/gpa-cgpa-calculator/" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techaistudy.com/calculator-tool/gpa-cgpa-calculator/">
+    <meta property="og:title" content="GPA & CGPA Calculator Online - Free Academic Grade Point Average Tool | TechAI Study">
+    <meta property="og:description" content="Effortlessly calculate your Grade Point Average (GPA) for a single semester and your Cumulative Grade Point Average (CGPA) across all semesters. Stay on top of your academic standing with our user-friendly tool.">
+    <meta property="og:image" content="https://techaistudy.com/images/gpa-cgpa-calculator.webp">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://techaistudy.com/calculator-tool/gpa-cgpa-calculator/">
+    <meta name="twitter:title" content="Free Online GPA & CGPA Calculator - Instant Academic Performance">
+    <meta name="twitter:description" content="Quickly determine your GPA and CGPA. Our free calculator helps students understand their academic progress and plan for future grades.">
+    <meta property="twitter:image" content="https://techaistudy.com/images/gpa-cgpa-calculator.webp">
+
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/blogpost.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+    <script src="../../js/ads.js"></script>
+    <script src="../../js/headerScript.js"></script>
+    <script src="../../js/googletrackingid.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "GPA & CGPA Calculator Online",
+      "url": "https://techaistudy.com/calculator-tool/gpa-cgpa-calculator/",
+      "description": "Free online tool for students to calculate Grade Point Average (GPA) for a semester and Cumulative Grade Point Average (CGPA) for overall academic performance.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TechAI Study",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://techaistudy.com/images/logo.webp"
+        }
+      },
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is GPA and CGPA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "GPA (Grade Point Average) is a measure of a student's academic performance for a single semester or academic period. CGPA (Cumulative Grade Point Average) is the average of the GPAs of all semesters/periods, representing overall academic standing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I calculate GPA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "GPA is calculated by dividing the total grade points earned by the total credit hours attempted in a semester. Each letter grade is assigned a specific grade point value (e.g., A=4, B=3) which is then multiplied by the course's credit hours."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this GPA/CGPA calculator free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our online GPA and CGPA calculator is completely free to use for unlimited calculations, with no hidden costs or registration required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this for different grading systems?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our calculator supports the commonly used 4.0 scale. If your institution uses a different scale (e.g., 5.0, 10.0, or percentage-based), you may need to adjust the grade point values accordingly or use a calculator specific to your system."
+            }
+          }
+        ]
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://techaistudy.com/calculator-tool/gpa-cgpa-calculator/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://techaistudy.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Education Tools",
+        "item": "https://techaistudy.com/calculator-tool/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "GPA & CGPA Calculator",
+        "item": "https://techaistudy.com/calculator-tool/gpa-cgpa-calculator/"
+      }]
+    }
+    </script>
+</head>
+    <title>Professional GPA/CGPA Calculator</title>
+    <style>
+        
+
+        .section-header {
+            color: #4a6572;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+            text-align: left;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .input-group input[type="number"],
+        .input-group select {
+            width: calc(100% - 24px); /* Account for padding */
+            padding: 12px;
+            border: 1px solid #cdd5df;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .input-group input[type="number"]:focus,
+        .input-group select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+        .subject-entry {
+            display: grid;
+            grid-template-columns: 2fr 1fr 0.2fr; /* Subject Name, Credits, Grade, Remove */
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 15px;
+            background-color: #fcfdfe;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .subject-entry .credit-input,
+        .subject-entry .grade-select {
+            width: 100%;
+        }
+
+        .add-subject-btn,
+        .calculate-btn {
+            background-color: #28a745; /* Green for add */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .calculate-btn {
+            background-color: #007bff; /* Blue for calculate */
+            margin-top: 25px;
+            padding: 15px 30px;
+            font-size: 1.15em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .add-subject-btn:hover { background-color: #218838; transform: translateY(-1px); }
+        .calculate-btn:hover { background-color: #0056b3; transform: translateY(-2px); }
+
+        .remove-subject-btn {
+            background: none;
+            border: none;
+            color: #dc3545;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            padding: 0;
+            line-height: 1; /* Remove extra space */
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .remove-subject-btn:hover {
+            color: #c82333;
+        }
+
+        .results-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .results-section {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .summary-box {
+            background-color: #f8fcfd;
+            border: 1px solid #d1ecf1;
+            border-radius: 8px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .summary-item {
+            text-align: center;
+        }
+
+        .summary-item strong {
+            display: block;
+            font-size: 1.1em;
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+
+        .summary-item span {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .error-message {
+            color: #dc3545;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+
+        /* Hide number input arrows */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+           
+
+            
+
+            .subject-entry {
+                grid-template-columns: 1fr; /* Stack elements vertically */
+                gap: 10px;
+            }
+
+            .subject-entry .grade-select,
+            .subject-entry .credit-input {
+                width: 100%;
+            }
+
+            .subject-entry .remove-subject-btn {
+                margin-left: 0;
+                width: 100%;
+                text-align: right;
+            }
+
+            .summary-box {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .summary-item span {
+                font-size: 1.5em;
+            }
+
+            .calculate-btn {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    	<section class="hero">
+        <h1>GPA & CGPA Calculator Online</h1>
+        <p>Your Free Tool to Track Academic Performance Instantly!</p>
+    </section>
+
+        <div class="section-header">Previous CGPA (Optional)</div>
+        <div class="input-group">
+            <label for="prevCGPA">Previous CGPA (e.g., 8.5):</label>
+            <input type="number" id="prevCGPA" min="0" max="10" step="0.01" placeholder="Enter previous CGPA">
+        </div>
+        <div class="input-group">
+            <label for="prevCredits">Total Previous Credits (e.g., 80):</label>
+            <input type="number" id="prevCredits" min="0" step="any" placeholder="Enter total previous credits">
+        </div>
+
+        <div class="section-header">Current Semester Subjects</div>
+        <div id="subjectsContainer">
+            <div class="subject-entry">
+                <input type="text" class="subject-name-input" placeholder="Subject Name (Optional)">
+                <input type="number" class="credit-input" min="0" step="0.5" placeholder="Credits (e.g., 4)">
+                <select class="grade-select">
+                    <option value="">Select Grade</option>
+                    <option value="10">O (Outstanding)</option>
+                    <option value="9">A+ (Excellent)</option>
+                    <option value="8">A (Very Good)</option>
+                    <option value="7">B+ (Good)</option>
+                    <option value="6">B (Above Average)</option>
+                    <option value="5">C (Average)</option>
+                    <option value="4">P (Pass)</option>
+                    <option value="0">F (Fail)</option>
+                    <option value="0">Ab (Absent/Fail)</option>
+                </select>
+                <button type="button" class="remove-subject-btn" aria-label="Remove subject">&times;</button>
+            </div>
+        </div>
+        <button type="button" id="addSubjectBtn" class="add-subject-btn">Add Subject</button>
+
+        <button type="button" id="calculateBtn" class="calculate-btn">Calculate GPA & CGPA</button>
+
+        <div class="error-message" id="errorMessage">
+            Please fill in all credit hours and select grades for current subjects. Credits must be positive.
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h2>Results</h2>
+            <div class="summary-box">
+                <div class="summary-item">
+                    <strong>Current Semester GPA</strong>
+                    <span id="displayGPA">0.00</span>
+                </div>
+                <div class="summary-item">
+                    <strong>Cumulative CGPA</strong>
+                    <span id="displayCGPA">0.00</span>
+                </div>
+                <div class="summary-item">
+                    <strong>Total Current Credits</strong>
+                    <span id="displayCurrentCredits">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="blog">
+    <section>
+        <h2>What is a GPA & CGPA Calculator Tool?</h2>
+        <p>A **GPA (Grade Point Average) & CGPA (Cumulative Grade Point Average) calculator** is an essential online tool for students to accurately assess their academic performance. It allows you to compute:</p>
+        <ul>
+            <li>**GPA:** Your average grade points for a single academic period, such as a semester or term.</li>
+            <li>**CGPA:** Your overall average grade points accumulated across all completed academic periods.</li>
+        </ul>
+        
+        <img src="https://techaistudy.com/images/gpa-cgpa-calculator-process.webp" alt="GPA CGPA Calculation Process" style="max-width: 100%; display: block; margin: 20px auto;">
+        
+        <p>Our **free online GPA/CGPA calculator** simplifies the complex process of converting letter grades and credit hours into a single numerical score. This tool is invaluable for monitoring your progress, setting academic goals, applying for scholarships, or preparing for higher studies.</p>
+    
+        <p><strong>Key advantages:</strong> Calculates both GPA and CGPA, supports multiple courses, instant results, helps track academic standing, and completely free to use.</p>
+    </section>
+
+    <section>
+        <h2>Why Use Our Online GPA & CGPA Calculator?</h2>
+        <p>Maintaining a good GPA/CGPA is crucial for academic success and future opportunities:</p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>Monitor Academic Progress</h3>
+                <p>Stay informed about your performance in real-time, semester by semester.</p>
+            </div>
+            <div class="feature">
+                <h3>Set Grade Goals</h3>
+                <p>Understand what grades you need in upcoming courses to achieve a desired GPA/CGPA.</p>
+            </div>
+            <div class="feature">
+                <h3>Scholarship Applications</h3>
+                <p>Quickly determine if you meet the academic criteria for scholarships and grants.</p>
+            </div>
+            <div class="feature">
+                <h3>University Admissions</h3>
+                <p>Prepare accurate GPA/CGPA figures for college or postgraduate applications.</p>
+            </div>
+            <div class="feature">
+                <h3>Career Opportunities</h3>
+                <p>Many employers consider academic performance, especially for entry-level positions.</p>
+            </div>
+            <div class="feature">
+                <h3>Free & Convenient</h3>
+                <p>Access this valuable tool anytime, anywhere, on any device, without any cost.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>How to Use Our Free GPA & CGPA Calculator</h2>
+        <p>Calculating your GPA and CGPA is straightforward:</p>
+        
+        <h3>For GPA (Single Semester):</h3>
+        <div class="steps">
+            <div class="step">
+                <h3>1. Enter Course Details</h3>
+                <p>For each course, input the **Credit Hours** (e.g., 3, 4) and the **Letter Grade** or **Grade Points** earned (e.g., A, B+, 4.0, 3.5).</p>
+            </div>
+            <div class="step">
+                <h3>2. Add More Courses</h3>
+                <p>If you have more courses in the semester, click 'Add Course' to input additional rows.</p>
+            </div>
+            <div class="step">
+                <h3>3. Click Calculate GPA</h3>
+                <p>The tool will instantly display your GPA for that semester.</p>
+            </div>
+        </div>
+
+        <h3>For CGPA (Cumulative Overall):</h3>
+        <div class="steps">
+            <div class="step">
+                <h3>1. Enter Previous CGPA & Credits (Optional)</h3>
+                <p>If you have previous academic history, input your current **Cumulative Grade Points** and **Total Cumulative Credit Hours** (or previous CGPA and Total Credits).</p>
+            </div>
+            <div class="step">
+                <h3>2. Add Current Semester GPA Data</h3>
+                <p>Follow the steps for GPA calculation (as above) for your latest semester.</p>
+            </div>
+            <div class="step">
+                <h3>3. Click Calculate CGPA</h3>
+                <p>The calculator will combine your new semester's performance with your previous record to give you your updated overall CGPA.</p>
+            </div>
+        </div>
+        
+        <p>Ensure you select the correct grading scale or manually enter grade points as per your institution's system.</p>
+    </section>
+
+    <section>
+        <h2>Understanding GPA and CGPA Components</h2>
+        <p>Key terms you need to know for accurate calculations:</p>
+        
+        <div class="formats">
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/gpa-grade-points.svg" alt="Grade Points">
+                <span>Grade Points</span>
+                <p>Numerical value assigned to each letter grade (e.g., A=4.0, B=3.0, C=2.0).</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/gpa-credit-hours.svg" alt="Credit Hours">
+                <span>Credit Hours</span>
+                <p>Weight of a course, typically representing the amount of classroom or study time.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/gpa-total-grade-points.svg" alt="Total Grade Points">
+                <span>Total Grade Points</span>
+                <p>Sum of (Grade Points × Credit Hours) for all courses in a period.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/gpa-total-credit-hours.svg" alt="Total Credit Hours">
+                <span>Total Credit Hours</span>
+                <p>Sum of all credit hours attempted in a period.</p>
+            </div>
+        </div>
+        <p>Our calculator simplifies these inputs to provide accurate results.</p>
+    </section>
+
+    <section>
+        <h2>Formulas for GPA and CGPA</h2>
+        <p>The core calculations are based on simple, yet crucial, formulas:</p>
+        <ul>
+            <li>**GPA Formula:**
+                <br>$GPA = \frac{\text{Total Grade Points Earned in Semester}}{\text{Total Credit Hours Attempted in Semester}}$
+                <br>Example: (Course1 Grade Points * Course1 Credits) + (Course2 Grade Points * Course2 Credits) / (Course1 Credits + Course2 Credits)
+            </li>
+            <li>**CGPA Formula:**
+                <br>$CGPA = \frac{\text{Cumulative Total Grade Points Earned}}{\text{Cumulative Total Credit Hours Attempted}}$
+                <br>This means summing up all grade points from all semesters and dividing by the sum of all credit hours from all semesters.
+            </li>
+        </ul>
+        <p>Most institutions use a 4.0 scale for GPA/CGPA. Here's a common conversion for reference:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Letter Grade</th>
+                    <th>Grade Points (4.0 Scale)</th>
+                    <th>Percentage Range (Approx.)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A+</td>
+                    <td>4.0</td>
+                    <td>90-100%</td>
+                </tr>
+                <tr>
+                    <td>A</td>
+                    <td>4.0</td>
+                    <td>85-89%</td>
+                </tr>
+                <tr>
+                    <td>A-</td>
+                    <td>3.7</td>
+                    <td>80-84%</td>
+                </tr>
+                <tr>
+                    <td>B+</td>
+                    <td>3.3</td>
+                    <td>75-79%</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>3.0</td>
+                    <td>70-74%</td>
+                </tr>
+                <tr>
+                    <td>B-</td>
+                    <td>2.7</td>
+                    <td>65-69%</td>
+                </tr>
+                <tr>
+                    <td>C+</td>
+                    <td>2.3</td>
+                    <td>60-64%</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>2.0</td>
+                    <td>55-59%</td>
+                </tr>
+                <tr>
+                    <td>D</td>
+                    <td>1.0</td>
+                    <td>50-54%</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>0.0</td>
+                    <td>Below 50%</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Always refer to your university's official grading system for precise grade point values.</p>
+    </section>
+
+    <section>
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">Why is GPA/CGPA important?</div>
+            <p>GPA/CGPA is a standardized metric used by educational institutions, scholarship committees, and potential employers to quickly assess a student's academic performance and consistency. A strong GPA/CGPA can open doors to higher education, scholarships, internships, and job opportunities.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">What if my university uses a different grading scale (e.g., 5.0 or 10.0 scale)?</div>
+            <p>Our calculator primarily uses the 4.0 scale. If your university uses a different scale, you will need to manually input the corresponding grade points for each letter grade according to your institution's specific system. The calculation logic (total grade points / total credits) will remain the same.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Does this calculator factor in failed courses or withdrawn courses?</div>
+            <p>For GPA/CGPA, usually, **failed courses (F grades)** are included and count as 0 grade points, which negatively impacts your average. **Withdrawn courses (W)** typically do not count towards your GPA/CGPA, as they don't have associated grade points. Always confirm your institution's specific policy on such courses.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Is my academic information saved or tracked?</div>
+            <p>No, any course details or grade information you enter into the calculator are processed only in your web browser. We do not store or track any of your personal or academic data, ensuring complete privacy and security.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Can I calculate a "target GPA" to see what grades I need?</div>
+            <p>While this specific calculator gives you your current GPA/CGPA, you can use it to estimate. For example, if you know your current CGPA and total credits, you can input hypothetical grades for upcoming courses to see how they would affect your overall CGPA, helping you set targets.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Keywords</h2>
+        <p>Our GPA & CGPA Calculator is optimized for the following Google search terms:</p>
+        <ul>
+            <li>GPA calculator</li>
+            <li>CGPA calculator</li>
+            <li>online GPA calculator</li>
+            <li>free CGPA calculator</li>
+            <li>calculate GPA</li>
+            <li>calculate CGPA</li>
+            <li>grade point average calculator</li>
+            <li>cumulative grade point average calculator</li>
+            <li>academic performance calculator</li>
+            <li>university GPA calculator</li>
+            <li>college CGPA calculator</li>
+            <li>semester GPA calculation</li>
+            <li>overall CGPA calculation</li>
+            <li>grade calculation tool</li>
+            <li>how to calculate GPA</li>
+            <li>what is CGPA</li>
+            <li>grade point calculator</li>
+            <li>student GPA calculator</li>
+            <li>average grade calculator</li>
+            <li>marks to GPA converter</li>
+        </ul>
+    </section>
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const subjectsContainer = document.getElementById('subjectsContainer');
+            const addSubjectBtn = document.getElementById('addSubjectBtn');
+            const calculateBtn = document.getElementById('calculateBtn');
+            const errorMessage = document.getElementById('errorMessage');
+
+            const prevCGPAInput = document.getElementById('prevCGPA');
+            const prevCreditsInput = document.getElementById('prevCredits');
+
+            const resultsSection = document.getElementById('resultsSection');
+            const displayGPA = document.getElementById('displayGPA');
+            const displayCGPA = document.getElementById('displayCGPA');
+            const displayCurrentCredits = document.getElementById('displayCurrentCredits');
+
+            // Grade point mapping (example based on a 10-point scale)
+            const gradePoints = {
+                '10': 10, '9': 9, '8': 8, '7': 7, '6': 6, '5': 5, '4': 4, '0': 0
+            };
+
+            // Function to add a new subject input row
+            function addSubjectRow() {
+                const subjectEntry = document.createElement('div');
+                subjectEntry.classList.add('subject-entry');
+                subjectEntry.innerHTML = `
+                    <input type="text" class="subject-name-input" placeholder="Subject Name (Optional)">
+                    <input type="number" class="credit-input" min="0" step="0.5" placeholder="Credits (e.g., 4)">
+                    <select class="grade-select">
+                        <option value="">Select Grade</option>
+                        <option value="10">O (Outstanding)</option>
+                        <option value="9">A+ (Excellent)</option>
+                        <option value="8">A (Very Good)</option>
+                        <option value="7">B+ (Good)</option>
+                        <option value="6">B (Above Average)</option>
+                        <option value="5">C (Average)</option>
+                        <option value="4">P (Pass)</option>
+                        <option value="0">F (Fail)</option>
+                        <option value="0">Ab (Absent/Fail)</option>
+                    </select>
+                    <button type="button" class="remove-subject-btn" aria-label="Remove subject">&times;</button>
+                `;
+                subjectsContainer.appendChild(subjectEntry);
+
+                // Add event listener for the new remove button
+                subjectEntry.querySelector('.remove-subject-btn').addEventListener('click', () => {
+                    subjectsContainer.removeChild(subjectEntry);
+                    // Re-calculate after removing a subject, if values are present
+                    calculateGPA_CGPA();
+                });
+            }
+
+            // Initial subject row is already in HTML, so just attach event listener
+            subjectsContainer.querySelector('.remove-subject-btn').addEventListener('click', (e) => {
+                e.target.closest('.subject-entry').remove();
+                calculateGPA_CGPA();
+            });
+
+            addSubjectBtn.addEventListener('click', addSubjectRow);
+            calculateBtn.addEventListener('click', calculateGPA_CGPA);
+
+            // Function to calculate GPA and CGPA
+            function calculateGPA_CGPA() {
+                let totalGradePoints = 0;
+                let totalCredits = 0;
+                let isValid = true;
+
+                errorMessage.style.display = 'none'; // Hide previous errors
+
+                document.querySelectorAll('.subject-entry').forEach(entry => {
+                    const creditInput = entry.querySelector('.credit-input');
+                    const gradeSelect = entry.querySelector('.grade-select');
+
+                    const credits = parseFloat(creditInput.value);
+                    const gradeValue = gradeSelect.value;
+
+                    if (isNaN(credits) || credits <= 0 || gradeValue === '') {
+                        isValid = false;
+                    } else {
+                        const points = gradePoints[gradeValue];
+                        totalGradePoints += (credits * points);
+                        totalCredits += credits;
+                    }
+                });
+
+                if (!isValid) {
+                    errorMessage.style.display = 'block';
+                    resultsSection.style.display = 'none';
+                    return;
+                }
+
+                // --- Calculate GPA ---
+                let currentGPA = 0;
+                if (totalCredits > 0) {
+                    currentGPA = totalGradePoints / totalCredits;
+                }
+                displayGPA.textContent = currentGPA.toFixed(2);
+                displayCurrentCredits.textContent = totalCredits;
+
+                // --- Calculate CGPA ---
+                let cgpa = currentGPA; // Default to current GPA if no previous data
+
+                const prevCGPA = parseFloat(prevCGPAInput.value);
+                const prevCredits = parseFloat(prevCreditsInput.value);
+
+                const hasPrevData = !isNaN(prevCGPA) && prevCGPA >= 0 && prevCGPA <= 10 &&
+                                    !isNaN(prevCredits) && prevCredits >= 0;
+
+                if (hasPrevData && prevCredits > 0) {
+                    const prevTotalGradePoints = prevCGPA * prevCredits;
+                    const combinedTotalGradePoints = prevTotalGradePoints + totalGradePoints;
+                    const combinedTotalCredits = prevCredits + totalCredits;
+
+                    if (combinedTotalCredits > 0) {
+                        cgpa = combinedTotalGradePoints / combinedTotalCredits;
+                    } else {
+                        // This case should ideally not be hit if prevCredits > 0 or totalCredits > 0
+                        cgpa = 0;
+                    }
+                } else if (hasPrevData && prevCredits === 0 && prevCGPA > 0) {
+                     // If previous credits are 0 but CGPA is positive, it might indicate an invalid state,
+                     // or the very first semester. For simplicity, if prevCredits is 0, we treat it as no previous data.
+                     cgpa = currentGPA;
+                }
+
+                displayCGPA.textContent = cgpa.toFixed(2);
+                resultsSection.style.display = 'block';
+            }
+
+            // Attach input event listeners for real-time (or near real-time) updates
+            // Use 'input' for number/text and 'change' for select
+            document.querySelectorAll('.credit-input, .grade-select').forEach(input => {
+                input.addEventListener('input', calculateGPA_CGPA);
+                input.addEventListener('change', calculateGPA_CGPA); // For select elements
+            });
+            prevCGPAInput.addEventListener('input', calculateGPA_CGPA);
+            prevCreditsInput.addEventListener('input', calculateGPA_CGPA);
+
+            // Initial calculation on page load for default row
+            calculateGPA_CGPA();
+        });
+    </script>
+</body>
+</html>
