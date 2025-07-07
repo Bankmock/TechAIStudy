@@ -1,0 +1,682 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script defer src="../../js/component1.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://techaistudy.com/images/logo.webp" type="image/webp">  
+
+    <!-- Primary Meta Tags -->
+    <title>GST Calculator India - Accurate GST Calculation Tool | TechAI Study</title>
+    <meta name="description" content="Free online GST calculator for India with all tax slabs (5%, 12%, 18%, 28%). Calculate GST amount, reverse GST, inclusive/exclusive tax, and generate GST invoices instantly.">
+    <meta name="keywords" content="GST calculator, GST calculation tool, India GST calculator, GST amount calculator, reverse GST calculator, GST inclusive calculator, GST exclusive calculator, GST invoice generator, tax calculator India, TechAI Study">
+    <meta name="author" content="TechAI Study">
+    <link rel="canonical" href="https://techaistudy.com/calculator-tool/gst-calculator/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techaistudy.com/finance-tool/gst-calculator/">
+    <meta property="og:title" content="GST Calculator India - Accurate GST Calculation Tool | TechAI Study">
+    <meta property="og:description" content="Calculate GST for all slabs (5%, 12%, 18%, 28%) with our free online tool. Supports reverse calculation, invoice generation, and tax component breakdown.">
+    <meta property="og:image" content="https://techaistudy.com/images/gst-calculator.webp">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://techaistudy.com/calculator-tool/gst-calculator/">
+    <meta name="twitter:title" content="Free GST Calculator Online - India">
+    <meta name="twitter:description" content="Accurate GST calculation tool for all tax slabs. Calculate tax amount, reverse GST, and generate professional invoices instantly.">
+    <meta name="twitter:image" content="https://techaistudy.com/images/gst-calculator.webp">
+
+    <!-- Styles and Scripts -->
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/blogpost.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/gst-calculator.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+    <script src="../../js/ads.js"></script>
+    <script src="../../js/headerScript.js"></script>
+    <script src="../../js/googletrackingid.js"></script>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "GST Calculator India",
+      "url": "https://techaistudy.com/calculator-tool/gst-calculator/",
+      "description": "Free online GST calculator tool for India with all tax slabs (5%, 12%, 18%, 28%). Calculate GST amount, reverse GST, inclusive/exclusive tax, and generate GST invoices.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TechAI Study",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://techaistudy.com/images/logo.webp"
+        }
+      },
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is this GST calculator free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our GST calculator is completely free with no registration required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What GST slabs are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We support all India GST slabs: 0%, 5%, 12%, 18%, and 28% with cess calculations where applicable."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I calculate reverse GST?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our tool can calculate GST backwards from the total amount to find the base price and tax components."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this work for composition scheme?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we have a special composition scheme calculator for small businesses."
+            }
+          }
+        ]
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://techaistudy.com/calculator-tool/gst-calculator/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://techaistudy.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Finance Tools",
+        "item": "https://techaistudy.com/calculator-tool/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "GST Calculator India",
+        "item": "https://techaistudy.com/calculator-tool/gst-calculator/"
+      }]
+    }
+    </script>
+    <style>
+    
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        
+
+        .input-section {
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 22px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #4a4a4a;
+            font-size: 16px;
+        }
+
+        .input-group input[type="number"],
+        .input-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px; /* Slightly more rounded corners */
+            font-size: 17px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            -webkit-appearance: none;
+            -moz-appearance: textfield;
+            background-color: #fcfcfc;
+        }
+
+        .input-group input[type="number"]::-webkit-outer-spin-button,
+        .input-group input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .input-group input[type="number"]:focus,
+        .input-group select:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.25); /* Stronger focus halo */
+            outline: none;
+        }
+
+        .input-options {
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .checkbox-group,
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* More space for readability */
+        }
+
+        .checkbox-group label,
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            cursor: pointer;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .checkbox-group input[type="checkbox"],
+        .radio-group input[type="radio"] {
+            margin-right: 10px;
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+            accent-color: #3498db; /* Blue accent color for checkboxes/radios */
+        }
+
+        button#calculate-gst {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 16px 25px;
+            font-size: 19px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 700;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        }
+
+        button#calculate-gst:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        button#calculate-gst:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+        }
+
+        .results-section {
+            background: #eaf6ff; /* Lighter blue background for results */
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #cceeff; /* Light blue border */
+        }
+
+        .results-section h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #1a2a40;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #d0e7f7; /* Lighter dashed border */
+            font-size: 17px;
+            color: #444;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-item.breakdown {
+            font-size: 15px;
+            color: #666;
+            padding-left: 20px; /* Deeper indentation for breakdown */
+        }
+
+        .result-item.total {
+            font-weight: bold;
+            color: #007bff; /* Bright blue for total */
+            font-size: 20px;
+            margin-top: 15px;
+            border-top: 2px solid #a8d6ff; /* More prominent total divider */
+            padding-top: 18px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 550px) {
+            
+
+           
+
+            .input-group input[type="number"],
+            .input-group select {
+                padding: 12px 15px;
+                font-size: 16px;
+            }
+
+            button#calculate-gst {
+                font-size: 17px;
+                padding: 14px 20px;
+            }
+
+            .results-section {
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+            .result-item {
+                font-size: 16px;
+                padding: 10px 0;
+            }
+
+            .result-item.total {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .input-options {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .checkbox-group, .radio-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <section class="hero">
+        <h1>GST Calculator India</h1>
+        <p>Accurate GST calculation for all tax slabs (0.25%, 3%, 5%, 12%, 18%, 28%) - Free, Fast & Reliable!</p>
+    </secton>
+
+  <div class="input-section">
+            <div class="input-group">
+                <label for="amount">Amount (₹)</label>
+                <input type="number" id="amount" placeholder="Enter amount" value="1000">
+            </div>
+
+            <div class="input-group">
+                <label for="gst-slabs">GST Slab (%)</label>
+                <select id="gst-slabs">
+                	<option value="0.25">0.25%</option>
+                    <option value="3">3%</option>
+                    <option value="5">5%</option>
+                    <option value="12">12%</option>
+                    <option value="18" selected>18%</option>
+                    <option value="28">28%</option>
+                    <option value="0">0% (Exempt)</option>
+                </select>
+            </div>
+
+            <div class="input-options">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="include-cess">
+                    <label for="include-cess">Include Cess (1% for 28% slab)</label>
+                </div>
+
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="gst-type" value="exclude" checked> Exclude GST
+                    </label>
+                    <label>
+                        <input type="radio" name="gst-type" value="include"> Include GST
+                    </label>
+                </div>
+            </div>
+
+            <button id="calculate-gst">Calculate GST</button>
+        </div>
+
+        <div class="results-section">
+            <h3>Calculation Details</h3>
+            <div class="result-item">
+                <span>Original Amount:</span>
+                <span id="original-amount-display">₹0.00</span>
+            </div>
+            <div class="result-item">
+                <span>Total GST Amount:</span>
+                <span id="gst-total-amount">₹0.00</span>
+            </div>
+            <div class="result-item breakdown">
+                <span>CGST:</span>
+                <span id="cgst-amount">₹0.00</span>
+            </div>
+            <div class="result-item breakdown">
+                <span>SGST:</span>
+                <span id="sgst-amount">₹0.00</span>
+            </div>
+            <div class="result-item breakdown">
+                <span>IGST:</span>
+                <span id="igst-amount">₹0.00</span>
+            </div>
+            <div class="result-item breakdown">
+                <span>Cess:</span>
+                <span id="cess-amount">₹0.00</span>
+            </div>
+            <div class="result-item total">
+                <span>Final Amount:</span>
+                <span id="final-amount">₹0.00</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blog">
+    <section>
+        <h2>What is a GST Calculator?</h2>
+        <p>A GST calculator is an essential tool for businesses and individuals in India to accurately compute Goods and Services Tax (GST) amounts. Our free online GST calculator helps you determine the exact tax payable under different GST slabs (5%, 12%, 18%, 28%) and generates professional invoices compliant with Indian tax regulations.</p>
+        
+        <img src="https://techaistudy.com/images/gst-calculation-process.webp" alt="GST Calculation Process" style="max-width: 100%; display: block; margin: 20px auto;">
+        
+        <p>Unlike basic calculators, our comprehensive tool supports multiple calculation methods including standard GST calculation, reverse GST calculation, composition scheme tax computation, and invoice generation. Whether you're a business owner, accountant, or consumer, our GST calculator simplifies tax compliance and financial planning.</p>
+    
+        <p><strong>Key features:</strong> All GST slabs supported, reverse calculation capability, composition scheme calculator, professional invoice generator, mobile-friendly interface, and 100% accurate calculations as per Indian tax laws.</p>
+    </section>
+
+    <section>
+        <h2>Why Use Our GST Calculator?</h2>
+        <p>Our GST calculator offers significant advantages for businesses and individuals:</p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>Accuracy Guaranteed</h3>
+                <p>Precise calculations as per latest GST rules and tax slabs.</p>
+            </div>
+            <div class="feature">
+                <h3>Time Saving</h3>
+                <p>Instant results eliminate manual calculation errors.</p>
+            </div>
+            <div class="feature">
+                <h3>Comprehensive Features</h3>
+                <p>Standard, reverse, composition, and invoice tools in one place.</p>
+            </div>
+            <div class="feature">
+                <h3>Mobile Friendly</h3>
+                <p>Works perfectly on smartphones, tablets, and desktops.</p>
+            </div>
+            <div class="feature">
+                <h3>No Registration</h3>
+                <p>Free to use without any signup requirements.</p>
+            </div>
+            <div class="feature">
+                <h3>Professional Invoices</h3>
+                <p>Generate GST-compliant invoices instantly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>How to Calculate GST</h2>
+        <p>Using our GST calculator is simple and straightforward:</p>
+        
+        <div class="steps">
+            <div class="step">
+                <h3>Select Calculation Type</h3>
+                <p>Choose between standard, reverse, composition, or invoice.</p>
+            </div>
+            <div class="step">
+                <h3>Enter Amount</h3>
+                <p>Input the base amount or total amount as required.</p>
+            </div>
+            <div class="step">
+                <h3>Select GST Rate</h3>
+                <p>Pick the applicable GST slab (5%, 12%, 18%, or 28%).</p>
+            </div>
+            <div class="step">
+                <h3>Get Results</h3>
+                <p>View detailed breakdown of tax components instantly.</p>
+            </div>
+        </div>
+        
+        <p>For invoices, simply fill in customer details, item description, quantity, rate, and GST percentage to generate professional GST invoices ready for printing or download.</p>
+    </section>
+
+    <section>
+        <h2>Understanding GST Calculation Methods</h2>
+        <p>Our calculator supports all GST calculation approaches:</p>
+        
+        <div class="methods">
+            <div class="method">
+                <h3>Standard GST Calculation</h3>
+                <p>Calculates tax amount from base price: <br>Base Price × (GST%/100) = GST Amount</p>
+            </div>
+            <div class="method">
+                <h3>Reverse GST Calculation</h3>
+                <p>Extracts base price from total: <br>Total Amount ÷ (1 + GST%/100) = Base Price</p>
+            </div>
+            <div class="method">
+                <h3>Composition Scheme</h3>
+                <p>For small businesses: <br>Turnover × Composition Rate = Tax Liability</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>GST Slabs in India</h2>
+        <p>Our calculator supports all current GST tax slabs:</p>
+        
+        <div class="gst-slabs">
+            <div class="slab">
+                <span class="rate">0%</span>
+                <h3>Exempted Goods</h3>
+                <p>Essential items like fresh food, milk, books, etc.</p>
+            </div>
+            <div class="slab">
+                <span class="rate">5%</span>
+                <h3>Common Goods</h3>
+                <p>Transport, economy hotels, small restaurants</p>
+            </div>
+            <div class="slab">
+                <span class="rate">12%</span>
+                <h3>Processed Foods</h3>
+                <p>Computers, mobile phones, business class air tickets</p>
+            </div>
+            <div class="slab">
+                <span class="rate">18%</span>
+                <h3>Standard Rate</h3>
+                <p>Most goods and services fall under this category</p>
+            </div>
+            <div class="slab">
+                <span class="rate">28%</span>
+                <h3>Luxury Items</h3>
+                <p>Automobiles, luxury hotels, tobacco, aerated drinks</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">What's the difference between CGST, SGST and IGST?</div>
+            <p>CGST (Central GST) and SGST (State GST) apply to intra-state transactions, while IGST (Integrated GST) applies to inter-state transactions. Our calculator automatically determines the correct tax type based on your needs.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">How accurate is this GST calculator?</div>
+            <p>Our calculator provides 100% accurate results based on current Indian GST laws and is regularly updated with any tax rate changes.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Can I calculate GST for multiple items?</div>
+            <p>Yes, our invoice generator allows adding multiple line items with different GST rates to calculate the total tax amount.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Is this calculator suitable for businesses?</div>
+            <p>Absolutely! Many small and medium businesses use our tool for daily GST calculations and invoice generation.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">How do I print or save the GST invoice?</div>
+            <p>After generating an invoice, use your browser's print function (Ctrl+P) to print or save as PDF.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Is there a mobile app version?</div>
+            <p>Our web-based calculator works perfectly on all mobile browsers. No app installation needed.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Keywords</h2>
+        <p>Our GST Calculator is optimized for these search terms:</p>
+        <ul>
+            <li>GST calculator</li>
+            <li>GST calculation tool</li>
+            <li>India GST calculator</li>
+            <li>GST amount calculator</li>
+            <li>reverse GST calculator</li>
+            <li>GST inclusive calculator</li>
+            <li>GST exclusive calculator</li>
+            <li>GST invoice generator</li>
+            <li>tax calculator India</li>
+            <li>GST 18% calculator</li>
+            <li>GST 5% calculator</li>
+            <li>GST 12% calculator</li>
+            <li>GST 28% calculator</li>
+            <li>composition scheme calculator</li>
+            <li>online GST tool</li>
+        </ul>
+    </section>
+</div>
+
+<script>
+        // JavaScript Logic - Embedded Directly
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all necessary DOM elements
+            const amountInput = document.getElementById('amount');
+            const gstSlabs = document.getElementById('gst-slabs');
+            const includeCessCheckbox = document.getElementById('include-cess');
+            const gstTypeRadios = document.querySelectorAll('input[name="gst-type"]');
+            const calculateBtn = document.getElementById('calculate-gst');
+
+            const originalAmountDisplay = document.getElementById('original-amount-display');
+            const gstTotalAmountDisplay = document.getElementById('gst-total-amount');
+            const cgstAmountDisplay = document.getElementById('cgst-amount');
+            const sgstAmountDisplay = document.getElementById('sgst-amount');
+            const igstAmountDisplay = document.getElementById('igst-amount');
+            const cessAmountDisplay = document.getElementById('cess-amount');
+            const finalAmountDisplay = document.getElementById('final-amount');
+
+            // Function to perform the GST calculation
+            function calculateGST() {
+                let amount = parseFloat(amountInput.value) || 0; // Get the input amount
+                const gstRate = parseFloat(gstSlabs.value); // Get the selected GST slab rate
+                const includeCess = includeCessCheckbox.checked; // Check if cess is to be included
+                const gstType = document.querySelector('input[name="gst-type"]:checked').value; // 'include' or 'exclude'
+
+                // Initialize variables for results
+                let baseAmount = 0;
+                let totalGSTAmount = 0;
+                let cgst = 0;
+                let sgst = 0;
+                let igst = 0;
+                let cess = 0;
+                let finalAmount = 0;
+
+                // Convert GST rate to a decimal
+                const effectiveGstRate = gstRate / 100;
+                let effectiveCessRate = 0; // Initialize cess rate
+
+                // Determine cess rate if applicable (e.g., 1% for 28% slab)
+                if (gstRate === 28 && includeCess) {
+                    effectiveCessRate = 0.01; // 1% cess
+                }
+
+                if (gstType === 'exclude') {
+                    // If "Exclude GST" is selected, 'amount' is the base price
+                    baseAmount = amount;
+                    totalGSTAmount = baseAmount * effectiveGstRate;
+                    cess = baseAmount * effectiveCessRate;
+                    finalAmount = baseAmount + totalGSTAmount + cess;
+                } else { // gstType === 'include'
+                    // If "Include GST" is selected, 'amount' is the final price (incl. GST & Cess)
+                    finalAmount = amount;
+                    // Formula to reverse calculate base amount: Final Amount / (1 + GST Rate + Cess Rate)
+                    baseAmount = finalAmount / (1 + effectiveGstRate + effectiveCessRate);
+                    totalGSTAmount = baseAmount * effectiveGstRate;
+                    cess = baseAmount * effectiveCessRate;
+                }
+
+                // Calculate CGST, SGST, and IGST components
+                if (gstRate === 0) {
+                    // If GST rate is 0%, all tax components are 0
+                    cgst = 0;
+                    sgst = 0;
+                    igst = 0;
+                } else {
+                    // For simplicity, we assume IGST is the full GST amount
+                    // If you need to distinguish between CGST/SGST (intra-state) and IGST (inter-state)
+                    // based on user input (e.g., location), you would add more logic here.
+                    igst = totalGSTAmount;
+                    cgst = totalGSTAmount / 2; // CGST is half of total GST
+                    sgst = totalGSTAmount / 2; // SGST is half of total GST
+                }
+
+                // Update the display elements with the calculated values, formatted to two decimal places
+                originalAmountDisplay.textContent = '₹' + baseAmount.toFixed(2);
+                gstTotalAmountDisplay.textContent = '₹' + totalGSTAmount.toFixed(2);
+                cgstAmountDisplay.textContent = '₹' + cgst.toFixed(2);
+                sgstAmountDisplay.textContent = '₹' + sgst.toFixed(2);
+                igstAmountDisplay.textContent = '₹' + igst.toFixed(2);
+                cessAmountDisplay.textContent = '₹' + cess.toFixed(2);
+                finalAmountDisplay.textContent = '₹' + finalAmount.toFixed(2);
+            }
+
+            // Add event listeners to trigger calculation on input changes
+            amountInput.addEventListener('input', calculateGST); // When amount changes
+            gstSlabs.addEventListener('change', calculateGST); // When GST slab changes
+            includeCessCheckbox.addEventListener('change', calculateGST); // When cess checkbox changes
+            gstTypeRadios.forEach(radio => {
+                radio.addEventListener('change', calculateGST); // When 'Include/Exclude GST' radio button changes
+            });
+            calculateBtn.addEventListener('click', calculateGST); // When the calculate button is clicked
+
+            // Perform an initial calculation when the page loads to display default values
+            calculateGST();
+        });
+    </script>
+</body>
+</html>
