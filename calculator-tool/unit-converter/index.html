@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script defer src="../../js/component1.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://techaistudy.com/images/logo.webp" type="image/webp">  
+
+    <title>Unit Converter Online - Free & Universal Conversion Tool | TechAI Study</title>
+    <meta name="description" content="Convert any unit instantly with our free online unit converter. Supports length, weight, volume, temperature, speed, time, and more. Essential for students, engineers, and daily use.">
+    <meta name="keywords" content="unit converter, online unit converter, free unit converter, convert units, measurement converter, length converter, weight converter, volume converter, temperature converter, speed converter, time converter, universal converter, metric to imperial, imperial to metric, TechAI Study">
+    <meta name="author" content="TechAI Study">
+    <link rel="canonical" href="https://techaistudy.com/calculator-tool/unit-converter/" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techaistudy.com/calculator-tool/unit-converter/">
+    <meta property="og:title" content="Unit Converter Online - Free & Universal Conversion Tool | TechAI Study">
+    <meta property="og:description" content="Effortlessly convert between various units of measurement. Our comprehensive online unit converter handles everything from miles to kilometers, pounds to kilograms, Celsius to Fahrenheit, and more.">
+    <meta property="og:image" content="https://techaistudy.com/images/unit-converter.webp">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://techaistudy.com/utility-tool/unit-converter/">
+    <meta name="twitter:title" content="Free Online Unit Converter - All Measurement Conversions">
+    <meta name="twitter:description" content="Need to convert measurements? Our versatile unit converter offers quick and accurate conversions for length, weight, volume, temperature, and many other units.">
+    <meta property="twitter:image" content="https://techaistudy.com/images/unit-converter.webp">
+
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/blogpost.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+    <script src="../../js/ads.js"></script>
+    <script src="../../js/headerScript.js"></script>
+    <script src="../../js/googletrackingid.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Unit Converter Online",
+      "url": "https://techaistudy.com/calculator-tool/unit-converter/",
+      "description": "Free online tool for converting various units of measurement including length, weight, volume, temperature, and more, between metric and imperial systems.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TechAI Study",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://techaistudy.com/images/logo.webp"
+        }
+      },
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What types of units can I convert?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our unit converter supports a wide range of categories including length, weight/mass, volume, temperature, speed, time, area, energy, power, pressure, digital storage, and more."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this unit converter free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our online unit converter is completely free to use for unlimited conversions across all supported categories, with no hidden costs or registration required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How accurate are the conversions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our calculator uses industry-standard conversion factors to ensure high accuracy. Results are typically displayed with sufficient decimal places for precision."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I convert between metric and imperial systems?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our unit converter is designed to facilitate seamless conversions between metric (e.g., meters, kilograms) and imperial (e.g., feet, pounds) units, as well as other common systems."
+            }
+          }
+        ]
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://techaistudy.com/utility-tool/unit-converter/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://techaistudy.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Utility Tools",
+        "item": "https://techaistudy.com/calculator-tool/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Unit Converter",
+        "item": "https://techaistudy.com/calculator-tool/unit-converter/"
+      }]
+    }
+    </script>
+    <style>
+        
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e0e0e0;
+            flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+            gap: 5px; /* Space between wrapped tabs */
+        }
+
+        .tab-button {
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #777;
+            border: none;
+            background: none;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            position: relative;
+            outline: none;
+        }
+
+        .tab-button.active {
+            color: #007bff;
+            border-bottom: 3px solid #007bff;
+            font-weight: 600;
+        }
+
+        .tab-button:hover:not(.active) {
+            color: #0056b3;
+        }
+
+        .converter-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .converter-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .input-group label {
+            font-weight: 600;
+            color: #555;
+            font-size: 0.95em;
+            flex-shrink: 0;
+        }
+
+        .input-group input[type="number"],
+        .input-group select {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #cdd5df;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            max-width: 200px; /* Limit input/select width */
+        }
+
+        .input-group select {
+            cursor: pointer;
+            background-color: #fcfdfe;
+        }
+
+        .input-group input[type="number"]:focus,
+        .input-group select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+        .result-box {
+            background-color: #f8fcfd;
+            border: 1px solid #d1ecf1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2c3e50;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow result text to wrap */
+        }
+
+        .result-box.error {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+
+        /* Hide number input arrows */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .tabs {
+                flex-direction: column; /* Stack tabs vertically */
+                align-items: center;
+                border-bottom: none;
+            }
+
+            .tab-button {
+                width: 90%; /* Make tabs wider */
+                margin-bottom: 5px; /* Space between stacked tabs */
+                border-bottom: 2px solid #e0e0e0;
+            }
+
+            .tab-button.active {
+                border-bottom: 3px solid #007bff;
+            }
+
+
+            .input-group {
+                flex-direction: column; /* Stack input elements */
+                align-items: flex-start; /* Align labels/inputs to start */
+                gap: 10px;
+            }
+
+            .input-group label {
+                width: 100%; /* Make labels take full width */
+                text-align: left;
+            }
+
+            .input-group input[type="number"],
+            .input-group select {
+                width: 100%; /* Make inputs/selects take full width */
+                max-width: none;
+            }
+
+            .result-box {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+    	<section class="hero">
+        <h1>Unit Converter Online</h1>
+        <p>Your Free & Universal Tool for All Measurement Conversions!</p>
+    </section>
+        <div class="tabs">
+            <button class="tab-button active" data-category="length">Length</button>
+            <button class="tab-button" data-category="mass">Mass</button>
+            <button class="tab-button" data-category="temperature">Temperature</button>
+            <button class="tab-button" data-category="volume">Volume</button>
+            <button class="tab-button" data-category="time">Time</button>
+        </div>
+
+        <div id="length" class="converter-content active">
+            <div class="input-group">
+                <input type="number" id="length-value" placeholder="Enter value" step="any">
+                <select id="length-from-unit">
+                    <option value="meter">Meter (m)</option>
+                    <option value="kilometer">Kilometer (km)</option>
+                    <option value="centimeter">Centimeter (cm)</option>
+                    <option value="millimeter">Millimeter (mm)</option>
+                    <option value="mile">Mile (mi)</option>
+                    <option value="yard">Yard (yd)</option>
+                    <option value="foot">Foot (ft)</option>
+                    <option value="inch">Inch (in)</option>
+                </select>
+                <span>to</span>
+                <select id="length-to-unit">
+                    <option value="kilometer">Kilometer (km)</option>
+                    <option value="meter" selected>Meter (m)</option>
+                    <option value="centimeter">Centimeter (cm)</option>
+                    <option value="millimeter">Millimeter (mm)</option>
+                    <option value="mile">Mile (mi)</option>
+                    <option value="yard">Yard (yd)</option>
+                    <option value="foot">Foot (ft)</option>
+                    <option value="inch">Inch (in)</option>
+                </select>
+            </div>
+            <div class="result-box" id="length-result">
+                <p>Enter a value to convert.</p>
+            </div>
+        </div>
+
+        <div id="mass" class="converter-content">
+            <div class="input-group">
+                <input type="number" id="mass-value" placeholder="Enter value" step="any">
+                <select id="mass-from-unit">
+                    <option value="kilogram">Kilogram (kg)</option>
+                    <option value="gram">Gram (g)</option>
+                    <option value="milligram">Milligram (mg)</option>
+                    <option value="tonne">Tonne (t)</option>
+                    <option value="pound">Pound (lb)</option>
+                    <option value="ounce">Ounce (oz)</option>
+                </select>
+                <span>to</span>
+                <select id="mass-to-unit">
+                    <option value="gram">Gram (g)</option>
+                    <option value="kilogram" selected>Kilogram (kg)</option>
+                    <option value="milligram">Milligram (mg)</option>
+                    <option value="tonne">Tonne (t)</option>
+                    <option value="pound">Pound (lb)</option>
+                    <option value="ounce">Ounce (oz)</option>
+                </select>
+            </div>
+            <div class="result-box" id="mass-result">
+                <p>Enter a value to convert.</p>
+            </div>
+        </div>
+
+        <div id="temperature" class="converter-content">
+            <div class="input-group">
+                <input type="number" id="temperature-value" placeholder="Enter value" step="any">
+                <select id="temperature-from-unit">
+                    <option value="celsius">Celsius (°C)</option>
+                    <option value="fahrenheit">Fahrenheit (°F)</option>
+                    <option value="kelvin">Kelvin (K)</option>
+                </select>
+                <span>to</span>
+                <select id="temperature-to-unit">
+                    <option value="fahrenheit">Fahrenheit (°F)</option>
+                    <option value="celsius" selected>Celsius (°C)</option>
+                    <option value="kelvin">Kelvin (K)</option>
+                </select>
+            </div>
+            <div class="result-box" id="temperature-result">
+                <p>Enter a value to convert.</p>
+            </div>
+        </div>
+
+        <div id="volume" class="converter-content">
+            <div class="input-group">
+                <input type="number" id="volume-value" placeholder="Enter value" step="any">
+                <select id="volume-from-unit">
+                    <option value="liter">Liter (L)</option>
+                    <option value="milliliter">Milliliter (ml)</option>
+                    <option value="cubic_meter">Cubic Meter (m³)</option>
+                    <option value="gallon">US Gallon (gal)</option>
+                    <option value="quart">US Quart (qt)</option>
+                    <option value="pint">US Pint (pt)</option>
+                    <option value="cup">US Cup</option>
+                    <option value="fluid_ounce">US Fluid Ounce (fl oz)</option>
+                </select>
+                <span>to</span>
+                <select id="volume-to-unit">
+                    <option value="milliliter">Milliliter (ml)</option>
+                    <option value="liter" selected>Liter (L)</option>
+                    <option value="cubic_meter">Cubic Meter (m³)</option>
+                    <option value="gallon">US Gallon (gal)</option>
+                    <option value="quart">US Quart (qt)</option>
+                    <option value="pint">US Pint (pt)</option>
+                    <option value="cup">US Cup</option>
+                    <option value="fluid_ounce">US Fluid Ounce (fl oz)</option>
+                </select>
+            </div>
+            <div class="result-box" id="volume-result">
+                <p>Enter a value to convert.</p>
+            </div>
+        </div>
+
+        <div id="time" class="converter-content">
+            <div class="input-group">
+                <input type="number" id="time-value" placeholder="Enter value" step="any">
+                <select id="time-from-unit">
+                    <option value="second">Second (s)</option>
+                    <option value="minute">Minute (min)</option>
+                    <option value="hour">Hour (hr)</option>
+                    <option value="day">Day (d)</option>
+                    <option value="week">Week (wk)</option>
+                    <option value="month">Month (approx.)</option>
+                    <option value="year">Year (approx.)</option>
+                </select>
+                <span>to</span>
+                <select id="time-to-unit">
+                    <option value="minute">Minute (min)</option>
+                    <option value="second" selected>Second (s)</option>
+                    <option value="hour">Hour (hr)</option>
+                    <option value="day">Day (d)</option>
+                    <option value="week">Week (wk)</option>
+                    <option value="month">Month (approx.)</option>
+                    <option value="year">Year (approx.)</option>
+                </select>
+            </div>
+            <div class="result-box" id="time-result">
+                <p>Enter a value to convert.</p>
+            </div>
+        </div>
+
+    </div>
+<div class="blog">
+    <section>
+        <h2>What is a Unit Converter Tool?</h2>
+        <p>A **unit converter** is an essential online utility that facilitates the seamless conversion of various units of measurement from one system to another. From everyday needs like converting miles to kilometers or pounds to kilograms, to more complex scientific or engineering conversions, this tool handles it all with precision.</p>
+        
+        <img src="https://techaistudy.com/images/unit-converter-process.webp" alt="Unit Conversion Process" style="max-width: 100%; display: block; margin: 20px auto;">
+        
+        <p>Our **free online unit converter** is designed to be comprehensive and user-friendly, supporting a vast array of measurement categories including length, weight, volume, temperature, speed, time, area, and many more. It's an invaluable resource for students, travelers, professionals, and anyone who frequently encounters different measurement systems.</p>
+    
+        <p><strong>Key advantages:</strong> Supports numerous unit categories, high accuracy, instant results, easy metric to imperial conversion, and completely free to use.</p>
+    </section>
+
+    <section>
+        <h2>Why Use Our Online Unit Converter?</h2>
+        <p>In a world with diverse measurement systems, a reliable unit converter is indispensable:</p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>Global Compatibility</h3>
+                <p>Bridge the gap between metric and imperial systems, essential for international travel, trade, and communication.</p>
+            </div>
+            <div class="feature">
+                <h3>Accuracy & Precision</h3>
+                <p>Ensure correct calculations for academic, professional, or personal projects, preventing costly errors.</p>
+            </div>
+            <div class="feature">
+                <h3>Time-Saving</h3>
+                <p>Perform complex conversions instantly, saving significant time compared to manual lookups and calculations.</p>
+            </div>
+            <div class="feature">
+                <h3>Educational Aid</h3>
+                <p>A great resource for students learning about different units and conversion factors.</p>
+            </div>
+            <div class="feature">
+                <h3>Versatile Applications</h3>
+                <p>Useful across various fields: cooking, engineering, science, travel, shopping, and more.</p>
+            </div>
+            <div class="feature">
+                <h3>Free & Convenient</h3>
+                <p>Access this powerful tool anytime, anywhere, on any device without any cost.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>How to Use Our Free Unit Converter</h2>
+        <p>Converting units is straightforward with our intuitive tool:</p>
+        
+        <div class="steps">
+            <div class="step">
+                <h3>1. Select Category</h3>
+                <p>Choose the type of measurement you want to convert (e.g., Length, Weight, Temperature).</p>
+            </div>
+            <div class="step">
+                <h3>2. Enter Value</h3>
+                <p>Input the numerical value you wish to convert.</p>
+            </div>
+            <div class="step">
+                <h3>3. Select 'From' Unit</h3>
+                <p>Choose the original unit of your value (e.g., Meters, Pounds, Celsius).</p>
+            </div>
+            <div class="step">
+                <h3>4. Select 'To' Unit</h3>
+                <p>Choose the desired unit for conversion (e.g., Kilometers, Kilograms, Fahrenheit).</p>
+            </div>
+            <div class="step">
+                <h3>View Instant Result</h3>
+                <p>The converted value will appear immediately, accurately displayed.</p>
+            </div>
+        </div>
+        
+        <p>Our converter updates in real-time as you make selections and input values, providing a seamless user experience.</p>
+    </section>
+
+    <section>
+        <h2>Supported Unit Conversion Categories</h2>
+        <p>Our comprehensive unit converter covers a wide array of measurement types:</p>
+        
+        <div class="formats">
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/unit-length.svg" alt="Length Converter">
+                <span>Length</span>
+                <p>Convert kilometers, miles, meters, feet, inches, centimeters, millimeters, yards, etc.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/unit-weight.svg" alt="Weight Converter">
+                <span>Weight/Mass</span>
+                <p>Convert kilograms, pounds, grams, ounces, metric tons, stones, etc.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/unit-volume.svg" alt="Volume Converter">
+                <span>Volume</span>
+                <p>Convert liters, gallons, milliliters, cubic meters, cubic feet, pints, quarts, etc.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/unit-temperature.svg" alt="Temperature Converter">
+                <span>Temperature</span>
+                <p>Convert Celsius, Fahrenheit, Kelvin, and Rankine scales.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/unit-speed.svg" alt="Speed Converter">
+                <span>Speed</span>
+                <p>Convert kilometers per hour, miles per hour, meters per second, knots, etc.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/unit-time.svg" alt="Time Converter">
+                <span>Time</span>
+                <p>Convert seconds, minutes, hours, days, weeks, months, years, etc.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/unit-area.svg" alt="Area Converter">
+                <span>Area</span>
+                <p>Convert square meters, square feet, acres, hectares, square miles, etc.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/unit-data.svg" alt="Digital Storage Converter">
+                <span>Digital Storage</span>
+                <p>Convert bits, bytes, kilobytes, megabytes, gigabytes, terabytes, etc.</p>
+            </div>
+        </div>
+        <p>And many more categories for energy, pressure, power, frequency, fuel efficiency, etc.</p>
+    </section>
+
+    <section>
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">What is the difference between metric and imperial units?</div>
+            <p>The metric system (e.g., meters, kilograms, liters) is a decimal-based system used by most countries worldwide. The imperial system (e.g., feet, pounds, gallons) is primarily used in the United States and a few other nations.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Are the conversion factors always up-to-date?</div>
+            <p>Our converter uses standard, internationally recognized conversion factors which are stable. We regularly review and update our tools to ensure the highest accuracy based on the latest standards.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Can I use this converter on my mobile phone?</div>
+            <p>Yes, our online unit converter is fully responsive and optimized for mobile devices. You can easily access and use it on your smartphone or tablet with no issues.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Does it support scientific notation for very large or small numbers?</div>
+            <p>While the input might vary based on your device's keyboard, our calculator generally handles a wide range of numerical values. For extremely large or small numbers, the output might be displayed in scientific notation for readability.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Is my input data secure?</div>
+            <p>Yes, your input data is completely secure. All calculations are performed directly within your web browser. No information you enter is transmitted to our servers or stored in any way, ensuring your privacy.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Why do I sometimes get slightly different results from other converters?</div>
+            <p>Minor differences can sometimes occur due to variations in the number of decimal places used in conversion factors by different calculators. Our tool aims for high precision to provide reliable results.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Keywords</h2>
+        <p>Our Unit Converter is optimized for the following Google search terms:</p>
+        <ul>
+            <li>unit converter</li>
+            <li>online unit converter</li>
+            <li>free unit converter</li>
+            <li>convert units</li>
+            <li>measurement converter</li>
+            <li>length converter</li>
+            <li>weight converter</li>
+            <li>volume converter</li>
+            <li>temperature converter</li>
+            <li>speed converter</li>
+            <li>time converter</li>
+            <li>area converter</li>
+            <li>data storage converter</li>
+            <li>metric to imperial converter</li>
+            <li>imperial to metric converter</li>
+            <li>universal converter</li>
+            <li>conversion calculator</li>
+            <li>unit conversion tool</li>
+            <li>online measurement tool</li>
+            <li>conversion of units</li>
+        </ul>
+    </section>
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-button');
+            const converterContents = document.querySelectorAll('.converter-content');
+
+            // Unit conversion rates (relative to a base unit)
+            // For Length, base is meter
+            const lengthUnits = {
+                'meter': 1,
+                'kilometer': 1000,
+                'centimeter': 0.01,
+                'millimeter': 0.001,
+                'mile': 1609.34,
+                'yard': 0.9144,
+                'foot': 0.3048,
+                'inch': 0.0254
+            };
+
+            // For Mass, base is gram
+            const massUnits = {
+                'gram': 1,
+                'kilogram': 1000,
+                'milligram': 0.001,
+                'tonne': 1000000, // metric ton
+                'pound': 453.592,
+                'ounce': 28.3495
+            };
+
+            // For Volume, base is liter
+            const volumeUnits = {
+                'liter': 1,
+                'milliliter': 0.001,
+                'cubic_meter': 1000,
+                'gallon': 3.78541, // US liquid gallon
+                'quart': 0.946353, // US liquid quart
+                'pint': 0.473176, // US liquid pint
+                'cup': 0.236588, // US cup (236.588 ml)
+                'fluid_ounce': 0.0295735 // US fluid ounce (29.5735 ml)
+            };
+
+            // For Time, base is second
+            const timeUnits = {
+                'second': 1,
+                'minute': 60,
+                'hour': 3600,
+                'day': 86400,
+                'week': 604800,
+                'month': 2629800, // Approx (30.4375 days/month * 24 * 3600 seconds/day)
+                'year': 31557600  // Approx (365.25 days/year * 24 * 3600 seconds/day)
+            };
+
+            // Event listener for tab switching
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const category = tab.dataset.category;
+
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    converterContents.forEach(content => {
+                        if (content.id === category) {
+                            content.classList.add('active');
+                            // Reset result and input on tab switch
+                            const resultBox = content.querySelector('.result-box');
+                            const valueInput = content.querySelector('input[type="number"]');
+                            resultBox.innerHTML = '<p>Enter a value to convert.</p>';
+                            resultBox.classList.remove('error');
+                            valueInput.value = '';
+                            // Trigger conversion for the new active tab in case default values are set
+                            const event = new Event('input');
+                            valueInput.dispatchEvent(event);
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // Universal conversion function
+            function convertUnit(value, fromUnit, toUnit, unitRates, resultElement) {
+                if (value === '' || isNaN(value)) {
+                    resultElement.innerHTML = '<p>Please enter a valid number.</p>';
+                    resultElement.classList.add('error');
+                    return;
+                }
+
+                resultElement.classList.remove('error'); // Clear previous error
+
+                // Handle temperature separately as it's not linear
+                if (resultElement.id.includes('temperature')) {
+                    let convertedValue;
+                    // Convert to Celsius first
+                    let valInCelsius;
+                    if (fromUnit === 'celsius') {
+                        valInCelsius = value;
+                    } else if (fromUnit === 'fahrenheit') {
+                        valInCelsius = (value - 32) * 5 / 9;
+                    } else if (fromUnit === 'kelvin') {
+                        valInCelsius = value - 273.15;
+                    }
+
+                    // Convert from Celsius to target unit
+                    if (toUnit === 'celsius') {
+                        convertedValue = valInCelsius;
+                    } else if (toUnit === 'fahrenheit') {
+                        convertedValue = (valInCelsius * 9 / 5) + 32;
+                    } else if (toUnit === 'kelvin') {
+                        convertedValue = valInCelsius + 273.15;
+                    }
+                    resultElement.innerHTML = `<p>${value.toLocaleString()} ${getUnitSymbol(fromUnit)} = <strong>${convertedValue.toLocaleString(undefined, { maximumFractionDigits: 4 })} ${getUnitSymbol(toUnit)}</strong></p>`;
+
+                } else {
+                    // All other linear conversions
+                    const valueInBase = value * unitRates[fromUnit];
+                    const convertedValue = valueInBase / unitRates[toUnit];
+                    resultElement.innerHTML = `<p>${value.toLocaleString()} ${getUnitSymbol(fromUnit)} = <strong>${convertedValue.toLocaleString(undefined, { maximumFractionDigits: 4 })} ${getUnitSymbol(toUnit)}</strong></p>`;
+                }
+            }
+
+            // Helper to get unit symbols for display
+            function getUnitSymbol(unit) {
+                const symbols = {
+                    'meter': 'm', 'kilometer': 'km', 'centimeter': 'cm', 'millimeter': 'mm',
+                    'mile': 'mi', 'yard': 'yd', 'foot': 'ft', 'inch': 'in',
+                    'kilogram': 'kg', 'gram': 'g', 'milligram': 'mg', 'tonne': 't',
+                    'pound': 'lb', 'ounce': 'oz',
+                    'celsius': '°C', 'fahrenheit': '°F', 'kelvin': 'K',
+                    'liter': 'L', 'milliliter': 'ml', 'cubic_meter': 'm³',
+                    'gallon': 'gal', 'quart': 'qt', 'pint': 'pt', 'cup': 'cups', 'fluid_ounce': 'fl oz',
+                    'second': 's', 'minute': 'min', 'hour': 'hr', 'day': 'd',
+                    'week': 'wk', 'month': 'months', 'year': 'years'
+                };
+                return symbols[unit] || unit; // Return symbol or the unit name itself
+            }
+
+
+            // Attach event listeners for each converter type
+            const converters = [
+                { id: 'length', units: lengthUnits },
+                { id: 'mass', units: massUnits },
+                // *** IMPORTANT: Changed 'temp' to 'temperature' for consistency with HTML IDs
+                // Make sure your HTML input IDs for temperature are also 'temperature-value', 'temperature-from-unit', etc.
+                { id: 'temperature', units: {} },
+                { id: 'volume', units: volumeUnits },
+                { id: 'time', units: timeUnits }
+            ];
+
+            converters.forEach(converter => {
+                // Adjusting ID fetching based on the converter.id
+                // For temperature, we need to specifically use 'temperature' in the ID string
+                // For others, `${converter.id}-value` works
+                const valueInput = document.getElementById(`${converter.id}-value`);
+                const fromUnitSelect = document.getElementById(`${converter.id}-from-unit`);
+                const toUnitSelect = document.getElementById(`${converter.id}-to-unit`);
+                const resultElement = document.getElementById(`${converter.id}-result`);
+
+                const performConversion = () => {
+                    convertUnit(
+                        parseFloat(valueInput.value),
+                        fromUnitSelect.value,
+                        toUnitSelect.value,
+                        converter.id === 'temperature' ? {} : converter.units,
+                        resultElement
+                    );
+                };
+
+                // Add null checks for robustness, although with correct IDs it shouldn't be needed
+                if (valueInput) valueInput.addEventListener('input', performConversion);
+                if (fromUnitSelect) fromUnitSelect.addEventListener('change', performConversion);
+                if (toUnitSelect) toUnitSelect.addEventListener('change', performConversion);
+            });
+
+            // Initial conversion for the default active tab (Length)
+            const initialLengthValueInput = document.getElementById('length-value');
+            if (initialLengthValueInput) {
+                initialLengthValueInput.dispatchEvent(new Event('input'));
+            }
+        });
+    </script>
+
+</body>
+</html>
