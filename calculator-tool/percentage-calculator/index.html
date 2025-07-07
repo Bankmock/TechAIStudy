@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script defer src="../../js/component1.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://techaistudy.com/images/logo.webp" type="image/webp">  
+
+    <title>Percentage Calculator Online - Free & Fast Percentage Tool | TechAI Study</title>
+    <meta name="description" content="Calculate percentages quickly and accurately with our free online percentage calculator. Find percentage of a number, percentage change, what percent is X of Y, and more for exams, finance, and daily use.">
+    <meta name="keywords" content="percentage calculator, online percentage calculator, free percentage calculator, calculate percentage, percent of a number, percentage change, what percent is X of Y, discount calculator, sales tax calculator, tip calculator, percentage increase, percentage decrease, TechAI Study">
+    <meta name="author" content="TechAI Study">
+    <link rel="canonical" href="https://techaistudy.com/calculator-tool/percentage-calculator/" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techaistudy.com/calculator-tool/percentage-calculator/">
+    <meta property="og:title" content="Percentage Calculator Online - Free & Fast Percentage Tool | TechAI Study">
+    <meta property="og:description" content="Solve all your percentage problems with ease. Our versatile online calculator handles finding percentages, calculating percentage change, and determining 'X is what percent of Y'.">
+    <meta property="og:image" content="https://techaistudy.com/images/percentage-calculator.webp">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://techaistudy.com/calculator-tool/percentage-calculator/">
+    <meta name="twitter:title" content="Free Percentage Calculator Online - Quick & Accurate">
+    <meta name="twitter:description" content="Need to calculate percentages? Our free online tool makes it simple for discounts, taxes, grades, and more. Get instant results for any percentage calculation.">
+    <meta property="twitter:image" content="https://techaistudy.com/images/percentage-calculator.webp">
+
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/blogpost.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+    <script src="../../js/ads.js"></script>
+    <script src="../../js/headerScript.js"></script>
+    <script src="../../js/googletrackingid.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Percentage Calculator Online",
+      "url": "https://techaistudy.com/math-tool/percentage-calculator/",
+      "description": "Free online tool to calculate various types of percentages: percentage of a number, percentage change, and 'X is what percent of Y'.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TechAI Study",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://techaistudy.com/images/logo.webp"
+        }
+      },
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I calculate percentage of a number?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To find X% of Y, simply enter X in the percentage field and Y in the number field, then click calculate. The formula is $(X/100) \times Y$."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I calculate percentage change?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For percentage change, enter the 'old value' and the 'new value'. The calculator will determine if it's an increase or decrease and provide the percentage change. The formula is $(\text{New Value} - \text{Old Value}) / \text{Old Value} \times 100$."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this percentage calculator free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our online percentage calculator is completely free for unlimited calculations, with no hidden costs or registration required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can this calculator help with discounts and sales tax?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! You can use the 'X% of Y' feature to calculate discounts or sales tax. For example, to find a 20% discount on ₹500, calculate 20% of 500."
+            }
+          }
+        ]
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://techaistudy.com/calculator-tool/percentage-calculator/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://techaistudy.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Math Tools",
+        "item": "https://techaistudy.com/calculator-tool/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Percentage Calculator",
+        "item": "https://techaistudy.com/calculator-tool/percentage-calculator/"
+      }]
+    }
+    </script>
+    <style>
+        
+
+        .calculator-tab-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .calculator-tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #777;
+            border: none;
+            background: none;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            position: relative;
+            outline: none;
+        }
+
+        .calculator-tab.active {
+            color: #007bff;
+            border-bottom: 3px solid #007bff;
+            font-weight: 600;
+        }
+
+        .calculator-tab:hover:not(.active) {
+            color: #0056b3;
+        }
+
+        .calculator-content {
+            display: none;
+        }
+
+        .calculator-content.active {
+            display: block;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+            display: flex;
+            align-items: center; /* Align items vertically */
+            gap: 10px; /* Space between inputs/labels */
+        }
+
+        .input-group label {
+            flex-shrink: 0; /* Prevent label from shrinking */
+            font-weight: 600;
+            color: #555;
+            font-size: 0.95em;
+        }
+        
+        .input-group input[type="number"] {
+            flex-grow: 1; /* Allow input to take remaining space */
+            padding: 12px;
+            border: 1px solid #cdd5df;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .input-group input[type="number"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+        .result-box {
+            background-color: #f8fcfd;
+            border: 1px solid #d1ecf1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2c3e50;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-box.error {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+
+        /* Specific styles for Increase/Decrease inputs */
+        .increase-decrease .input-group {
+            justify-content: space-between; /* Spread label and input */
+        }
+        .increase-decrease .input-group input {
+            width: 50%; /* Adjust width for these inputs */
+        }
+        .increase-decrease .input-group label {
+            width: 40%;
+            text-align: right;
+        }
+
+        /* Hide number input arrows */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            
+            .calculator-tab {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+            
+            .input-group {
+                flex-direction: column; /* Stack label and input */
+                align-items: flex-start; /* Align label left */
+            }
+
+            .input-group label {
+                margin-bottom: 5px;
+            }
+
+            .input-group input[type="number"] {
+                width: 100%; /* Full width for inputs */
+            }
+
+            .increase-decrease .input-group input {
+                width: 100%;
+            }
+            .increase-decrease .input-group label {
+                width: auto; /* Reset width */
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+        <h1>Percentage Calculator Online</h1>
+        <p>Your Free & Fast Tool for All Percentage Calculations!</p>
+    </section>
+
+        <div class="calculator-tab-container">
+            <button class="calculator-tab active" data-tab="percent-of-number">X% of Y</button>
+            <button class="calculator-tab" data-tab="what-percent">X is what % of Y?</button>
+            <button class="calculator-tab" data-tab="increase-decrease">Percentage Change</button>
+        </div>
+
+        <div id="percent-of-number" class="calculator-content active">
+            <div class="input-group">
+                <label for="pn_percent">What is</label>
+                <input type="number" id="pn_percent" placeholder="e.g., 15" min="0" step="any">%
+                <label for="pn_number">of</label>
+                <input type="number" id="pn_number" placeholder="e.g., 200" min="0" step="any">?
+            </div>
+            <div class="result-box" id="pn_result">
+                <p>Enter values to calculate.</p>
+            </div>
+        </div>
+
+        <div id="what-percent" class="calculator-content">
+            <div class="input-group">
+                <label for="wp_part">What is</label>
+                <input type="number" id="wp_part" placeholder="e.g., 50" min="0" step="any">
+                <label for="wp_whole">as a percentage of</label>
+                <input type="number" id="wp_whole" placeholder="e.g., 200" min="0" step="any">?
+            </div>
+            <div class="result-box" id="wp_result">
+                <p>Enter values to calculate.</p>
+            </div>
+        </div>
+
+        <div id="increase-decrease" class="calculator-content">
+            <div class="input-group">
+                <label for="id_oldValue">From:</label>
+                <input type="number" id="id_oldValue" placeholder="e.g., 100" step="any">
+            </div>
+            <div class="input-group">
+                <label for="id_newValue">To:</label>
+                <input type="number" id="id_newValue" placeholder="e.g., 120" step="any">
+            </div>
+            <div class="result-box" id="id_result">
+                <p>Enter values to calculate.</p>
+            </div>
+        </div>
+    </div>
+<div class="blog">
+    <section>
+        <h2>What is a Percentage Calculator Tool?</h2>
+        <p>A percentage calculator is a versatile online utility designed to quickly and accurately solve various percentage-related problems. From finding a percentage of a given number to calculating percentage increase or decrease, and determining what percentage one number is of another, this tool simplifies common mathematical tasks for everyday use.</p>
+        
+        <img src="https://techaistudy.com/images/percentage-calculator-process.webp" alt="Percentage Calculation Process" style="max-width: 100%; display: block; margin: 20px auto;">
+        
+        <p>Our free online percentage calculator eliminates the need for manual calculations, preventing errors and saving time. It's an essential tool for students, professionals, shoppers, and anyone who frequently deals with percentages in finance, retail, statistics, or academics.</p>
+    
+        <p><strong>Key advantages:</strong> Handles multiple percentage types, instant results, user-friendly interface, supports various applications, and entirely free to use.</p>
+    </section>
+
+    <section>
+        <h2>Why Use Our Online Percentage Calculator?</h2>
+        <p>Percentages are everywhere, and our calculator makes dealing with them effortless:</p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>Accuracy Guaranteed</h3>
+                <p>Avoid human errors common in manual percentage calculations, ensuring precise results.</p>
+            </div>
+            <div class="feature">
+                <h3>Save Time</h3>
+                <p>Get instant answers for complex percentage problems that would take longer to compute manually.</p>
+            </div>
+            <div class="feature">
+                <h3>Versatile Applications</h3>
+                <p>Useful for discounts, taxes, tips, grades, financial analysis, statistics, and more.</p>
+            </div>
+            <div class="feature">
+                <h3>Easy to Understand</h3>
+                <p>Breaks down results clearly, even for those not strong in mathematics.</p>
+            </div>
+            <div class="feature">
+                <h3>No Software Needed</h3>
+                <p>Access and use the tool directly from your web browser on any device.</p>
+            </div>
+            <div class="feature">
+                <h3>Completely Free</h3>
+                <p>Enjoy unlimited calculations without any hidden costs or subscription fees.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>How to Use Our Free Percentage Calculator</h2>
+        <p>Our calculator offers several modes for different percentage calculations:</p>
+        
+        <div class="steps">
+            <div class="step">
+                <h3>1. Find X% of Y</h3>
+                <p><strong>Example:</strong> What is 15% of 200?</p>
+                <p>Enter 15 in the first box and 200 in the second box. Click calculate. The result is 30. ($15/100 \times 200 = 30$)</p>
+            </div>
+            <div class="step">
+                <h3>2. X is What Percent of Y?</h3>
+                <p><strong>Example:</strong> 50 is what percent of 200?</p>
+                <p>Enter 50 in the first box and 200 in the second box. Click calculate. The result is 25%. ($50/200 \times 100 = 25\%$)</p>
+            </div>
+            <div class="step">
+                <h3>3. Percentage Change (Increase/Decrease)</h3>
+                <p><strong>Example:</strong> Price changed from 100 to 120. What's the percentage change?</p>
+                <p>Enter 100 (Old Value) and 120 (New Value). Click calculate. The result is a 20% increase. ( $(\text{120} - \text{100}) / \text{100} \times 100 = 20\%$)</p>
+            </div>
+        </div>
+        
+        <p>Simply select the calculation type, input your numbers, and get instant results. All calculations are performed in your browser, ensuring data privacy.</p>
+    </section>
+
+    <section>
+        <h2>Common Uses of a Percentage Calculator</h2>
+        <p>Percentages are integral to various aspects of daily life and professional work:</p>
+        
+        <div class="formats">
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/percentage-discount.svg" alt="Discount Calculation">
+                <span>Discounts & Sales</span>
+                <p>Quickly find out the final price after a percentage discount or calculate sale savings.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/percentage-tax.svg" alt="Tax Calculation">
+                <span>Taxes & Tips</span>
+                <p>Calculate sales tax, VAT, GST, or determine appropriate tips at restaurants effortlessly.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/percentage-grade.svg" alt="Grade Calculation">
+                <span>Grades & Scores</span>
+                <p>Determine percentage scores on exams, assignments, or overall academic performance.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/percentage-finance.svg" alt="Finance and Statistics">
+                <span>Finance & Statistics</span>
+                <p>Analyze growth rates, market share, population changes, or financial returns.</p>
+            </div>
+        </div>
+        <p>Our tool streamlines these calculations, making them accessible to everyone.</p>
+    </section>
+
+    <section>
+        <h2>Percentage Formulas Explained</h2>
+        <p>Understanding the basic formulas behind percentages can help you grasp the results better:</p>
+        <ul>
+            <li><strong>How to find X% of Y:</strong>
+                <p>$Result = \frac{X}{100} \times Y$</p>
+                <p>Example: 20% of 150 = $(20/100) \times 150 = 30$</p>
+            </li>
+            <li><strong>How to find X is what percent of Y:</strong>
+                <p>$Result = \frac{X}{Y} \times 100\%$</p>
+                <p>Example: 25 is what percent of 100? $(25/100) \times 100\% = 25\%$</p>
+            </li>
+            <li><strong>How to calculate Percentage Change:</strong>
+                <p>$Percentage\ Change = \frac{\text{New Value} - \text{Old Value}}{\text{Old Value}} \times 100\%$</p>
+                <p>Example: From 50 to 60. Percentage Change = $(60-50)/50 \times 100\% = 20\%$ increase.</p>
+            </li>
+        </ul>
+        <p>Our calculator automates these formulas, providing instant and accurate answers.</p>
+    </section>
+
+    <section>
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">What does "percentage" mean?</div>
+            <p>Percentage means "per hundred" or "out of one hundred." It's a way to express a number as a fraction of 100, often denoted by the percent sign (%).</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Can I use this calculator for negative numbers?</div>
+            <p>Yes, our percentage calculator can handle negative numbers for 'X% of Y' and 'X is what percent of Y' calculations. For percentage change, it will correctly show increase or decrease even with negative values.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Is there a limit to the size of numbers I can enter?</div>
+            <p>Our calculator supports very large numbers, accommodating most practical percentage calculations you might need.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">What if I need to add or subtract a percentage from a number?</div>
+            <p>You can use the 'X% of Y' function. First, calculate the percentage amount, then manually add or subtract it from the original number. For example, to add 10% to 100, calculate 10% of 100 (which is 10), then add it to 100 (100 + 10 = 110).</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Is my input data saved or tracked?</div>
+            <p>No, your input numbers are not saved or tracked by our servers. All calculations are performed instantly on your local device for maximum privacy and security.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Why are percentages important in daily life?</div>
+            <p>Percentages help us understand proportions, changes, and comparisons easily. From understanding sales discounts, calculating grades, interpreting financial reports, to even understanding population growth, percentages are fundamental in making sense of data.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Keywords</h2>
+        <p>Our Percentage Calculator is optimized for the following Google search terms:</p>
+        <ul>
+            <li>percentage calculator</li>
+            <li>online percentage calculator</li>
+            <li>free percentage calculator</li>
+            <li>calculate percentage</li>
+            <li>percent of a number</li>
+            <li>percentage change calculator</li>
+            <li>what percent is X of Y</li>
+            <li>discount calculator</li>
+            <li>sales tax calculator</li>
+            <li>tip calculator</li>
+            <li>percentage increase calculator</li>
+            <li>percentage decrease calculator</li>
+            <li>find percentage</li>
+            <li>how to calculate percentage</li>
+            <li>percent math calculator</li>
+            <li>easy percentage calculator</li>
+            <li>instant percentage</li>
+            <li>percentage conversion</li>
+            <li>grade percentage calculator</li>
+            <li>finance percentage calculator</li>
+        </ul>
+    </section>
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.calculator-tab');
+            const contents = document.querySelectorAll('.calculator-content');
+
+            // Event listeners for tabs
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetTabId = tab.dataset.tab;
+
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    contents.forEach(content => {
+                        if (content.id === targetTabId) {
+                            content.classList.add('active');
+                            // Clear previous results and error states when switching tabs
+                            const resultBox = content.querySelector('.result-box');
+                            resultBox.innerHTML = '<p>Enter values to calculate.</p>';
+                            resultBox.classList.remove('error');
+                            // Also clear inputs (optional, but good for a fresh start)
+                            content.querySelectorAll('input[type="number"]').forEach(input => input.value = '');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // --- Calculation Logic for "X% of Y" ---
+            const pnPercentInput = document.getElementById('pn_percent');
+            const pnNumberInput = document.getElementById('pn_number');
+            const pnResultBox = document.getElementById('pn_result');
+
+            function calculatePercentOfNumber() {
+                const percent = parseFloat(pnPercentInput.value);
+                const number = parseFloat(pnNumberInput.value);
+
+                if (isNaN(percent) || isNaN(number)) {
+                    pnResultBox.innerHTML = '<p>Please enter valid numbers.</p>';
+                    pnResultBox.classList.add('error');
+                    return;
+                }
+
+                const result = (percent / 100) * number;
+                pnResultBox.innerHTML = `<p>${percent.toLocaleString()} % of ${number.toLocaleString()} = <strong>${result.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 4 })}</strong></p>`;
+                pnResultBox.classList.remove('error');
+            }
+
+            pnPercentInput.addEventListener('input', calculatePercentOfNumber);
+            pnNumberInput.addEventListener('input', calculatePercentOfNumber);
+
+
+            // --- Calculation Logic for "X is what % of Y?" ---
+            const wpPartInput = document.getElementById('wp_part');
+            const wpWholeInput = document.getElementById('wp_whole');
+            const wpResultBox = document.getElementById('wp_result');
+
+            function calculateWhatPercent() {
+                const part = parseFloat(wpPartInput.value);
+                const whole = parseFloat(wpWholeInput.value);
+
+                if (isNaN(part) || isNaN(whole)) {
+                    wpResultBox.innerHTML = '<p>Please enter valid numbers.</p>';
+                    wpResultBox.classList.add('error');
+                    return;
+                }
+
+                if (whole === 0) {
+                    wpResultBox.innerHTML = '<p>Cannot calculate percentage of zero (Y cannot be 0).</p>';
+                    wpResultBox.classList.add('error');
+                    return;
+                }
+
+                const result = (part / whole) * 100;
+                wpResultBox.innerHTML = `<p>${part.toLocaleString()} is <strong>${result.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 4 })}%</strong> of ${whole.toLocaleString()}.</p>`;
+                wpResultBox.classList.remove('error');
+            }
+
+            wpPartInput.addEventListener('input', calculateWhatPercent);
+            wpWholeInput.addEventListener('input', calculateWhatPercent);
+
+
+            // --- Calculation Logic for "Percentage Increase/Decrease" ---
+            const idOldValueInput = document.getElementById('id_oldValue');
+            const idNewValueInput = document.getElementById('id_newValue');
+            const idResultBox = document.getElementById('id_result');
+
+            function calculatePercentageChange() {
+                const oldValue = parseFloat(idOldValueInput.value);
+                const newValue = parseFloat(idNewValueInput.value);
+
+                if (isNaN(oldValue) || isNaN(newValue)) {
+                    idResultBox.innerHTML = '<p>Please enter valid numbers.</p>';
+                    idResultBox.classList.add('error');
+                    return;
+                }
+
+                if (oldValue === 0) {
+                    idResultBox.innerHTML = '<p>Cannot calculate percentage change from zero (Old Value cannot be 0).</p>';
+                    idResultBox.classList.add('error');
+                    return;
+                }
+
+                const change = newValue - oldValue;
+                const percentageChange = (change / oldValue) * 100;
+
+                let message = '';
+                if (percentageChange > 0) {
+                    message = `Increased by <strong>${percentageChange.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 4 })}%</strong>`;
+                } else if (percentageChange < 0) {
+                    message = `Decreased by <strong>${Math.abs(percentageChange).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 4 })}%</strong>`;
+                } else {
+                    message = `No change (<strong>0%</strong>)`;
+                }
+
+                idResultBox.innerHTML = `<p>Change from ${oldValue.toLocaleString()} to ${newValue.toLocaleString()}:<br>${message}</p>`;
+                idResultBox.classList.remove('error');
+            }
+
+            idOldValueInput.addEventListener('input', calculatePercentageChange);
+            idNewValueInput.addEventListener('input', calculatePercentageChange);
+        });
+    </script>
+</body>
+</html>
