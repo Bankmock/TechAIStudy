@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script defer src="../../js/component1.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://techaistudy.com/images/logo.webp" type="image/webp">  
+
+    <title>Loan EMI Calculator Online - Free Equated Monthly Installment Tool | TechAI Study</title>
+    <meta name="description" content="Calculate your loan EMI instantly for home loans, car loans, or personal loans. Our free online EMI calculator provides accurate monthly payments, total interest, and total amount payable.">
+    <meta name="keywords" content="EMI calculator, loan EMI calculator, online EMI calculator, free EMI calculator, calculate EMI, home loan EMI, car loan EMI, personal loan EMI, EMI calculation, monthly installment calculator, loan repayment, interest calculation, TechAI Study">
+    <meta name="author" content="TechAI Study">
+    <link rel="canonical" href="https://techaistudy.com/calculator-tool/loan-emi-calculator/" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techaistudy.com/calculator-tool/loan-emi-calculator/">
+    <meta property="og:title" content="Loan EMI Calculator Online - Free Equated Monthly Installment Tool | TechAI Study">
+    <meta property="og:description" content="Plan your finances with our easy-to-use loan EMI calculator. Accurately estimate your monthly loan payments, total interest, and total payable amount for various loan types.">
+    <meta property="og:image" content="https://techaistudy.com/images/loan-emi-calculator.webp">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://techaistudy.com/calculator-tool/loan-emi-calculator/">
+    <meta name="twitter:title" content="Free Loan EMI Calculator Online - Estimate Your Monthly Payments">
+    <meta name="twitter:description" content="Calculate your EMI for any loan amount, interest rate, and tenure. Our online EMI calculator helps you understand your loan repayment schedule clearly.">
+    <meta property="twitter:image" content="https://techaistudy.com/images/loan-emi-calculator.webp">
+
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/blogpost.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+    <script src="../../js/ads.js"></script>
+    <script src="../../js/headerScript.js"></script>
+    <script src="../../js/googletrackingid.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Loan EMI Calculator",
+      "url": "https://techaistudy.com/calculator-tool/loan-emi-calculator/",
+      "description": "Free online tool to calculate Equated Monthly Installments (EMI) for various types of loans, providing details on monthly payment, total interest, and total payable amount.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TechAI Study",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://techaistudy.com/images/logo.webp"
+        }
+      },
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is an EMI calculator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An EMI calculator is an online tool that helps you compute the Equated Monthly Installment (EMI) for a loan. You simply input the principal loan amount, the interest rate, and the loan tenure, and it instantly provides your monthly payment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is EMI calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "EMI is calculated using the formula: $EMI = P \times r \times (1+r)^n / ((1+r)^n - 1)$, where P is the principal loan amount, r is the monthly interest rate, and n is the number of monthly installments (loan tenure in months)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this loan EMI calculator free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our online loan EMI calculator is completely free to use for unlimited calculations, with no hidden charges or registration required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this for different types of loans?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our versatile EMI calculator can be used for various types of loans including home loans, car loans, personal loans, and education loans, as long as you have the principal amount, interest rate, and tenure."
+            }
+          }
+        ]
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://techaistudy.com/calculator-tool/loan-emi-calculator/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://techaistudy.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Finance Tools",
+        "item": "https://techaistudy.com/calculator-tool/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Loan EMI Calculator",
+        "item": "https://techaistudy.com/calculator-tool/loan-emi-calculator/"
+      }]
+    }
+    </script>
+    <style>
+        
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .input-group input[type="number"] {
+            width: calc(100% - 24px); /* Account for padding */
+            padding: 12px;
+            border: 1px solid #cdd5df;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .input-group input[type="number"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.15em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 15px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .results-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: left;
+        }
+
+        .results-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .summary-box {
+            background-color: #f8fcfd;
+            border: 1px solid #d1ecf1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .summary-item {
+            text-align: center;
+        }
+
+        .summary-item strong {
+            display: block;
+            font-size: 1.1em;
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+
+        .summary-item span {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .error-message {
+            color: #dc3545;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Amortization Table */
+        .amortization-table-container {
+            max-height: 400px; /* Limit height for scroll */
+            overflow-y: auto; /* Enable vertical scroll */
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+
+        .amortization-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+
+        .amortization-table th,
+        .amortization-table td {
+            padding: 12px 10px;
+            border: 1px solid #e0e0e0;
+            text-align: right;
+        }
+
+        .amortization-table th {
+            background-color: #f2f6f9;
+            color: #555;
+            font-weight: 600;
+            text-align: center;
+            position: sticky; /* Sticky header */
+            top: 0;
+            z-index: 1; /* Ensure it stays above content */
+        }
+
+        .amortization-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .amortization-table tbody tr:hover {
+            background-color: #f0f8ff;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            
+
+            .summary-box {
+                grid-template-columns: 1fr; /* Stack items on small screens */
+            }
+
+            .summary-item span {
+                font-size: 1.3em;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .button {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+
+            .amortization-table th,
+            .amortization-table td {
+                padding: 8px 5px;
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+        <h1>Loan EMI Calculator Online</h1>
+        <p>Your Free Tool to Calculate Equated Monthly Installments for Any Loan!</p>
+    </section>
+
+        <div class="input-group">
+            <label for="loanAmount">Loan Amount (₹):</label>
+            <input type="number" id="loanAmount" placeholder="e.g., 500000" min="1" step="any">
+        </div>
+
+        <div class="input-group">
+            <label for="interestRate">Interest Rate (% p.a.):</label>
+            <input type="number" id="interestRate" placeholder="e.g., 8.5" min="0.01" step="any">
+        </div>
+
+        <div class="input-group">
+            <label for="loanTenure">Loan Tenure (Years):</label>
+            <input type="number" id="loanTenure" placeholder="e.g., 5" min="1" step="any">
+        </div>
+
+        <button class="button" id="calculateBtn">Calculate EMI</button>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h2>Calculation Summary</h2>
+            <div class="summary-box">
+                <div class="summary-item">
+                    <strong>Monthly EMI</strong>
+                    <span id="displayEMI">₹ 0.00</span>
+                </div>
+                <div class="summary-item">
+                    <strong>Total Interest Payable</strong>
+                    <span id="displayTotalInterest">₹ 0.00</span>
+                </div>
+                <div class="summary-item">
+                    <strong>Total Payment (Principal + Interest)</strong>
+                    <span id="displayTotalPayment">₹ 0.00</span>
+                </div>
+            </div>
+
+            <h2>Amortization Schedule</h2>
+            <div class="amortization-table-container">
+                <table class="amortization-table">
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Principal (₹)</th>
+                            <th>Interest (₹)</th>
+                            <th>EMI (₹)</th>
+                            <th>Outstanding Balance (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="amortizationBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="error-message" id="errorMessage" style="display: none;">
+            Please fill in all fields with valid positive numbers.
+        </div>
+    </div>
+<div class="blog">
+    <section>
+        <h2>What is a Loan EMI Calculator Tool?</h2>
+        <p>A Loan EMI (Equated Monthly Installment) calculator is an indispensable online tool that helps individuals and businesses estimate their monthly loan repayment obligations. It allows you to quickly determine the fixed amount you will have to pay towards your loan each month, comprising both principal and interest, over a specified loan tenure.</p>
+        
+        <img src="https://techaistudy.com/images/loan-emi-calculator-process.webp" alt="EMI Calculation Process" style="max-width: 100%; display: block; margin: 20px auto;">
+        
+        <p>Our free online EMI calculator simplifies complex financial planning by providing instant, accurate calculations. Whether you're considering a home loan, car loan, personal loan, or any other type of financing, this tool gives you a clear picture of your financial commitment, helping you budget effectively and make informed decisions.</p>
+    
+        <p><strong>Key advantages:</strong> Instant EMI computation, total interest payable, total amount payable, amortization schedule insights (optional), supports various loan types, and easy to use.</p>
+    </section>
+
+    <section>
+        <h2>Why Use an Online Loan EMI Calculator?</h2>
+        <p>Using a dedicated EMI calculator offers numerous benefits for anyone managing or planning a loan:</p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>Accurate Financial Planning</h3>
+                <p>Precisely budget your monthly expenses by knowing your exact EMI amount in advance.</p>
+            </div>
+            <div class="feature">
+                <h3>Compare Loan Offers</h3>
+                <p>Easily compare EMIs from different banks or lenders to find the most affordable option.</p>
+            </div>
+            <div class="feature">
+                <h3>Optimize Loan Tenure</h3>
+                <p>Understand how changing the loan duration impacts your monthly payment and total interest.</p>
+            </div>
+            <div class="feature">
+                <h3>Interest Savings Insight</h3>
+                <p>See the total interest you'll pay over the loan term, aiding in strategic repayment decisions.</p>
+            </div>
+            <div class="feature">
+                <h3>Reduce Errors</h3>
+                <p>Eliminate manual calculation mistakes, ensuring reliable figures for crucial financial decisions.</p>
+            </div>
+            <div class="feature">
+                <h3>Accessible & Free</h3>
+                <p>Utilize this powerful tool anytime, anywhere, at no cost, for unlimited calculations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>How to Use Our Free Loan EMI Calculator</h2>
+        <p>Calculating your EMI is quick and straightforward with our user-friendly tool:</p>
+        
+        <div class="steps">
+            <div class="step">
+                <h3>Enter Loan Amount</h3>
+                <p>Input the principal amount you wish to borrow (e.g., ₹10,00,000).</p>
+            </div>
+            <div class="step">
+                <h3>Enter Interest Rate</h3>
+                <p>Type in the annual interest rate offered by the lender (e.g., 8.5%).</p>
+            </div>
+            <div class="step">
+                <h3>Specify Loan Tenure</h3>
+                <p>Enter the repayment period in years or months (e.g., 20 years or 240 months).</p>
+            </div>
+            <div class="step">
+                <h3>View Instant Results</h3>
+                <p>The calculator immediately displays your EMI, total interest payable, and the total amount you will repay.</p>
+            </div>
+        </div>
+        
+        <p>Our calculator uses the standard EMI formula: $EMI = P \times r \times (1+r)^n / ((1+r)^n - 1)$, where P = Principal Loan Amount, r = Monthly Interest Rate (Annual Rate/12/100), and n = Loan Tenure in Months.</p>
+    </section>
+
+    <section>
+        <h2>Key Components of EMI Calculation</h2>
+        <p>Understanding these components helps you make better loan decisions:</p>
+        
+        <div class="formats">
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/loan-principal.svg" alt="Principal Loan Amount">
+                <span>Principal Amount (P)</span>
+                <p>The original amount of money borrowed from the lender.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/loan-interest-rate.svg" alt="Interest Rate">
+                <span>Interest Rate (R)</span>
+                <p>The annual percentage charged by the lender for borrowing the principal amount.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/loan-tenure.svg" alt="Loan Tenure">
+                <span>Loan Tenure (N)</span>
+                <p>The total duration over which the loan is to be repaid, usually in years or months.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/emi-value.svg" alt="EMI Value">
+                <span>EMI Value</span>
+                <p>The fixed monthly amount you pay, comprising both principal and interest, until the loan is fully repaid.</p>
+            </div>
+        </div>
+        <p>Our calculator breaks down these elements to give you a clear financial picture.</p>
+    </section>
+
+    <section>
+        <h2>Types of Loans Our EMI Calculator Supports</h2>
+        <p>Our versatile EMI calculator is suitable for estimating monthly installments for a wide range of loan products:</p>
+        <ul>
+            <li><strong>Home Loan EMI Calculator:</strong> Plan your home purchase by estimating monthly mortgage payments, total interest, and effective affordability.</li>
+            <li><strong>Car Loan EMI Calculator:</strong> Determine manageable monthly payments for your new vehicle, helping you choose the right car and loan term.</li>
+            <li><strong>Personal Loan EMI Calculator:</strong> Get quick estimates for personal financing needs, understanding the impact of different interest rates and tenures.</li>
+            <li><strong>Education Loan EMI Calculator:</strong> Plan for higher education expenses by calculating future repayment obligations.</li>
+            <li><strong>Business Loan EMI Calculator:</strong> Assess the financial impact of business expansion or operational loans on your monthly cash flow.</li>
+        </ul>
+        <p>Simply input the relevant details for your specific loan, and our tool will do the rest.</p>
+    </section>
+
+    <section>
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">What is the difference between principal and interest in EMI?</div>
+            <p>In EMI, the principal is the portion of your payment that goes towards reducing the original loan amount, while interest is the cost of borrowing that money. In the initial months, a larger portion of EMI is interest, which gradually decreases as the principal is repaid.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Does changing loan tenure affect total interest paid?</div>
+            <p>Yes, significantly. A shorter loan tenure means higher EMIs but you pay less total interest over time. A longer tenure means lower EMIs but you end up paying more total interest due to the extended period of interest accrual.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Can I get an amortization schedule from this calculator?</div>
+            <p>While our current tool provides the total interest and total amount payable, advanced versions often include an amortization schedule. For detailed monthly breakdowns, you might look for calculators with that specific feature or consult your bank.</p>
+        
+        <div class="faq-item">
+            <div class="faq-question">Is the interest rate entered as annual or monthly?</div>
+            <p>You should enter the *annual* interest rate as a percentage (e.g., 8.5). Our calculator will automatically convert it to a monthly rate for calculation purposes.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Can I factor in prepayments or foreclosures?</div>
+            <p>Our standard EMI calculator calculates based on a fixed repayment schedule. To see the impact of prepayments or foreclosures, you would need a more advanced loan repayment calculator that specifically includes those options.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Is my loan information saved or shared?</div>
+            <p>No, your loan details (amount, rate, tenure) are processed only in your web browser. We do not store or share any of the information you enter into the calculator, ensuring complete privacy and security.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Keywords</h2>
+        <p>Our Loan EMI Calculator is optimized for the following Google search terms:</p>
+        <ul>
+            <li>EMI calculator</li>
+            <li>loan EMI calculator</li>
+            <li>online EMI calculator</li>
+            <li>free EMI calculator</li>
+            <li>calculate EMI</li>
+            <li>home loan EMI calculator</li>
+            <li>car loan EMI calculator</li>
+            <li>personal loan EMI calculator</li>
+            <li>EMI calculation</li>
+            <li>monthly installment calculator</li>
+            <li>loan repayment calculator</li>
+            <li>interest calculation loan</li>
+            <li>how to calculate EMI</li>
+            <li>EMI formula</li>
+            <li>loan amortization calculator</li>
+            <li>best EMI calculator India</li>
+            <li>easy EMI calculator</li>
+            <li>instant EMI calculation</li>
+            <li>loan affordability calculator</li>
+            <li>finance calculator online</li>
+        </ul>
+    </section>
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loanAmountInput = document.getElementById('loanAmount');
+            const interestRateInput = document.getElementById('interestRate');
+            const loanTenureInput = document.getElementById('loanTenure');
+            const calculateBtn = document.getElementById('calculateBtn');
+
+            const resultsSection = document.getElementById('resultsSection');
+            const displayEMI = document.getElementById('displayEMI');
+            const displayTotalInterest = document.getElementById('displayTotalInterest');
+            const displayTotalPayment = document.getElementById('displayTotalPayment');
+            const amortizationBody = document.getElementById('amortizationBody');
+            const errorMessage = document.getElementById('errorMessage');
+
+            calculateBtn.addEventListener('click', calculateEMI);
+
+            function calculateEMI() {
+                const loanAmount = parseFloat(loanAmountInput.value);
+                const annualInterestRate = parseFloat(interestRateInput.value);
+                const loanTenureYears = parseFloat(loanTenureInput.value);
+
+                // --- Input Validation ---
+                if (isNaN(loanAmount) || loanAmount <= 0 ||
+                    isNaN(annualInterestRate) || annualInterestRate < 0 ||
+                    isNaN(loanTenureYears) || loanTenureYears <= 0) {
+                    errorMessage.style.display = 'block';
+                    resultsSection.style.display = 'none';
+                    return;
+                } else {
+                    errorMessage.style.display = 'none';
+                }
+
+                const monthlyInterestRate = annualInterestRate / (12 * 100); // R
+                const loanTenureMonths = loanTenureYears * 12;             // N
+
+                let emi = 0;
+                if (monthlyInterestRate === 0) {
+                    emi = loanAmount / loanTenureMonths; // Simple case for 0% interest
+                } else {
+                    // EMI Formula: P * R * (1 + R)^N / ((1 + R)^N - 1)
+                    const numerator = loanAmount * monthlyInterestRate * Math.pow((1 + monthlyInterestRate), loanTenureMonths);
+                    const denominator = Math.pow((1 + monthlyInterestRate), loanTenureMonths) - 1;
+                    emi = numerator / denominator;
+                }
+
+                const totalPayment = emi * loanTenureMonths;
+                const totalInterest = totalPayment - loanAmount;
+
+                // --- Display Summary Results ---
+                displayEMI.textContent = `₹ ${emi.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+                displayTotalInterest.textContent = `₹ ${totalInterest.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+                displayTotalPayment.textContent = `₹ ${totalPayment.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+                // --- Generate Amortization Schedule ---
+                amortizationBody.innerHTML = ''; // Clear previous results
+                let outstandingBalance = loanAmount;
+                let month = 1;
+
+                while (outstandingBalance > 0.01 && month <= loanTenureMonths) { // Avoid tiny remainders
+                    let interestComponent = outstandingBalance * monthlyInterestRate;
+                    let principalComponent = emi - interestComponent;
+
+                    // Adjust last payment to clear balance exactly
+                    if (month === loanTenureMonths || outstandingBalance - principalComponent < 0) {
+                        principalComponent = outstandingBalance;
+                        emi = principalComponent + interestComponent; // Final EMI might be slightly different
+                    }
+
+                    outstandingBalance -= principalComponent;
+
+                    const row = amortizationBody.insertRow();
+                    row.innerHTML = `
+                        <td>${month}</td>
+                        <td>${principalComponent.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        <td>${interestComponent.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        <td>${emi.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        <td>${Math.max(0, outstandingBalance).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                    `;
+                    month++;
+                }
+
+                resultsSection.style.display = 'block'; // Show results section
+            }
+        });
+    </script>
+</body>
+</html>
