@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script defer src="../../js/component1.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://techaistudy.com/images/logo.webp" type="image/webp">  
+
+    <title>Date & Duration Calculator Online - Free Time Difference Tool | TechAI Study</title>
+    <meta name="description" content="Calculate the duration between two dates, add/subtract days, months, or years from a date with our free online date and duration calculator. Perfect for project planning, legal matters, and personal events.">
+    <meta name="keywords" content="date calculator, duration calculator, date difference, add days to date, subtract days from date, date to date calculator, days between dates, time duration calculator, date adding, date subtracting, workday calculator, date and time calculator, TechAI Study">
+    <meta name="author" content="TechAI Study">
+    <link rel="canonical" href="https://techaistudy.com/calculator-tool/date-duration-calculator/" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techaistudy.com/calculator-tool/date-duration-calculator/">
+    <meta property="og:title" content="Date & Duration Calculator Online - Free Time Difference Tool | TechAI Study">
+    <meta property="og:description" content="Effortlessly compute the number of days, months, and years between any two dates, or accurately add/subtract specific durations to/from a starting date. Your go-to tool for all date calculations.">
+    <meta property="og:image" content="https://techaistudy.com/images/date-duration-calculator.webp">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://techaistudy.com/calculator-tool/date-duration-calculator/">
+    <meta name="twitter:title" content="Free Online Date & Duration Calculator - Find Days Between Dates">
+    <meta name="twitter:description" content="Quickly calculate the exact number of days, weeks, months, or years between two dates, or add/subtract time units from a specific date with our intuitive tool.">
+    <meta property="twitter:image" content="https://techaistudy.com/images/date-duration-calculator.webp">
+
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/blogpost.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+    <script src="../../js/ads.js"></script>
+    <script src="../../js/headerScript.js"></script>
+    <script src="../../js/googletrackingid.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Date & Duration Calculator Online",
+      "url": "https://techaistudy.com/calculator-tool/date-duration-calculator/",
+      "description": "Free online tool to calculate the duration between two dates (years, months, days) or add/subtract specific time units from a given date.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TechAI Study",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://techaistudy.com/images/logo.webp"
+        }
+      },
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I calculate the duration between two dates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Simply select the 'Calculate Duration Between Dates' option. Enter your Start Date and End Date using the calendar pickers. The calculator will then display the exact duration in years, months, and days."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I add or subtract days/months/years from a date?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Choose the 'Add/Subtract Duration from Date' option. Enter your Starting Date, then specify the number of years, months, or days you wish to add or subtract. The tool will give you the resulting date."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this date calculator free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our online date and duration calculator is completely free for unlimited calculations, with no hidden costs or registration required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the calculator account for leap years?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our calculator accurately accounts for leap years when determining durations and future/past dates, ensuring precise results."
+            }
+          }
+        ]
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://techaistudy.com/calculator-tool/date-duration-calculator/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://techaistudy.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Utility Tools",
+        "item": "https://techaistudy.com/calculator-tool/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Date & Duration Calculator",
+        "item": "https://techaistudy.com/calculator-tool/date-duration-calculator/"
+      }]
+    }
+    </script>
+    <style>
+        
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .input-group input[type="date"],
+        .input-group input[type="time"] {
+            width: calc(100% - 24px); /* Account for padding */
+            padding: 12px;
+            border: 1px solid #cdd5df;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .input-group input[type="date"]:focus,
+        .input-group input[type="time"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.15em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 15px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .results-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: left;
+        }
+
+        .results-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .duration-display {
+            background-color: #f8fcfd;
+            border: 1px solid #d1ecf1;
+            border-radius: 8px;
+            padding: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .duration-display ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .duration-display ul li {
+            margin-bottom: 5px;
+        }
+
+        .duration-display ul li strong {
+            color: #007bff;
+            font-size: 1.2em;
+        }
+
+        .error-message {
+            color: #dc3545;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+            display: none; /* Hidden by default */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            
+
+            
+
+            .button {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+
+            .duration-display {
+                font-size: 1em;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    	<section class="hero">
+        <h1>Date & Duration Calculator Online</h1>
+        <p>Calculate Time Between Dates or Add/Subtract Days - Fast & Free!</p>
+    </section>
+
+        <div class="input-group">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate">
+            <label for="startTime">Time (Optional):</label>
+            <input type="time" id="startTime" value="00:00">
+        </div>
+
+        <div class="input-group">
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate">
+            <label for="endTime">Time (Optional):</label>
+            <input type="time" id="endTime" value="00:00">
+        </div>
+
+        <button class="button"  id="calculateBtn">Calculate Duration</button>
+
+        <div class="error-message" id="errorMessage">
+            Please enter valid start and end dates. Ensure the start date is not after the end date.
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h2>Duration:</h2>
+            <div class="duration-display" id="durationDisplay">
+                </div>
+        </div>
+    </div>
+<div class="blog">
+    <section>
+        <h2>What is a Date & Duration Calculator Tool?</h2>
+        <p>A **Date & Duration Calculator** is a versatile online utility designed to perform various calculations involving dates and time periods. It allows users to:</p>
+        <ul>
+            <li>Determine the exact duration (in years, months, days, weeks, or even total days) between any two specified dates.</li>
+            <li>Add or subtract a specific number of days, weeks, months, or years to/from a given starting date to find a future or past date.</li>
+        </ul>
+        
+        <img src="https://techaistudy.com/images/date-duration-calculator-process.webp" alt="Date and Duration Calculation Process" style="max-width: 100%; display: block; margin: 20px auto;">
+        
+        <p>Our **free online date and duration calculator** simplifies complex date arithmetic, which can be prone to errors when done manually, especially considering leap years and varying month lengths. It's an indispensable tool for project managers, legal professionals, event planners, and anyone who needs precise date calculations.</p>
+    
+        <p><strong>Key advantages:</strong> Calculates precise durations, adds/subtracts time units, accounts for leap years, user-friendly interface, and completely free to use.</p>
+    </section>
+
+    <section>
+        <h2>Why Use Our Online Date & Duration Calculator?</h2>
+        <p>Accurate date calculations are crucial in many scenarios:</p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>Project Management</h3>
+                <p>Estimate project timelines, deadlines, and workdays between critical milestones.</p>
+            </div>
+            <div class="feature">
+                <h3>Legal & Financial Deadlines</h3>
+                <p>Accurately determine statutory periods, payment due dates, or contract expiry dates.</p>
+            </div>
+            <div class="feature">
+                <h3>Event Planning</h3>
+                <p>Plan anniversaries, birthdays, or future events by calculating exact timeframes.</p>
+            </div>
+            <div class="feature">
+                <h3>Personal Planning</h3>
+                <p>Track how long you've been doing something, or when a future event will occur.</p>
+            </div>
+            <div class="feature">
+                <h3>Academic & Research</h3>
+                <p>Analyze historical timelines or calculate time spans for studies.</p>
+            </div>
+            <div class="feature">
+                <h3>Error Prevention</h3>
+                <p>Avoid mistakes associated with manual date counting, especially with leap years.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>How to Use Our Free Date & Duration Calculator</h2>
+        <p>Our tool offers two main functionalities:</p>
+        
+        <h3>Mode 1: Calculate Duration Between Dates</h3>
+        <div class="steps">
+            <div class="step">
+                <h3>1. Select Start Date</h3>
+                <p>Choose the beginning date using the calendar picker.</p>
+            </div>
+            <div class="step">
+                <h3>2. Select End Date</h3>
+                <p>Choose the ending date using the calendar picker.</p>
+            </div>
+            <div class="step">
+                <h3>3. View Duration</h3>
+                <p>The calculator will instantly display the duration in years, months, and days, as well as total days.</p>
+            </div>
+        </div>
+
+        <h3>Mode 2: Add/Subtract Duration from Date</h3>
+        <div class="steps">
+            <div class="step">
+                <h3>1. Select Starting Date</h3>
+                <p>Choose the date from which you want to add or subtract time.</p>
+            </div>
+            <div class="step">
+                <h3>2. Choose Operation (Add/Subtract)</h3>
+                <p>Select whether you want to add or subtract duration.</p>
+            </div>
+            <div class="step">
+                <h3>3. Specify Duration</h3>
+                <p>Enter the number of years, months, or days you wish to add/subtract.</p>
+            </div>
+            <div class="step">
+                <h3>4. View Resulting Date</h3>
+                <p>The new date (future or past) will be displayed immediately.</p>
+            </div>
+        </div>
+        
+        <p>Both modes are designed for ease of use and instant results.</p>
+    </section>
+
+    <section>
+        <h2>Key Features of Our Date & Duration Calculator</h2>
+        <p>Our tool provides comprehensive date calculation capabilities:</p>
+        
+        <div class="formats">
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/date-difference.svg" alt="Date Difference Calculation">
+                <span>Date Difference</span>
+                <p>Accurately find the years, months, and days between any two dates.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/date-add-subtract.svg" alt="Add/Subtract Dates">
+                <span>Add/Subtract Dates</span>
+                <p>Easily calculate a date by adding or subtracting specific periods.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/date-total-days.svg" alt="Total Days Count">
+                <span>Total Days Count</span>
+                <p>Get the exact number of days between two dates, including partial years and months.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/date-leap-year.svg" alt="Leap Year Adjustment">
+                <span>Leap Year Adjustment</span>
+                <p>Automatically accounts for leap years to ensure precise calculations.</p>
+            </div>
+        </div>
+        <p>These features make our calculator a robust tool for all your date-related needs.</p>
+    </section>
+
+    <section>
+        <h2>Practical Applications of Date & Duration Calculations</h2>
+        <p>The ability to accurately calculate dates and durations is essential across many fields:</p>
+        <ul>
+            <li><strong>Healthcare:</strong> Calculating patient ages, medication schedules, pregnancy due dates, or treatment durations.</li>
+            <li><strong>Human Resources:</strong> Determining years of service, employee leave accruals, or notice periods.</li>
+            <li><strong>Education:</strong> Planning academic calendars, assignment deadlines, or research project durations.</li>
+            <li><strong>Real Estate:</strong> Calculating tenancy periods, mortgage terms, or property possession dates.</li>
+            <li><strong>Legal & Compliance:</strong> Ensuring adherence to legal deadlines, statute of limitations, or contract terms.</li>
+            <li><strong>Financial Services:</strong> Calculating interest accrual periods, bond maturity dates, or investment holding periods.</li>
+        </ul>
+        <p>Our tool streamlines these tasks, making complex date arithmetic simple and error-free.</p>
+    </section>
+
+    <section>
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">Does the calculator count the start date or end date?</div>
+            <p>When calculating the duration between two dates, our calculator typically counts the number of full days *between* the two selected dates. If you need to include both the start and end date, you might add 1 to the total days result, depending on your specific requirement.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Can I calculate business days only?</div>
+            <p>Our current calculator calculates total days, including weekends. For a business day (workday) calculation, you would need a specialized workday calculator that excludes Saturdays, Sundays, and public holidays.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">How does it handle partial months or years?</div>
+            <p>When calculating duration, it provides results in full years, months, and remaining days. For example, 1 year, 2 months, 5 days. For 'Add/Subtract' functionality, it correctly increments/decrements the date considering month lengths and leap years.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Is my date information saved or tracked?</div>
+            <p>No, your input dates are not saved or tracked by our servers. All calculations are performed instantly and locally in your web browser, ensuring complete privacy and security.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">What is a leap year, and why is it important for date calculations?</div>
+            <p>A leap year occurs every four years (with some exceptions) and has 366 days instead of 365, with February having 29 days. It's crucial for accurate date calculations because failing to account for it can lead to off-by-one-day errors over long periods.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Keywords</h2>
+        <p>Our Date & Duration Calculator is optimized for the following Google search terms:</p>
+        <ul>
+            <li>date calculator</li>
+            <li>duration calculator</li>
+            <li>date difference calculator</li>
+            <li>add days to date</li>
+            <li>subtract days from date</li>
+            <li>days between dates calculator</li>
+            <li>time duration calculator</li>
+            <li>date to date calculator</li>
+            <li>how many days between dates</li>
+            <li>date addition calculator</li>
+            <li>date subtraction calculator</li>
+            <li>future date calculator</li>
+            <li>past date calculator</li>
+            <li>online date tool</li>
+            <li>date period calculator</li>
+            <li>exact days calculator</li>
+            <li>date counter</li>
+            <li>calculate days months years</li>
+            <li>leap year calculator date</li>
+            <li>project timeline calculator</li>
+        </ul>
+    </section>
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const startDateInput = document.getElementById('startDate');
+            const startTimeInput = document.getElementById('startTime');
+            const endDateInput = document.getElementById('endDate');
+            const endTimeInput = document.getElementById('endTime');
+            const calculateBtn = document.getElementById('calculateBtn');
+            const errorMessage = document.getElementById('errorMessage');
+            const resultsSection = document.getElementById('resultsSection');
+            const durationDisplay = document.getElementById('durationDisplay');
+
+            // Set default dates for convenience (e.g., today and a month later)
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(today.getDate() + 1);
+
+            const formatDate = (date) => {
+                const yyyy = date.getFullYear();
+                const mm = String(date.getMonth() + 1).padStart(2, '0');
+                const dd = String(date.getDate()).padStart(2, '0');
+                return `${yyyy}-${mm}-${dd}`;
+            };
+
+            startDateInput.value = formatDate(today);
+            endDateInput.value = formatDate(tomorrow);
+
+            calculateBtn.addEventListener('click', calculateDuration);
+
+            function calculateDuration() {
+                // Combine date and time inputs
+                const startDateTimeString = `${startDateInput.value}T${startTimeInput.value}`;
+                const endDateTimeString = `${endDateInput.value}T${endTimeInput.value}`;
+
+                const startDate = new Date(startDateTimeString);
+                const endDate = new Date(endDateTimeString);
+
+                // --- Input Validation ---
+                if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+                    errorMessage.textContent = "Please enter valid dates and times.";
+                    errorMessage.style.display = 'block';
+                    resultsSection.style.display = 'none';
+                    return;
+                }
+
+                if (startDate > endDate) {
+                    errorMessage.textContent = "Start date cannot be after the end date.";
+                    errorMessage.style.display = 'block';
+                    resultsSection.style.display = 'none';
+                    return;
+                }
+                
+                errorMessage.style.display = 'none'; // Hide error if valid
+
+                // --- Calculate total milliseconds difference ---
+                let totalMilliseconds = endDate - startDate; // This automatically handles time as well
+
+                // --- Convert milliseconds to various units ---
+                const msInSecond = 1000;
+                const msInMinute = msInSecond * 60;
+                const msInHour = msInMinute * 60;
+                const msInDay = msInHour * 24;
+                // For weeks, months, years, we need to be careful as they are not fixed ms
+                // We'll calculate them based on calendar difference for precision where possible,
+                // and then remaining days/hours/minutes/seconds.
+
+                let years = endDate.getFullYear() - startDate.getFullYear();
+                let months = endDate.getMonth() - startDate.getMonth();
+                let days = endDate.getDate() - startDate.getDate();
+                let hours = endDate.getHours() - startDate.getHours();
+                let minutes = endDate.getMinutes() - startDate.getMinutes();
+                let seconds = endDate.getSeconds() - startDate.getSeconds();
+
+                // Adjust for negative differences (borrowing from larger units)
+                if (seconds < 0) {
+                    minutes--;
+                    seconds += 60;
+                }
+                if (minutes < 0) {
+                    hours--;
+                    minutes += 60;
+                }
+                if (hours < 0) {
+                    days--;
+                    hours += 24;
+                }
+                if (days < 0) {
+                    months--;
+                    const lastDayOfPrevMonth = new Date(endDate.getFullYear(), endDate.getMonth(), 0).getDate();
+                    days += lastDayOfPrevMonth;
+                }
+                if (months < 0) {
+                    years--;
+                    months += 12;
+                }
+
+                // Total calculations (less precise for months/years, but exact for smaller units)
+                const totalDays = Math.floor(totalMilliseconds / msInDay);
+                const totalHours = Math.floor(totalMilliseconds / msInHour);
+                const totalMinutes = Math.floor(totalMilliseconds / msInMinute);
+                const totalSeconds = Math.floor(totalMilliseconds / msInSecond);
+
+                // --- Display Results ---
+                durationDisplay.innerHTML = `
+                    <ul>
+                        <li><strong>Exact Duration:</strong> ${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds</li>
+                        <li><strong>Total Days:</strong> ${totalDays.toLocaleString()} days</li>
+                        <li><strong>Total Hours:</strong> ${totalHours.toLocaleString()} hours</li>
+                        <li><strong>Total Minutes:</strong> ${totalMinutes.toLocaleString()} minutes</li>
+                        <li><strong>Total Seconds:</strong> ${totalSeconds.toLocaleString()} seconds</li>
+                        <li><strong>Total Weeks:</strong> ${(totalDays / 7).toLocaleString(undefined, { maximumFractionDigits: 2 })} weeks</li>
+                    </ul>
+                `;
+                resultsSection.style.display = 'block';
+            }
+
+            // Initial calculation call to set default state and results for pre-filled dates
+            calculateDuration();
+        });
+    </script>
+</body>
+</html>
