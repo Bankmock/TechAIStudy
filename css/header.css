@@ -1,79 +1,79 @@
-
-
-  a {
-          
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-.adsc {
-text-align: center;
-overflow-x: scrol;
+:root {
+  --bg: #ffffff;
+  --text: #1f2937;
+  --gray: #6b7280;
+  --primary: #3b82f6;
+  --light: #f9fafb;
+  --card-bg: #ffffff;
+  --card-text: #1f2937;
+  --hover-scale: 1.05;
 }
-/* Global */
-.hcontainer{
-  width:80%;
-  margin:auto;
-  overflow:hidden;
-}
-/* Header **/
-header{
-  background:#35424a;
-  color:#ffffff;
-  padding-top:30px;
-  min-height:70px;
-  border-bottom:#e8491d 3px solid;
+/* ===== HEADER ===== */
+header {
+  background: var(--primary);
+  color: white;
+  padding: 12px 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-header a{
-  color:#ffffff;
-  text-decoration:none;
-  text-transform: uppercase;
-  font-size:16px;
+.header-name {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  white-space: nowrap;
+  z-index: 1;
 }
 
-header li{
-  float:left;
-  display:inline;
-  padding: 0 20px 0 20px;
+.menu-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 2;
 }
 
-header #hbranding{
-  float:left;
+.toggle {
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  cursor: pointer;
 }
 
-header #hbranding h1{
-  margin:0;
+/* Menu styles */
+.menu {
+  display: none;
+  justify-content: center;
+  gap: 1.5rem;
+  background: var(--light);
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
-header nav{
-  float:right;
-  margin-top:10px;
+.menu.show {
+  display: flex;
 }
 
-header .hhighlighth, header .current a{
-  color:#e8491d;
-  font-weight:bold;
+.menu a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
 }
 
-header a:hover{
-  color:#cccccc;
-  font-weight:bold;
-}
-
-/* Media Queries */
-@media(max-width: 768px){
-  header #hbranding,
-  header nav,
-  header nav li {
-    float:none;
-    text-align:center;
-    width:100%;
+/* Desktop adjustments */
+@media (min-width: 768px) {
+  .menu-btn {
+    margin-right: 30px;
   }
-
-  header{
-    padding-bottom:20px;
-  }
-
 }
