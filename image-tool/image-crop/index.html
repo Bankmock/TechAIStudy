@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script defer src="../../js/component1.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Online Image Crop Tool – Resize & Edit Photos Instantly | Tech AI Study</title>
+  <title>Image Cropper Tools – Resize & Cut Images & Pictures | Fast & Free Image Cropper tools</title>
   <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/blogpost.css">
     <link rel="stylesheet" href="../../css/footer.css">
-        <link rel="stylesheet" href="../../css/header.css">
-      <script defer src="../../js/component1.js"></script>
-      <!-- Google Analytics (Tracking) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
-    
-    <!-- Load Scripts -->
-    	  <script src="../../js/ads.js"></script>
+    <script src="../../js/ads.js"></script>
     <script src="../../js/headerScript.js"></script>
     <script src="../../js/googletrackingid.js"></script>
   <meta name="description" content="Crop images online for free with our fast, easy-to-use tool! No registration required. Supports JPG, PNG, GIF, and more. Perfect for social media, blogs, and marketing." />
   <meta name="keywords" content="image crop, crop image online, free image cropper, crop tool, resize image, photo crop, crop png, crop jpg, image editing" />
   <meta name="author" content="Tech AI Study" />
-  <meta property="og:title" content="Free Online Image Crop Tool – Resize & Edit Photos Instantly" />
+  <meta property="og:title" content="Image Cropper Tools – Resize & Cut Images & Pictures | Fast & Free Image Cropper tools" />
   <meta property="og:description" content="Crop images online for free. Upload JPG, PNG, or WebP files and crop with precision. Works on mobile and desktop. No watermark." />
   <meta property="og:url" content="https://techaistudy.com/image-tool/image-crop/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://techaistudy.com/images/image-crop.webp" />
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Free Online Image Crop Tool">
+  <meta name="twitter:title" content="Image Cropper Tools – Resize & Cut Images & Pictures | Fast & Free Image Cropper tools">
   <meta name="twitter:description" content="Crop images online for free with our fast, easy-to-use tool!">
   <link rel="canonical" href="https://techaistudy.com/image-tool/image-crop/" />
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet">
-     
-     <!-- Cropper.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+      <!-- Include Cropper.js library -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
   
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -49,121 +46,64 @@
     }
   }
   </script>
-
   <style>
-        .container {
+	.imgcontainer {
       display: flex;
       flex-direction: column;
       gap: 20px;
       margin-top: 20px;
       padding: 20px;
     }
-    h1 {
-      color: #2c3e50;
-      font-size: 2.2em;
-    }
-    h2 {
-      color: #2980b9;
-      margin-top: 30px;
-      font-size: 1.8em;
-    }
-    h3 {
-      color: #34495e;
-    }
-    .tool-container {
-      background-color: #f8f9fa;
-      padding: 25px;
-      border-radius: 8px;
-      margin: 30px 0;
-      text-align: center;
-    }
-    .btn {
-      background-color: #3498db;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
+  .upload-area {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .upload-area:hover, .upload-area.dragover {
+    border-color: #666;
+    background-color: #f5f5f5;
+  }
+  
+  .select-btn {
       display: inline-block;
-      margin: 10px 0;
+      background-color: #6366f1;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
       text-decoration: none;
     }
-    .btn:hover {
-      background-color: #2980b9;
-    }
-    .feature-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin: 20px 0;
-    }
-    .feature {
-      flex-basis: 48%;
-      margin-bottom: 15px;
-    }
-    .faq {
-      margin-bottom: 20px;
-    }
-    .faq-question {
-      font-weight: bold;
-      color: #2c3e50;
-    }
-    @media (max-width: 768px) {
-      .feature {
-        flex-basis: 100%;
-      }
-    }
-    .h1bi {
-        
-        color: blue;
-        text-align: center; 
-     
-        font-size: 1.8em;
-        margin-bottom: 15px;
-    }
-    
-#drop-area {
-      border: 2px dashed #4CAF50;
-      border-radius: 10px;
-      padding: 40px;
-      text-align: center;
-      color: blue;
-      font-size: 26px;
-      transition: background-color 0.3s, border-color 0.3s;
-      cursor: pointer;
-    }
 
-    #drop-area.highlight {
-      background-color: #f0fff0;
-      border-color: #45a049;
-      color: #222;
+    .select-btn img {
+      vertical-align: middle;
+      margin-right: 8px;
     }
-        .file-input {
-            position: relative;
-            display: inline-block;
-            padding: 12px 24px;
-            font-size: 16px;
-            cursor: pointer;
-            color: white;
-            background-color: #007bff;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .file-input input[type="file"] {
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .file-input:hover {
-            background-color: #0056b3;
-        }
-
-        .cropper-container {
+  
+  .progress-container {
+    width: 100%;
+    background-color: #f1f1f1;
+    display: none;
+    margin-top: 10px;
+  }
+  
+  .progress-bar {
+    height: 10px;
+    background-color: #4CAF50;
+    width: 0%;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+    display: none;
+  }
+  
+  .cropper-container {
             display: flex;
             justify-content: center;
             margin: 20px 0;
@@ -175,8 +115,8 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-
-        button {
+  
+  .button {
             display: block;
             padding: 12px 24px;
             margin: 20px auto;
@@ -189,71 +129,51 @@
             transition: background-color 0.3s;
         }
 
-        button:hover {
+        .button:hover {
             background-color: #218838;
         }
-
-        /* Responsive styles */
-        @media only screen and (max-width: 768px) {
-            
-
-           .h1bi {
-        
-        color: blue;
-        text-align: center; 
-     
-        font-size: 1.8em;
-        margin-bottom: 15px;
-    }
-
-
-            .file-input, button {
-                width: 90%;
-                max-width: 100%;
-            }
-        }
   
-  #wd {
-            
-            color: blue;
-            
-            
-            
-        }
- 
-  </style>
+</style>
 </head>
 <body>
-
- <div class="container">
-    
-    <h1 class="h1bi">Image Cropper Tool</h1>
-
-       <div id="drop-area" onclick="document.getElementById('imageInput').click();">
-    <p>Drag & Drop Image Here or Click to Upload</p>
-    <input type="file" id="imageInput" accept="image/*" hidden>
-      
+	<div class="container">
+		<section class="hero">
+	<h1>Image Cropper Tools – Resize & Cut Images & Pictures | Fast & Free Image Cropper tools</h1>
+</section>
+<div class="imgcontainer">
+<div class="uploadfile">
+  <h2>📁 Upload File</h2>
+  <div class="upload-area" id="uploadArea">
+    <label class="select-btn">
+      &#128444;
+      Select Image
+    </label>
+    <br><p>or</p>
+    <p><strong>Drag & Drop your image</strong></p>
+    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+    <div id="fileName" class="file-label"></div>
+    <div class="progress-container" id="progressContainer">
+      <div class="progress-bar" id="progressBar"></div>
     </div>
-   
+    <div id="errorMessage" class="error-message"></div>
+  </div>
+</div>
 
-    <!-- Step 2: Cropper Area -->
-    <div class="cropper-container">
-        <img id="image" style="display: none;" alt="Crop Image">
-    </div>
+<!-- Cropper Area -->
+<div class="cropper-container">
+  <img id="image" style="display: none;" alt="Crop Image">
+</div>
+<!-- Cropped Image Output -->
+<img id="croppedImage" style="display: none;" alt="Cropped Image">
+<!-- Crop and Download Buttons -->
+<button id="cropButton" class="button" style="display:none;">Crop Image</button>
+<button id="downloadButton" class="button" style="display:none;">Download Cropped Image</button>
+</div>
 
-    <!-- Cropped Image Output -->
-    <img id="croppedImage" style="display: none;" alt="Cropped Image">
+</div>
 
-    <!-- Crop and Download Buttons -->
-    <button id="cropButton" style="display:none;">Crop Image</button>
-    <button id="downloadButton" style="display:none;">Download Cropped Image</button>
-
-  
-<br><div class="ads9"></div>
-<h1>Free Online Image Crop Tool – Fast & Easy Photo Editing</h1>
-
-    <p><strong>Crop your images instantly</strong> with our fast, free, and easy-to-use online image cropper. Whether you need to crop a photo for a profile, social media, document, or web upload, our <strong>image crop tool</strong> gives you full control and precision – no watermark, no download required, and no signup.</p>
-
+<div class="blog">
+<p><strong>Crop your images instantly</strong> with our fast, free, and easy-to-use online image cropper. Whether you need to crop a photo for a profile, social media, document, or web upload, our <strong>image crop tool</strong> gives you full control and precision – no watermark, no download required, and no signup.</p>
   <section>
     <h2>Why Choose Our Image Crop Tool?</h2>
     <div class="feature-list">
@@ -362,55 +282,153 @@
     </ul>
   </section>
 
-  <section style="text-align: center; margin: 40px 0;">
-    <h2>Ready to Crop Your Images?</h2>
-    <p>Try our free image crop tool now! Simply upload, adjust, and download—no hassle.</p>
-    <a href="#image-crop-tool" class="btn">Start Cropping Now</a>
-  </section>
+  
 </div>
-  <script>
-    const imageInput = document.getElementById('imageInput');
-    const image = document.getElementById('image');
-    const croppedImage = document.getElementById('croppedImage');
-    const cropButton = document.getElementById('cropButton');
-    const downloadButton = document.getElementById('downloadButton');
-    let cropper;
+<script>
+  // DOM Elements
+  const uploadArea = document.getElementById('uploadArea');
+  const fileInput = document.getElementById('fileInput');
+  const fileName = document.getElementById('fileName');
+  const progressContainer = document.getElementById('progressContainer');
+  const progressBar = document.getElementById('progressBar');
+  const errorMessage = document.getElementById('errorMessage');
+  const image = document.getElementById('image');
+  const cropButton = document.getElementById('cropButton');
+  const downloadButton = document.getElementById('downloadButton');
+  const croppedImage = document.getElementById('croppedImage');
+  let cropper;
 
-    imageInput.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (file && /^image\//.test(file.type)) {
-        const reader = new FileReader();
-        reader.onload = () => {
-          image.src = reader.result;
-          image.style.display = 'block';
-          if (cropper) cropper.destroy();
-          cropper = new Cropper(image, {
-            aspectRatio: NaN,
-            viewMode: 1,
-          });
-          cropButton.style.display = 'block';
-        };
-        reader.readAsDataURL(file);
+  // Event Listeners
+  uploadArea.addEventListener('click', handleUploadAreaClick);
+  fileInput.addEventListener('change', handleFileChange);
+  uploadArea.addEventListener('dragover', handleDragOver);
+  uploadArea.addEventListener('drop', handleDrop);
+  cropButton.addEventListener('click', handleCrop);
+  downloadButton.addEventListener('click', handleDownload);
+
+  // Functions
+  function handleUploadAreaClick(e) {
+    // Only trigger file input if the click wasn't on the file input itself
+    if (e.target !== fileInput) {
+      fileInput.click();
+    }
+  }
+
+  function handleFileChange(event) {
+    errorMessage.textContent = '';
+    const file = event.target.files[0];
+    
+    if (!file) return;
+    
+    // Validate file type
+    if (!file.type.match('image.*')) {
+      showError('Please select an image file (JPEG, PNG, etc.)');
+      return;
+    }
+    
+    // Validate file size (e.g., 5MB limit)
+    if (file.size > 5 * 1024 * 1024) {
+      showError('File size should be less than 5MB');
+      return;
+    }
+    
+    fileName.textContent = `File selected: ${file.name}`;
+    progressContainer.style.display = 'block';
+    simulateProgress(file);
+  }
+
+  function handleDragOver(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    uploadArea.classList.add('dragover');
+  }
+
+  function handleDrop(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    uploadArea.classList.remove('dragover');
+    
+    const files = event.dataTransfer.files;
+    if (files.length > 0) {
+      fileInput.files = files;
+      handleFileChange({ target: fileInput });
+    }
+  }
+
+  function simulateProgress(file) {
+    progressBar.style.width = '0%';
+    let progress = 0;
+
+    const interval = setInterval(() => {
+      progress += 5 + Math.random() * 10;
+      progressBar.style.width = Math.min(progress, 100) + '%';
+      
+      if (progress >= 100) {
+        clearInterval(interval);
+        loadImageForCropping(file);
       }
-    });
+    }, 200);
+  }
 
-    cropButton.addEventListener('click', () => {
+  function loadImageForCropping(file) {
+    const reader = new FileReader();
+    
+    reader.onload = (e) => {
+      image.src = e.target.result;
+      image.style.display = 'block';
+      
+      if (cropper) {
+        cropper.destroy();
+      }
+      
+      cropper = new Cropper(image, {
+        aspectRatio: NaN,
+        viewMode: 1,
+      });
+      
+      cropButton.style.display = 'block';
+      progressContainer.style.display = 'none';
+    };
+    
+    reader.onerror = () => {
+      showError('Error reading file. Please try again.');
+      progressContainer.style.display = 'none';
+    };
+    
+    reader.readAsDataURL(file);
+  }
+
+  function handleCrop() {
+    try {
       const canvas = cropper.getCroppedCanvas();
+      if (!canvas) {
+        throw new Error('Cropping failed. Please try again.');
+      }
+      
       croppedImage.src = canvas.toDataURL();
       croppedImage.style.display = 'block';
       downloadButton.style.display = 'block';
+    } catch (error) {
+      showError(error.message);
+    }
+  }
 
-      downloadButton.onclick = () => {
-        const link = document.createElement('a');
-        link.href = canvas.toDataURL('image/png');
-        link.download = 'cropped-image.png';
-        link.click();
-      };
-    });
-  </script>
+  function handleDownload() {
+    const link = document.createElement('a');
+    link.href = croppedImage.src;
+    link.download = 'cropped-image.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 
- 
-
-  
+  function showError(message) {
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
+    setTimeout(() => {
+      errorMessage.style.display = 'none';
+    }, 5000);
+  }
+</script>
 </body>
-</html>.
+</html>
