@@ -1,1 +1,471 @@
-k
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script defer src="../../js/component1.js"></script>
+<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="https://techaistudy.com/images/logo.webp" type="image/webp">  
+
+<!-- Primary Meta Tags -->
+<title>YouTube Video Downloader - Download HD Videos Mp4 & MP3 Fast | TechAI Study</title>
+<meta name="description" content="Free YouTube video downloader - Save videos in 1080p, 4K, 8K or MP3 format. No registration, unlimited downloads. Fastest YouTube downloader online - powered by TechAI Study.">
+<meta name="keywords" content="youtube video downloader, download youtube videos, youtube to mp3, youtube 4k downloader, youtube 1080p download, free youtube downloader, save youtube videos, TechAI Study">
+<meta name="author" content="TechAI Study">
+<link rel="canonical" href="https://techaistudy.com/video-downloader/youtube-video-downloader/" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://techaistudy.com/video-downloader/youtube-video-downloader/">
+<meta property="og:title" content="YouTube Video Downloader - HD & MP3 Downloads | TechAI Study">
+<meta property="og:description" content="Download YouTube videos in 4K, 1080p, HD or MP3 format. Fast, free and unlimited YouTube downloads - no registration required.">
+<meta property="og:image" content="https://techaistudy.com/images/youtube-downloader.webp">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://techaistudy.com/video-downloader/youtube-video-downloader/">
+<meta name="twitter:title" content="Free YouTube Video Downloader Online | TechAI Study">
+<meta name="twitter:description" content="Download YouTube videos in all formats (MP4, WEBM, 3GP) and qualities (4K, HD, 360p). Convert YouTube to MP3 with one click.">
+<meta name="twitter:image" content="https://techaistudy.com/images/youtube-downloader.webp">
+
+<!-- Styles and Scripts -->
+<link rel="stylesheet" href="../../css/header.css">
+<link rel="stylesheet" href="../../css/blogpost.css">
+<link rel="stylesheet" href="../../css/footer.css">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+<script src="../../js/ads.js"></script>
+<script src="../../js/headerScript.js"></script>
+<script src="../../js/googletrackingid.js"></script>
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "YouTube Video Downloader",
+  "url": "https://techaistudy.com/video-downloader/youtube-video-downloader/",
+  "description": "Free online tool to download YouTube videos in all formats and qualities including 4K, 1080p HD, and MP3 audio extraction.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "TechAI Study",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://techaistudy.com/images/logo.webp"
+    }
+  },
+  "mainEntity": {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this YouTube downloader really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our YouTube video downloader is completely free with no hidden costs or registration requirements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What video qualities can I download?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Supports all YouTube formats including 144p, 240p, 360p, 480p, 720p HD, 1080p Full HD, 2K, 4K and 8K Ultra HD."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I download YouTube videos as MP3?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, you can convert any YouTube video to high-quality MP3 audio files with one click."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a download limit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No limits - download as many YouTube videos as you need without restrictions."
+        }
+      }
+    ]
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://techaistudy.com/video-downloader/youtube-video-downloader/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://techaistudy.com/"
+    },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "video downloader",
+    "item": "https://techaistudy.com/video-downloader/"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "YouTube Video Downloader",
+    "item": "https://techaistudy.com/video-downloader/youtube-video-downloader"
+  }]
+}
+</script>
+      
+ 
+</head>
+<body>
+<div class="container">
+	<section class="hero">
+     <h1> YouTube Video Downloader</h1>
+  <p>Download YouTube videos in HD, MP4, MP3, 4K quality - Fast, Easy & Free!</p>
+ </section><br>
+<form action="download.html" method="get" onsubmit="return submitForm()">
+    <div class="input-row">
+      <div class="input-wrapper">
+        <input type="url" id="video-url" name="url" placeholder="Paste or Enter video URL..." required />
+        <button id="inputActionBtn" class="paste-btn" type="button" onclick="pasteUrlOnly()">
+          <strong>&#128203;Paste</strong>
+        </button>
+      </div>
+      <button type="submit" class="icon-download-btn">
+        <img src="../../images/Download-button.webp" alt="Download" />
+      </button>
+    </div>
+  </form>
+ </div>
+
+<div class="blog">
+	<section>
+       <h2>Introduction to YouTube</h2>
+        <p>YouTube is the world's largest video-sharing platform that allows users to upload, view, share, rate, comment on videos, and subscribe to other users. Founded in February 2005, YouTube has revolutionized how people consume video content, becoming an essential part of internet culture and digital media.</p>
+        
+        <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="YouTube Logo" style="max-width: 300px; display: block; margin: 20px auto;">
+        
+        <p>As a subsidiary of Google since November 2006, YouTube operates as one of the most visited websites globally, with over 2 billion logged-in monthly users. The platform hosts a wide variety of user-generated and corporate media videos, including movie clips, TV clips, music videos, live streams, video blogging, short original videos, and educational content.</p>
+    
+        <p><strong>YouTube Video Downloader</strong>, your ultimate solution for downloading videos from YouTube in various formats and qualities. Our free online tool allows you to save YouTube videos to your device with just a few clicks. Whether you want to watch videos offline, save educational content, or keep your favorite music videos, our downloader makes the process simple, fast, and hassle-free.</p>
+        
+        
+     
+</section>
+    <section>
+        <h2>Why Choose Our YouTube Video Downloader?</h2>
+        <p>Our tool stands out from the rest because of its simplicity, speed, and versatility. Here's what makes us your best choice:</p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>Multiple Quality Options</h3>
+                <p>Download videos in various resolutions including 144p, 240p, 360p, 480p, 720p (HD), 1080p (Full HD), and even 4K quality.</p>
+            </div>
+            <div class="feature">
+                <h3>MP3 Audio Extraction</h3>
+                <p>Extract audio from YouTube videos and save as high-quality MP3 files for your music collection.</p>
+            </div>
+            <div class="feature">
+                <h3>No Registration Required</h3>
+                <p>Use our service completely anonymously. No sign-ups, no personal data collection.</p>
+            </div>
+            <div class="feature">
+                <h3>Fast Processing</h3>
+                <p>Our optimized servers process your requests quickly, saving you time and frustration.</p>
+            </div>
+            <div class="feature">
+                <h3>Mobile-Friendly</h3>
+                <p>Works perfectly on all devices - smartphones, tablets, and desktop computers.</p>
+            </div>
+            <div class="feature">
+                <h3>Free Forever</h3>
+                <p>Enjoy unlimited free downloads without any hidden charges or subscriptions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>How to Download YouTube Videos</h2>
+        <p>Downloading YouTube videos with our tool is incredibly simple. Just follow these easy steps:</p>
+        
+        <div class="steps">
+            <div class="step">
+                <h3>Find the YouTube Video</h3>
+                <p>Go to YouTube and find the video you want to download. Copy its URL from the address bar or use the "Share" button below the video to get the link.</p>
+            </div>
+            <div class="step">
+                <h3>Paste the YouTube Link</h3>
+                <p>Paste the copied YouTube link into the download box at the top of this page.</p>
+            </div>
+            <div class="step">
+                <h3>Choose Format & Quality</h3>
+                <p>Select your preferred format (MP4, MP3) and quality (HD, Full HD, 4K, etc.) from the available options.</p>
+            </div>
+            <div class="step">
+                <h3>Click Download</h3>
+                <p>Click the "Download" button and wait a few seconds while we process the video.</p>
+            </div>
+            <div class="step">
+                <h3>Save the Video</h3>
+                <p>Your download will start automatically. Save the video/audio file to your device.</p>
+            </div>
+        </div>
+        
+        <p>That's it! You can now enjoy your YouTube videos offline anytime, anywhere.</p>
+    </section>
+
+    <section>
+        <h2>Supported Formats</h2>
+        <p>Our YouTube video downloader supports these popular formats and qualities:</p>
+        
+        <div class="formats">
+            <div class="format">
+                <img src="https://cdn-icons-png.flaticon.com/512/888/888882.png" alt="MP4">
+                <span>MP4 Video (All Qualities)</span>
+            </div>
+            <div class="format">
+                <img src="https://cdn-icons-png.flaticon.com/512/888/888883.png" alt="MP3">
+                <span>MP3 Audio (320kbps)</span>
+            </div>
+            <div class="format">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965300.png" alt="HD">
+                <span>HD Videos (720p, 1080p)</span>
+            </div>
+            <div class="format">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965305.png" alt="4K">
+                <span>4K Ultra HD Videos</span>
+            </div>
+            <div class="format">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965278.png" alt="WebM">
+                <span>WebM Format</span>
+            </div>
+            <div class="format">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965289.png" alt="3GP">
+                <span>3GP (Mobile Format)</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Is It Legal to Download YouTube Videos?</h2>
+        <p>The legality of downloading YouTube videos depends on several factors:</p>
+        <ul>
+            <li><strong>Copyright:</strong> Most content on YouTube is protected by copyright. Downloading copyrighted material without permission may violate copyright laws.</li>
+            <li><strong>YouTube Terms of Service:</strong> YouTube prohibits downloading content through third-party tools in their terms of service.</li>
+            <li><strong>Fair Use:</strong> In some cases, downloading for personal, non-commercial use may fall under "fair use" provisions.</li>
+            <li><strong>Public Domain/Creative Commons:</strong> Content marked as public domain or with Creative Commons licenses can typically be downloaded legally.</li>
+        </ul>
+        <p><strong>Our Recommendation:</strong> Only download videos that you have created, that are in the public domain, or for which you have obtained permission from the copyright holder. Our tool is provided for educational purposes and we do not encourage copyright infringement.</p>
+    </section>
+
+    <section>
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">Is this YouTube downloader really free to use?</div>
+            <p>Yes, our YouTube video downloader is completely free with no hidden charges. You can download as many videos as you want without paying anything.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Do I need to install any software?</div>
+            <p>No installation is required. Our tool works directly in your web browser on any device - computers, smartphones, or tablets.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Can I download YouTube videos in MP3 format?</div>
+            <p>Yes, you can extract audio from YouTube videos and download them as high-quality MP3 files (up to 320kbps).</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">What is the maximum video quality available?</div>
+            <p>We support up to 4K Ultra HD quality downloads, depending on the original video's available quality.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Can I download YouTube playlists or channels?</div>
+            <p>Currently, our tool supports single video downloads only. Playlist and channel downloads are not available.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">How do I download YouTube videos on my iPhone or Android?</div>
+            <p>The process is the same as on desktop - copy the YouTube video link, paste it into our downloader, choose quality, and click download. Our website is fully optimized for mobile browsers.</p>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Why isn't my YouTube video downloading?</div>
+            <p>If you're having trouble downloading a video, try these solutions: 1) Make sure the YouTube link is correct, 2) Check if the video is publicly available (not private), 3) Try again later as YouTube may temporarily block downloads.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Keywords</h2>
+        <p>Our YouTube video downloader is optimized for the following keywords to help you find us easily:</p>
+        <ul>
+            <li>youtube video downloader</li>
+            <li>youtube downloader</li>
+            <li>download youtube videos</li>
+            <li>youtube to mp4</li>
+            <li>youtube to mp3</li>
+            <li>save youtube videos</li>
+            <li>youtube video saver</li>
+            <li>free youtube downloader</li>
+            <li>hd youtube downloader</li>
+            <li>4k youtube downloader</li>
+            <li>youtube mp3 converter</li>
+            <li>download youtube music</li>
+            <li>youtube video download online</li>
+            <li>best youtube downloader</li>
+            <li>youtube hd video download</li>
+        </ul>
+    </section>
+</div>
+  <script>
+  // Function to detect platform from URL
+function detectPlatform(url) {
+  const URL_PATTERNS = {
+youtube: [
+        /https?:\/\/(www\.)?youtube\.com\/watch\?v=[\w-]{11}/,
+        /https?:\/\/youtu\.be\/[\w-]{11}/,
+        /https?:\/\/(www\.)?youtube\.com\/shorts\/[\w-]{11}/,
+        /https?:\/\/m\.youtube\.com\/watch\?v=[\w-]{11}/,
+        /https?:\/\/(www\.)?youtube\.com\/embed\/[\w-]{11}/,
+        /https?:\/\/(www\.)?youtube\.com\/playlist\?list=[\w-]+/,
+        /https?:\/\/(www\.)?youtube\.com\/watch\?v=[\w-]{11}&list=[\w-]+&index=\d+/,
+        /https?:\/\/(www\.)?youtube\.com\/shorts\/[\w-]{11}\?.*/,
+        /https?:\/\/(www\.)?youtube\.com\/watch\?v=[\w-]{11}(&.*)?/
+      ],
+      instagram: [
+        /https?:\/\/(www\.)?instagram\.com\/reel\/[\w-]+\/?/,
+        /https?:\/\/(www\.)?instagram\.com\/p\/[\w-]+\/?/,
+        /https?:\/\/(www\.)?instagram\.com\/tv\/[\w-]+\/?/,
+        /https?:\/\/(www\.)?instagram\.com\/stories\/[\w.-]+\/\d+\/?/,
+        /https?:\/\/m\.instagram\.com\/(reel|p|tv)\/[\w-]+\/?/,
+        /https?:\/\/instagram\.com\/(reel|p|tv)\/[\w-]+\/?/,
+        /https?:\/\/www\.instagram\.com\/(reel|p|tv)\/[\w-]+\/embed\/?/,
+        /https?:\/\/(www\.)?instagram\.com\/(reel|p|tv)\/[\w-]+\/?\?.*/
+      ],
+      facebook: [
+        /https?:\/\/(www\.)?facebook\.com\/.+\/videos\/\d+/,
+        /https?:\/\/fb\.watch\/[\w-]+/,
+        /https?:\/\/(www\.)?facebook\.com\/reel\/[\w-]+/,
+        /https?:\/\/(www\.)?facebook\.com\/share\/(r|v)\/[\w-]+/,
+        /https?:\/\/(www\.)?facebook\.com\/watch\/\?v=\d+/,
+        /https?:\/\/(www\.)?facebook\.com\/story\.php\?story_fbid=\d+&id=\d+/,
+        /https?:\/\/m\.facebook\.com\/.+\/videos\/\d+/,
+        /https?:\/\/m\.facebook\.com\/watch\/\?v=\d+/,
+        /https?:\/\/(www\.)?facebook\.com\/groups\/.+\/permalink\/\d+/,
+        /https?:\/\/(www\.)?facebook\.com\/video\.php\?v=\d+/,
+        /https?:\/\/(www\.)?facebook\.com\/gaming\/video\/\d+/
+      ],
+      twitter: [
+        /https?:\/\/(www\.)?(twitter|x)\.com\/\w+\/status\/\d+/,
+        /https?:\/\/mobile\.twitter\.com\/\w+\/status\/\d+/,
+        /https?:\/\/t\.co\/[\w]+/
+      ],
+      tiktok: [
+        /https?:\/\/(www\.)?tiktok\.com\/@[\w.-]+\/video\/\d+/,
+        /https?:\/\/(vm|vt)\.tiktok\.com\/[\w-]+/,
+        /https?:\/\/m\.tiktok\.com\/v\/\d+\.html/,
+        /https?:\/\/(www\.)?tiktok\.com\/embed\/\d+/,
+        /https?:\/\/t\.tiktok\.com\/[\w/]+/,
+        /https?:\/\/(www\.)?tiktok\.com\/@[\w.-]+\/video\/\d+\?.*/
+]
+};
+
+  for (const platform in URL_PATTERNS) {
+    const patterns = URL_PATTERNS[platform];
+    for (const pattern of patterns) {
+      if (pattern.test(url)) {
+        return platform;
+      }
+    }
+  }
+  return null;
+}
+
+// Function to handle form submission
+function submitForm() {
+  const input = document.getElementById('video-url');
+  const url = input.value.trim();
+
+  if (!url) {
+    alert("Please enter a video URL.");
+    return false;
+  }
+
+  const platform = detectPlatform(url);
+
+  if (!platform) {
+    alert("Invalid or unsupported URL!\nSupported: YouTube, Facebook, Instagram, Twitter/X, TikTok.");
+    return false;
+  }
+
+  return true; // Allow form submission
+}
+
+// Function to paste URL from clipboard
+async function pasteUrlOnly() {
+  const input = document.getElementById('video-url');
+  
+  try {
+    const text = await navigator.clipboard.readText();
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const match = text.match(urlRegex);
+
+    if (match && match.length > 0) {
+      input.value = match[0];
+    } else {
+      alert('No valid URL found in clipboard.');
+    }
+  } catch (err) {
+    alert("Failed to access clipboard. Please paste manually.\nError: " + err);
+  }
+  
+  updateInputActionButton();
+}
+
+// Function to clear input field
+function clearInput() {
+  const input = document.getElementById('video-url');
+  input.value = "";
+  updateInputActionButton();
+}
+
+// Function to update the action button (Paste/Clear)
+function updateInputActionButton() {
+  const input = document.getElementById('video-url');
+  const actionBtn = document.getElementById('inputActionBtn');
+  
+  if (input.value.trim() === "") {
+    actionBtn.innerHTML = '<strong>&#128203; Paste</strong>';
+    actionBtn.className = 'paste-btn';
+    actionBtn.onclick = pasteUrlOnly;
+  } else {
+    actionBtn.innerHTML = '<strong>&#10060; Clear</strong>';
+    actionBtn.className = 'clear-btn';
+    actionBtn.onclick = clearInput;
+  }
+}
+
+// Initialize event listeners
+document.addEventListener('DOMContentLoaded', function() {
+  const input = document.getElementById('video-url');
+  
+  // Update button on input change
+  input.addEventListener('input', updateInputActionButton);
+  
+  // Initial button setup
+  updateInputActionButton();
+});
+</script>
+
+</body>
+</html>
