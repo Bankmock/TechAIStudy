@@ -51,7 +51,7 @@ document.head.appendChild(script);
 
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
-    const adsElement = document.querySelector('.ads');
+    const adsElement = document.querySelector('.blog');
     if (adsElement) {
       const bannerDiv = document.createElement('div');
       bannerDiv.className = 'admoloBanner';
