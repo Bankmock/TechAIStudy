@@ -1,210 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Home Page -->
-  <url>
-    <loc>https://www.techaistudy.com/</loc>
-    <lastmod>2024-09-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <!-- Study Materials Page -->
-  <url>
-    <loc>https://www.techaistudy.com/Tool/image-Resizer-width-height-changer.html</loc>
-    <lastmod>2024-09-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Example Article 1 -->
-  <url>
-    <loc>https://www.techaistudy.com/Notification/Arunachal-Pradesh-APSSB-CSLE-Recruitment-Notification.html</loc>
-    <lastmod>2024-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Example Article 2 -->
-  <url>
-    <loc>https://www.techaistudy.com/Sbi/Sbi-Po-Cut-Off-Marks.html</loc>
-    <lastmod>2024-09-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Example Article 3 -->
-  <url>
-    <loc>https://www.techaistudy.com/Tool/image-cropper.html</loc>
-    <lastmod>2024-09-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-
-
-<!-- Example Article 4 -->
-  <url>
-    <loc>https://www.techaistudy.com/Tool/image-format-converter.html</loc>
-    <lastmod>2024-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-
-<!-- Example Article 5 -->
-  <url>
-    <loc>https://www.techaistudy.com/Tool/image-size-compressor.html</loc>
-    <lastmod>2024-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-
-
-<!-- Example Article 6 -->
-  <url>
-    <loc>https://www.techaistudy.com/image-to-pdf-converter.html</loc>
-    <lastmod>2024-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-
-
-
-  
-
-
-
-
-
-<!-- Example Article 7 -->
-  <url>
-    <loc>https://www.techaistudy.com/Tool/text-to-pdf-converter.html</loc>
-    <lastmod>2024-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-
-
-
-<!-- Example Article 8 -->
-  <url>
-    <loc>https://techaistudy.com/education/how-to-get-a-job-at-google-without-a-degree.html</loc>
-    <lastmod>2024-09-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-
-  <!-- Example Article 9 -->
-  <url>
-    <loc>https://techaistudy.com/Sbi/SBI-PO-Prelims-Sectional-Cut-Off-2024.html</loc>
-    <lastmod>2024-09-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-
-
-
+		<!--	created with www.mysitemapgenerator.com	-->
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-  <loc>https://techaistudy.com/</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>1.00</priority>
+	<loc>https://techaistudy.com/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/image-tool/image-background-remover/index.html</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://techaistudy.com/video-downloader/youtube-video-downloader/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/image-tool/image-crop/index.html</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://techaistudy.com/video-downloader/instagram-video-downloader/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/image-tool/image-compressor/index.html</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://techaistudy.com/video-downloader/facebook-video-downloader/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/image-tool/image-resizer/index.html</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://techaistudy.com/video-downloader/twitter-x-video-downloader/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/image-tool/passport-size-photo-generator/index.html</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://techaistudy.com/video-downloader/tiktok-video-downloader/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/image-tool/image-format-converter/index.html</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://techaistudy.com/ai-tools/mp4-to-mp3-converter/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/pdf-tool/watermark-in-pdf/index.html</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://techaistudy.com/calculator-tool/currency-converter/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/pdf-tool/compress-pdf/index.html</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://techaistudy.com/calculator-tool/gst-calculator/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/pdf-tool/pdf-to-image/index.html</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://techaistudy.com/calculator-tool/bmi-calculator/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/pdf-tool/merge-pdf/index.html</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://techaistudy.com/calculator-tool/loan-emi-calculator/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/pdf-tool/split-and-delete-pdf/index.html</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://techaistudy.com/calculator-tool/age-calculator/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/pdf-tool/rotate-pdf-pages/index.html</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://techaistudy.com/calculator-tool/unit-converter/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/pdf-tool/image-to-pdf/index.html</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://techaistudy.com/calculator-tool/date-duration-calculator/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/pdf-tool/text-to-pdf/index.html</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://techaistudy.com/calculator-tool/gpa-cgpa-calculator/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/image-tool/image-background-remover/</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://techaistudy.com/calculator-tool/discount-calculator/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/image-tool/image-resizer/</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://techaistudy.com/calculator-tool/base-converter/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://techaistudy.com/image-tool/image-format-converter/</loc>
-  <lastmod>2025-05-28T15:20:35+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://techaistudy.com/calculator-tool/percentage-calculator/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
-
-
-
-
-
-  <!-- Add additional URLs for important pages/posts here -->
-
+<url>
+	<loc>https://techaistudy.com/calculator-tool/compound-interest-calculator/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/image-tool/image-background-remover/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/image-tool/image-crop/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/image-tool/image-resizer/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/image-tool/passport-size-photo-generator/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/image-tool/image-format-converter/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/pdf-tool/watermark-in-pdf/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/pdf-tool/compress-pdf/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/pdf-tool/pdf-to-image/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/pdf-tool/merge-pdf/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/pdf-tool/rotate-pdf-pages/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/pdf-tool/image-to-pdf/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/pdf-tool/text-to-pdf/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/pdf-tool/pdf-to-docx/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/pdf-tool/pdf-to-pptx/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/pdf-tool/docx-to-pdf/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://techaistudy.com/pdf-tool/csv-to-pdf/</loc>
+	<lastmod>2025-07-10T23:56:41+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
 </urlset>
