@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script defer src="../../js/component1.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://techaistudy.com/images/logo.webp" type="image/webp">
+
+    <title>Angle Converter - Degrees, Radians, Gradians, DMS | TechAI Study</title>
+    <meta name="description" content="Instantly convert angles between Degrees, Radians, Gradians, and DMS (Degrees Minutes Seconds) online. Our free angle converter is fast, accurate, and easy to use for all your mathematical and engineering needs.">
+    <meta name="keywords" content="angle converter, degree to radian, radian to degree, gradian converter, DMS converter, degrees minutes seconds, angle conversion tool, free angle calculator, online angle converter, convert angles, TechAI Study">
+    <meta name="author" content="TechAI Study">
+    <link rel="canonical" href="https://techaistudy.com/unit-converter/angle-converter/" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techaistudy.com/unit-converter/angle-converter/">
+    <meta property="og:title" content="Angle Converter - Degrees, Radians, Gradians, DMS | TechAI Study">
+    <meta property="og:description" content="Convert angles effortlessly between common units like Degrees, Radians, Gradians, and DMS. A precise and free online tool for students, engineers, and professionals.">
+    <meta property="og:image" content="https://techaistudy.com/images/angle-converter.webp"> <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://techaistudy.com/unit-converter/angle-converter/">
+    <meta name="twitter:title" content="Free Online Angle Converter">
+    <meta name="twitter:description" content="Quickly convert angle units: degrees, radians, gradians, and DMS. Accurate results for all your geometric calculations.">
+    <meta name="twitter:image" content="https://techaistudy.com/images/angle-converter.webp"> <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/blogpost.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+    <script src="../../js/ads.js"></script>
+    <script src="../../js/headerScript.js"></script>
+    <script src="../../js/googletrackingid.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Angle Converter",
+      "url": "https://techaistudy.com/unit-converter/angle-converter/",
+      "description": "Free online tool to convert angles between Degrees, Radians, Gradians, and DMS (Degrees Minutes Seconds). Ideal for mathematics, physics, and engineering.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TechAI Study",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://techaistudy.com/images/logo.webp"
+        }
+      },
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Use the Angle Converter",
+        "description": "A step-by-step guide to converting angles with our online tool.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Enter Value",
+            "text": "Input the angle value you wish to convert."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Select From Unit",
+            "text": "Choose the original unit of your angle (Degree, Radian, Gradian, or DMS)."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Select To Unit",
+            "text": "Choose the target unit for your conversion."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "View Result",
+            "text": "The converted angle will appear instantly in the result box."
+          }
+        ]
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://techaistudy.com/unit-converter/angle-converter/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://techaistudy.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Unit Converters",
+        "item": "https://techaistudy.com/unit-converter/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Angle Converter",
+        "item": "https://techaistudy.com/unit-converter/angle-converter/"
+      }]
+    }
+    </script>
+
+    <style>
+        
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, select {
+            padding: 12px;
+            font-size: 17px;
+            width: calc(100% - 24px); /* Account for padding */
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            background: #e9f7ef; /* Light green for success/result */
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            color: #155724;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .dms-input-group {
+            display: flex;
+            gap: 15px; /* Increased gap for better spacing */
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        .dms-input-group > div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .dms-input-group input {
+            width: calc(100% - 24px); /* Adjust width within flex item */
+            text-align: center;
+        }
+        .dms-input-group label {
+            margin-top: 0; /* Remove top margin for labels within DMS group */
+            margin-bottom: 5px;
+            font-size: 15px;
+            color: #666;
+        }
+        .blog {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-top: 30px;
+        }
+        .blog section {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .blog h2 {
+            font-size: 26px;
+            color: #0056b3;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: left; /* Align section titles left */
+        }
+        .blog h3 {
+            font-size: 22px;
+            color: #333;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .blog p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+        .features, .steps, .formats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .feature, .step, .format {
+            flex: 1 1 calc(33% - 20px); /* Approx 3 items per row */
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #d0e8ff;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            min-width: 250px; /* Ensure readability on smaller screens */
+        }
+        .format img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .format span {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #0056b3;
+        }
+        .faq-item {
+            background: #f7f7f7;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            padding: 15px;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #0056b3;
+            cursor: pointer;
+            padding-right: 20px;
+            position: relative;
+        }
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 1.2em;
+            color: #0056b3;
+        }
+        .faq-question.active::after {
+            content: '-';
+        }
+        .faq-item p {
+            display: none;
+            margin-top: 10px;
+            padding-left: 10px;
+            border-left: 3px solid #0056b3;
+            color: #555;
+        }
+        .faq-item p.show {
+            display: block;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            color: #444;
+        }
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .feature, .step {
+                flex: 1 1 calc(50% - 20px);
+            }
+            .formats .format {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .feature, .step, .formats .format {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <section class="hero">
+        <h1>📐 Angle Converter: Degrees, Radians, Gradians, DMS</h1>
+        <p>Your ultimate online tool for converting angles quickly and accurately between Degrees, Radians, Gradians, and Degrees Minutes Seconds (DMS).</p>
+    </section>
+
+    <div class="converter-section">
+        <label for="angleInput">Enter Angle Value:</label>
+        <input type="number" id="angleInput" placeholder="e.g., 90" oninput="convertAngle()" />
+
+        <div id="dmsInputGroup" class="dms-input-group" style="display: none;">
+            <div>
+                <label for="dmsDegrees">Degrees</label>
+                <input type="number" id="dmsDegrees" placeholder="Deg" oninput="convertAngle()">
+            </div>
+            <div>
+                <label for="dmsMinutes">Minutes</label>
+                <input type="number" id="dmsMinutes" placeholder="Min" oninput="convertAngle()">
+            </div>
+            <div>
+                <label for="dmsSeconds">Seconds</label>
+                <input type="number" id="dmsSeconds" placeholder="Sec" oninput="convertAngle()">
+            </div>
+        </div>
+
+        <label for="fromUnit">From Unit:</label>
+        <select id="fromUnit" onchange="toggleDMSInput(); convertAngle()">
+            <option value="degree">Degree (°)</option>
+            <option value="radian">Radian (rad)</option>
+            <option value="gradian">Gradian (grad)</option>
+            <option value="dms">DMS (Degrees Minutes Seconds)</option>
+        </select>
+
+        <label for="toUnit">To Unit:</label>
+        <select id="toUnit" onchange="convertAngle()">
+            <option value="degree">Degree (°)</option>
+            <option value="radian">Radian (rad)</option>
+            <option value="gradian">Gradian (grad)</option>
+            <option value="dms">DMS (Degrees Minutes Seconds)</option>
+        </select>
+
+        <div class="result" id="resultBox">🔁 Enter values and select units to see the conversion.</div>
+    </div>
+</div>
+
+<div class="blog">
+    <section>
+        <h2>What is an Angle Converter?</h2>
+        <p>An angle converter is an essential tool for anyone working with geometry, trigonometry, physics, or engineering. It allows you to seamlessly translate angle measurements from one unit to another. Whether you're dealing with degrees for everyday use, radians for advanced mathematics, gradians for surveying, or DMS (Degrees Minutes Seconds) for precise navigation and astronomy, our online angle converter handles it all with high accuracy.</p>
+
+        <p>Our interactive tool is designed for ease of use, providing instant conversions directly in your browser. Unlike complex software, there’s no installation required – just input your value, select your units, and get your result. This tool is perfect for students, educators, engineers, surveyors, and anyone who needs quick and reliable angle conversions.</p>
+
+        <img src="https://techaistudy.com/images/angle-converter-illustration.webp" alt="Angle Conversion Diagram" style="max-width: 100%; height: auto; display: block; margin: 20px auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    </section>
+
+    <section>
+        <h2>Understanding Angle Units</h2>
+        <p>Different fields and applications use various units to measure angles. Here’s a brief overview of the units our converter supports:</p>
+
+        <div class="formats">
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/degree.svg" alt="Degree Symbol">
+                <span>Degree (°)</span>
+                <p>The most common unit, where a full circle is 360°. Used in everyday geometry and engineering.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/radian.svg" alt="Radian Symbol">
+                <span>Radian (rad)</span>
+                <p>A unit based on the radius of a circle, where a full circle is $2\pi$ radians. Fundamental in calculus and physics.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/gradian.svg" alt="Gradian Symbol">
+                <span>Gradian (grad)</span>
+                <p>Also known as "gon", where a full circle is 400 grad. Often used in surveying and some European countries.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/dms.svg" alt="DMS Symbol">
+                <span>DMS (Degrees Minutes Seconds)</span>
+                <p>A system where a degree is divided into 60 minutes, and each minute into 60 seconds. Used for precise navigation, latitude, and longitude.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Why Use Our Online Angle Converter?</h2>
+        <p>Our tool offers several advantages for accurate and efficient angle conversions:</p>
+
+        <div class="features">
+            <div class="feature">
+                <h3>High Accuracy</h3>
+                <p>Calculations are performed with high precision for reliable results.</p>
+            </div>
+            <div class="feature">
+                <h3>Multi-Unit Support</h3>
+                <p>Convert between Degrees, Radians, Gradians, and DMS effortlessly.</p>
+            </div>
+            <div class="feature">
+                <h3>User-Friendly Interface</h3>
+                <p>Simple and intuitive design for quick conversions on any device.</p>
+            </div>
+            <div class="feature">
+                <h3>Instant Results</h3>
+                <p>Get your converted angle displayed in real-time as you type.</p>
+            </div>
+            <div class="feature">
+                <h3>Free & Accessible</h3>
+                <p>A completely free online tool, accessible from anywhere with an internet connection.</p>
+            </div>
+            <div class="feature">
+                <h3>No Downloads Needed</h3>
+                <p>Perform conversions directly in your browser without any software installation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>How to Use the Angle Converter</h2>
+        <p>Converting angles is straightforward with our tool. Follow these simple steps:</p>
+
+        <div class="steps">
+            <div class="step">
+                <h3>1. Enter Your Value</h3>
+                <p>Input the numerical value of the angle you want to convert into the "Enter Angle Value" field. If converting from DMS, use the dedicated Degrees, Minutes, and Seconds input fields.</p>
+            </div>
+            <div class="step">
+                <h3>2. Select "From Unit"</h3>
+                <p>Choose the unit of the angle you entered from the "From Unit" dropdown menu (e.g., Degree, Radian, Gradian, or DMS).</p>
+            </div>
+            <div class="step">
+                <h3>3. Select "To Unit"</h3>
+                <p>Choose the unit you wish to convert your angle into from the "To Unit" dropdown menu.</p>
+            </div>
+            <div class="step">
+                <h3>4. View Converted Result</h3>
+                <p>The conversion will happen automatically, and the result will be displayed in the "Result" box.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Common Angle Conversion Formulas</h2>
+        <p>Here are the underlying formulas used in angle conversions, illustrating the relationships between different units:</p>
+        <ul>
+            <li><strong>Degrees to Radians:</strong> $Radians = Degrees \times (\frac{\pi}{180})$</li>
+            <li><strong>Radians to Degrees:</strong> $Degrees = Radians \times (\frac{180}{\pi})$</li>
+            <li><strong>Degrees to Gradians:</strong> $Gradians = Degrees \times (\frac{10}{9})$</li>
+            <li><strong>Gradians to Degrees:</strong> $Degrees = Gradians \times (\frac{9}{10})$</li>
+            <li><strong>DMS to Decimal Degrees:</strong> $Decimal Degrees = Degrees + (\frac{Minutes}{60}) + (\frac{Seconds}{3600})$</li>
+            <li><strong>Decimal Degrees to DMS:</strong>
+                <ul>
+                    <li>Degrees = Integer part of Decimal Degrees</li>
+                    <li>Minutes = Integer part of $((Decimal Degrees - Degrees) \times 60)$</li>
+                    <li>Seconds = $(( (Decimal Degrees - Degrees) \times 60) - Minutes) \times 60$</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Our converter handles these calculations automatically, so you don't have to!</p>
+    </section>
+
+    <section>
+        <h2>Frequently Asked Questions (FAQ)</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">What is DMS angle conversion?</div>
+            <p>DMS stands for Degrees, Minutes, Seconds. It's a way of expressing angles (or geographic coordinates like latitude and longitude) using a sexagesimal (base-60) system, where 1 degree = 60 minutes and 1 minute = 60 seconds.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I convert negative angles?</div>
+            <p>Yes, our angle converter supports both positive and negative angle values for all unit conversions.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is this angle converter free to use?</div>
+            <p>Absolutely! Our online angle converter is completely free to use, with no hidden costs or subscriptions.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Do I need to download any software?</div>
+            <p>No, this is a web-based tool. You can access and use our angle converter directly from your browser on any device.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What is the difference between radians and degrees?</div>
+            <p>Degrees divide a circle into 360 parts, while radians relate the angle to the arc length of a circle's radius. A full circle is 360 degrees or $2\pi$ radians.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Why are gradians used?</div>
+            <p>Gradians (or gons) are primarily used in surveying and some engineering fields, particularly in countries that adopted the metric system, as a right angle is exactly 100 gradians, simplifying calculations.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Keywords for Angle Converter</h2>
+        <p>Our angle converter tool is optimized for the following search terms and related queries to help you find us easily:</p>
+        <ul>
+            <li>angle converter</li>
+            <li>degree to radian converter</li>
+            <li>radian to degree converter</li>
+            <li>gradian converter</li>
+            <li>DMS converter</li>
+            <li>degrees minutes seconds converter</li>
+            <li>angle conversion tool</li>
+            <li>free angle calculator</li>
+            <li>online angle converter</li>
+            <li>convert angles online</li>
+            <li>math angle converter</li>
+            <li>physics angle conversion</li>
+            <li>engineering angle units</li>
+            <li>how to convert degrees to radians</li>
+            <li>how to convert radians to degrees</li>
+            <li>angle unit conversion</li>
+            <li>angle measurement converter</li>
+            <li>precise angle converter</li>
+            <li>calculator for angles</li>
+            <li>TechAI Study angle tool</li>
+        </ul>
+    </section>
+</div>
+
+<script>
+    function toggleDMSInput() {
+        const fromUnit = document.getElementById("fromUnit").value;
+        const angleInput = document.getElementById("angleInput");
+        const dmsInputGroup = document.getElementById("dmsInputGroup");
+
+        if (fromUnit === "dms") {
+            angleInput.style.display = "none";
+            dmsInputGroup.style.display = "flex";
+        } else {
+            angleInput.style.display = "block";
+            dmsInputGroup.style.display = "none";
+            // Clear DMS fields if switching away from DMS input
+            document.getElementById("dmsDegrees").value = "";
+            document.getElementById("dmsMinutes").value = "";
+            document.getElementById("dmsSeconds").value = "";
+        }
+    }
+
+    function convertAngle() {
+        const from = document.getElementById("fromUnit").value;
+        const to = document.getElementById("toUnit").value;
+        const resultBox = document.getElementById("resultBox");
+
+        let valueInDegrees; // We'll convert everything to decimal degrees first
+
+        if (from === "dms") {
+            const degrees = parseFloat(document.getElementById("dmsDegrees").value) || 0;
+            const minutes = parseFloat(document.getElementById("dmsMinutes").value) || 0;
+            const seconds = parseFloat(document.getElementById("dmsSeconds").value) || 0;
+
+            if (isNaN(degrees) && isNaN(minutes) && isNaN(seconds)) { // Allow all fields to be empty initially
+                resultBox.textContent = "🔁 Enter values and select units to see the conversion.";
+                return;
+            }
+            if (isNaN(degrees) || isNaN(minutes) || isNaN(seconds) || minutes < 0 || minutes >= 60 || seconds < 0 || seconds >= 60) {
+                resultBox.textContent = "❌ Please enter valid numbers for DMS (minutes and seconds should be 0-59).";
+                return;
+            }
+            // Handle negative degrees for DMS correctly
+            const sign = degrees < 0 || (degrees === 0 && (minutes < 0 || seconds < 0)) ? -1 : 1;
+            valueInDegrees = Math.abs(degrees) + (Math.abs(minutes) / 60) + (Math.abs(seconds) / 3600);
+            valueInDegrees *= sign;
+
+        } else {
+            const inputVal = parseFloat(document.getElementById("angleInput").value);
+            if (isNaN(inputVal)) {
+                resultBox.textContent = "🔁 Enter values and select units to see the conversion.";
+                return;
+            }
+            // Convert from source unit to Degrees
+            switch (from) {
+                case "degree":
+                    valueInDegrees = inputVal;
+                    break;
+                case "radian":
+                    valueInDegrees = inputVal * (180 / Math.PI);
+                    break;
+                case "gradian":
+                    valueInDegrees = inputVal * (9 / 10);
+                    break;
+            }
+        }
+
+        let resultText;
+        let unitSymbolFrom = "";
+
+        // Get initial unit symbol for display
+        switch (from) {
+            case "degree": unitSymbolFrom = "°"; break;
+            case "radian": unitSymbolFrom = " rad"; break;
+            case "gradian": unitSymbolFrom = " grad"; break;
+            case "dms": unitSymbolFrom = ""; break; // DMS is handled separately for input display
+        }
+
+        // Convert from Decimal Degrees to target unit
+        switch (to) {
+            case "degree":
+                resultText = `${valueInDegrees.toFixed(8)}°`; // Increased precision
+                break;
+            case "radian":
+                resultText = `${(valueInDegrees * (Math.PI / 180)).toFixed(8)} rad`; // Increased precision
+                break;
+            case "gradian":
+                resultText = `${(valueInDegrees * (10 / 9)).toFixed(8)} grad`; // Increased precision
+                break;
+            case "dms":
+                // Convert decimal degrees to DMS
+                const signOutput = valueInDegrees < 0 ? "-" : "";
+                const absDegreesOutput = Math.abs(valueInDegrees);
+                const d = Math.floor(absDegreesOutput);
+                const decimalMinutes = (absDegreesOutput - d) * 60;
+                const m = Math.floor(decimalMinutes);
+                const s = (decimalMinutes - m) * 60;
+                resultText = `${signOutput}${d}° ${m}' ${s.toFixed(4)}''`; // Increased precision for seconds
+                break;
+        }
+
+        // Prepare the input value display based on the 'from' unit
+        let inputDisplay;
+        if (from === "dms") {
+            const d = parseFloat(document.getElementById("dmsDegrees").value);
+            const m = parseFloat(document.getElementById("dmsMinutes").value);
+            const s = parseFloat(document.getElementById("dmsSeconds").value);
+
+            if (isNaN(d) && isNaN(m) && isNaN(s)) {
+                 inputDisplay = ""; // No input yet
+            } else {
+                const inputSign = (d < 0 || (d === 0 && (m < 0 || s < 0))) ? "-" : "";
+                inputDisplay = `${inputSign}${Math.abs(d || 0)}° ${Math.abs(m || 0)}' ${Math.abs(s || 0)}''`;
+            }
+
+        } else {
+            const inputValue = parseFloat(document.getElementById("angleInput").value);
+            inputDisplay = isNaN(inputValue) ? "" : `${inputValue}${unitSymbolFrom}`;
+        }
+
+        if (inputDisplay === "") {
+             resultBox.textContent = "🔁 Enter values and select units to see the conversion.";
+        } else {
+            resultBox.textContent = `✅ ${inputDisplay} = ${resultText}`;
+        }
+    }
+
+    // FAQ Accordion functionality
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', event => {
+            const answer = item.nextElementSibling;
+            item.classList.toggle('active');
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+            } else {
+                answer.classList.add('show');
+            }
+        });
+    });
+
+    // Initial call to set up the input fields correctly on page load
+    toggleDMSInput();
+    convertAngle(); // Also run conversion on load to show initial empty state
+</script>
+
+</body>
+</html>
