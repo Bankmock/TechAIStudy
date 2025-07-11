@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script defer src="../../js/component1.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://techaistudy.com/images/logo.webp" type="image/webp">
+
+    <title>Fuel Consumption Converter - MPG, L/100km, km/L & More | TechAI Study</title>
+    <meta name="description" content="Instantly convert fuel efficiency and consumption units including miles per gallon (US & Imperial), liters per 100 km, kilometers per liter, and more. Essential for travelers, car buyers, and budget-conscious drivers.">
+    <meta name="keywords" content="fuel consumption converter, fuel efficiency converter, mpg to l/100km, km/l to mpg, miles per gallon, liters per 100 km, km per liter, US MPG, UK MPG, gas mileage converter, online fuel calculator, free fuel conversion, TechAI Study">
+    <meta name="author" content="TechAI Study">
+    <link rel="canonical" href="https://techaistudy.com/unit-converter/fuel-consumption-converter/" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techaistudy.com/unit-converter/fuel-consumption-converter/">
+    <meta property="og:title" content="Fuel Consumption Converter - MPG, L/100km, km/L & More | TechAI Study">
+    <meta property="og:description" content="Effortlessly compare car fuel efficiency across different international units. Convert between MPG (US/Imperial), L/100km, km/L, and more for smart driving choices.">
+    <meta property="og:image" content="https://techaistudy.com/images/fuel-consumption-converter.webp"> <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://techaistudy.com/unit-converter/fuel-consumption-converter/">
+    <meta property="twitter:title" content="Free Online Fuel Consumption Converter">
+    <meta name="twitter:description" content="Quickly convert between fuel efficiency units like MPG, L/100km, and km/L. Perfect for international travel, vehicle comparisons, and saving on fuel costs.">
+    <meta name="twitter:image" content="https://techaistudy.com/images/fuel-consumption-converter.webp"> <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/blogpost.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+    <script src="../../js/ads.js"></script>
+    <script src="../../js/headerScript.js"></script>
+    <script src="../../js/googletrackingid.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Fuel Consumption Converter",
+      "url": "https://techaistudy.com/unit-converter/fuel-consumption-converter/",
+      "description": "Free online tool to convert fuel efficiency between units like MPG, L/100km, and km/L. Ideal for comparing vehicle performance globally.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TechAI Study",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://techaistudy.com/images/logo.webp"
+        }
+      },
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Use the Fuel Consumption Converter",
+        "description": "A simple guide to converting fuel efficiency measurements with our online tool.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Enter Value",
+            "text": "Input the numerical value of the fuel consumption/efficiency you want to convert."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Select From Unit",
+            "text": "Choose the original unit of your fuel measurement (e.g., MPG (US), Liters per 100 km)."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Select To Unit",
+            "text": "Choose the target unit for your conversion."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "View Result",
+            "text": "The converted fuel consumption/efficiency will appear instantly in the result box."
+          }
+        ]
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://techaistudy.com/unit-converter/fuel-consumption-converter/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://techaistudy.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Unit Converters",
+        "item": "https://techaistudy.com/unit-converter/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Fuel Consumption Converter",
+        "item": "https://techaistudy.com/unit-converter/fuel-consumption-converter/"
+      }]
+    }
+    </script>
+
+    <style>
+        
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, select {
+            padding: 12px;
+            font-size: 17px;
+            width: calc(100% - 24px);
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            background: #e9f7ef;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            color: #155724;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .blog {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-top: 30px;
+        }
+        .blog section {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .blog h2 {
+            font-size: 26px;
+            color: #0056b3;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .blog h3 {
+            font-size: 22px;
+            color: #333;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .blog p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+        .features, .steps, .formats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .feature, .step, .format {
+            flex: 1 1 calc(33% - 20px);
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #d0e8ff;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            min-width: 250px;
+        }
+        .format img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .format span {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #0056b3;
+        }
+        .faq-item {
+            background: #f7f7f7;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            padding: 15px;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #0056b3;
+            cursor: pointer;
+            padding-right: 20px;
+            position: relative;
+        }
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 1.2em;
+            color: #0056b3;
+        }
+        .faq-question.active::after {
+            content: '-';
+        }
+        .faq-item p {
+            display: none;
+            margin-top: 10px;
+            padding-left: 10px;
+            border-left: 3px solid #0056b3;
+            color: #555;
+        }
+        .faq-item p.show {
+            display: block;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            color: #444;
+        }
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .feature, .step {
+                flex: 1 1 calc(50% - 20px);
+            }
+            .formats .format {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .feature, .step, .formats .format {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <section class="hero">
+        <h1>⛽ Fuel Consumption Converter: Compare MPG, L/100km, km/L & More!</h1>
+        <p>Planning a road trip? Buying a new car? Or just want to understand your vehicle's real-world efficiency? Our Fuel Consumption Converter lets you effortlessly switch between MPG, Liters per 100 km, kilometers per liter, and other essential fuel economy units.</p>
+    </section>
+
+    <div class="converter-section">
+        <label for="fuelConsumptionInput">Enter Fuel Value:</label>
+        <input type="number" id="fuelConsumptionInput" placeholder="e.g., 30" oninput="convertFuelConsumption()" />
+
+        <label for="fromUnit">From Unit:</label>
+        <select id="fromUnit" onchange="convertFuelConsumption()">
+            <option value="km_per_liter">Kilometer/Liter (km/L)</option>
+            <option value="liters_per_100km">Liters/100 km (L/100 km)</option>
+            <option value="mpg_us">Miles/Gallon (US) (US MPG)</option>
+            <option value="mpg_imp">Miles/Gallon (Imperial) (Imp MPG)</option>
+            <option value="liters_per_10km">Liters/10 km (L/10 km)</option>
+            <option value="gallons_us_per_100miles">US Gallons/100 Miles (US gal/100 mi)</option>
+            <option value="gallons_imp_per_100miles">Imp. Gallons/100 Miles (Imp gal/100 mi)</option>
+            <option value="km_per_us_gallon">Kilometer/US Gallon (km/US gal)</option>
+            <option value="km_per_imp_gallon">Kilometer/Imp. Gallon (km/Imp gal)</option>
+        </select>
+
+        <label for="toUnit">To Unit:</label>
+        <select id="toUnit" onchange="convertFuelConsumption()">
+            <option value="km_per_liter">Kilometer/Liter (km/L)</option>
+            <option value="liters_per_100km">Liters/100 km (L/100 km)</option>
+            <option value="mpg_us">Miles/Gallon (US) (US MPG)</option>
+            <option value="mpg_imp">Miles/Gallon (Imperial) (Imp MPG)</option>
+            <option value="liters_per_10km">Liters/10 km (L/10 km)</option>
+            <option value="gallons_us_per_100miles">US Gallons/100 Miles (US gal/100 mi)</option>
+            <option value="gallons_imp_per_100miles">Imp. Gallons/100 Miles (Imp gal/100 mi)</option>
+            <option value="km_per_us_gallon">Kilometer/US Gallon (km/US gal)</option>
+            <option value="km_per_imp_gallon">Kilometer/Imp. Gallon (km/Imp gal)</option>
+        </select>
+
+        <div class="result" id="resultBox">🔁 Enter values and select units to see the conversion.</div>
+    </div>
+</div>
+
+<div class="blog">
+    <section>
+        <h2>What is a Fuel Consumption Converter?</h2>
+        <p>Fuel consumption and efficiency are critical factors for drivers, especially with fluctuating fuel prices. However, understanding these figures can be confusing due to the variety of units used worldwide. Some countries measure efficiency (like <strong>miles per gallon - MPG</strong> or <strong>kilometers per liter - km/L</strong>), while others measure consumption (like <strong>liters per 100 kilometers - L/100km</strong>).</p>
+
+        <p>A <strong>Fuel Consumption Converter</strong> is an indispensable online tool that bridges this gap. It allows you to quickly and accurately translate fuel efficiency figures between different units, helping you compare vehicles from different regions, plan international trips, or simply understand your car's fuel economy better.</p>
+
+        <img src="https://techaistudy.com/images/fuel-consumption-converter-illustration.webp" alt="Fuel Consumption Conversion Diagram" style="max-width: 100%; height: auto; display: block; margin: 20px auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    </section>
+
+    <section>
+        <h2>Key Fuel Efficiency & Consumption Units</h2>
+        <p>Our converter supports a comprehensive array of units to cover your every need:</p>
+
+        <div class="formats">
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/km-per-liter.svg" alt="Kilometers per liter">
+                <span>Kilometer/Liter (km/L)</span>
+                <p>Common in many metric countries, indicating how many kilometers a vehicle travels on one liter of fuel.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/liters-per-100km.svg" alt="Liters per 100 km">
+                <span>Liters/100 km (L/100 km)</span>
+                <p>Widely used in Europe and other metric regions, showing how many liters of fuel are consumed to travel 100 kilometers. <strong>Lower is better!</strong></p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/mpg-us.svg" alt="Miles per gallon US">
+                <span>Miles/Gallon (US) (US MPG)</span>
+                <p>The standard fuel efficiency unit in the United States. Note: A US gallon is smaller than an Imperial gallon.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/mpg-imp.svg" alt="Miles per gallon Imperial">
+                <span>Miles/Gallon (Imperial) (Imp MPG)</span>
+                <p>Used primarily in the United Kingdom and some Commonwealth countries. An Imperial gallon is larger than a US gallon.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/gallons-per-100-miles-us.svg" alt="US Gallons per 100 Miles">
+                <span>US Gallons/100 Miles (US gal/100 mi)</span>
+                <p>An alternative consumption unit in the US, indicating gallons needed for 100 miles. <strong>Lower is better!</strong></p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/km-per-us-gallon.svg" alt="Kilometer per US Gallon">
+                <span>Kilometer/US Gallon (km/US gal)</span>
+                <p>Combines metric distance with US liquid volume, sometimes seen in cross-border contexts.</p>
+            </div>
+        </div>
+        <p>We also support <strong>Liters/10 km (L/10 km)</strong>, <strong>Imp. Gallons/100 Miles (Imp gal/100 mi)</strong>, and <strong>Kilometer/Imp. Gallon (km/Imp gal)</strong> for comprehensive flexibility.</p>
+    </section>
+
+    <section>
+        <h2>Why Use Our Fuel Consumption Converter?</h2>
+        <p>Gain clarity and make informed decisions about your vehicle's fuel economy with our powerful tool:</p>
+
+        <div class="features">
+            <div class="feature">
+                <h3><strong>Global Comparison</strong></h3>
+                <p>Easily compare vehicle efficiency data from different regions, whether it's MPG, L/100km, or km/L.</p>
+            </div>
+            <div class="feature">
+                <h3><strong>Cost Savings</strong></h3>
+                <p>Understand your true fuel consumption to better budget for fuel expenses and potentially save money.</p>
+            </div>
+            <div class="feature">
+                <h3><strong>Highly Accurate</strong></h3>
+                <p>Precise conversion factors ensure reliable results every single time.</p>
+            </div>
+            <div class="feature">
+                <h3><strong>Instantaneous Results</strong></h3>
+                <p>Conversions happen in real-time as you type, providing immediate feedback.</p>
+            </div>
+            <div class="feature">
+                <h3><strong>User-Friendly Interface</strong></h3>
+                <p>Simple dropdowns and an intuitive layout make conversions a breeze for everyone.</p>
+            </div>
+            <div class="feature">
+                <h3><strong>Always Free</strong></h3>
+                <p>Access unlimited conversions without any cost or hidden fees, anytime, anywhere.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>How to Use Our Fuel Consumption Converter</h2>
+        <p>Converting fuel efficiency units is as simple as 1-2-3:</p>
+
+        <div class="steps">
+            <div class="step">
+                <h3>1. Enter Your Value</h3>
+                <p>Input the numerical value of the fuel consumption or efficiency you wish to convert.</p>
+            </div>
+            <div class="step">
+                <h3>2. Select "From Unit"</h3>
+                <p>Choose the current unit of your fuel measurement from the "From Unit" dropdown menu.</p>
+            </div>
+            <div class="step">
+                <h3>3. Choose "To Unit"</h3>
+                <p>Select the desired unit for your conversion from the "To Unit" dropdown menu.</p>
+            </div>
+            <div class="step">
+                <h3>4. View Result</h3>
+                <p>The converted fuel value will instantly appear in the "Result" box.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Key Fuel Consumption Formulas (Examples)</h2>
+        <p>Fuel efficiency units can be tricky due to the inverse relationship (distance per volume vs. volume per distance). Here are some common relationships:</p>
+        <ul>
+            <li><strong>1 km/L</strong> = 100 L / 100 km</li>
+            <li><strong>1 L/100 km</strong> = 100 km / (1 L) (Inverse relationship for higher efficiency)</li>
+            <li><strong>1 US Gallon</strong> $\approx$ 3.78541 Liters</li>
+            <li><strong>1 Imperial Gallon</strong> $\approx$ 4.54609 Liters</li>
+            <li><strong>1 Mile</strong> $\approx$ 1.60934 Kilometers</li>
+            <li>To convert <strong>MPG (US) to L/100km</strong>: `L/100km = 235.214583 / MPG_US`</li>
+            <li>To convert <strong>MPG (Imp) to L/100km</strong>: `L/100km = 282.480936 / MPG_IMP`</li>
+            <li>To convert <strong>L/100km to km/L</strong>: `km/L = 100 / L/100km`</li>
+        </ul>
+        <p>Our tool precisely applies these factors and more, so you don't have to remember complex formulas!</p>
+    </section>
+
+    <section>
+        <h2>Frequently Asked Questions (FAQ)</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">What's the main difference between MPG (US) and MPG (Imperial)?</div>
+            <p>The core difference lies in the definition of a gallon. A <strong>US gallon is approximately 3.785 liters</strong>, while an <strong>Imperial gallon is larger, at approximately 4.546 liters</strong>. This means that an identical car with the same fuel efficiency will have a numerically higher MPG (Imperial) rating than its MPG (US) rating.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Why do some units show "lower is better" and others "higher is better"?</div>
+            <p>Units like <strong>MPG (miles per gallon)</strong> and <strong>km/L (kilometers per liter)</strong> measure efficiency (distance traveled per unit of fuel), so a <strong>higher number means better efficiency</strong>. Units like <strong>L/100km (liters per 100 km)</strong> and <strong>gallons/100 miles</strong> measure consumption (fuel used per unit of distance), so a <strong>lower number means better efficiency</strong>.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I use this converter to estimate my fuel costs?</div>
+            <p>While this converter helps you understand your vehicle's efficiency, you'll need additional tools (like a fuel cost calculator) that factor in fuel price and total distance to estimate actual costs. However, knowing your exact consumption in your preferred unit is the first step!</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is the fuel consumption converter mobile-friendly?</div>
+            <p>Yes! Our tool is built with a <strong>responsive design</strong>, ensuring it works perfectly and is easy to use on any device, including smartphones and tablets.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How accurate are the conversions provided?</div>
+            <p>We use precise, <strong>internationally recognized conversion factors</strong> to ensure the highest level of accuracy for all your fuel consumption and efficiency conversions.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Keywords for Fuel Consumption Converter</h2>
+        <p>Find our invaluable Fuel Consumption Converter easily with these popular search queries:</p>
+        <ul>
+            <li><strong>fuel consumption converter</strong></li>
+            <li><strong>fuel efficiency converter</strong></li>
+            <li><strong>mpg to l/100km</strong></li>
+            <li><strong>km/l to mpg converter</strong></li>
+            <li><strong>miles per gallon converter</strong></li>
+            <li><strong>liters per 100 km calculator</strong></li>
+            <li><strong>km per liter converter</strong></li>
+            <li><strong>US MPG to UK MPG</strong></li>
+            <li><strong>gas mileage conversion</strong></li>
+            <li><strong>car fuel economy converter</strong></li>
+            <li><strong>online fuel calculator</strong></li>
+            <li><strong>free fuel unit converter</strong></li>
+            <li><strong>TechAI Study fuel tool</strong></li>
+        </ul>
+    </section>
+</div>
+
+<script>
+    function convertFuelConsumption() {
+        const inputVal = parseFloat(document.getElementById("fuelConsumptionInput").value);
+        const fromUnit = document.getElementById("fromUnit").value;
+        const toUnit = document.getElementById("toUnit").value;
+        const resultBox = document.getElementById("resultBox");
+
+        if (isNaN(inputVal) || inputVal <= 0) {
+            resultBox.textContent = "🔁 Enter a positive fuel value and select units to see the conversion.";
+            return;
+        }
+
+        // Constants for conversion
+        const US_GALLON_TO_LITER = 3.785411784;
+        const IMPERIAL_GALLON_TO_LITER = 4.54609;
+        const MILE_TO_KM = 1.609344;
+
+        // --- Step 1: Convert ALL input units to a common base unit: Liters per Kilometer (L/km) ---
+        let valueInLitersPerKm;
+
+        switch (fromUnit) {
+            case "km_per_liter":
+                valueInLitersPerKm = 1 / inputVal;
+                break;
+            case "liters_per_100km":
+                valueInLitersPerKm = inputVal / 100;
+                break;
+            case "mpg_us":
+                // 1 US gal / X miles -> Liters / (X * KM_per_mile)
+                valueInLitersPerKm = US_GALLON_TO_LITER / (inputVal * MILE_TO_KM);
+                break;
+            case "mpg_imp":
+                // 1 Imp gal / X miles -> Liters / (X * KM_per_mile)
+                valueInLitersPerKm = IMPERIAL_GALLON_TO_LITER / (inputVal * MILE_TO_KM);
+                break;
+            case "liters_per_10km":
+                valueInLitersPerKm = inputVal / 10;
+                break;
+            case "gallons_us_per_100miles":
+                // X US gal / 100 miles -> (X * Liters_per_US_gal) / (100 * KM_per_mile)
+                valueInLitersPerKm = (inputVal * US_GALLON_TO_LITER) / (100 * MILE_TO_KM);
+                break;
+            case "gallons_imp_per_100miles":
+                // X Imp gal / 100 miles -> (X * Liters_per_Imp_gal) / (100 * KM_per_mile)
+                valueInLitersPerKm = (inputVal * IMPERIAL_GALLON_TO_LITER) / (100 * MILE_TO_KM);
+                break;
+            case "km_per_us_gallon":
+                 // X km / 1 US gal -> (1 US gal) / (X km) -> Liters / km
+                valueInLitersPerKm = US_GALLON_TO_LITER / inputVal;
+                break;
+            case "km_per_imp_gallon":
+                 // X km / 1 Imp gal -> (1 Imp gal) / (X km) -> Liters / km
+                valueInLitersPerKm = IMPERIAL_GALLON_TO_LITER / inputVal;
+                break;
+            default:
+                resultBox.textContent = "Error: Invalid 'from' unit.";
+                return;
+        }
+
+        // Handle potential division by zero for efficiency units if input is too high
+        if (valueInLitersPerKm === 0 || !isFinite(valueInLitersPerKm)) {
+            resultBox.textContent = "Error: Conversion resulted in an invalid value (e.g., division by zero). Check your input.";
+            return;
+        }
+
+        // --- Step 2: Convert from the base unit (Liters per Kilometer) to the target unit ---
+        let result;
+        let toSymbol;
+
+        switch (toUnit) {
+            case "km_per_liter":
+                result = 1 / valueInLitersPerKm;
+                toSymbol = "km/L";
+                break;
+            case "liters_per_100km":
+                result = valueInLitersPerKm * 100;
+                toSymbol = "L/100 km";
+                break;
+            case "mpg_us":
+                result = US_GALLON_TO_LITER / (valueInLitersPerKm * MILE_TO_KM);
+                toSymbol = "US MPG";
+                break;
+            case "mpg_imp":
+                result = IMPERIAL_GALLON_TO_LITER / (valueInLitersPerKm * MILE_TO_KM);
+                toSymbol = "Imp MPG";
+                break;
+            case "liters_per_10km":
+                result = valueInLitersPerKm * 10;
+                toSymbol = "L/10 km";
+                break;
+            case "gallons_us_per_100miles":
+                result = (valueInLitersPerKm * 100 * MILE_TO_KM) / US_GALLON_TO_LITER;
+                toSymbol = "US gal/100 mi";
+                break;
+            case "gallons_imp_per_100miles":
+                result = (valueInLitersPerKm * 100 * MILE_TO_KM) / IMPERIAL_GALLON_TO_LITER;
+                toSymbol = "Imp gal/100 mi";
+                break;
+            case "km_per_us_gallon":
+                result = US_GALLON_TO_LITER / valueInLitersPerKm;
+                toSymbol = "km/US gal";
+                break;
+            case "km_per_imp_gallon":
+                result = IMPERIAL_GALLON_TO_LITER / valueInLitersPerKm;
+                toSymbol = "km/Imp gal";
+                break;
+            default:
+                resultBox.textContent = "Error: Invalid 'to' unit.";
+                return;
+        }
+
+        // Get fromUnit symbol for display
+        let fromSymbol;
+        const fromUnitSelect = document.getElementById("fromUnit");
+        fromSymbol = fromUnitSelect.options[fromUnitSelect.selectedIndex].text.match(/\((.*?)\)/)[1];
+
+
+        resultBox.textContent = `✅ ${inputVal} ${fromSymbol} = ${result.toFixed(6)} ${toSymbol}`; // Adjust precision as needed
+    }
+
+    // FAQ Accordion functionality
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', event => {
+            const answer = item.nextElementSibling;
+            item.classList.toggle('active');
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+            } else {
+                answer.classList.add('show');
+            }
+        });
+    });
+
+    // Initial call to display default conversion on page load
+    convertFuelConsumption();
+</script>
+
+</body>
+</html>
