@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script defer src="../../js/component1.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://techaistudy.com/images/logo.webp" type="image/webp">
+
+    <title>Flow Rate Converter - L/s, m³/h, GPM, ft³/s & More | TechAI Study</title>
+    <meta name="description" content="Instantly convert flow rate units: Liters per second (L/s), Cubic meters per hour (m³/h), Gallons per minute (GPM), Cubic feet per second (ft³/s), and many more. Essential for plumbing, engineering, and water management.">
+    <meta name="keywords" content="flow rate converter, L/s to m3/h, GPM converter, cubic feet per second, flow unit conversion, online flow rate calculator, free flow conversion, TechAI Study">
+    <meta name="author" content="TechAI Study">
+    <link rel="canonical" href="https://techaistudy.com/unit-converter/flow-converter/" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techaistudy.com/unit-converter/flow-converter/">
+    <meta property="og:title" content="Flow Rate Converter - L/s, m³/h, GPM, ft³/s & More | TechAI Study">
+    <meta property="og:description" content="Effortlessly convert flow rate measurements for any purpose, from industrial processes to home water usage. Get accurate conversions here.">
+    <meta property="og:image" content="https://techaistudy.com/images/flow-converter.webp"> <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://techaistudy.com/unit-converter/flow-converter/">
+    <meta property="twitter:title" content="Free Online Flow Rate Converter">
+    <meta name="twitter:description" content="Quickly convert flow rate units: Liters/second, Cubic meters/hour, Gallons/minute, and more. Indispensable for engineers, plumbers, and environmental scientists.">
+    <meta name="twitter:image" content="https://techaistudy.com/images/flow-converter.webp"> <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/blogpost.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+    <script src="../../js/ads.js"></script>
+    <script src="../../js/headerScript.js"></script>
+    <script src="../../js/googletrackingid.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Flow Rate Converter",
+      "url": "https://techaistudy.com/unit-converter/flow-converter/",
+      "description": "Free online tool to convert units of flow rate like Liters per second, Cubic meters per hour, and Gallons per minute. Essential for engineering, hydrology, and fluid dynamics.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TechAI Study",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://techaistudy.com/images/logo.webp"
+        }
+      },
+      "mainEntity": {
+        "@type": "HowTo",
+        "name": "How to Use the Flow Rate Converter",
+        "description": "A simple guide to converting flow rate measurements with our online tool.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Enter Value",
+            "text": "Input the numerical value of the flow rate you want to convert."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Select From Unit",
+            "text": "Choose the original unit of your measurement (e.g., L/s, GPM)."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Select To Unit",
+            "text": "Choose the target unit for your conversion."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "View Result",
+            "text": "The converted flow rate will appear instantly in the result box."
+          }
+        ]
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://techaistudy.com/unit-converter/flow-converter/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://techaistudy.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Unit Converters",
+        "item": "https://techaistudy.com/unit-converter/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Flow Rate Converter",
+        "item": "https://techaistudy.com/unit-converter/flow-converter/"
+      }]
+    }
+    </script>
+
+    <style>
+        
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, select {
+            padding: 12px;
+            font-size: 17px;
+            width: calc(100% - 24px);
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            background: #e9f7ef;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            color: #155724;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .blog {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-top: 30px;
+        }
+        .blog section {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .blog h2 {
+            font-size: 26px;
+            color: #0056b3;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .blog h3 {
+            font-size: 22px;
+            color: #333;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .blog p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+        .features, .steps, .formats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .feature, .step, .format {
+            flex: 1 1 calc(33% - 20px);
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #d0e8ff;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            min-width: 250px;
+        }
+        .format img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .format span {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #0056b3;
+        }
+        .faq-item {
+            background: #f7f7f7;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            padding: 15px;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #0056b3;
+            cursor: pointer;
+            padding-right: 20px;
+            position: relative;
+        }
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 1.2em;
+            color: #0056b3;
+        }
+        .faq-question.active::after {
+            content: '-';
+        }
+        .faq-item p {
+            display: none;
+            margin-top: 10px;
+            padding-left: 10px;
+            border-left: 3px solid #0056b3;
+            color: #555;
+        }
+        .faq-item p.show {
+            display: block;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            color: #444;
+        }
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .feature, .step {
+                flex: 1 1 calc(50% - 20px);
+            }
+            .formats .format {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .feature, .step, .formats .format {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <section class="hero">
+        <h1>💧 Flow Rate Converter: L/s, m³/h, GPM, ft³/s & More!</h1>
+        <p>Whether you're managing water systems, designing HVAC, or optimizing industrial processes, understanding and converting <strong>flow rates</strong> is critical. Our Flow Rate Converter simplifies this complex task, allowing you to quickly switch between diverse units like Liters per second (L/s), Cubic meters per hour (m³/h), Gallons per minute (GPM), Cubic feet per second (ft³/s), and many others. Get precise conversions for any fluid dynamic scenario!</p>
+    </section>
+
+    <div class="converter-section">
+        <label for="flowInput">Enter Flow Rate Value:</label>
+        <input type="number" id="flowInput" placeholder="e.g., 10" oninput="convertFlowRate()" />
+
+        <label for="fromUnit">From Unit:</label>
+        <select id="fromUnit" onchange="convertFlowRate()">
+            <option value="cubic_meter_per_second">Cubic Meter per Second (m³/s)</option>
+            <option value="liter_per_second">Liter per Second (L/s)</option>
+            <option value="liter_per_minute">Liter per Minute (L/min)</option>
+            <option value="liter_per_hour">Liter per Hour (L/h)</option>
+            <option value="cubic_meter_per_minute">Cubic Meter per Minute (m³/min)</option>
+            <option value="cubic_meter_per_hour">Cubic Meter per Hour (m³/h)</option>
+            <option value="cubic_foot_per_second">Cubic Foot per Second (ft³/s)</option>
+            <option value="cubic_foot_per_minute">Cubic Foot per Minute (ft³/min)</option>
+            <option value="cubic_foot_per_hour">Cubic Foot per Hour (ft³/h)</option>
+            <option value="gallon_per_second_us">Gallon per Second (US liquid) (gal/s)</option>
+            <option value="gallon_per_minute_us">Gallon per Minute (US liquid) (gal/min)</option>
+            <option value="gallon_per_hour_us">Gallon per Hour (US liquid) (gal/h)</option>
+            <option value="barrel_per_day_us">Barrel per Day (US petroleum) (bbl/day)</option>
+        </select>
+
+        <label for="toUnit">To Unit:</label>
+        <select id="toUnit" onchange="convertFlowRate()">
+            <option value="cubic_meter_per_second">Cubic Meter per Second (m³/s)</option>
+            <option value="liter_per_second">Liter per Second (L/s)</option>
+            <option value="liter_per_minute">Liter per Minute (L/min)</option>
+            <option value="liter_per_hour">Liter per Hour (L/h)</option>
+            <option value="cubic_meter_per_minute">Cubic Meter per Minute (m³/min)</option>
+            <option value="cubic_meter_per_hour">Cubic Meter per Hour (m³/h)</option>
+            <option value="cubic_foot_per_second">Cubic Foot per Second (ft³/s)</option>
+            <option value="cubic_foot_per_minute">Cubic Foot per Minute (ft³/min)</option>
+            <option value="cubic_foot_per_hour">Cubic Foot per Hour (ft³/h)</option>
+            <option value="gallon_per_second_us">Gallon per Second (US liquid) (gal/s)</option>
+            <option value="gallon_per_minute_us">Gallon per Minute (US liquid) (gal/min)</option>
+            <option value="gallon_per_hour_us">Gallon per Hour (US liquid) (gal/h)</option>
+            <option value="barrel_per_day_us">Barrel per Day (US petroleum) (bbl/day)</option>
+        </select>
+
+        <div class="result" id="resultBox">🔁 Enter values and select units to see the conversion.</div>
+    </div>
+</div>
+
+<div class="blog">
+    <section>
+        <h2>What is a Flow Rate Converter?</h2>
+        <p><strong>Flow rate</strong>, also known as fluid flow or volumetric flow rate, is the volume of fluid that passes per unit of time. It's a critical measurement in many industries and everyday scenarios, indicating how quickly a liquid or gas is moving through a pipe, channel, or system. Examples include water flowing through a tap, oil through a pipeline, or air through a ventilation system.</p>
+
+        <p>An <strong>online Flow Rate Converter</strong> is a specialized tool that enables seamless conversion between various flow rate units. This is particularly useful in global projects where different regions use different measurement standards (e.g., metric vs. imperial), ensuring accuracy and compatibility in calculations for engineering, environmental monitoring, and industrial processes.</p>
+
+        <img src="https://techaistudy.com/images/flow-converter.webp" alt="Flow Rate Conversion Diagram" style="max-width: 100%; height: auto; display: block; margin: 20px auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    </section>
+
+    <section>
+        <h2>Explore Common Flow Rate Units</h2>
+        <p>Our converter supports a comprehensive range of flow rate units, catering to diverse applications:</p>
+
+        <div class="formats">
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/cubic-meter-per-second.svg" alt="Cubic Meter per Second"> <span>Cubic Meter per Second (m³/s)</span>
+                <p>The <strong>SI derived unit for volumetric flow rate</strong>. Widely used in scientific and engineering calculations.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/liter-per-minute.svg" alt="Liter per Minute"> <span>Liter per Minute (L/min)</span>
+                <p>A common metric unit for smaller flow rates, often seen in plumbing, pumps, and water consumption figures.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/gallon-per-minute.svg" alt="Gallon per Minute"> <span>Gallon per Minute (US liquid) (gal/min)</span>
+                <p>The most common imperial unit for flow rate in the US, used for pumps, water heaters, and irrigation.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/cubic-feet-per-second.svg" alt="Cubic Foot per Second"> <span>Cubic Foot per Second (ft³/s)</span>
+                <p>An imperial unit often used in hydrology for river flow, and in gas and air flow measurements.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/cubic-meter-per-hour.svg" alt="Cubic Meter per Hour"> <span>Cubic Meter per Hour (m³/h)</span>
+                <p>A practical metric unit for industrial applications and larger scale fluid movements.</p>
+            </div>
+            <div class="format">
+                <img src="https://techaistudy.com/images/icons/barrel-per-day.svg" alt="Barrel per Day"> <span>Barrel per Day (US petroleum) (bbl/day)</span>
+                <p>A specialized unit used predominantly in the oil and gas industry to measure production and consumption.</p>
+            </div>
+        </div>
+        <p>Other units include **Liters per second (L/s)**, **Liters per hour (L/h)**, **Cubic Meter per Minute (m³/min)**, **Cubic Foot per Minute (ft³/min)**, **Cubic Foot per Hour (ft³/h)**, **Gallons per second (gal/s)**, and **Gallons per hour (gal/h)**.</p>
+    </section>
+
+    <section>
+        <h2>Why Use Our Flow Rate Converter?</h2>
+        <p>Achieve precision and convenience in all your flow rate conversions:</p>
+
+        <div class="features">
+            <div class="feature">
+                <h3><strong>Extensive Unit Support</strong></h3>
+                <p>Convert across a wide array of volumetric flow rate units, catering to various industries and regions.</p>
+            </div>
+            <div class="feature">
+                <h3><strong>High Accuracy</strong></h3>
+                <p>Utilizes precise conversion factors, ensuring reliable and accurate results for critical calculations.</p>
+            </div>
+            <div class="feature">
+                <h3><strong>Instantaneous Results</strong></h3>
+                <p>Conversions happen in real-time as you input values or change units, saving significant time.</p>
+            </div>
+            <div class="feature">
+                <h3><strong>User-Friendly Interface</strong></h3>
+                <p>Simple dropdowns and clear input fields make it easy for anyone to perform conversions efficiently.</p>
+            </div>
+            <div class="feature">
+                <h3><strong>Free & Accessible</strong></h3>
+                <p>Available for free, anytime, anywhere, on any device, ensuring convenience and broad utility.</p>
+            </div>
+            <div class="feature">
+                <h3><strong>Diverse Applications</strong></h3>
+                <p>Ideal for civil, mechanical, and chemical engineering, environmental studies, plumbing, and HVAC systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>How to Use Our Flow Rate Converter</h2>
+        <p>Converting flow rate units is straightforward with our online tool:</p>
+
+        <div class="steps">
+            <div class="step">
+                <h3>1. Enter Your Value</h3>
+                <p>Input the numerical value of the flow rate you wish to convert into the input field.</p>
+            </div>
+            <div class="step">
+                <h3>2. Select "From Unit"</h3>
+                <p>Choose the original unit of your measurement from the "From Unit" dropdown menu (e.g., "GPM," "L/s").</p>
+            </div>
+            <div class="step">
+                <h3>3. Choose "To Unit"</h3>
+                <p>Select the desired target unit for your conversion from the "To Unit" dropdown menu.</p>
+            </div>
+            <div class="step">
+                <h3>4. View Your Result</h3>
+                <p>The converted flow rate value will instantly appear in the "Result" display box.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Key Flow Rate Conversion Formulas (Examples)</h2>
+        <p>All flow rate units can be related back to the **Cubic Meter per Second ($m^3/s$)**, the SI derived unit:</p>
+        <ul>
+            <li><strong>1 Liter per Second (L/s)</strong> = $0.001 m^3/s$</li>
+            <li><strong>1 Liter per Minute (L/min)</strong> = $0.001/60 m^3/s$</li>
+            <li><strong>1 Cubic Meter per Hour (m³/h)</strong> = $1/3600 m^3/s$</li>
+            <li><strong>1 Gallon per Minute (US liquid) (gal/min)</strong> = $0.00378541/60 m^3/s$</li>
+            <li><strong>1 Cubic Foot per Second (ft³/s)</strong> = $0.0283168 m^3/s$</li>
+            <li><strong>1 Barrel per Day (US petroleum) (bbl/day)</strong> = $0.158987 / (24 \times 3600) m^3/s$</li>
+        </ul>
+        <p>Our converter applies these precise formulas automatically, ensuring correct conversions every time.</p>
+    </section>
+
+    <section>
+        <h2>Frequently Asked Questions (FAQ)</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">What is the difference between volumetric flow rate and mass flow rate?</div>
+            <p><strong>Volumetric flow rate</strong> is the volume of fluid passing per unit time (e.g., L/s). <strong>Mass flow rate</strong> is the mass of fluid passing per unit time (e.g., kg/s). They are related by the fluid's density: Mass Flow Rate = Volumetric Flow Rate × Density.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What are GPM and why is it common in the US?</div>
+            <p><strong>GPM (Gallons Per Minute)</strong> is a common imperial unit for flow rate in the United States, particularly for water systems, pumps, and plumbing fixtures. It's widely used due to the prevalence of the US customary gallon as a volume unit.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">When would I use 'barrels per day'?</div>
+            <p>The unit <strong>barrels per day (bbl/day)</strong> is almost exclusively used in the petroleum industry to measure the production or consumption rate of crude oil, refined products, and other liquids. It uses the US petroleum barrel, which is 42 US liquid gallons.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is this flow rate converter accurate for all fluid types?</div>
+            <p>Yes, our converter provides accurate volumetric flow rate conversions for any fluid, as long as you're converting between standard units of volume per unit time. It doesn't account for fluid properties like viscosity or compressibility, which would be relevant for pressure drop or specific fluid dynamics calculations.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I use this converter on my mobile device?</div>
+            <p>Yes, our Flow Rate Converter features a <strong>responsive design</strong>, ensuring optimal performance and ease of use on smartphones, tablets, and desktop computers.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Keywords for Flow Rate Converter</h2>
+        <p>Easily find our versatile Flow Rate Converter using these popular search queries:</p>
+        <ul>
+            <li><strong>flow rate unit converter</strong></li>
+            <li><strong>L/s to GPM converter</strong></li>
+            <li><strong>m3/h to L/min conversion</strong></li>
+            <li><strong>gallons per minute converter</strong></li>
+            <li><strong>cubic feet per second to m3/s</strong></li>
+            <li><strong>fluid flow rate calculator</strong></li>
+            <li><strong>volumetric flow conversion</strong></li>
+            <li><strong>pipe flow rate units</strong></li>
+            <li><strong>online flow calculator free</strong></li>
+            <li><strong>TechAI Study flow tool</strong></li>
+        </ul>
+    </section>
+</div>
+
+<script>
+    function convertFlowRate() {
+        const inputVal = parseFloat(document.getElementById("flowInput").value);
+        const fromUnit = document.getElementById("fromUnit").value;
+        const toUnit = document.getElementById("toUnit").value;
+        const resultBox = document.getElementById("resultBox");
+
+        if (isNaN(inputVal)) {
+            resultBox.textContent = "🔁 Enter values and select units to see the conversion.";
+            return;
+        }
+
+        // Conversion factors relative to Cubic Meter per Second (m³/s) - SI base unit
+        // Define constants for common conversions
+        const SECONDS_PER_MINUTE = 60;
+        const SECONDS_PER_HOUR = 3600;
+        const SECONDS_PER_DAY = 24 * 3600;
+        const LITERS_PER_CUBIC_METER = 1000;
+        const CUBIC_FEET_PER_CUBIC_METER = 35.3146667; // 1 m³ = 35.3146667 ft³
+        const US_LIQUID_GALLONS_PER_CUBIC_METER = 264.172; // 1 m³ = 264.172 US liquid gallons
+        const US_PETROLEUM_BARRELS_PER_CUBIC_METER = 6.28981; // 1 m³ = 6.28981 US petroleum barrels (approx)
+
+        const factors = {
+            "cubic_meter_per_second": 1,
+            "liter_per_second": 1 / LITERS_PER_CUBIC_METER, // 1 L/s = 0.001 m³/s
+            "liter_per_minute": (1 / LITERS_PER_CUBIC_METER) / SECONDS_PER_MINUTE, // 1 L/min = 0.001 m³/60s
+            "liter_per_hour": (1 / LITERS_PER_CUBIC_METER) / SECONDS_PER_HOUR, // 1 L/h = 0.001 m³/3600s
+            "cubic_meter_per_minute": 1 / SECONDS_PER_MINUTE, // 1 m³/min = 1 m³/60s
+            "cubic_meter_per_hour": 1 / SECONDS_PER_HOUR, // 1 m³/h = 1 m³/3600s
+            "cubic_foot_per_second": 1 / CUBIC_FEET_PER_CUBIC_METER, // 1 ft³/s = 1/35.3146667 m³/s
+            "cubic_foot_per_minute": (1 / CUBIC_FEET_PER_CUBIC_METER) / SECONDS_PER_MINUTE, // 1 ft³/min = (1/35.3146667 m³)/60s
+            "cubic_foot_per_hour": (1 / CUBIC_FEET_PER_CUBIC_METER) / SECONDS_PER_HOUR, // 1 ft³/h = (1/35.3146667 m³)/3600s
+            "gallon_per_second_us": 1 / US_LIQUID_GALLONS_PER_CUBIC_METER, // 1 gal(US)/s = 1/264.172 m³/s
+            "gallon_per_minute_us": (1 / US_LIQUID_GALLONS_PER_CUBIC_METER) / SECONDS_PER_MINUTE, // 1 gal(US)/min = (1/264.172 m³)/60s
+            "gallon_per_hour_us": (1 / US_LIQUID_GALLONS_PER_CUBIC_METER) / SECONDS_PER_HOUR, // 1 gal(US)/h = (1/264.172 m³)/3600s
+            "barrel_per_day_us": (1 / US_PETROLEUM_BARRELS_PER_CUBIC_METER) / SECONDS_PER_DAY // 1 bbl(US)/day = (1/6.28981 m³)/86400s
+        };
+
+        // Convert input value to Cubic Meters per Second (m³/s) first
+        let valueInCubicMetersPerSecond = inputVal * factors[fromUnit];
+
+        // Convert from Cubic Meters per Second to target unit
+        let result = valueInCubicMetersPerSecond / factors[toUnit];
+
+        // Get unit symbols for display
+        const unitSymbols = {
+            "cubic_meter_per_second": "m³/s",
+            "liter_per_second": "L/s",
+            "liter_per_minute": "L/min",
+            "liter_per_hour": "L/h",
+            "cubic_meter_per_minute": "m³/min",
+            "cubic_meter_per_hour": "m³/h",
+            "cubic_foot_per_second": "ft³/s",
+            "cubic_foot_per_minute": "ft³/min",
+            "cubic_foot_per_hour": "ft³/h",
+            "gallon_per_second_us": "gal/s (US)",
+            "gallon_per_minute_us": "gal/min (US)",
+            "gallon_per_hour_us": "gal/h (US)",
+            "barrel_per_day_us": "bbl/day (US)"
+        };
+
+        const fromSymbol = unitSymbols[fromUnit];
+        const toSymbol = unitSymbols[toUnit];
+
+        // Format result for display, handling very large/small numbers with scientific notation
+        let formattedResult;
+        if (Math.abs(result) >= 1e9 || (Math.abs(result) > 0 && Math.abs(result) < 1e-9)) { // Adjusted for potentially smaller numbers in flow rate
+            formattedResult = result.toExponential(8); // More precision for scientific notation
+        } else if (Math.abs(result) === 0) {
+            formattedResult = "0";
+        } else {
+            formattedResult = result.toFixed(8); // Default 8 decimal places for flow rate
+            // Optional: Remove trailing zeros for cleaner display if not scientific
+            if (formattedResult.includes('.')) {
+                formattedResult = formattedResult.replace(/\.?0+$/, '');
+            }
+        }
+        
+        resultBox.textContent = `✅ ${inputVal} ${fromSymbol} = ${formattedResult} ${toSymbol}`;
+    }
+
+    // FAQ Accordion functionality
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', event => {
+            const answer = item.nextElementSibling;
+            item.classList.toggle('active');
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+            } else {
+                answer.classList.add('show');
+            }
+        });
+    });
+
+    // Initial call to display default conversion on page load
+    convertFlowRate();
+</script>
+
+</body>
+</html>
