@@ -72,7 +72,7 @@ document.head.appendChild(script);
     wrapper.appendChild(script);
     wrapper.appendChild(container);
 
-    const adsElement = document.querySelector('.ads9');
+    const adsElement = document.querySelector('.blog');
     if (adsElement && adsElement.parentNode) {
       adsElement.parentNode.insertBefore(wrapper, adsElement);
     }
