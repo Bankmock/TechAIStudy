@@ -22,7 +22,7 @@ document.head.appendChild(script);
 
 
 
-
+(function () {
       var adOptionsScript = document.createElement('script');
       adOptionsScript.type = 'text/javascript';
       adOptionsScript.text = "atOptions = { " +
@@ -38,7 +38,7 @@ document.head.appendChild(script);
 
       document.body.appendChild(adOptionsScript);
       document.body.appendChild(invokeScript);
-   
+   })();
     // Ad Script 2 - Insert below first <h1> not inside <header>
     (function () {
       window.atOptions = {
