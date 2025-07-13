@@ -23,8 +23,6 @@ document.head.appendChild(script);
 
 
 
-// Ad Script 1 - Appended after full page load
-    window.addEventListener('load', function () {
       var adOptionsScript = document.createElement('script');
       adOptionsScript.type = 'text/javascript';
       adOptionsScript.text = "atOptions = { " +
@@ -40,8 +38,7 @@ document.head.appendChild(script);
 
       document.body.appendChild(adOptionsScript);
       document.body.appendChild(invokeScript);
-    });
-
+   
     // Ad Script 2 - Insert below first <h1> not inside <header>
     (function () {
       window.atOptions = {
@@ -91,7 +88,7 @@ document.head.appendChild(script);
         wrapper.appendChild(script);
         wrapper.appendChild(container);
 
-        const adsElement = document.querySelector('.ads9');
+        const adsElement = document.querySelector('.blog');
         if (adsElement && adsElement.parentNode) {
           adsElement.parentNode.insertBefore(wrapper, adsElement);
         }
