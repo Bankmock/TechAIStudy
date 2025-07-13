@@ -38,6 +38,11 @@ body {
   padding: 0;
 }
 
+.ads {
+
+text-align:center;
+overflow-x: scrollable;
+}
 
 .menu-button {
       background-color: black;
