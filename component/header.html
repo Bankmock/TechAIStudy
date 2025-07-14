@@ -1,3 +1,15 @@
+
+<script>
+  // Pure JS to load the AdSense script dynamically
+  (function () {
+    var adScript = document.createElement('script');
+    adScript.async = true;
+    adScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7020673744407070";
+    adScript.crossOrigin = "anonymous";
+    document.head.appendChild(adScript);
+  })();
+</script>
+
 <script>
 // Load a script safely from a given domain and path
 function loadScript(domain, id) {
