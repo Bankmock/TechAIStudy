@@ -38,7 +38,7 @@ topScrollContainer.style.webkitOverflowScrolling = "touch";
 const topAdWrapper = document.createElement("div");
 topAdWrapper.style.display = "inline-block";
 topAdWrapper.style.minWidth = "468px";
-topAdWrapper.style.height = "60px";
+topAdWrapper.style.height = "51px";
 
 // Ad configuration script
 const topConfigScript = document.createElement("script");
