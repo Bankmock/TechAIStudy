@@ -20,57 +20,6 @@ script.onload = runAd; // Run banner after script loads
 document.head.appendChild(script);
 
 
-// --- Top Ad Code ---
-const topScrollContainer = document.createElement("div");
-topScrollContainer.style.position = "fixed";
-topScrollContainer.style.top = "0";
-topScrollContainer.style.left = "0";
-topScrollContainer.style.width = "100%";
-topScrollContainer.style.overflowX = "auto";
-topScrollContainer.style.whiteSpace = "nowrap";
-topScrollContainer.style.zIndex = "9999";
-topScrollContainer.style.padding = "10px 0";
-topScrollContainer.style.backgroundColor = "#fff";
-topScrollContainer.style.boxShadow = "0 2px 5px rgba(0,0,0,0.1)";
-topScrollContainer.style.webkitOverflowScrolling = "touch";
-
-// Inner wrapper to hold the top ad
-const topAdWrapper = document.createElement("div");
-topAdWrapper.style.display = "inline-block";
-topAdWrapper.style.minWidth = "468px";
-topAdWrapper.style.height = "51px";
-
-// Ad configuration script
-const topConfigScript = document.createElement("script");
-topConfigScript.type = "text/javascript";
-topConfigScript.innerHTML = `
-  atOptions = {
-    'key' : '3353fc740693589865911ed5c4e259c1',
-    'format' : 'iframe',
-    'height' : 60,
-    'width' : 468,
-    'params' : {}
-  };
-`;
-
-// Ad loader script
-const topAdScript = document.createElement("script");
-topAdScript.type = "text/javascript";
-topAdScript.src = "//www.highperformanceformat.com/3353fc740693589865911ed5c4e259c1/invoke.js";
-
-// Add both ad scripts inside ad wrapper
-topAdWrapper.appendChild(topConfigScript);
-topAdWrapper.appendChild(topAdScript);
-
-// Append wrapper to scrollable top banner
-topScrollContainer.appendChild(topAdWrapper);
-
-// Insert scrollable top banner at beginning of body
-document.body.insertBefore(topScrollContainer, document.body.firstChild);
-
-// Push page content down so it's not hidden under banner
-const topPadding = parseInt(window.getComputedStyle(document.body).paddingTop || 0);
-document.body.style.paddingTop = (topPadding + 70) + "px";
 
 
 // Ad Script 1 - Appended after full page load
