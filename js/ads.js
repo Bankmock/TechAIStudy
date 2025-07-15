@@ -19,8 +19,6 @@ script.src = '//acscdn.com/script/aclib.js';
 script.onload = runAd; // Run banner after script loads
 document.head.appendChild(script);
 
-window.addEventListener('load', function () {
-
 
 // --- Top Ad Code ---
 const topScrollContainer = document.createElement("div");
@@ -74,7 +72,6 @@ document.body.insertBefore(topScrollContainer, document.body.firstChild);
 const topPadding = parseInt(window.getComputedStyle(document.body).paddingTop || 0);
 document.body.style.paddingTop = (topPadding + 70) + "px";
 
-});
 
 // Ad Script 1 - Appended after full page load
     window.addEventListener('load', function () {
