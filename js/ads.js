@@ -20,9 +20,6 @@ script.onload = runAd; // Run banner after script loads
 document.head.appendChild(script);
 
 
-
-
-Write correct code 
 // --- Top Ad Code ---
 const topScrollContainer = document.createElement("div");
 topScrollContainer.style.position = "fixed";
