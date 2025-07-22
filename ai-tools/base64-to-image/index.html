@@ -408,6 +408,137 @@ AABAAEAAQA..." alt="Embedded Image"&gt;</code></pre>
         </ul>
     </section>
 </div>
+<script>
+const base64Input = document.getElementById("base64Input");
+const preview = document.getElementById("preview");
+const downloadBtn = document.getElementById("downloadBtn");
+const errorMessageDiv = document.getElementById("errorMessage");
+
+// âœ… Works for CSS, HTML, and raw base64
+function extractBase64AndMime(inputString) {
+    // Normalize quotes
+    const input = inputString.replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+
+    // Patterns:
+    const fullDataUriPattern = /data:([\w\/\-\+\.]+);base64,([a-zA-Z0-9+/=]{10,})/;
+    const cssUrlPattern = /url\(['"]?(data:[\w\/\-\+\.]+;base64,[a-zA-Z0-9+/=]{10,})['"]?\)/;
+    const imgSrcPattern = /src=['"](data:[\w\/\-\+\.]+;base64,[a-zA-Z0-9+/=]{10,})['"]/;
+    const rawBase64Pattern = /([a-zA-Z0-9+/=]{20,})/;
+
+    let base64 = null;
+    let mime = null;
+
+    // Try CSS background url()
+    const cssMatch = input.match(cssUrlPattern);
+    if (cssMatch) {
+        const match = cssMatch[1].match(fullDataUriPattern);
+        if (match) {
+            mime = match[1];
+            base64 = match[2];
+            return { base64, mime };
+        }
+    }
+
+    // Try HTML <img src="...">
+    const htmlMatch = input.match(imgSrcPattern);
+    if (htmlMatch) {
+        const match = htmlMatch[1].match(fullDataUriPattern);
+        if (match) {
+            mime = match[1];
+            base64 = match[2];
+            return { base64, mime };
+        }
+    }
+
+    // Try full Data URI
+    const fullMatch = input.match(fullDataUriPattern);
+    if (fullMatch) {
+        mime = fullMatch[1];
+        base64 = fullMatch[2];
+        return { base64, mime };
+    }
+
+    // Try raw Base64 (guess MIME)
+    const rawMatch = input.match(rawBase64Pattern);
+    if (rawMatch) {
+        base64 = rawMatch[1];
+        if (base64.startsWith('/9j/')) mime = 'image/jpeg';
+        else if (base64.startsWith('iVBORw0KGgo')) mime = 'image/png';
+        else if (base64.startsWith('R0lGODlh')) mime = 'image/gif';
+        else if (base64.startsWith('UklGR')) mime = 'image/webp';
+        else if (base64.startsWith('PHN2Zy')) mime = 'image/svg+xml';
+        else if (base64.startsWith('JVBER')) mime = 'application/pdf';
+        else mime = 'application/octet-stream';
+        return { base64, mime };
+    }
+
+    return null;
+}
+
+function convertBase64ToFile() {
+    const input = base64Input.value.trim();
+    errorMessageDiv.textContent = "";
+    preview.style.display = "none";
+    preview.src = "";
+    downloadBtn.disabled = true;
+
+    if (!input) {
+        errorMessageDiv.textContent = "Input is empty.";
+        return;
+    }
+
+    const extracted = extractBase64AndMime(input);
+
+    if (!extracted) {
+        errorMessageDiv.textContent = "No valid Base64 found.";
+        return;
+    }
+
+    const { base64, mime } = extracted;
+    const dataURL = `data:${mime};base64,${base64}`;
+
+    if (mime.startsWith("image/")) {
+        preview.onload = () => {
+            preview.style.display = "block";
+            downloadBtn.disabled = false;
+        };
+        preview.onerror = () => {
+            errorMessageDiv.textContent = "Preview failed. File may not be a valid image.";
+        };
+        preview.src = dataURL;
+    } else {
+        errorMessageDiv.textContent = `Detected file type: ${mime}`;
+        downloadBtn.disabled = false;
+    }
+}
+
+function downloadFile() {
+    const input = base64Input.value.trim();
+    const extracted = extractBase64AndMime(input);
+    if (!extracted) {
+        errorMessageDiv.textContent = "Nothing to download.";
+        return;
+    }
+
+    const { base64, mime } = extracted;
+    const dataURL = `data:${mime};base64,${base64}`;
+    const link = document.createElement("a");
+    link.href = dataURL;
+
+    // Set extension
+    let ext = "bin";
+    if (mime.includes("/")) {
+        ext = mime.split("/")[1].replace("jpeg", "jpg").replace("svg+xml", "svg");
+    }
+
+    link.download = `downloaded.${ext}`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
+
+
 
 </body>
 </html>
