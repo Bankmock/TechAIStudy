@@ -46,65 +46,84 @@
   <h1>📺 YouTube Video Downloader - Preview</h1>
   <div id="result" class="loading">⏳ Fetching video info...</div>
 
-
-  {% if audio_url %}
-    <h3>Best Audio</h3>
-    <button class="download-btn" onclick="startDownload('{{ audio_url }}')">Download MP3</button>
-  {% endif %}</div>
+</div>
 
   <script>
-    async function getVideoInfo() {
-      const queryParams = new URLSearchParams(window.location.search);
-      const url = queryParams.get("url");
+  async function getVideoInfo() {
+    const queryParams = new URLSearchParams(window.location.search);
+    const url = queryParams.get("url");
 
-      if (!url) {
-        document.getElementById("result").innerHTML = "❌ Invalid URL!";
+    if (!url) {
+      document.getElementById("result").innerHTML = "❌ Invalid URL!";
+      return;
+    }
+
+    try {
+      const res = await fetch("https://xvideoa.fun/api/info?url=" + encodeURIComponent(url));
+      const data = await res.json();
+
+      if (data.error) {
+        document.getElementById("result").innerHTML = `<p style="color:red;">❌ ${data.error}</p>`;
         return;
       }
 
-      try {
-        const res = await fetch("https://xvideoa.fun/api/info?url=" + encodeURIComponent(url));
-        const data = await res.json();
+      // Filter video + audio formats
+      let videoRows = data.formats
+        .filter(f => f.vcodec !== 'none') // video
+        .map(f => `
+        <tr>
+          <td>${f.resolution || 'Auto'}</td>
+          <td>${f.ext}</td>
+          <td>${f.filesize ? (f.filesize / (1024 * 1024)).toFixed(2) + ' MB' : '-'}</td>
+          <td>${f.has_audio ? '<span class="tick">✔</span>' : '<span class="cross">✖</span>'}</td>
+          <td><button class="download-btn" onclick="startDownload('${f.url}', '${data.title}.${f.ext}')">Download</button></td>
+        </tr>`).join('');
 
-        if (data.error) {
-          document.getElementById("result").innerHTML = `<p style="color:red;">❌ ${data.error}</p>`;
-          return;
-        }
+      // Filter audio-only (preferably mp3)
+      let audioRows = data.formats
+        .filter(f => f.vcodec === 'none') // audio only
+        .map(f => `
+        <tr>
+          <td>${f.ext.toUpperCase()}</td>
+          <td>${f.filesize ? (f.filesize / (1024 * 1024)).toFixed(2) + ' MB' : '-'}</td>
+          <td><button class="download-btn" onclick="startDownload('${f.url}', '${data.title}.${f.ext}')">Download MP3</button></td>
+        </tr>`).join('');
 
-        let rows = data.formats.map(f => `
-          <tr>
-            <td>${f.resolution || 'Auto'}</td>
-            <td>${f.ext}</td>
-            <td>${f.filesize ? (f.filesize / (1024 * 1024)).toFixed(2) + ' MB' : '-'}</td>
-            <td>${f.has_audio ? '<span class="tick">✔</span>' : '<span class="cross">✖</span>'}</td>
-            <td><button class="download-btn" onclick="startDownload('${f.url}', '${data.title}.${f.ext}')">Download</button></td>
-          </tr>`).join('');
+      document.getElementById("result").innerHTML = `
+        <h3 class="video-title">${data.title}</h3>
+        <img src="${data.thumbnail}" style="max-width: 300px; margin-bottom: 20px;" />
+        
+        <h4>🎥 Video Formats</h4>
+        <table>
+          <thead>
+            <tr><th>Resolution</th><th>Format</th><th>Size</th><th>Audio</th><th>Action</th></tr>
+          </thead>
+          <tbody>${videoRows}</tbody>
+        </table>
 
-        document.getElementById("result").innerHTML = `
-          <h3 class="video-title">${data.title}</h3>
-          <img src="${data.thumbnail}" style="max-width: 300px; margin-bottom: 20px;" />
-          <table>
-            <thead>
-              <tr><th>Resolution</th><th>Format</th><th>Size</th><th>Audio</th><th>Action</th></tr>
-            </thead>
-            <tbody>${rows}</tbody>
-          </table>`;
-      } catch (err) {
-        document.getElementById("result").innerHTML = `<p style="color:red;">❌ Error fetching video.</p>`;
-      }
+        <h4 style="margin-top:30px;">🎵 Audio Formats (MP3)</h4>
+        <table>
+          <thead>
+            <tr><th>Format</th><th>Size</th><th>Action</th></tr>
+          </thead>
+          <tbody>${audioRows}</tbody>
+        </table>`;
+    } catch (err) {
+      document.getElementById("result").innerHTML = `<p style="color:red;">❌ Error fetching video.</p>`;
     }
+  }
 
-    function startDownload(url, filename) {
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    }
+  function startDownload(url, filename) {
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
 
-    getVideoInfo();
-  </script>
+  getVideoInfo();
+</script>
 
 </body>
 </html>
