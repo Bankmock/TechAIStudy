@@ -9,157 +9,218 @@
 
 
 
+(function () {
+  // Find the first element with class 'blog'
+  var blogElement = document.querySelector('.blog');
+  if (!blogElement) return; // Exit if not found
+
+  // Create wrapper for centering
+  var wrapper = document.createElement('div');
+  wrapper.style.display = 'flex';
+  wrapper.style.justifyContent = 'center';
+  wrapper.style.margin = '20px auto';
+
+  // Create ad container
+  var adContainer = document.createElement('div');
+  adContainer.style.width = '250px';
+  adContainer.style.height = '250px';
+  adContainer.style.textAlign = 'center';
+
+  wrapper.appendChild(adContainer);
+
+  // Insert the ad wrapper just before the .blog element
+  blogElement.parentNode.insertBefore(wrapper, blogElement);
+
+  // Load Adza script dynamically
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.charset = 'UTF-8';
+  script.src = 'https://delivery.cpmroi.com/sppc.php';
+
+  script.onload = function () {
+    if (typeof sppc_show === 'function') {
+      sppc_show({
+        site: 1522,
+        channel: 7922,
+        width: 250,
+        height: 250,
+        refresh: -1,
+        refresh_int: 300
+      });
+    }
+  };
+
+  adContainer.appendChild(script);
+})();
 
 (function () {
-  const ads = [
-    {
-      // 1. Sticky Top Horizontal Scrollable Banner (7752)
-      position: 'top-sticky',
-      channel: 7752,
-      site: 1522,
-      width: 728,
-      height: 90
-    },
-    {
-      // 2. Bottom Fixed Banner (7742)
-      position: 'bottom-fixed',
-      channel: 7742,
-      site: 1522,
-      width: 300,
-      height: 50
-    },
-    {
-      // 3. Just after <h1> (7762)
-      position: 'after-h1',
-      channel: 7762,
-      site: 1522,
-      width: 336,
-      height: 280
-    },
-    {
-      // 4. Just after <body> tag, centered (7772)
-      position: 'after-body',
-      channel: 7772,
-      site: 1522,
-      width: 300,
-      height: 250
-    },
-    {
-      // 5. Just above .blog (7922)
-      position: 'above-blog',
-      channel: 7922,
-      site: 1522,
-      width: 250,
-      height: 250
-    }
-  ];
+  // Create a centered wrapper
+  var wrapper = document.createElement('div');
+  wrapper.style.display = 'flex';
+  wrapper.style.justifyContent = 'center';
+  wrapper.style.marginTop = '10px';
+  wrapper.style.marginBottom = '10px';
 
-  function loadAd(ad, container) {
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.charset = 'UTF-8';
-    script.src = 'https://delivery.cpmroi.com/sppc.php';
-    script.onload = function () {
-      if (typeof sppc_show === 'function') {
-        sppc_show({
-          site: ad.site,
-          channel: ad.channel,
-          width: ad.width,
-          height: ad.height,
-          refresh: -1,
-          refresh_int: 300
-        });
-      }
-    };
-    container.appendChild(script);
+  // Create the ad container
+  var adContainer = document.createElement('div');
+  adContainer.style.width = '300px';
+  adContainer.style.height = '250px';
+  adContainer.style.textAlign = 'center';
+
+  wrapper.appendChild(adContainer);
+
+  // Insert the ad just after <body> start
+  if (document.body.firstChild) {
+    document.body.insertBefore(wrapper, document.body.firstChild);
+  } else {
+    document.body.appendChild(wrapper);
   }
 
-  ads.forEach(ad => {
-    let container, wrapper;
+  // Load Adza script
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.charset = 'UTF-8';
+  script.src = 'https://delivery.cpmroi.com/sppc.php';
 
-    switch (ad.position) {
-      case 'top-sticky':
-        wrapper = document.createElement('div');
-        wrapper.style.position = 'sticky';
-        wrapper.style.top = '0';
-        wrapper.style.overflowX = 'auto';
-        wrapper.style.backgroundColor = '#fff';
-        wrapper.style.zIndex = '9999';
-        wrapper.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-        container = document.createElement('div');
-        container.style.minWidth = ad.width + 'px';
-        container.style.height = ad.height + 'px';
-        container.style.margin = '0 auto';
-        container.style.textAlign = 'center';
-        wrapper.appendChild(container);
-        document.body.insertBefore(wrapper, document.body.firstChild);
-        loadAd(ad, container);
-        break;
-
-      case 'bottom-fixed':
-        wrapper = document.createElement('div');
-        wrapper.style.position = 'fixed';
-        wrapper.style.bottom = '0';
-        wrapper.style.left = '50%';
-        wrapper.style.transform = 'translateX(-50%)';
-        wrapper.style.zIndex = '9999';
-        wrapper.style.width = ad.width + 'px';
-        wrapper.style.height = ad.height + 'px';
-        wrapper.style.textAlign = 'center';
-        wrapper.style.backgroundColor = '#f0f0f0';
-        container = document.createElement('div');
-        wrapper.appendChild(container);
-        document.body.appendChild(wrapper);
-        loadAd(ad, container);
-        break;
-
-      case 'after-h1':
-        const h1 = document.querySelector('h1');
-        if (h1) {
-          container = document.createElement('div');
-          container.style.width = ad.width + 'px';
-          container.style.height = ad.height + 'px';
-          container.style.margin = '20px auto';
-          container.style.textAlign = 'center';
-          h1.parentNode.insertBefore(container, h1.nextSibling);
-          loadAd(ad, container);
-        }
-        break;
-
-      case 'after-body':
-        wrapper = document.createElement('div');
-        wrapper.style.display = 'flex';
-        wrapper.style.justifyContent = 'center';
-        wrapper.style.margin = '10px auto';
-        container = document.createElement('div');
-        container.style.width = ad.width + 'px';
-        container.style.height = ad.height + 'px';
-        container.style.textAlign = 'center';
-        wrapper.appendChild(container);
-        if (document.body.firstChild) {
-          document.body.insertBefore(wrapper, document.body.firstChild);
-        } else {
-          document.body.appendChild(wrapper);
-        }
-        loadAd(ad, container);
-        break;
-
-      case 'above-blog':
-        const blog = document.querySelector('.blog');
-        if (blog) {
-          wrapper = document.createElement('div');
-          wrapper.style.display = 'flex';
-          wrapper.style.justifyContent = 'center';
-          wrapper.style.margin = '20px auto';
-          container = document.createElement('div');
-          container.style.width = ad.width + 'px';
-          container.style.height = ad.height + 'px';
-          container.style.textAlign = 'center';
-          wrapper.appendChild(container);
-          blog.parentNode.insertBefore(wrapper, blog);
-          loadAd(ad, container);
-        }
-        break;
+  script.onload = function () {
+    if (typeof sppc_show === 'function') {
+      sppc_show({
+        site: 1522,
+        channel: 7772,
+        width: 300,
+        height: 250,
+        refresh: -1,
+        refresh_int: 300
+      });
     }
-  });
+  };
+
+  adContainer.appendChild(script);
+})();
+
+
+
+(function () {
+  // Find the first H1 element
+  var h1 = document.querySelector('h1');
+  if (!h1) return; // Exit if no H1 found
+
+  // Create the ad container
+  var adContainer = document.createElement('div');
+  adContainer.style.width = '336px';
+  adContainer.style.height = '280px';
+  adContainer.style.margin = '20px auto';
+  adContainer.style.textAlign = 'center';
+
+  // Insert the ad container after the H1
+  if (h1.parentNode) {
+    h1.parentNode.insertBefore(adContainer, h1.nextSibling);
+  }
+
+  // Load the Adza script dynamically
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.charset = 'UTF-8';
+  script.src = 'https://delivery.cpmroi.com/sppc.php';
+
+  // After loading, call sppc_show
+  script.onload = function () {
+    if (typeof sppc_show === 'function') {
+      sppc_show({
+        site: 1522,
+        channel: 7762,
+        width: 336,
+        height: 280,
+        refresh: -1,
+        refresh_int: 300
+      });
+    }
+  };
+
+  adContainer.appendChild(script);
+})();
+
+
+(function () {
+  // Create wrapper with horizontal scroll
+  var scrollWrapper = document.createElement('div');
+  scrollWrapper.style.position = 'sticky';
+  scrollWrapper.style.top = '0';
+  scrollWrapper.style.overflowX = 'auto';
+  scrollWrapper.style.zIndex = '9999';
+  scrollWrapper.style.backgroundColor = '#ffffff'; // background
+  scrollWrapper.style.width = '100%';
+  scrollWrapper.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)'; // optional shadow
+
+  // Create inner container for the ad
+  var adContainer = document.createElement('div');
+  adContainer.style.minWidth = '728px';
+  adContainer.style.height = '90px';
+  adContainer.style.margin = '0 auto';
+  adContainer.style.textAlign = 'center';
+
+  // Add both to body
+  scrollWrapper.appendChild(adContainer);
+  document.body.insertBefore(scrollWrapper, document.body.firstChild);
+
+  // Load Adza script dynamically
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.charset = 'UTF-8';
+  script.src = 'https://delivery.cpmroi.com/sppc.php';
+
+  script.onload = function () {
+    if (typeof sppc_show === 'function') {
+      sppc_show({
+        site: 1522,
+        channel: 7752,
+        width: 728,
+        height: 90,
+        refresh: -1,
+        refresh_int: 300
+      });
+    }
+  };
+
+  adContainer.appendChild(script);
+})();
+
+
+
+(function() {
+  // Create the ad container
+  var adContainer = document.createElement('div');
+  adContainer.id = 'adza-banner';
+  adContainer.style.position = 'fixed';
+  adContainer.style.bottom = '0';
+  adContainer.style.left = '50%';
+  adContainer.style.transform = 'translateX(-50%)';
+  adContainer.style.zIndex = '9999';
+  adContainer.style.width = '300px';
+  adContainer.style.height = '50px';
+  adContainer.style.textAlign = 'center';
+  adContainer.style.backgroundColor = '#f0f0f0';
+
+  document.body.appendChild(adContainer);
+
+  // Load the Adza script
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.charset = 'UTF-8';
+  script.src = 'https://delivery.cpmroi.com/sppc.php';
+
+  script.onload = function() {
+    if (typeof sppc_show === 'function') {
+      sppc_show({
+        site: 1522,
+        channel: 7742,
+        width: 300,
+        height: 50,
+        refresh: -1,
+        refresh_int: 300
+      });
+    }
+  };
+
+  adContainer.appendChild(script);
 })();
