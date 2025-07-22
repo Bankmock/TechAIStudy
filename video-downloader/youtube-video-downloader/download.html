@@ -45,7 +45,12 @@
 <div class="container">
   <h1>📺 YouTube Video Downloader - Preview</h1>
   <div id="result" class="loading">⏳ Fetching video info...</div>
-  </div>
+
+
+  {% if audio_url %}
+    <h3>Best Audio</h3>
+    <button class="download-btn" onclick="startDownload('{{ audio_url }}')">Download MP3</button>
+  {% endif %}</div>
 
   <script>
     async function getVideoInfo() {
