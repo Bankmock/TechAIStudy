@@ -85,3 +85,44 @@
     document.head.appendChild(script);
   }
 })();
+
+(function () {
+  // Wait for DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', injectAdAboveBlog);
+  } else {
+    injectAdAboveBlog();
+  }
+
+  function injectAdAboveBlog() {
+    // Find the first element with class "blog"
+    var blogElement = document.querySelector('.blog');
+    if (!blogElement) return;
+
+    // Create the ad div
+    var adDiv = document.createElement('div');
+    adDiv.id = 'shareus-admanager-0530423619-v1QnC4P59y';
+
+    // Insert the ad div just above the blog element
+    blogElement.parentNode.insertBefore(adDiv, blogElement);
+
+    // Load GPT.js script
+    var script = document.createElement('script');
+    script.src = 'https://securepubads.shareus.io/scripts/tag/js/gpt.js';
+    script.async = true;
+    script.type = 'text/javascript';
+
+    script.onload = function () {
+      window._shareustag = window._shareustag || { cmd: [] };
+      _shareustag.cmd.push(function () {
+        _shareustag.defineSlot(
+          '/shareus-admanager/0530423619/v1QnC4P59y/Ads',
+          ['Responsive'],
+          'shareus-admanager-0530423619-v1QnC4P59y'
+        );
+      });
+    };
+
+    document.head.appendChild(script);
+  }
+})();
