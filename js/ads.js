@@ -1,4 +1,4 @@
-(function() {
+alert("hi");(function() {
   // Create outer scroll container
   var scrollContainer = document.createElement("div");
   scrollContainer.style.position = "fixed";
