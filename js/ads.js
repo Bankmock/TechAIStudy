@@ -48,54 +48,6 @@ window.addEventListener('load', function () {
       document.body.appendChild(bottomScrollContainer);
     });
 
-// adsterra 
-
-(function() {
-  var configScript = document.createElement('script');
-  configScript.type = 'text/javascript';
-  configScript.text = `
-    atOptions = {
-      'key' : 'f6a50813422437971b3b8f04a6d36d5b',
-      'format' : 'iframe',
-      'height' : 250,
-      'width' : 300,
-      'params' : {}
-    };
-  `;
-
-  var invokeScript = document.createElement('script');
-  invokeScript.type = 'text/javascript';
-  invokeScript.src = '//www.highperformanceformat.com/f6a50813422437971b3b8f04a6d36d5b/invoke.js';
-
-  var target = document.body || document.documentElement;
-
-  if (target.firstChild) {
-    target.insertBefore(configScript, target.firstChild);
-    target.insertBefore(invokeScript, target.firstChild.nextSibling);
-  } else {
-    target.appendChild(configScript);
-    target.appendChild(invokeScript);
-  }
-})();
-
-(function() {
-  var h1 = document.querySelector('h1');
-  if (!h1) return;
-
-  // Create the div
-  var adDiv = document.createElement('div');
-  adDiv.id = 'container-2c5610f6e714632e87626d65ca558bbd';
-
-  // Create the script
-  var adScript = document.createElement('script');
-  adScript.async = true;
-  adScript.setAttribute('data-cfasync', 'false');
-  adScript.src = '//pl25250725.profitableratecpm.com/2c5610f6e714632e87626d65ca558bbd/invoke.js';
-
-  // Insert both after <h1>
-  h1.insertAdjacentElement('afterend', adDiv);
-  adDiv.insertAdjacentElement('afterend', adScript);
-})();
 
 
 
