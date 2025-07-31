@@ -10,7 +10,6 @@
   adDiv.style.background = "#fff";
   adDiv.style.textAlign = "center";
   adDiv.style.boxShadow = "0 2px 5px rgba(0,0,0,0.2)";
-
   // Create padding for body to prevent overlap
   document.body.style.paddingTop = "60px"; // adjust height if needed
 
