@@ -1,30 +1,4 @@
 (function() {
-  // Create the ad container
-  var adDiv = document.createElement("div");
-  adDiv.id = "slot_368621";
-  adDiv.style.position = "fixed";
-  adDiv.style.top = "0";
-  adDiv.style.left = "0";
-  adDiv.style.width = "100%";
-  adDiv.style.zIndex = "9999";
-  adDiv.style.background = "#fff";
-  adDiv.style.textAlign = "center";
-  adDiv.style.boxShadow = "0 2px 5px rgba(0,0,0,0.2)";
-  // Create padding for body to prevent overlap
-  document.body.style.paddingTop = "60px"; // adjust height if needed
-
-  // Create the script element
-  var script = document.createElement("script");
-  script.src = "https://linkslot.ru/bancode_new.php?id=368621";
-  script.async = true;
-
-  // Append the script to the ad container
-  adDiv.appendChild(script);
-
-  // Append the ad container to the body
-  document.body.prepend(adDiv);
-})();
-(function() {
   // Create style for fixed bottom banner
   const style = document.createElement('style');
   style.innerHTML = `
