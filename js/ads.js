@@ -1,51 +1,48 @@
 window.addEventListener('load', function () {
 
-      // --- Bottom Ad Code ---
-      // Create a scrollable container for the bottom ad
-      const bottomScrollContainer = document.createElement("div");
-      bottomScrollContainer.style.position = "fixed";
-      bottomScrollContainer.style.bottom = "0";
-      bottomScrollContainer.style.left = "0";
-      bottomScrollContainer.style.width = "100%";
-      bottomScrollContainer.style.overflowX = "auto";
-      bottomScrollContainer.style.whiteSpace = "nowrap";
-      bottomScrollContainer.style.zIndex = "9999"; // Ensures it stays on top of other content
-      bottomScrollContainer.style.padding = "10px 0";
-      bottomScrollContainer.style.backgroundColor = "#fff"; // Optional, for better visibility
+      <!DOCTY
+  // Create wrapper div
+  var adWrapper = document.createElement("div");
+  adWrapper.style.position = "fixed";
+  adWrapper.style.bottom = "0";
+  adWrapper.style.left = "0";
+  adWrapper.style.width = "100%";
+  adWrapper.style.zIndex = "9999";
+  adWrapper.style.background = "#fff";
+  adWrapper.style.boxShadow = "0 -2px 10px rgba(0,0,0,0.2)";
+  adWrapper.style.textAlign = "center";
+  adWrapper.style.padding = "5px 0";
 
-      // Inner wrapper to hold the bottom ad
-      const bottomAdWrapper = document.createElement("div");
-      bottomAdWrapper.style.display = "inline-block";
-      bottomAdWrapper.style.minWidth = "320px";
-      bottomAdWrapper.style.height = "49px";
+  // Create close button
+  var closeBtn = document.createElement("button");
+  closeBtn.innerHTML = "✕";
+  closeBtn.style.position = "absolute";
+  closeBtn.style.right = "10px";
+  closeBtn.style.top = "5px";
+  closeBtn.style.background = "#f00";
+  closeBtn.style.color = "#fff";
+  closeBtn.style.border = "none";
+  closeBtn.style.borderRadius = "4px";
+  closeBtn.style.padding = "2px 8px";
+  closeBtn.style.cursor = "pointer";
+  closeBtn.onclick = function () {
+    adWrapper.style.display = "none";
+  };
+  adWrapper.appendChild(closeBtn);
 
-      // Create the first <script> tag (atOptions config for bottom ad)
-      const bottomConfigScript = document.createElement("script");
-      bottomConfigScript.type = "text/javascript";
-      bottomConfigScript.innerHTML = `
-        atOptions = {
-          'key' : 'b522989fcf5cdf1fbc5167845934a0a9',
-          'format' : 'iframe',
-          'height' : 50,
-          'width' : 320,
-          'params' : {}
-        };
-      `;
+  // Create ad container
+  var adDiv = document.createElement("div");
+  adDiv.id = "adslinks_2935";
+  adWrapper.appendChild(adDiv);
 
-      // Create the second <script> tag (invoke.js for bottom ad)
-      const bottomAdScript = document.createElement("script");
-      bottomAdScript.type = "text/javascript";
-      bottomAdScript.src = "//www.highperformanceformat.com/b522989fcf5cdf1fbc5167845934a0a9/invoke.js";
+  // Append wrapper to body
+  document.body.appendChild(adWrapper);
 
-      // Append both scripts to the bottom ad wrapper
-      bottomAdWrapper.appendChild(bottomConfigScript);
-      bottomAdWrapper.appendChild(bottomAdScript);
-
-      // Append the bottom ad wrapper to its scrollable container
-      bottomScrollContainer.appendChild(bottomAdWrapper);
-
-      // Insert the scrollable container at the bottom of the page
-      document.body.appendChild(bottomScrollContainer);
+  // Load ad script
+  var adScript = document.createElement("script");
+  adScript.src = "https://adslinks.ru/bancode.php?id=2935";
+  adScript.async = true;
+  adDiv.appendChild(adScript);
     });
 
 
