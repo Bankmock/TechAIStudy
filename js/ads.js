@@ -1,6 +1,8 @@
 window.addEventListener('load', function () {
 
-    
+
+
+
   // Create wrapper div
   var adWrapper = document.createElement("div");
   adWrapper.style.position = "fixed";
