@@ -1,0 +1,208 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Progress Bar Styles */
+#progress-bar {
+    width: 200px;
+    height: 200px;
+    position: relative;
+     
+        margin-left: 23%;
+    
+}
+
+#progress-bar svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+
+#progress-bar .circle-background {
+    fill: none;
+    stroke: white;
+    stroke-width: 10;
+}
+
+#progress-bar .circle-progress {
+    fill: none;
+    stroke: #cc00ff;
+    stroke-width: 10;
+    stroke-dasharray: 251.2;
+    stroke-dashoffset: 251.2;
+    transition: stroke-dashoffset 1s ease;
+}
+
+#progress-bar .score-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Top Label */
+.labeltop {
+    background-color: yellow;
+    text-align: center;
+}
+
+/* Disable text selection globally */
+html * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* General Body Styles */
+.bodi {
+    background-color: #f5f5f5;
+    margin: 1%;
+    text-align: center;
+}
+
+/* Card Container Styles */
+.card-container1,
+.card-container2,
+.card-container {
+    white-space: nowrap;
+    overflow-x: auto;
+    text-align: center;
+}
+
+/* Card Styles */
+.card1 {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 4%;
+    height: 84px;
+    width: 116px;
+    float: left;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card2 {
+    display: inline-block;
+    width: 140px;
+    height: 84px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mcard {
+    display: inline-block;
+    width: 200px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-right: 10%;
+    text-align: center;
+    border: 1px solid blue;
+}
+
+/* Color Classes */
+.green-element {
+    background-color: rgba(0, 128, 0, 0.5);
+    color: green;
+}
+
+.brown-element {
+    background-color: rgba(139, 69, 19, 0.5);
+    color: brown;
+}
+
+.blue-element {
+    background-color: rgba(0, 0, 255, 0.5);
+    color: blue;
+}
+
+.custom-element {
+    background-color: rgba(244, 113, 16, 0.73);
+}
+
+/* Icon Colors */
+.right-sign {
+    color: green;
+}
+
+.wrong-sign {
+    color: red;
+}
+
+.skip-sign {
+    color: orange;
+}
+
+/* Text Sizes */
+.bbm {
+    font-size: 33px;
+}
+
+.bm {
+    font-size: 30px;
+}
+
+.clearr {
+    font-size: 30px;
+    background-color: pink;
+}
+
+/* Advertisement Scroll */
+.adsc {
+    text-align: center;
+    overflow-x: scroll;
+}
+
+/* Brand Label */
+.brandlabel {
+    color: white;
+    padding: 8px;
+    font-family: Arial;
+    background-color: green;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+    #progress-bar {
+        margin-left: 39%;
+    }
+
+    .bodi {
+        margin: 6%;
+        text-align: center;
+    }
+
+    .card-container1 {
+        margin-left: 16%;
+    }
+
+    .card1,
+    .card2 {
+        padding: 36px;
+        margin: 36px;
+        font-size: 19px;
+        display: inline-block;
+    }
+
+    .bbm {
+        font-size: 33px;
+    }
+
+    .bm {
+        font-size: 30px;
+    }
+}

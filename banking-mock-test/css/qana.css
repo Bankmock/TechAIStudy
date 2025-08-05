@@ -1,0 +1,26 @@
+
+           .questionitem {
+        margin-bottom: 20px;
+         font-size:20px;
+            overflow-x:hidden;
+          background-color: #fff;
+            }
+       .kqn {
+     font-weight:bold;
+     font-size:16px;
+	}
+        .correct { color: green; }
+        .incorrect { color: red; }
+         .clearr {
+        font-size: 30px;
+    }
+   .marginl {
+    margin:3%;
+    }
+    .h1 {
+         text-align: center;
+         background-color: yellow;
+    }
+  
+    
+    
