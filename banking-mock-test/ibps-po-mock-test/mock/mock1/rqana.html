@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="robots" content="noindex, nofollow">
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBI Po Mock - 1 Analysis</title>
+    <script defer src="../../../../js/component3.js"></script>
+    <link rel="stylesheet" href="../../../../css/footer.css">
+    <link rel="stylesheet" href="../../../../css/header.css">
+    <link rel="stylesheet" href="../../../css/qana.css">
+<!-- Google Analytics (Tracking) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+    
+    <!-- Load Scripts -->
+    	  <script src="../../../../js/ads.js"></script>
+    <script src="../../../../js/headerScript.js"></script>
+    <script src="../../../../js/googletrackingid.js"></script>
+
+    <title>Reasoning Quiz Analysis</title
+</head>
+<body>
+   <script src="rq.js"></script>
+  
+   <div class="marginl">
+    <h2 class="h1"> Sbi Po Mock-1 Reasoning Questions Analysis</h2><br>
+  <div id="quizProgress"></div>
+   
+    <hr>
+    </div>
+    <script>
+        
+        
+       onload = function showQuizProgress() {
+    var quizProgress = JSON.parse(localStorage.getItem('rquizProgresssp')) || [];
+    var quizProgressElement = document.getElementById("quizProgress");
+    quizProgressElement.innerHTML = '';
+
+    for (var i = 0; i < quizProgress.length; i++) {
+        if (quizProgress[i]) {
+
+            var questionNumber = document.createElement("div");
+            
+questionNumber.className = "kqn";
+            questionNumber.innerHTML = "Question " + (i + 1) + ":";
+            quizProgressElement.appendChild(questionNumber);
+
+            var question = document.createElement("div");
+            question.innerHTML = "Question: " + quizProgress[i].question;
+            quizProgressElement.appendChild(question);
+
+            var selectedOption = document.createElement("div");
+            var correctAnswer = quizData.en.correctAnswers[i];
+            var selectedAnswer = quizProgress[i].selectedOption;
+            var isCorrect = correctAnswer == selectedAnswer;
+            var answerText = quizData.en.options[i][selectedAnswer];
+            selectedOption.innerHTML = "Your answer: " + answerText + " " + (isCorrect ? "✔" : "✖");
+            selectedOption.style.color = isCorrect ? "green" : "red"; // Set color based on correctness
+            quizProgressElement.appendChild(selectedOption);
+
+            var correctAnswerText = document.createElement("div");
+            correctAnswerText.innerHTML = "Correct answer: " + quizData.en.options[i][correctAnswer];
+            quizProgressElement.appendChild(correctAnswerText);
+
+            var separator = document.createElement("hr");
+            quizProgressElement.appendChild(separator);
+        }
+    }
+}
+        
+        
+        
+    </script>
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

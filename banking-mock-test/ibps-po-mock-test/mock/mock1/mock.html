@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBI Po Mock - 1 Analysis</title>
+    <script defer src="../../../../js/component3.js"></script>
+        <script defer src="back.js"></script>
+    <link rel="stylesheet" href="../../../../css/footer.css">
+    <link rel="stylesheet" href="../../../../css/header.css">
+    <link rel="stylesheet" href="../../../css/mock.css">
+   <!-- Google Analytics (Tracking) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+    
+    <!-- Load Scripts -->
+    	  <script src="../../../../js/ads.js"></script>
+    <script src="../../../../js/headerScript.js"></script>
+    <script src="../../../../js/googletrackingid.js"></script>
+</head>
+<body>
+<div class="bodi">
+    <hr>
+    <h1 class="labeltop">SBI Po Mock - 1</h1>
+    <hr>
+
+    <div id="progress-bar">
+        <svg viewBox="0 0 100 100">
+            <circle class="circle-background" cx="50" cy="50" r="40" />
+            <circle class="circle-progress" cx="50" cy="50" r="40" />
+        </svg>
+        <div class="score-card">0%</div>
+    </div>
+
+    <h2 class="brandlabel">Just Mock <span>-</span><a class="brandlabel" href="https://t.me/BankersHubspdf">join</a></h2>
+       <br>
+
+    <div class="card-container2">
+        <div class="card2 green-element">Score <i class="fas fa-star score-sign"></i>
+            <p id="sorep"><span id="score" class="bbm"></span>/100</p>
+        </div>
+        <div class="card2 green-element">Rank <i class="fas fa-trophy ranking-sign"></i>
+            <p id="rankp"><span id="rank" class="bbm">Soon</span>/1</p>
+        </div>
+    </div>
+
+    <h3>Total Analysis</h3>
+    <div class="card-container1">
+        <div class="card1 green-element">
+            <i class="fas fa-check-circle right-sign"></i><br><span>Correct</span>
+            <p><span id="tcorrectCount" class="bm"></span>/100</p>
+        </div>
+        <div class="card1 brown-element">
+            <i class="fas fa-times-circle wrong-sign"></i><br><span>Wrong</span>
+            <p><span id="twrongCount" class="bm"></span>/100</p>
+        </div>
+        <div class="card1 blue-element">
+            <i class="fas fa-question-circle skip-sign"></i><br><span>Skipped</span>
+            <p><span id="tskiped" class="bm"></span>/100</p>
+        </div>
+        <div class="card1 custom-element">
+            <span>Attempts</span>
+            <p><span id="tattempted" class="bm"></span>/100</p>
+        </div>
+    </div>
+
+    <h3>Section</h3>
+       <br>
+    <div class="card-container">
+        <div class="mcard">
+            <h2>English</h2>
+            <hr>
+            <p>Marks: <span id="emarkssp" class="bm"></span>/30</p>
+            <p>Correct: <span id="ecorrectCountsp" class="bm"></span>/30</p>
+            <p>Wrong: <span id="ewrongCountsp" class="bm"></span>/30</p>
+            <p>Skipped: <span id="eskipedsp" class="bm"></span>/30</p>
+            <p>Attempt: <span id="eattemptsp" class="bm"></span>/30</p>
+        </div>
+        <div class="mcard">
+            <h2>Quantitative</h2>
+            <hr>
+            <p>Marks: <span id="qmarkssp" class="bm"></span>/35</p>
+            <p>Correct: <span id="qcorrectCountsp" class="bm"></span>/35</p>
+            <p>Wrong: <span id="qwrongCountsp" class="bm"></span>/35</p>
+            <p>Skipped: <span id="qskipedsp" class="bm"></span>/35</p>
+            <p>Attempt: <span id="qattemptsp" class="bm"></span>/35</p>
+        </div>
+        <div class="mcard">
+            <h2>Reasoning</h2>
+            <hr>
+            <p>Marks: <span id="rmarkssp" class="bm"></span>/35</p>
+            <p>Correct: <span id="rcorrectCountsp" class="bm"></span>/35</p>
+            <p>Wrong: <span id="rwrongCountsp" class="bm"></span>/35</p>
+            <p>Skipped: <span id="rskipedsp" class="bm"></span>/35</p>
+            <p>Attempt: <span id="rattemptsp" class="bm"></span>/35</p>
+        </div>
+    </div>
+   <br>
+    <h3>Questions Analysis</h3>
+    <br>
+    <div class="card-container">
+        <div class="mcard">
+            <h2>Quantitative</h2>
+            <hr>
+            <h2><a href="qqana.html">Questions Analyse</a></h2>
+        </div>
+        <div class="mcard">
+            <h2>Reasoning</h2>
+            <hr>
+            <h2><a href="rqana.html">Questions Analyse</a></h2>
+        </div>
+        <div class="mcard">
+            <h2>English</h2>
+            <hr>
+            <h2><a href="eqana.html">Questions Analyse</a></h2>
+        </div>
+    </div>
+       <br>
+</div>
+
+<script>
+    // Fetch values safely from localStorage
+    function getValue(key) {
+        return parseFloat(localStorage.getItem(key)) || 0;
+    }
+
+    let emarkssp = getValue('emarkssp');
+    let qmarkssp = getValue('qmarkssp');
+    let rmarkssp = getValue('rmarkssp');
+    let ecorrectCountsp = getValue('ecorrectCountsp');
+    let qcorrectCountsp = getValue('qcorrectCountsp');
+    let rcorrectCountsp = getValue('rcorrectCountsp');
+    let ewrongCountsp = getValue('ewrongCountsp');
+    let qwrongCountsp = getValue('qwrongCountsp');
+    let rwrongCountsp = getValue('rwrongCountsp');
+    let eskipedsp = getValue('eskipedsp');
+    let qskipedsp = getValue('qskipedsp');
+    let rskipedsp = getValue('rskipedsp');
+
+    // Total calculations
+    let tcorrectCount = ecorrectCountsp + qcorrectCountsp + rcorrectCountsp;
+    let twrongCount = ewrongCountsp + qwrongCountsp + rwrongCountsp;
+    let tmarks = emarkssp + qmarkssp + rmarkssp;
+    let tskiped = eskipedsp + qskipedsp + rskipedsp;
+    let tattempted = tcorrectCount + twrongCount;
+
+    // Set values in DOM
+    document.getElementById("emarkssp").textContent = emarkssp;
+    document.getElementById("qmarkssp").textContent = qmarkssp;
+    document.getElementById("rmarkssp").textContent = rmarkssp;
+    document.getElementById("ecorrectCountsp").textContent = ecorrectCountsp;
+    document.getElementById("qcorrectCountsp").textContent = qcorrectCountsp;
+    document.getElementById("rcorrectCountsp").textContent = rcorrectCountsp;
+    document.getElementById("ewrongCountsp").textContent = ewrongCountsp;
+    document.getElementById("qwrongCountsp").textContent = qwrongCountsp;
+    document.getElementById("rwrongCountsp").textContent = rwrongCountsp;
+    document.getElementById("eskipedsp").textContent = eskipedsp;
+    document.getElementById("qskipedsp").textContent = qskipedsp;
+    document.getElementById("rskipedsp").textContent = rskipedsp;
+    document.getElementById("tcorrectCount").textContent = tcorrectCount;
+    document.getElementById("twrongCount").textContent = twrongCount;
+    document.getElementById("tskiped").textContent = tskiped;
+    document.getElementById("tattempted").textContent = tattempted;
+    document.getElementById("score").textContent = tmarks;
+    document.getElementById("eattemptsp").textContent = ecorrectCountsp + ewrongCountsp;
+    document.getElementById("qattemptsp").textContent = qcorrectCountsp + qwrongCountsp;
+    document.getElementById("rattemptsp").textContent = rcorrectCountsp + rwrongCountsp;
+
+    // Progress bar
+    function setProgress(progress) {
+        const circle = document.querySelector('#progress-bar .circle-progress');
+        const scoreCard = document.querySelector('#progress-bar .score-card');
+        const radius = circle.r.baseVal.value;
+        const circumference = radius * 2 * Math.PI;
+        const offset = circumference - progress / 100 * circumference;
+        circle.style.strokeDasharray = `${offset}, ${circumference}`;
+        scoreCard.textContent = `${progress}%`;
+    }
+
+    setInterval(() => {
+        setProgress(tmarks);
+    }, 2000);
+</script>
+</body>
+</html>
