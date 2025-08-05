@@ -1,6 +1,6 @@
 // Store buttons in an array for easy access by index
 const buttons = [];
-for (let i = 1; i <= 30; i++) {
+for (let i = 1; i <= 35; i++) {
     buttons.push(document.getElementById(`sprite-butts${i}`)); // Use backticks and template literal
 }
 
