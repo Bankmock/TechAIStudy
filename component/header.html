@@ -1,37 +1,4 @@
 
-<script>
-  // Pure JS to load the AdSense script dynamically
-  (function () {
-    var adScript = document.createElement('script');
-    adScript.async = true;
-    adScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7020673744407070";
-    adScript.crossOrigin = "anonymous";
-    document.head.appendChild(adScript);
-  })();
-</script>
-
-<script>
-// Load a script safely from a given domain and path
-function loadScript(domain, id) {
-  const script = document.createElement('script');
-  script.src = `https://${domain}/401/${id}`;
-  script.async = true;
-  script.onload = () => console.log(`Loaded: ${script.src}`);
-  script.onerror = () => console.error(`Failed to load: ${script.src}`);
-  document.body.appendChild(script);
-}
-
-// Load scripts
-loadScript('groleegni.net', 9019209);
-loadScript('gizokraijaw.net', 8868900);
-
-// Load Admolo script
-const admoloScript = document.createElement('script');
-admoloScript.src = 'https://admolo.com/assets/ads/ad.js';
-admoloScript.className = 'admoloScript';
-admoloScript.async = true;
-document.body.appendChild(admoloScript);
-                          </script>
 
 <header>
     <button class="toggle" onclick="toggleTheme()">🌗 Dark</button>
@@ -44,10 +11,4 @@ document.body.appendChild(admoloScript);
     <a href="#">🛠 Tools</a>
     <a href="#">📞 Contact</a>
 </div>
-<div class="button-section">
-    <a href="https://t.me/AllToolsWebsite" class="main-button telegram">
-      <img src="https://storage.googleapis.com/a1aa/image/154a2ca6-e926-4b4a-e040-b77c6224bb70.jpg" alt="Telegram">
-      <span>🙏Join Telegram🙏</span>
-    </a>
-    
-  </div>
+
