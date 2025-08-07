@@ -41,7 +41,7 @@ body {
 .ads {
 
 text-align:center;
-overflow-x: scrollable;
+overflow-x: auto;
 }
 
 .menu-button {
