@@ -1,21 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script defer src="../../js/components.js"></script>
-        <script defer src="../../js/component1.js"></script>
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
-  <link rel="icon" href="https://techaistudy.com/images/logo.webp" type="image/webp">  
-<title>YouTube Video Downloader - Download from Instagram, Facebook, Twitter, YouTube, Tiktok, etc</title>
-   <link rel="stylesheet" href="../../css/header.css">
-  <link rel="stylesheet" href="../../css/blogpost.css">
-  <link rel="stylesheet" href="../../css/footer.css">
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
-  <script src="../../js/ads.js"></script>
-  <script src="../../js/headerScript.js"></script>
-  <script src="../../js/googletrackingid.js"></script> 
+<meta charset="utf-8">
+<title>Video Formats</title>
 
 <style>
 body{
@@ -133,14 +120,13 @@ table.data th,table.data td{
 </head>
 
 <body>
-<div class="container">
+
 <!-- FETCHING -->
 <div id="fetchBox">
   <div>🔍 Fetching formats…</div>
   <div id="fetchProgress"><div id="fetchBar"></div></div>
   <div id="fetchText">0%</div>
 </div>
-
 
 <!-- HEADER -->
 <table id="headerTable">
@@ -154,7 +140,7 @@ table.data th,table.data td{
 
 <div id="progressBox"><div id="progressBar"></div></div>
 <div id="toast"></div>
-</div>
+
 <script>
 const SERVER = "http://34.126.111.67";
 
@@ -327,6 +313,8 @@ function formatTime(sec){
   const m = Math.floor(sec/60);
   const s = sec % 60;
   return `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
-}</script>
+}
+</script>
+
 </body>
 </html>
