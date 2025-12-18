@@ -1,8 +1,9 @@
-<!-- download.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<script defer src="../../js/component1.js"></script>
+<head>
+<script defer src="../../js/components.js"></script>
+        <script defer src="../../js/component1.js"></script>
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
@@ -11,119 +12,150 @@
    <link rel="stylesheet" href="../../css/header.css">
   <link rel="stylesheet" href="../../css/blogpost.css">
   <link rel="stylesheet" href="../../css/footer.css">
-  
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
   <script src="../../js/ads.js"></script>
   <script src="../../js/headerScript.js"></script>
   <script src="../../js/googletrackingid.js"></script> 
+
 <style>
-    
-    table { width: 90%; max-width: 960px;  margin: 20px auto; border-collapse: collapse; }
-    th, td { panding:10px;border: 1px solid #ccc; text-align: center; }
-    .tick { color: green; font-weight: bold; }
-    .cross { color: red; font-weight: bold; }
-    .download-btn {
-      background: #2196F3; color: white; padding: 6px 14px; border: none;
-      border-radius: 5px; cursor: pointer;
-    }
-    .loading {
-      color: blue ;
-      font-style: italic;
-      margin: 10px 0;
-    }
-    .video-title {
-  white-space: normal;
-  overflow-wrap: break-word;
-  max-width: 100%;
-  font-size: 1.2em;
+body{
+  font-family:Arial;
+  background:#fafafa;
+  padding:20px;
+  text-align:center;
 }
 
+/* HEADER */
+#headerTable{
+  width:80%;
+  margin:20px auto 30px;
+}
+#headerTable td{
+  vertical-align:middle;
+}
+#videoThumb{
+  width:180px;
+  border-radius:10px;
+}
+#videoTitle{
+  font-size:20px;
+  font-weight:bold;
+  padding-left:20px;
+  text-align:left;
+}
 
-  </style>
+/* TABLES */
+h2{
+  background:#ff4d4d;
+  padding:10px;
+  color:white;
+  border-radius:6px;
+  width:80%;
+  margin:25px auto 10px;
+}
+table.data{
+  width:80%;
+  margin:auto;
+  border-collapse:collapse;
+  margin-bottom:30px;
+}
+table.data th,table.data td{
+  padding:10px;
+  border:1px solid #ccc;
+  text-align:center;
+}
+
+/* BUTTONS */
+.btn{
+  background:green;
+  color:white;
+  padding:8px 16px;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+.audio-btn{background:green}
+
+/* FETCH LOADER */
+#fetchBox{
+  position:fixed;
+  inset:0;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:10px;
+}
+#fetchProgress{
+  width:260px;
+  height:14px;
+  background:#e5e7eb;
+  border-radius:8px;
+}
+#fetchBar{
+  height:100%;
+  width:0%;
+  background:#22c55e;
+}
+
+/* DOWNLOAD PROGRESS */
+#progressBox{
+  position:fixed;
+  right:20px;
+  bottom:90px;
+  width:260px;
+  background:#e5e7eb;
+  border-radius:8px;
+  display:none;
+}
+#progressBar{
+  height:14px;
+  width:0%;
+  background:#22c55e;
+}
+
+/* TOAST */
+#toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#f8fff9;
+  color:#0f172a;
+  padding:14px 18px;
+  border-radius:8px;
+  min-width:260px;
+  display:none;
+  white-space:pre-line;
+  border:2px solid #22c55e;
+}
+</style>
 </head>
+
 <body>
 <div class="container">
-  <h1>📺 YouTube Video Downloader - Preview</h1>
-  <div id="result" class="loading">⏳ Fetching video info...</div>
-
+<!-- FETCHING -->
+<div id="fetchBox">
+  <div>🔍 Fetching formats…</div>
+  <div id="fetchProgress"><div id="fetchBar"></div></div>
+  <div id="fetchText">0%</div>
 </div>
 
-  <script>
-  async function getVideoInfo() {
-    const queryParams = new URLSearchParams(window.location.search);
-    const url = queryParams.get("url");
 
-    if (!url) {
-      document.getElementById("result").innerHTML = "❌ Invalid URL!";
-      return;
-    }
+<!-- HEADER -->
+<table id="headerTable">
+  <tr>
+    <td width="200"><img id="videoThumb"></td>
+    <td id="videoTitle"><span id="title"></span></td>
+  </tr>
+</table>
 
-    try {
-      const res = await fetch("https://xvideoa.fun/api/info?url=" + encodeURIComponent(url));
-      const data = await res.json();
+<div id="content"></div>
 
-      if (data.error) {
-        document.getElementById("result").innerHTML = `<p style="color:red;">❌ ${data.error}</p>`;
-        return;
-      }
-
-      // Filter video + audio formats
-      let videoRows = data.formats
-        .filter(f => f.vcodec !== 'none') // video
-        .map(f => `
-        <tr>
-          <td>${f.resolution || 'Auto'}</td>
-          <td>${f.ext}</td>
-          <td>${f.filesize ? (f.filesize / (1024 * 1024)).toFixed(2) + ' MB' : '-'}</td>
-          <td>${f.has_audio ? '<span class="tick">✔</span>' : '<span class="cross">✖</span>'}</td>
-          <td><button class="download-btn" onclick="startDownload('${f.url}', '${data.title}.${f.ext}')">Download</button></td>
-        </tr>`).join('');
-
-      // Filter audio-only (preferably mp3)
-      let audioRows = data.formats
-        .filter(f => f.vcodec === 'none') // audio only
-        .map(f => `
-        <tr>
-          <td>${f.ext.toUpperCase()}</td>
-          <td>${f.filesize ? (f.filesize / (1024 * 1024)).toFixed(2) + ' MB' : '-'}</td>
-          <td><button class="download-btn" onclick="startDownload('${f.url}', '${data.title}.${f.ext}')">Download MP3</button></td>
-        </tr>`).join('');
-
-      document.getElementById("result").innerHTML = `
-        <h3 class="video-title">${data.title}</h3>
-        <img src="${data.thumbnail}" style="max-width: 300px; margin-bottom: 20px;" />
-        
-        <h4>🎥 Video Formats</h4>
-        <table>
-          <thead>
-            <tr><th>Resolution</th><th>Format</th><th>Size</th><th>Audio</th><th>Action</th></tr>
-          </thead>
-          <tbody>${videoRows}</tbody>
-        </table>
-
-        <h4 style="margin-top:30px;">🎵 Audio Formats (MP3)</h4>
-        <table>
-          <thead>
-            <tr><th>Format</th><th>Size</th><th>Action</th></tr>
-          </thead>
-          <tbody>${audioRows}</tbody>
-        </table>`;
-    } catch (err) {
-      document.getElementById("result").innerHTML = `<p style="color:red;">❌ Error fetching video.</p>`;
-    }
-  }
-
-  function startDownload(url, filename) {
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  }
-
-  getVideoInfo();
-</script>
+<div id="progressBox"><div id="progressBar"></div></div>
+<div id="toast"></div>
+</div>
 
 </body>
 </html>
