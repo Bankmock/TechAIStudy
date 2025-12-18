@@ -1,4 +1,4 @@
-const SERVER = "http://34.126.111.67";
+const SERVER = "https://videosaver.linkpc.net";
 
 /* FETCH UI */
 const fetchBox = document.getElementById("fetchBox");
