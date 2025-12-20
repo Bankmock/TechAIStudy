@@ -314,86 +314,16 @@
         </ul>
     </section>
 </div>
-  <script>
-  // Function to detect platform from URL
-function detectPlatform(url) {
-  const URL_PATTERNS = {
-youtube: [
-        /https?:\/\/(www\.)?youtube\.com\/watch\?v=[\w-]{11}/,
-        /https?:\/\/youtu\.be\/[\w-]{11}/,
-        /https?:\/\/(www\.)?youtube\.com\/shorts\/[\w-]{11}/,
-        /https?:\/\/m\.youtube\.com\/watch\?v=[\w-]{11}/,
-        /https?:\/\/(www\.)?youtube\.com\/embed\/[\w-]{11}/,
-        /https?:\/\/(www\.)?youtube\.com\/playlist\?list=[\w-]+/,
-        /https?:\/\/(www\.)?youtube\.com\/watch\?v=[\w-]{11}&list=[\w-]+&index=\d+/,
-        /https?:\/\/(www\.)?youtube\.com\/shorts\/[\w-]{11}\?.*/,
-        /https?:\/\/(www\.)?youtube\.com\/watch\?v=[\w-]{11}(&.*)?/
-      ],
-      instagram: [
-        /https?:\/\/(www\.)?instagram\.com\/reel\/[\w-]+\/?/,
-        /https?:\/\/(www\.)?instagram\.com\/p\/[\w-]+\/?/,
-        /https?:\/\/(www\.)?instagram\.com\/tv\/[\w-]+\/?/,
-        /https?:\/\/(www\.)?instagram\.com\/stories\/[\w.-]+\/\d+\/?/,
-        /https?:\/\/m\.instagram\.com\/(reel|p|tv)\/[\w-]+\/?/,
-        /https?:\/\/instagram\.com\/(reel|p|tv)\/[\w-]+\/?/,
-        /https?:\/\/www\.instagram\.com\/(reel|p|tv)\/[\w-]+\/embed\/?/,
-        /https?:\/\/(www\.)?instagram\.com\/(reel|p|tv)\/[\w-]+\/?\?.*/
-      ],
-      facebook: [
-        /https?:\/\/(www\.)?facebook\.com\/.+\/videos\/\d+/,
-        /https?:\/\/fb\.watch\/[\w-]+/,
-        /https?:\/\/(www\.)?facebook\.com\/reel\/[\w-]+/,
-        /https?:\/\/(www\.)?facebook\.com\/share\/(r|v)\/[\w-]+/,
-        /https?:\/\/(www\.)?facebook\.com\/watch\/\?v=\d+/,
-        /https?:\/\/(www\.)?facebook\.com\/story\.php\?story_fbid=\d+&id=\d+/,
-        /https?:\/\/m\.facebook\.com\/.+\/videos\/\d+/,
-        /https?:\/\/m\.facebook\.com\/watch\/\?v=\d+/,
-        /https?:\/\/(www\.)?facebook\.com\/groups\/.+\/permalink\/\d+/,
-        /https?:\/\/(www\.)?facebook\.com\/video\.php\?v=\d+/,
-        /https?:\/\/(www\.)?facebook\.com\/gaming\/video\/\d+/
-      ],
-      twitter: [
-        /https?:\/\/(www\.)?(twitter|x)\.com\/\w+\/status\/\d+/,
-        /https?:\/\/mobile\.twitter\.com\/\w+\/status\/\d+/,
-        /https?:\/\/t\.co\/[\w]+/
-      ],
-      tiktok: [
-        /https?:\/\/(www\.)?tiktok\.com\/@[\w.-]+\/video\/\d+/,
-        /https?:\/\/(vm|vt)\.tiktok\.com\/[\w-]+/,
-        /https?:\/\/m\.tiktok\.com\/v\/\d+\.html/,
-        /https?:\/\/(www\.)?tiktok\.com\/embed\/\d+/,
-        /https?:\/\/t\.tiktok\.com\/[\w/]+/,
-        /https?:\/\/(www\.)?tiktok\.com\/@[\w.-]+\/video\/\d+\?.*/
-]
-};
+    <script>
 
-  for (const platform in URL_PATTERNS) {
-    const patterns = URL_PATTERNS[platform];
-    for (const pattern of patterns) {
-      if (pattern.test(url)) {
-        return platform;
-      }
-    }
-  }
-  return null;
-}
 
 // Function to handle form submission
 function submitForm() {
   const input = document.getElementById('video-url');
   const url = input.value.trim();
 
-  if (!url) {
-    alert("Please enter a video URL.");
-    return false;
-  }
-
-  const platform = detectPlatform(url);
-
-  if (!platform) {
-    alert("Invalid or unsupported URL!\nSupported: YouTube, Facebook, Instagram, Twitter/X, TikTok.");
-    return false;
-  }
+  if(!url) return alert("Enter URL");
+  window.location.href = "download.html?url=" + encodeURIComponent(url);
 
   return true; // Allow form submission
 }
@@ -401,7 +331,7 @@ function submitForm() {
 // Function to paste URL from clipboard
 async function pasteUrlOnly() {
   const input = document.getElementById('video-url');
-  
+
   try {
     const text = await navigator.clipboard.readText();
     const urlRegex = /(https?:\/\/[^\s]+)/g;
@@ -415,7 +345,7 @@ async function pasteUrlOnly() {
   } catch (err) {
     alert("Failed to access clipboard. Please paste manually.\nError: " + err);
   }
-  
+
   updateInputActionButton();
 }
 
@@ -430,7 +360,7 @@ function clearInput() {
 function updateInputActionButton() {
   const input = document.getElementById('video-url');
   const actionBtn = document.getElementById('inputActionBtn');
-  
+
   if (input.value.trim() === "") {
     actionBtn.innerHTML = '<strong>&#128203; Paste</strong>';
     actionBtn.className = 'paste-btn';
@@ -445,14 +375,13 @@ function updateInputActionButton() {
 // Initialize event listeners
 document.addEventListener('DOMContentLoaded', function() {
   const input = document.getElementById('video-url');
-  
+
   // Update button on input change
   input.addEventListener('input', updateInputActionButton);
-  
+
   // Initial button setup
   updateInputActionButton();
 });
 </script>
-
 </body>
 </html>
