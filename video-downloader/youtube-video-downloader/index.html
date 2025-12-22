@@ -2,6 +2,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+
+  // Telegram in-app browser detect
+  var isTelegram = ua.indexOf("Telegram") > -1;
+
+  if (isTelegram) {
+    // Create overlay
+    var overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.background = "rgba(0,0,0,0.6)";
+    overlay.style.zIndex = 9999;
+    overlay.style.display = "flex";
+    overlay.style.alignItems = "center";
+    overlay.style.justifyContent = "center";
+
+    // Popup box
+    var box = document.createElement("div");
+    box.style.background = "#fff";
+    box.style.padding = "20px";
+    box.style.borderRadius = "10px";
+    box.style.width = "90%";
+    box.style.maxWidth = "350px";
+    box.style.textAlign = "center";
+    box.innerHTML = `
+      <h3>Open Link</h3>
+      <p>Better experience ke liye link external browser me open karein</p>
+      <button id="openBrowser" style="width:100%;padding:10px;margin:5px;">Open in Browser</button>
+      <button id="copyLink" style="width:100%;padding:10px;margin:5px;">Copy URL</button>
+      <button id="closePopup" style="width:100%;padding:10px;margin:5px;">Close</button>
+    `;
+
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+
+    // Open in external browser
+    document.getElementById("openBrowser").onclick = function () {
+      window.open(window.location.href, "_blank");
+    };
+
+    // Copy URL
+    document.getElementById("copyLink").onclick = function () {
+      navigator.clipboard.writeText(window.location.href).then(function () {
+        alert("URL copied!");
+      });
+    };
+
+    // Close popup
+    document.getElementById("closePopup").onclick = function () {
+      document.body.removeChild(overlay);
+    };
+  }
+})();
+</script>
 	<script defer src="../../js/component1.js"></script>
 <meta charset="UTF-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
