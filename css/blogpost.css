@@ -67,7 +67,7 @@ h2 {
     overflow-x: auto;   /* Scroll allowed inside, but no page overflow */
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 1px;
     padding: 10px 0;
     box-sizing: border-box;
 }
