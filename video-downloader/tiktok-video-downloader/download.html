@@ -209,38 +209,64 @@ table.data th,table.data td{
 <div id="progressBox"><div id="progressBar"></div></div>
 <div id="toast"></div>
 </div>
-
 <script>
 const SERVER = "https://www.tikwm.com";
 
-/* FETCH UI */
+/* ELEMENTS */
 const fetchBox = document.getElementById("fetchBox");
 const fetchBar = document.getElementById("fetchBar");
 const fetchText = document.getElementById("fetchText");
 
+const titleEl = document.getElementById("title");
+const thumbEl = document.getElementById("videoThumb");
+const contentEl = document.getElementById("content");
+
+/* FETCH UI */
 function updateFetch(p){
   fetchBar.style.width = p + "%";
   fetchText.innerText = p + "%";
 }
 
+/* GET URL */
+const params = new URLSearchParams(location.search);
+const videoUrl = params.get("url");
+
+if(!videoUrl){
+  fetchBox.innerHTML = "❌ No URL Provided";
+  throw new Error("URL missing");
+}
+
 /* FETCH FORMATS */
-const videoUrl = new URLSearchParams(location.search).get("url");
 (async()=>{
-  updateFetch(20);
-  const r = await fetch(`${SERVER}/api/formats?url=${encodeURIComponent(videoUrl)}`);
-  updateFetch(80);
-  const d = await r.json();
-  updateFetch(100);
-  fetchBox.style.display="none";
-  render(d);
+  try{
+    updateFetch(20);
+
+    const r = await fetch(`${SERVER}/api/formats?url=${encodeURIComponent(videoUrl)}`);
+    if(!r.ok) throw new Error("API Error");
+
+    updateFetch(80);
+
+    const d = await r.json();
+
+    updateFetch(100);
+    fetchBox.style.display="none";
+
+    render(d);
+
+  }catch(err){
+    fetchBox.innerHTML = "❌ Failed to fetch video";
+    console.error(err);
+  }
 })();
 
-function mb(x){ return x ? (x/1048576).toFixed(2)+" MB" : "Unknown"; }
+function mb(x){
+  return x ? (x/1048576).toFixed(2)+" MB" : "Unknown";
+}
 
 /* RENDER */
 function render(d){
-  title.innerText = d.title;
-  videoThumb.src = d.thumbnail;
+  titleEl.innerText = d.title || "No title";
+  thumbEl.src = d.thumbnail || "";
 
   let html = "";
 
@@ -263,11 +289,12 @@ function render(d){
     </table>`;
   }
 
-  if(d.other_videos && d.other_videos.length){
+  if(d.other_videos?.length){
     html += `
     <h2>🎬 Video Formats</h2>
     <table class="data">
       <tr><th>Resolution</th><th>Size</th><th>Download</th></tr>`;
+    
     d.other_videos.forEach(v=>{
       html += `
       <tr>
@@ -282,33 +309,38 @@ function render(d){
         </td>
       </tr>`;
     });
+
     html += `</table>`;
   }
 
-  html += `
-  <h2>🎧 Audio Formats</h2>
-  <table class="data">
-    <tr><th>Bitrate</th><th>Size</th><th>Download</th></tr>`;
-  d.audio_formats.forEach(a=>{
+  if(d.audio_formats?.length){
     html += `
-    <tr>
-      <td>${a.bitrate||"??"} kbps</td>
-      <td>${mb(a.filesize)}</td>
-      <td>
-        <button class="btn audio-btn dl"
-          data-url="${encodeURIComponent(a.url)}"
-          data-name="${encodeURIComponent(d.title)}.${a.ext}">
-          Download
-        </button>
-      </td>
-    </tr>`;
-  });
-  html += `</table>`;
+    <h2>🎧 Audio Formats</h2>
+    <table class="data">
+      <tr><th>Bitrate</th><th>Size</th><th>Download</th></tr>`;
+    
+    d.audio_formats.forEach(a=>{
+      html += `
+      <tr>
+        <td>${a.bitrate || "??"} kbps</td>
+        <td>${mb(a.filesize)}</td>
+        <td>
+          <button class="btn dl"
+            data-url="${encodeURIComponent(a.url)}"
+            data-name="${encodeURIComponent(d.title)}.${a.ext}">
+            Download
+          </button>
+        </td>
+      </tr>`;
+    });
 
-  content.innerHTML = html;
+    html += `</table>`;
+  }
+
+  contentEl.innerHTML = html;
 }
 
-/* SAFE CLICK */
+/* CLICK */
 document.addEventListener("click",e=>{
   if(e.target.classList.contains("dl")){
     const url = decodeURIComponent(e.target.dataset.url);
@@ -317,7 +349,7 @@ document.addEventListener("click",e=>{
   }
 });
 
-/* DOWNLOAD WITH ETA */
+/* DOWNLOAD */
 async function download(url, filename){
   const toast = document.getElementById("toast");
   const pBox = document.getElementById("progressBox");
@@ -331,7 +363,7 @@ async function download(url, filename){
     `${SERVER}/stream?url=${encodeURIComponent(url)}&filename=${encodeURIComponent(filename)}`
   );
 
-  const total = Number(res.headers.get("Content-Length"));
+  const total = Number(res.headers.get("Content-Length")) || 0;
   const reader = res.body.getReader();
 
   let received = 0;
@@ -345,22 +377,23 @@ async function download(url, filename){
     chunks.push(value);
     received += value.length;
 
-    const elapsed = (Date.now()-start)/1000;
+    const elapsed = (Date.now()-start)/1000 || 1;
     const speed = (received/1024/elapsed).toFixed(2);
 
-    if(total && total > 0){
+    if(total > 0){
       const percent = Math.floor(received/total*100);
       pBar.style.width = percent+"%";
-      const eta = ((total-received)/1024/speed)|0;
+
+      const eta = ((total-received)/1024/(speed || 1))|0;
+
       toast.innerText =
-`📁 DOWNLOADING ${percent}%
-🚀 Speed: ${speed} KiB/s
-⏳ ETA: ${formatTime(eta)}`;
+`📁 ${percent}%
+🚀 ${speed} KiB/s
+⏳ ${formatTime(eta)}`;
     }else{
       toast.innerText =
 `📁 DOWNLOADING
-🚀 Speed: ${speed} KiB/s
-📦 ${(received/1048576).toFixed(2)} MB`;
+🚀 ${speed} KiB/s`;
     }
   }
 
@@ -370,7 +403,7 @@ async function download(url, filename){
   a.download = filename;
   a.click();
 
-  toast.innerText="✅ Download complete";
+  toast.innerText="✅ Done";
   setTimeout(()=>{
     toast.style.display="none";
     pBox.style.display="none";
