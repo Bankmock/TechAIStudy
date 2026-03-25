@@ -2,58 +2,152 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Download Video</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download TikTok Video</title>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial;
-  text-align: center;
-  background: #111;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
   color: #fff;
-  padding: 50px;
+  text-align: center;
+  padding: 20px;
 }
-video {
-  width: 300px;
+
+.container {
+  max-width: 500px;
+  margin: auto;
+}
+
+/* Heading */
+h1 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+/* Loader */
+.loader {
   margin-top: 20px;
-}
-button {
-  padding: 10px 20px;
   font-size: 16px;
+  color: #aaa;
+}
+
+/* Video */
+video {
+  width: 100%;
+  border-radius: 10px;
   margin-top: 15px;
+}
+
+/* Button */
+button {
+  background: #ff0050;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  margin-top: 15px;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 8px;
   cursor: pointer;
+}
+
+button:hover {
+  background: #e60045;
+}
+
+/* Ads */
+.ad-box {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .container {
+    max-width: 600px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  button {
+    width: 60%;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<h1>Downloading...</h1>
+<div class="container">
 
-<div id="result"></div>
+<h1>Processing your video...</h1>
+
+<!-- TOP AD -->
+<div class="ad-box">
+<script type="text/javascript">
+atOptions = {
+  'key' : 'YOUR_TOP_AD_KEY',
+  'format' : 'iframe',
+  'height' : 50,
+  'width' : 320,
+  'params' : {}
+};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/YOUR_TOP_AD_KEY/invoke.js"></script>
+</div>
+
+<div id="result">
+  <div class="loader">Fetching video... ⏳</div>
+</div>
+
+<!-- BOTTOM AD -->
+<div class="ad-box">
+<script type="text/javascript">
+atOptions = {
+  'key' : 'YOUR_BOTTOM_AD_KEY',
+  'format' : 'iframe',
+  'height' : 250,
+  'width' : 300,
+  'params' : {}
+};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/YOUR_BOTTOM_AD_KEY/invoke.js"></script>
+</div>
+
+</div>
 
 <script>
 
-// Get URL from query params
+// Get URL from query
 function getUrl() {
   const params = new URLSearchParams(window.location.search);
   return params.get("url");
 }
 
-// Auto run on load
-window.onload = async function () {
+// Auto run
+window.onload = function () {
   let url = getUrl();
 
   if (!url) {
-    document.getElementById("result").innerHTML = "No URL provided ❌";
+    showError("No URL provided ❌");
     return;
   }
 
   fetchVideo(url);
 };
 
+// Fetch video
 async function fetchVideo(url) {
-  document.getElementById("result").innerHTML = "Loading video... ⏳";
-
   let api = `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`;
 
   try {
@@ -61,32 +155,32 @@ async function fetchVideo(url) {
     let data = await res.json();
 
     if (data.code !== 0) {
-      document.getElementById("result").innerHTML = "Invalid TikTok URL ❌";
+      showError("Invalid TikTok link ❌");
       return;
     }
 
     let videoUrl = data.data.play;
-    let title = data.data.title;
+    let title = data.data.title || "TikTok Video";
 
     document.getElementById("result").innerHTML = `
       <h3>${title}</h3>
-      <video src="${videoUrl}" controls></video><br>
-      <button onclick="downloadVideo('${videoUrl}')">Download Video</button>
+      <video src="${videoUrl}" controls></video>
+      <button onclick="downloadVideo('${videoUrl}')">⬇ Download Video</button>
     `;
 
   } catch (err) {
     console.error(err);
-    document.getElementById("result").innerHTML = "Error loading video ❌";
+    showError("Failed to load video ❌");
   }
 }
 
-// Download function
+// Download
 async function downloadVideo(url) {
   try {
     let response = await fetch(url);
     let blob = await response.blob();
 
-    let blobUrl = window.URL.createObjectURL(blob);
+    let blobUrl = URL.createObjectURL(blob);
 
     let a = document.createElement("a");
     a.href = blobUrl;
@@ -95,12 +189,18 @@ async function downloadVideo(url) {
     a.click();
 
     a.remove();
-    window.URL.revokeObjectURL(blobUrl);
+    URL.revokeObjectURL(blobUrl);
 
   } catch (err) {
     alert("Download failed ❌");
-    console.error(err);
   }
+}
+
+// Error UI
+function showError(msg) {
+  document.getElementById("result").innerHTML = `
+    <p style="color:red; margin-top:20px;">${msg}</p>
+  `;
 }
 
 </script>
