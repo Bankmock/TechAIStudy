@@ -3,33 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>YouTube Video Downloader - Free Online Download YouTube Videos in HD MP4</title>
-  <meta name="description" content="Free YouTube Video Downloader - Download YouTube videos, shorts, playlists in HD, Full HD, 4K MP4. Fast online YouTube downloader. No registration or software needed.">
-  <meta name="keywords" content="youtube video downloader, download youtube videos, free youtube downloader, youtube to mp4, youtube shorts downloader, online youtube video saver, download youtube video online, youtube downloader hd, youtube 4k downloader, youtube video converter, youtube mp4 downloader, free online youtube downloader, youtube downloader no watermark, download youtube shorts, youtube video extractor">
-  <link rel="canonical" href="https://socialdownloader.com/youtube">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content='YouTube Video Downloader - Free Online Download YouTube Videos in HD MP4'>
-  <meta property="og:description" content="Free YouTube Video Downloader - Download YouTube videos, shorts, playlists in HD, Full HD, 4K MP4. Fast online YouTube downloader. No registration or software needed.">
-  <meta property="og:url" content="https://socialdownloader.com/youtube">
-  <meta property="og:image" content="https://socialdownloader.com/og-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content='YouTube Video Downloader - Free Online Download YouTube Videos in HD MP4'>
-  <meta name="twitter:description" content="Free YouTube Video Downloader - Download YouTube videos, shorts, playlists in HD, Full HD, 4K MP4. Fast online YouTube downloader. No registration or software needed.">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "YouTube Video Downloader",
-      "url": "https://socialdownloader.com/youtube",
-      "applicationCategory": "Multimedia",
-      "operatingSystem": "All",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
-    }
-  </script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Window Tool App</title>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+ 
+  <script src="../../js/headerScript.js" defer></script>
+  <script src="../../js/googletrackingid.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
     * { box-sizing: border-box; }
@@ -43,25 +23,29 @@
     main { width:100%; max-width:1024px; padding:0 20px 40px; margin:0; flex:1; }
     h1 { margin:0 0 8px; font-size:36px; font-weight:700; color:var(--text-main); text-align:center; }
     p.subtitle { color:var(--text-muted); margin:0 0 20px; font-size:15px; font-weight:300; text-align:center; }
-    nav { position:relative; z-index:1000; display:flex; flex-wrap:wrap; justify-content:center; gap:6px; background:#f8fafc; padding:12px 20px; border-bottom:1px solid #e2e8f0; width:100%; }
-    nav a { display:inline-flex; align-items:center; gap:7px; color:var(--text-main); font-weight:700; text-decoration:none; font-size:12px; padding:8px 12px; border-radius:10px; white-space:nowrap; flex:0 1 auto; line-height:1.2; background:transparent; transition:background 0.2s; }
-    nav a:hover { background:color-mix(in srgb, var(--accent) 10%, transparent); }
-    nav a.active { color:white; background:var(--accent); border-radius:10px; }
-    .nav-icon { width:20px; height:20px; border-radius:4px; object-fit:contain; flex-shrink:0; }
+    nav { position:relative; z-index:1000; display:flex; flex-wrap:wrap; justify-content:center; gap:3px; background:#f8fafc; padding:6px 10px; border-bottom:1px solid #e2e8f0; width:100%; }
+    nav span { display:inline-flex; align-items:center; gap:5px; color:var(--text-main); font-weight:600; font-size:11px; padding:4px 8px; border-radius:8px; white-space:nowrap; flex:0 1 auto; line-height:1.1; background:transparent; cursor:default; transition:background 0.2s; }
+    nav span:hover { background:color-mix(in srgb, var(--accent) 10%, transparent); }
+    .nav-icon { width:18px; height:18px; border-radius:4px; object-fit:contain; flex-shrink:0; }
     .nav-label { max-width:9rem; overflow:hidden; text-overflow:ellipsis; }
     form { display:flex; margin-bottom:15px; width:100%; max-width:1024px; margin:0 auto 15px; }
     form input:focus { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
-
-form button[type="submit"]:hover { filter:brightness(0.85); }
+    form button[type="submit"]:hover { filter:brightness(0.85); }
     form button[type="submit"]:active { filter:brightness(0.7); }
     #status { min-height:24px; color:#f87171; font-size:14px; margin-top:5px; }
 
     .ad-grid { display:grid; grid-template-columns:auto minmax(0,1fr) auto; grid-template-rows:auto 1fr auto; grid-template-areas:"top top top" "left main right" "bottom bottom bottom"; max-width:1364px; margin:0 auto; width:100%; padding:0 15px; flex:1; }
-    .ad-grid #ad-top { grid-area:top; text-align:center; padding:4px 0; }
-    .ad-grid #ad-left { grid-area:left; background:#f8fafc; border-right:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:10px; font-family:sans-serif; }
-    .ad-grid #ad-right { grid-area:right; background:#f8fafc; border-left:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:10px; font-family:sans-serif; }
-    .ad-grid #ad-bottom { grid-area:bottom; text-align:center; padding:4px 0; }
+    .ad-grid #ad-top { grid-area:top; text-align:center; padding:8px 0; background:#fafafa; border-bottom:1px solid #e2e8f0; }
+    .ad-grid #ad-left { grid-area:left; background:#f8fafc; border-right:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:10px; font-family:sans-serif; position:sticky; top:10px; align-self:start; }
+    .ad-grid #ad-right { grid-area:right; background:#f8fafc; border-left:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:10px; font-family:sans-serif; position:sticky; top:10px; align-self:start; }
+    .ad-grid #ad-bottom { grid-area:bottom; text-align:center; padding:8px 0; background:#fafafa; border-top:1px solid #e2e8f0; }
     .ad-grid main { grid-area:main; }
+    .ad-placeholder { display:flex; align-items:center; justify-content:center; font-family:sans-serif; }
+    .ad-placeholder .ad-unit { background:#f1f5f9; border:1px dashed #cbd5e1; border-radius:6px; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-size:11px; }
+    .ad-placeholder .ad-unit-leader { width:100%; max-width:970px; min-height:90px; }
+    .ad-placeholder .ad-unit-box { width:160px; height:600px; }
+    @media (max-width: 768px) { .ad-placeholder .ad-unit-leader { max-width:468px; min-height:60px; } }
+    @media (max-width: 480px) { .ad-placeholder .ad-unit-leader { max-width:320px; min-height:50px; } }
     @media (max-width: 640px) {
       form > div { flex-direction:row; }
       form input { padding:10px 32px 10px 36px; font-size:13px; }
@@ -70,167 +54,368 @@ form button[type="submit"]:hover { filter:brightness(0.85); }
       .clear-btn { right:4px; font-size:16px; }
     }
     @media (max-width: 1100px) { #ad-left, #ad-right { display:none !important; } }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; margin:12px 0 24px; }
+    .grid a { text-decoration:none; color:inherit; }
+    .bcard { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:16px 10px; text-align:center; transition:all .2s; }
+    .bcard:hover { border-color:var(--accent); box-shadow:0 4px 12px rgba(0,0,0,.08); transform:translateY(-2px); }
+    .bcard img { width:48px; height:48px; object-fit:contain; margin-bottom:8px; border-radius:6px; }
+    .bcard h3 { margin:0; font-size:13px; font-weight:600; color:var(--text-main); line-height:1.3; }
+    h2 { margin:28px 0 10px; font-size:20px; font-weight:700; color:var(--text-main); }
   </style>
 </head>
 <body>
 <nav>
-      <a href="/youtube" class="nav-youtube active" title="YouTube"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=youtube.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">YouTube</span></a>
-      <a href="/instagram" class="nav-instagram" title="Instagram"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=instagram.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Instagram</span></a>
-      <a href="/twitter" class="nav-twitter" title="Twitter/X"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=x.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Twitter/X</span></a>
-      <a href="/facebook" class="nav-facebook" title="Facebook"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=facebook.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Facebook</span></a>
-      <a href="/threads" class="nav-threads" title="Threads"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=threads.net&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Threads</span></a>
-      <a href="/pinterest" class="nav-pinterest" title="Pinterest"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=pinterest.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Pinterest</span></a>
-      <a href="/reddit" class="nav-reddit" title="Reddit"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=reddit.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Reddit</span></a>
-      <a href="/snapchat" class="nav-snapchat" title="Snapchat"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=snapchat.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Snapchat</span></a>
-      <a href="/tiktok" class="nav-tiktok" title="TikTok"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=tiktok.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">TikTok</span></a>
-      <a href="/linkedin" class="nav-linkedin" title="LinkedIn"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">LinkedIn</span></a>
-
-<a href="/rumble" class="nav-rumble" title="Rumble"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=rumble.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Rumble</span></a>
-      <a href="/vimeo" class="nav-vimeo" title="Vimeo"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=vimeo.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Vimeo</span></a>
-      <a href="/rutube" class="nav-rutube" title="Rutube"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=rutube.ru&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Rutube</span></a>
-      <a href="/bluesky" class="nav-bluesky" title="Bluesky"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=bsky.app&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Bluesky</span></a>
-      <a href="/quora" class="nav-quora" title="Quora"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=quora.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Quora</span></a>
-      <a href="/douyin" class="nav-douyin" title="Douyin"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=douyin.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Douyin</span></a>
-      <a href="/bilibili" class="nav-bilibili" title="Bilibili"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=bilibili.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Bilibili</span></a>
-      <a href="/snackvideo" class="nav-snackvideo" title="SnackVideo"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=snackvideo.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">SnackVideo</span></a>
-      <a href="/kwai" class="nav-kwai" title="Kwai"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=kwai.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Kwai</span></a>
-      <a href="/okru" class="nav-okru" title="OK.ru"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=ok.ru&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">OK.ru</span></a>
-      <a href="/vk" class="nav-vk" title="VK"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=vk.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">VK</span></a>
-      <a href="/dailymotion" class="nav-dailymotion" title="Dailymotion"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=dailymotion.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Dailymotion</span></a>
+      <span class="nav-youtube" title="YouTube"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=youtube.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">YouTube</span></span>
+      <span class="nav-instagram" title="Instagram"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=instagram.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Instagram</span></span>
+      <span class="nav-twitter" title="Twitter/X"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=x.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Twitter/X</span></span>
+      <span class="nav-facebook" title="Facebook"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=facebook.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Facebook</span></span>
+      <span class="nav-threads" title="Threads"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=threads.net&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Threads</span></span>
+      <span class="nav-pinterest" title="Pinterest"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=pinterest.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Pinterest</span></span>
+      <span class="nav-reddit" title="Reddit"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=reddit.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Reddit</span></span>
+      <span class="nav-snapchat" title="Snapchat"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=snapchat.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Snapchat</span></span>
+      <span class="nav-tiktok" title="TikTok"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=tiktok.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">TikTok</span></span>
+      <span class="nav-linkedin" title="LinkedIn"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">LinkedIn</span></span>
+      <span class="nav-rumble" title="Rumble"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=rumble.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Rumble</span></span>
+      <span class="nav-vimeo" title="Vimeo"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=vimeo.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Vimeo</span></span>
+      <span class="nav-rutube" title="Rutube"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=rutube.ru&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Rutube</span></span>
+      <span class="nav-bluesky" title="Bluesky"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=bsky.app&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Bluesky</span></span>
+      <span class="nav-quora" title="Quora"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=quora.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Quora</span></span>
+      <span class="nav-douyin" title="Douyin"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=douyin.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Douyin</span></span>
+      <span class="nav-bilibili" title="Bilibili"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=bilibili.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Bilibili</span></span>
+      <span class="nav-snackvideo" title="SnackVideo"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=snackvideo.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">SnackVideo</span></span>
+      <span class="nav-kwai" title="Kwai"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=kwai.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Kwai</span></span>
+      <span class="nav-okru" title="OK.ru"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=ok.ru&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">OK.ru</span></span>
+      <span class="nav-vk" title="VK"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=vk.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">VK</span></span>
+      <span class="nav-dailymotion" title="Dailymotion"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=dailymotion.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Dailymotion</span></span>
     </nav><div class="ad-grid">
-  <div id="ad-left"><span style="color:#aaa;font-size:11px;text-align:center">Ad<br>160x600</span></div>
-  <main><div id="ad-top" style="text-align:center;padding:4px 0"></div><h1>YouTube Downloader</h1>
-  <p class="subtitle">Extract and download your favorite YouTube videos instantly in high resolution.</p>
-  <form id="url-form" action="/youtube/formats" method="get">
-    <div style="position:relative;flex:1;display:flex">
-      <div style="position:relative;flex:1">
-        <div style="position:absolute;left:12px;top:50%;transform:translateY(-50%);display:flex;align-items:center;pointer-events:none;z-index:1">
-          <img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=64" width="20" height="20" alt="" style="border-radius:4px">
+  <div id="ad-left"><div class="ad-placeholder"><div class="ad-unit ad-unit-box">Ad<br>160×600</div></div></div>
+   <main><div id="ad-top"><div class="ad-placeholder"><div class="ad-unit ad-unit-leader">Ad Banner · 970×90</div></div></div>
+
+    <h2>Unit Converter Tools</h2>
+<div class="grid">
+  <a href="../../unit-converter/illuminance-converter/">
+    <div class="bcard">
+      <img src="../../images/illuminance-converter.webp" alt="Illuminance Converter">
+      <h3><strong>Illuminance Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/torque-converter/">
+    <div class="bcard">
+      <img src="../../images/torque-converter.webp" alt="Torque Converter">
+      <h3><strong>Torque Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/flow-converter/">
+    <div class="bcard">
+      <img src="../../images/flow-converter.webp" alt="Flow Converter">
+      <h3><strong>Flow Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/force-converter/">
+    <div class="bcard">
+      <img src="../../images/force-converter.webp" alt="Force Converter">
+      <h3><strong>Force Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/frequency-converter/">
+    <div class="bcard">
+      <img src="../../images/frequency-converter.webp" alt="Frequency Converter">
+      <h3><strong>Frequency Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/data-transfer-rate-converter/">
+    <div class="bcard">
+      <img src="../../images/data-transfer-rate-converter.webp" alt="Data Transfer Rate Converter">
+      <h3><strong>Data Transfer Rate Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/angle-converter/">
+    <div class="bcard">
+      <img src="../../images/angle-converter.webp" alt="Angle Converter">
+      <h3><strong>Angle Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/density-converter/">
+    <div class="bcard">
+      <img src="../../images/density-converter.webp" alt="Density Converter">
+      <h3><strong>Density Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/fuel-consumption-converter/">
+    <div class="bcard">
+      <img src="../../images/fuel-consumption-converter.webp" alt="Fuel Consumption Converter">
+      <h3><strong>Fuel Consumption Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/internet-data-converter/">
+    <div class="bcard">
+      <img src="../../images/internet-data-converter.webp" alt="Internet Data Converter">
+      <h3><strong>Internet Data Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/pressure-converter/">
+    <div class="bcard">
+      <img src="../../images/pressure-converter.webp" alt="Pressure Converter">
+      <h3><strong>Pressure Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/power-converter/">
+    <div class="bcard">
+      <img src="../../images/power-converter.webp" alt="Power Converter">
+      <h3><strong>Power Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/speed-converter/">
+    <div class="bcard">
+      <img src="../../images/speed-converter.webp" alt="Speed Converter">
+      <h3><strong>Speed Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/energy-converter/">
+    <div class="bcard">
+      <img src="../../images/energy-converter.webp" alt="Energy Converter">
+      <h3><strong>Energy Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/time-converter/">
+    <div class="bcard">
+      <img src="../../images/time-converter.webp" alt="Time Converter">
+      <h3><strong>Time Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/volume-converter/">
+    <div class="bcard">
+      <img src="../../images/volume-converter.webp" alt="Volume Converter">
+      <h3><strong>Volume Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/area-converter/">
+    <div class="bcard">
+      <img src="../../images/area-converter.webp" alt="Area Converter">
+      <h3><strong>Area Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/weight-mass-converter/">
+    <div class="bcard">
+      <img src="../../images/weight-mass-converter.webp" alt="Weight Mass Converter">
+      <h3><strong>Weight/Mass Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/temperature-converter/">
+    <div class="bcard">
+      <img src="../../images/temperature-converter.webp" alt="Temperature Converter">
+      <h3><strong>Temperature Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/length-distance-converter/">
+    <div class="bcard">
+      <img src="../../images/length-distance-converter.webp" alt="Length Distance Converter">
+      <h3><strong>Length/Distance Converter</strong></h3>
+    </div>
+  </a>
+</div>
+
+    <h2>All Types Calculator Tools</h2>
+
+    <div class="grid">
+    	<a href="../../calculator-tool/currency-converter/">
+        <div class="bcard">
+          <img src="../../images/currency-converter.webp" alt="Currency Converter">
+          <h3><strong>Currency Calculator</strong></h3>
         </div>
-        <input id="url" name="url" type="url" placeholder="Paste YouTube URL" required
-          style="width:100%;padding:12px 40px 12px 40px;border:1.5px solid #d1d5db;border-right:none;border-radius:12px 0 0 12px;background:#f9fafb;color:#111827;font-size:14px;outline:none;box-sizing:border-box">
-
-<button type="button" class="paste-btn" aria-label="Paste"
-          style="position:absolute;right:6px;top:50%;transform:translateY(-50%);border:none;background:none;color:#9ca3af;cursor:pointer;padding:6px 10px;z-index:2;display:inline-flex;align-items:center;justify-content:center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path></svg>
-        </button>
-        <button type="button" class="clear-btn" aria-label="Clear"
-          style="display:none;position:absolute;right:6px;top:50%;transform:translateY(-50%);border:none;background:none;color:#9ca3af;cursor:pointer;padding:6px 10px;font-size:26px;line-height:1;z-index:2">&times;</button>
-      </div>
-      <button type="submit"
-        style="display:flex;align-items:center;gap:4px;padding:10px 12px;background:#ff0000;color:white;border:none;border-radius:0 12px 12px 0;cursor:pointer;font-size:14px;font-weight:500;white-space:nowrap;flex-shrink:0">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17V3"></path><path d="m6 11 6 6 6-6"></path><path d="M19 21H5"></path></svg>
-        Download
-      </button>
+      </a>
+      <a href="../../calculator-tool/gst-calculator/">
+        <div class="bcard">
+          <img src="../../images/gst-calculator.webp" alt="GST Calculator">
+          <h3><strong>GST Calculator </strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/bmi-calculator/">
+        <div class="bcard">
+          <img src="../../images/bmi-calculator.webp" alt="BMI Calculator">
+          <h3><strong>BMI Calculator</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/loan-emi-calculator/">
+        <div class="bcard">
+          <img src="../../images/loan-emi-calculator.webp" alt="Loan EMI Calculator">
+          <h3><strong>Loan EMI Calculator</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/age-calculator/">
+        <div class="bcard">
+          <img src="../../images/age-calculator.webp" alt="Age Calculator">
+          <h3><strong>Age Calculator</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/unit-converter/">
+        <div class="bcard">
+          <img src="../../images/unit-converter.webp" alt="unit converter">
+          <h3><strong>Unit Converter</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/date-duration-calculator/">
+        <div class="bcard">
+          <img src="../../images/date-duration-calculator.webp" alt="date and duration calculator">
+          <h3><strong>Date and duration </strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/gpa-cgpa-calculator/">
+        <div class="bcard">
+          <img src="../../images/gpa-cgpa-calculator.webp" alt="gpa cgpa calculator">
+          <h3><strong>GPA & CGPA Calculator</strong></h3>
+        </div>
+      </a>
+      
+      <a href="../../calculator-tool/discount-calculator/">
+        <div class="bcard">
+          <img src="../../images/discount-calculator.webp" alt="discount calculator">
+          <h3><strong>Discount Calculator</strong></h3>
+        </div>
+      </a>
+      
+      <a href="../../calculator-tool/base-converter/">
+        <div class="bcard">
+          <img src="../../images/base-converter.webp" alt="base converter ">
+          <h3><strong>Binary Decimal hexa </strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/percentage-calculator/">
+        <div class="bcard">
+          <img src="../../images/percentage-calculator.webp" alt="percentage calculator">
+          <h3><strong>Percentage Calculator</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/compound-interest-calculator/">
+        <div class="bcard">
+          <img src="../../images/compound-interest-calculator.webp" alt="compound interest calculator">
+          <h3><strong>Compound interest</strong></h3>
+        </div>
+      </a>
     </div>
-  </form>
-  <div id="status"></div>
-    <div id="ad-bottom"></div>
-    <div itemscope itemtype="https://schema.org/FAQPage">
-
-    <h2 style="margin:30px 0 12px;font-size:22px;font-weight:600;color:#0f172a;text-align:center">Free YouTube Video Downloader - Download Videos in HD, MP4</h2>
-    <p style="margin:0 0 16px;font-size:14px;line-height:1.6;color:#334155;text-align:center">Our <strong>free YouTube video downloader</strong> lets you <strong>download YouTube videos</strong> in HD and high quality. Whether you want to save reels, shorts, clips, or full videos, our <strong>online YouTube downloader</strong> works directly in your browser. No software installation required.</p>
-
-    <h2 style="margin:24px 0 10px;font-size:18px;font-weight:600;color:#0f172a">How to Download YouTube Videos Free?</h2>
-    <ol style="margin:0 0 16px;padding-left:20px;font-size:14px;line-height:1.7;color:#334155">
-      <li>Copy the YouTube video URL from your browser or the YouTube app.</li>
-      <li>Paste the URL into the input box above and click Download.</li>
-      <li>Select your preferred video quality (HD, 4K, MP4, or MP3 audio).</li>
-      <li>Save the file to your device with one click.</li>
-    </ol>
-
-    <h2 style="margin:24px 0 10px;font-size:18px;font-weight:600;color:#0f172a">Features of Our YouTube Downloader</h2>
-    <ul style="margin:0 0 16px;padding-left:20px;font-size:14px;line-height:1.7;color:#334155">
-      <li>Download YouTube videos in HD, Full HD (1080p), 2K, 4K</li>
-      <li>Download YouTube Shorts easily</li>
-      <li>Extract MP3 audio from YouTube videos</li>
-      <li>100% free - No hidden charges or subscription</li>
-      <li>No registration - Download instantly without login</li>
-      <li>Works on mobile - Android, iPhone, tablet, desktop</li>
-      <li>Fast download speed - Direct download from Google servers</li>
-      <li>Supports all YouTube formats: MP4, WebM, MKV</li>
-    </ul>
-
-    <h2 style="margin:24px 0 10px;font-size:18px;font-weight:600;color:#0f172a">Frequently Asked Questions</h2>
-
-<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name" style="margin:16px 0 4px;font-size:15px;font-weight:600;color:#0f172a">Is YouTube video downloader free?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text" style="margin:0 0 8px;font-size:14px;line-height:1.6;color:#334155">Yes, our YouTube downloader is completely free to use. There are no hidden charges, subscription fees, or usage limits.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name" style="margin:16px 0 4px;font-size:15px;font-weight:600;color:#0f172a">Can I download YouTube Shorts?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text" style="margin:0 0 8px;font-size:14px;line-height:1.6;color:#334155">Yes, our YouTube Shorts downloader supports downloading short vertical videos from YouTube in HD quality.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name" style="margin:16px 0 4px;font-size:15px;font-weight:600;color:#0f172a">What video quality is available?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text" style="margin:0 0 8px;font-size:14px;line-height:1.6;color:#334155">You can download YouTube videos in 360p, 480p, 720p HD, 1080p Full HD, 2K, and 4K Ultra HD depending on the source video.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name" style="margin:16px 0 4px;font-size:15px;font-weight:600;color:#0f172a">Is it safe to download YouTube videos?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text" style="margin:0 0 8px;font-size:14px;line-height:1.6;color:#334155">Yes, our online YouTube downloader is safe and secure. We do not store any files on our servers. All downloads are direct and private.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name" style="margin:16px 0 4px;font-size:15px;font-weight:600;color:#0f172a">Do I need to install software?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text" style="margin:0 0 8px;font-size:14px;line-height:1.6;color:#334155">No software installation required. Our YouTube video saver works entirely in your web browser.</p>
-      </div>
-    </div>
-
-</div>
+ 
     
+
+    <h2>Image Tools</h2>
+    <div class="grid">
+      <a href="../../image-tool/image-background-remover/">
+        <div class="bcard">
+          <img src="../../images/image-background-remover.webp" alt="Background Remover">
+          <h3><strong>Background Remover</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/image-crop/">
+        <div class="bcard">
+          <img src="../../images/image-crop.webp" alt="Crop Image">
+          <h3><strong>Image Cropper</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/image-compressor/">
+        <div class="bcard">
+          <img src="../../images/image-compressor.webp" alt="Image Compressor">
+          <h3><strong>Image Compressor</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/image-resizer/">
+        <div class="bcard">
+          <img src="../../images/image-resizer.webp" alt="Resize Images">
+          <h3><strong>Image Resizer</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/passport-size-photo-generator/">
+        <div class="bcard">
+          <img src="../../images/passport-size-photo-generator.webp" alt="Passport Photo Generator">
+          <h3><strong>Passport Size Photo Generator</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/image-format-converter/">
+        <div class="bcard">
+          <img src="../../images/image-format-converter.webp" alt="Convert Image Format">
+          <h3><strong>Image Format Converter</strong></h3>
+        </div>
+      </a>
+    </div>
+<div class="ads"></div>
+    <h2>PDF Tools</h2>
+    <div class="grid">
+      <a href="../../pdf-tool/watermark-in-pdf/">
+        <div class="bcard">
+          <img src="../../images/watermark-in-pdf.webp" alt="Watermark in PDF">
+          <h3><strong>Watermark in PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/compress-pdf/">
+        <div class="bcard">
+          <img src="../../images/compress-pdf.webp" alt="Compress PDF File">
+          <h3><strong>Compress PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/pdf-to-image/">
+        <div class="bcard">
+          <img src="../../images/pdf-to-image.webp" alt="PDF to Images">
+          <h3><strong>PDF to Images</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/merge-pdf/">
+        <div class="bcard">
+          <img src="../../images/merge-pdf.webp" alt="Merge PDF Files">
+          <h3><strong>Merge PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/split-and-delete-pdf/">
+        <div class="bcard">
+          <img src="../../images/split-and-delete-pdf.webp" alt="Split or Delete Pages">
+          <h3><strong>Split & Delete Pages</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/rotate-pdf-pages/">
+        <div class="bcard">
+          <img src="../../images/rotate-pdf-pages.webp" alt="Rotate PDF">
+          <h3><strong>Rotate PDF Pages</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/image-to-pdf/">
+        <div class="bcard">
+          <img src="../../images/image-to-pdf.webp" alt="Image to PDF">
+          <h3><strong>Image to PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/text-to-pdf/">
+        <div class="bcard">
+          <img src="../../images/text-to-pdf.webp" alt="Text to PDF">
+          <h3><strong>Text to PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/pdf-to-docx/">
+        <div class="bcard">
+          <img src="../../images/pdf-to-docx.webp" alt="PDF to DOCX">
+          <h3><strong>PDF to Word</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/pdf-to-pptx/">
+        <div class="bcard">
+          <img src="../../images/pdf-to-pptx.webp" alt="PDF to PPT">
+          <h3><strong>PDF to PowerPoint</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/docx-to-pdf/">
+        <div class="bcard">
+          <img src="../../images/docx-to-pdf.webp" alt="DOCX to PDF">
+          <h3><strong>DOCX to PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/csv-to-pdf/">
+        <div class="bcard">
+          <img src="../../images/csv-to-pdf.webp" alt="CSV to PDF">
+          <h3><strong>CSV to PDF</strong></h3>
+        </div>
+      </a>
+    </div>
+
+    <div id="ad-bottom"><div class="ad-placeholder"><div class="ad-unit ad-unit-leader">Ad Banner · 970×90</div></div>
   </main>
-  <div id="ad-right"><span style="color:#aaa;font-size:11px;text-align:center">Ad<br>160x600</span></div>
+  <div id="ad-right"><div class="ad-placeholder"><div class="ad-unit ad-unit-box">Ad<br>160×600</div></div></div>
 </div>
-<script>
-const form = document.querySelector("#url-form");
-const urlInput = document.querySelector("#url");
-const statusBox = document.querySelector("#status");
-form.addEventListener("submit", (event) => {
-  const url = urlInput.value.trim();
-  if (!url) {
-    event.preventDefault();
-    statusBox.textContent = "Paste YouTube URL first.";
-  } else if (!/^^(https?:\/\/)?([a-z0-9-]+\.)?(youtube\.com|youtu\.be)\//i.test(url)) {
-    event.preventDefault();
-    statusBox.textContent = "Only YouTube URLs are allowed.";
-  } else {
-    statusBox.textContent = "";
-    var _p = "YouTube";
-    if (url && navigator.sendBeacon) {
-      navigator.sendBeacon("/api/log-search", new Blob([JSON.stringify({url:url,network:(navigator.connection&&navigator.connection.effectiveType)"",platform:_p})], {type:"application/json"}));
-    }
-  }
-});
-</script>
-<script>
-(function() {
-  var input = document.querySelector("#url");
-  if (!input) return;
-  var pasteBtn = document.querySelector(".paste-btn");
-  var clearBtn = document.querySelector(".clear-btn");
-  if (!pasteBtn  !clearBtn) return;
-  input.addEventListener("input", function() {
-    if (this.value) {
-      pasteBtn.style.display = "none";
-      clearBtn.style.display = "inline-flex";
-    } else {
-      pasteBtn.style.display = "inline-flex";
-      clearBtn.style.display = "none";
-    }
-  });
-  clearBtn.addEventListener("click", fun
 
 </body>
 </html>
