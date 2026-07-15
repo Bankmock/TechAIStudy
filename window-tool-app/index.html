@@ -23,6 +23,47 @@
     body { margin:0; min-height:100vh; background:#ffffff; color:var(--text-main); font-family:var(--font); display:flex; flex-direction:column; padding:0; overflow-x:hidden; }
     main { width:100%; max-width:1024px; padding:0 20px 40px; margin:0; flex:1; }
     h1 { margin:0 0 8px; font-size:36px; font-weight:700; color:var(--text-main); text-align:center; }
+
+
+
+.ads-container {
+    width: 100%;
+    overflow-x: auto;   /* Scroll allowed inside, but no page overflow */
+    display: flex;
+    justify-content: center;
+    gap: 1px;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.ads-box {
+    flex: 0 0 auto;      /* Prevent overflow */
+    text-align: center;
+}
+
+/* Mobile view → wrap ads vertically */
+@media (max-width: 600px) {
+    .ads-container {
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden; /* No need for horizontal scroll on mobile */
+    }
+
+    .ads-box {
+        width: 100%;
+    }
+}
+
+.ads {
+
+text-align:center;
+overflow-x: auto;
+}
+
+
+
+
+
     p.subtitle { color:var(--text-muted); margin:0 0 20px; font-size:15px; font-weight:300; text-align:center; }
     nav { position:relative; z-index:1000; display:flex; flex-wrap:wrap; justify-content:center; gap:3px; background:#f8fafc; padding:6px 10px; border-bottom:1px solid #e2e8f0; width:100%; }
     nav span { display:inline-flex; align-items:center; gap:5px; color:var(--text-main); font-weight:600; font-size:11px; padding:4px 8px; border-radius:8px; white-space:nowrap; flex:0 1 auto; line-height:1.1; background:transparent; cursor:default; transition:background 0.2s; }
@@ -233,12 +274,24 @@ data-adsize="interstitial"></div>
     </div>
   </a>
 </div>
-<div class="admoloBanner"
-data-publisher="eyJpdiI6ImgrNVFnNC9GUll4QzNsYWdXOWtPR0E9PSIsInZhbHVlIjoiRTE3UWwzenJ0K05ycTI3THhlbnhMZz09IiwibWFjIjoiZWZiNmZlN2E2OWU1ZWM1Yzk1Mzg0N2FhYTA2MWQxNTc4YjQzZGIxYTRhOTJjMDBjMGZlODczNWRiOGU2NDYyNSIsInRhZyI6IiJ9"
+<div class="ads">
+<div class="ads-container">
+
+    <!-- First Ad -->
+    <div class="ads-box">
+       <div class="admoloBanner"
+data-publisher="eyJpdiI6Ikczc3o0emtYLzMvSWcyN3l5QUlpcGc9PSIsInZhbHVlIjoiaGswSXV0aFRUb1MxRkQvQjdTZzFNdz09IiwibWFjIjoiMzY3ODM5OGU4YTRkZWQyOGNmZmI3ZDhlYWU3MjVlZTcyNjVkMTViOTc1NmFiNjJiOTU3ZjQ4MDNiNDliMzRhNyIsInRhZyI6IiJ9"
 data-adsize="300x300"></div>
-<div class="admoloBanner"
-data-publisher="eyJpdiI6InMvUVlNeG5vZ2tpRTJzV3I1VWdwWWc9PSIsInZhbHVlIjoici8xVWVncDl4dmdqaWVRcURjNm1FQT09IiwibWFjIjoiNTZjYzViMDZmMzBhOWQ3OTQzYTVlZmU3YTg1ODExOGE5MjA2NjQ0ZmE0M2YzYTkwNDg0MDc1NDE0YTA1Y2IwZCIsInRhZyI6IiJ9"
+ </div>
+<!-- Second Ad -->
+    <div class="ads-box">
+        <div class="admoloBanner"
+data-publisher="eyJpdiI6InZMazRNekRxc2FReUM4UE0wNDQ4N2c9PSIsInZhbHVlIjoicWZycTVMSnZ1YzhDN2lWeUE3QmtPdz09IiwibWFjIjoiZGI5YzA2ZTNhNTM5YjE2MzYyNzY1MTE2MDM1MGIyNDEyN2M3MGQyNDI2YzYzYWMzYjRkYWI4OWI5ZjBjOWY2YiIsInRhZyI6IiJ9"
 data-adsize="320x180"></div>
+</div>
+
+</div>
+</div>
 
     <h2>All Types Calculator Tools</h2>
 
