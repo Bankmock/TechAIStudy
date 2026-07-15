@@ -1,1 +1,166 @@
-html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Video Downloader</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #38bdf8;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #334155;
+            border-radius: 6px;
+            background-color: #0f172a;
+            color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #38bdf8;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #38bdf8;
+            border: none;
+            border-radius: 6px;
+            color: #0f172a;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0ea5e9;
+        }
+        .result {
+            margin-top: 20px;
+            display: none;
+        }
+        .download-btn {
+            display: inline-block;
+            background-color: #22c55e;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .download-btn:hover {
+            background-color: #16a34a;
+        }
+        .error {
+            color: #ef4444;
+            margin-top: 15px;
+        }
+        .loader {
+            display: none;
+            margin: 15px 0;
+            color: #38bdf8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>FB & X Video Downloader</h2>
+    <p>Enter Facebook or X (Twitter) video link below:</p>
+    
+    <input type="text" id="videoUrl" placeholder="https://x.com/... or https://facebook.com/..." required />
+    <button onclick="downloadVideo()">Get Download Link</button>
+
+    <div class="loader" id="loader">Processing video, please wait...</div>
+    <div class="error" id="errorMsg"></div>
+
+    <div class="result" id="resultContainer">
+        <p>Your video is ready!</p>
+        <!-- Cobalt Direct Tunnel Stream Link -->
+        <a href="" id="downloadLink" class="download-btn" target="_blank" download>Download MP4</a>
+    </div>
+</div>
+
+<script>
+async function downloadVideo() {
+    const urlInput = document.getElementById('videoUrl').value.trim();
+    const loader = document.getElementById('loader');
+    const errorMsg = document.getElementById('errorMsg');
+    const resultContainer = document.getElementById('resultContainer');
+    const downloadLink = document.getElementById('downloadLink');
+
+    // Reset status
+    errorMsg.innerText = '';
+    resultContainer.style.display = 'none';
+
+    if (!urlInput) {
+        errorMsg.innerText = 'Please enter a valid URL!';
+        return;
+    }
+
+    loader.style.display = 'block';
+
+    try {
+        // Cobalt API call using a public open mirror instance
+        const response = await fetch("https://co.wukko.me/", {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                url: urlInput,
+                videoQuality: "1080", // standard max quality config
+                audioFormat: "mp3"
+            })
+        });
+
+        const data = await response.json();
+        loader.style.display = 'none';
+
+        if (data.status === "redirect" || data.status === "stream") {
+            // Direct downloadable CDN link received
+            downloadLink.href = data.url;
+            resultContainer.style.display = 'block';
+        } else if (data.status === "error") {
+            errorMsg.innerText = "Error: " + (data.error.code || "Could not fetch video.");
+        } else {
+            errorMsg.innerText = "Failed to fetch video. Try a different URL.";
+        }
+
+    } catch (error) {
+        loader.style.display = 'none';
+        errorMsg.innerText = "An error occurred. The public API instance might be rate-limited or down.";
+        console.error(error);
+    }
+}
+</script>
+
+</body>
+</html>
+ 
