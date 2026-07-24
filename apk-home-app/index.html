@@ -1,371 +1,87 @@
-<html>
-<head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
-  
-  <script src="../js/googletrackingid.js"></script> 
-</head>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<script class="admoloScript" src="https://cdn.admolo.com/assets/ads/ad.js"></script>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Window Tool App</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Agent Detector</title>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
-
-  <script src="../../js/headerScript.js" defer></script>
-  <script src="../../js/googletrackingid.js"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-    * { box-sizing: border-box; }
-    :root {
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --accent: #ff0000;
-      --font: 'Outfit', sans-serif;
-    }
-    body { margin:0; min-height:100vh; background:#ffffff; color:var(--text-main); font-family:var(--font); display:flex; flex-direction:column; padding:0; overflow-x:hidden; }
-    main { width:100%; max-width:1024px; padding:0 20px 40px; margin:0; flex:1; }
-    h1 { margin:0 0 8px; font-size:36px; font-weight:700; color:var(--text-main); text-align:center; }
-
-
-
-.ads-container {
-    width: 100%;
-    overflow-x: auto;   /* Scroll allowed inside, but no page overflow */
-    display: flex;
-    justify-content: center;
-    gap: 1px;
-    padding: 10px 0;
-    box-sizing: border-box;
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+    padding:20px;
 }
-
-.ads-box {
-    flex: 0 0 auto;      /* Prevent overflow */
-    text-align: center;
+.container{
+    max-width:700px;
+    margin:auto;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
 }
-
-/* Mobile view → wrap ads vertically */
-@media (max-width: 600px) {
-    .ads-container {
-        flex-direction: column;
-        align-items: center;
-        overflow-x: hidden; /* No need for horizontal scroll on mobile */
-    }
-
-    .ads-box {
-        width: 100%;
-    }
+h2{
+    text-align:center;
 }
-
-.ads {
-
-text-align:center;
-overflow-x: auto;
+.info{
+    margin:10px 0;
+    padding:10px;
+    background:#eee;
+    border-radius:6px;
+    word-break:break-word;
 }
-
-
-
-
-
-    p.subtitle { color:var(--text-muted); margin:0 0 20px; font-size:15px; font-weight:300; text-align:center; }
-    nav { position:relative; z-index:1000; display:flex; flex-wrap:wrap; justify-content:center; gap:3px; background:#f8fafc; padding:6px 10px; border-bottom:1px solid #e2e8f0; width:100%; }
-    nav span { display:inline-flex; align-items:center; gap:5px; color:var(--text-main); font-weight:600; font-size:11px; padding:4px 8px; border-radius:8px; white-space:nowrap; flex:0 1 auto; line-height:1.1; background:transparent; cursor:default; transition:background 0.2s; }
-    nav span:hover { background:color-mix(in srgb, var(--accent) 10%, transparent); }
-    .nav-icon { width:18px; height:18px; border-radius:4px; object-fit:contain; flex-shrink:0; }
-    .nav-label { max-width:9rem; overflow:hidden; text-overflow:ellipsis; }
-    form { display:flex; margin-bottom:15px; width:100%; max-width:1024px; margin:0 auto 15px; }
-    form input:focus { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
-    form button[type="submit"]:hover { filter:brightness(0.85); }
-    form button[type="submit"]:active { filter:brightness(0.7); }
-    #status { min-height:24px; color:#f87171; font-size:14px; margin-top:5px; }
-
-    .ad-grid { display:grid; grid-template-columns:auto minmax(0,1fr) auto; grid-template-rows:auto 1fr auto; grid-template-areas:"top top top" "left main right" "bottom bottom bottom"; max-width:1364px; margin:0 auto; width:100%; padding:0 15px; flex:1; }
-    .ad-grid #ad-top { grid-area:top; text-align:center; padding:8px 0; background:#fafafa; border-bottom:1px solid #e2e8f0; }
-    .ad-grid #ad-left { grid-area:left; background:#f8fafc; border-right:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:10px; font-family:sans-serif; position:sticky; top:10px; align-self:start; }
-    .ad-grid #ad-right { grid-area:right; background:#f8fafc; border-left:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:10px; font-family:sans-serif; position:sticky; top:10px; align-self:start; }
-    .ad-grid #ad-bottom { grid-area:bottom; text-align:center; padding:8px 0; background:#fafafa; border-top:1px solid #e2e8f0; }
-    .ad-grid main { grid-area:main; }
-    .ad-placeholder { display:flex; align-items:center; justify-content:center; font-family:sans-serif; }
-    .ad-placeholder .ad-unit { background:#f1f5f9; border:1px dashed #cbd5e1; border-radius:6px; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-size:11px; }
-    .ad-placeholder .ad-unit-leader { width:100%; max-width:970px; min-height:90px; }
-    .ad-placeholder .ad-unit-box { width:160px; height:600px; }
-    @media (max-width: 768px) { .ad-placeholder .ad-unit-leader { max-width:468px; min-height:60px; } }
-    @media (max-width: 480px) { .ad-placeholder .ad-unit-leader { max-width:320px; min-height:50px; } }
-    @media (max-width: 640px) {
-      form > div { flex-direction:row; }
-      form input { padding:10px 32px 10px 36px; font-size:13px; }
-      form button[type="submit"] { padding:8px 10px; font-size:12px; gap:3px; }
-      form button[type="submit"] svg { width:16px; height:16px; }
-      .clear-btn { right:4px; font-size:16px; }
-    }
-    @media (max-width: 1100px) { #ad-left, #ad-right { display:none !important; } }
-    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; margin:12px 0 24px; }
-    .grid a { text-decoration:none; color:inherit; }
-    .bcard { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:16px 10px; text-align:center; transition:all .2s; }
-    .bcard:hover { border-color:var(--accent); box-shadow:0 4px 12px rgba(0,0,0,.08); transform:translateY(-2px); }
-    .bcard img { width:48px; height:48px; object-fit:contain; margin-bottom:8px; border-radius:6px; }
-    .bcard h3 { margin:0; font-size:13px; font-weight:600; color:var(--text-main); line-height:1.3; }
-    h2 { margin:28px 0 10px; font-size:20px; font-weight:700; color:var(--text-main); }
-  </style>
+</style>
 </head>
 <body>
 
-<div class="admoloInterstitial"
-data-publisher="eyJpdiI6InlsOHJ6em9hc1kwbFVRaWIwWEFnWmc9PSIsInZhbHVlIjoiMUo4T2Niamh4aXMyVkN4QTZwK0oyZz09IiwibWFjIjoiNWIzNzdjYWFhNjNhZmUwMTM3ZWViNjE3ZGJlODc1MWUwNGVjZGViZTM3MmZhNGU1NmUxMzkwZjQzZTRkMDY1MyIsInRhZyI6IiJ9"
-data-adsize="interstitial"></div>
+<div class="container">
+<h2>User Agent Information</h2>
 
-<nav>
-      <span class="nav-youtube" title="YouTube"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=youtube.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">YouTube</span></span>
-      <span class="nav-instagram" title="Instagram"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=instagram.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Instagram</span></span>
-      <span class="nav-twitter" title="Twitter/X"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=x.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Twitter/X</span></span>
-      <span class="nav-facebook" title="Facebook"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=facebook.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Facebook</span></span>
-      <span class="nav-threads" title="Threads"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=threads.net&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Threads</span></span>
-      <span class="nav-pinterest" title="Pinterest"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=pinterest.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Pinterest</span></span>
-      <span class="nav-reddit" title="Reddit"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=reddit.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Reddit</span></span>
-      <span class="nav-snapchat" title="Snapchat"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=snapchat.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Snapchat</span></span>
-      <span class="nav-tiktok" title="TikTok"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=tiktok.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">TikTok</span></span>
-      <span class="nav-linkedin" title="LinkedIn"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">LinkedIn</span></span>
-      <span class="nav-rumble" title="Rumble"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=rumble.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Rumble</span></span>
-      <span class="nav-vimeo" title="Vimeo"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=vimeo.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Vimeo</span></span>
-      <span class="nav-rutube" title="Rutube"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=rutube.ru&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Rutube</span></span>
-      <span class="nav-bluesky" title="Bluesky"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=bsky.app&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Bluesky</span></span>
-      <span class="nav-quora" title="Quora"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=quora.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Quora</span></span>
-      <span class="nav-douyin" title="Douyin"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=douyin.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Douyin</span></span>
-      <span class="nav-bilibili" title="Bilibili"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=bilibili.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Bilibili</span></span>
-      <span class="nav-snackvideo" title="SnackVideo"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=snackvideo.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">SnackVideo</span></span>
-      <span class="nav-kwai" title="Kwai"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=kwai.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Kwai</span></span>
-      <span class="nav-okru" title="OK.ru"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=ok.ru&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">OK.ru</span></span>
-      <span class="nav-vk" title="VK"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=vk.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">VK</span></span>
-      <span class="nav-dailymotion" title="Dailymotion"><img class="nav-icon" src="https://www.google.com/s2/favicons?domain=dailymotion.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async"><span class="nav-label">Dailymotion</span></span>
-    </nav><div class="ad-grid">
-  <div id="ad-left"><div class="ad-placeholder"><div class="ad-unit ad-unit-box">
+<div class="info"><b>Browser:</b> <span id="browser"></span></div>
+<div class="info"><b>Operating System:</b> <span id="os"></span></div>
+<div class="info"><b>Device:</b> <span id="device"></span></div>
+<div class="info"><b>Platform:</b> <span id="platform"></span></div>
+<div class="info"><b>Language:</b> <span id="language"></span></div>
+<div class="info"><b>Screen Resolution:</b> <span id="screen"></span></div>
+<div class="info"><b>User Agent:</b> <span id="ua"></span></div>
+
+</div>
+
 <script>
-  atOptions = {
-    'key' : 'f52693494bde000182223aeddd8d7b4b',
-    'format' : 'iframe',
-    'height' : 600,
-    'width' : 160,
-    'params' : {}
-  };
+const ua = navigator.userAgent;
+
+function browser(){
+    if(ua.includes("Edg")) return "Microsoft Edge";
+    if(ua.includes("OPR")) return "Opera";
+    if(ua.includes("Chrome")) return "Google Chrome";
+    if(ua.includes("Firefox")) return "Mozilla Firefox";
+    if(ua.includes("Safari") && !ua.includes("Chrome")) return "Safari";
+    return "Unknown";
+}
+
+function os(){
+    if(ua.includes("Windows")) return "Windows";
+    if(ua.includes("Android")) return "Android";
+    if(ua.includes("iPhone") || ua.includes("iPad")) return "iOS";
+    if(ua.includes("Mac")) return "macOS";
+    if(ua.includes("Linux")) return "Linux";
+    return "Unknown";
+}
+
+function device(){
+    if(/Mobile/i.test(ua)) return "Mobile";
+    if(/Tablet|iPad/i.test(ua)) return "Tablet";
+    return "Desktop";
+}
+
+document.getElementById("browser").textContent = browser();
+document.getElementById("os").textContent = os();
+document.getElementById("device").textContent = device();
+document.getElementById("platform").textContent = navigator.platform;
+document.getElementById("language").textContent = navigator.language;
+document.getElementById("screen").textContent =
+screen.width + " × " + screen.height;
+document.getElementById("ua").textContent = ua;
 </script>
-<script src="https://www.highperformanceformat.com/f52693494bde000182223aeddd8d7b4b/invoke.js"></script>
 
-
-</div></div></div>
-   <main><div id="ad-top"><div class="ad-placeholder"><div class="ad-unit ad-unit-leader">
-
-<script async="async" data-cfasync="false" src="https://pl25250725.effectivecpmnetwork.com/2c5610f6e714632e87626d65ca558bbd/invoke.js"></script>
-<div id="container-2c5610f6e714632e87626d65ca558bbd"></div>
-
-
-
-</div></div></div>
-
-    <h2>Unit Converter Tools</h2>
-<div class="grid">
-  <a href="../../unit-converter/illuminance-converter/">
-    <div class="bcard">
-      <img src="../../images/illuminance-converter.webp" alt="Illuminance Converter">
-      <h3><strong>Illuminance Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/torque-converter/">
-    <div class="bcard">
-      <img src="../../images/torque-converter.webp" alt="Torque Converter">
-      <h3><strong>Torque Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/flow-converter/">
-    <div class="bcard">
-      <img src="../../images/flow-converter.webp" alt="Flow Converter">
-      <h3><strong>Flow Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/force-converter/">
-    <div class="bcard">
-      <img src="../../images/force-converter.webp" alt="Force Converter">
-      <h3><strong>Force Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/frequency-converter/">
-    <div class="bcard">
-      <img src="../../images/frequency-converter.webp" alt="Frequency Converter">
-      <h3><strong>Frequency Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/data-transfer-rate-converter/">
-    <div class="bcard">
-      <img src="../../images/data-transfer-rate-converter.webp" alt="Data Transfer Rate Converter">
-      <h3><strong>Data Transfer Rate Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/angle-converter/">
-    <div class="bcard">
-      <img src="../../images/angle-converter.webp" alt="Angle Converter">
-      <h3><strong>Angle Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/density-converter/">
-    <div class="bcard">
-      <img src="../../images/density-converter.webp" alt="Density Converter">
-      <h3><strong>Density Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/fuel-consumption-converter/">
-    <div class="bcard">
-      <img src="../../images/fuel-consumption-converter.webp" alt="Fuel Consumption Converter">
-      <h3><strong>Fuel Consumption Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/internet-data-converter/">
-    <div class="bcard">
-      <img src="../../images/internet-data-converter.webp" alt="Internet Data Converter">
-      <h3><strong>Internet Data Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/pressure-converter/">
-    <div class="bcard">
-      <img src="../../images/pressure-converter.webp" alt="Pressure Converter">
-      <h3><strong>Pressure Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/power-converter/">
-    <div class="bcard">
-      <img src="../../images/power-converter.webp" alt="Power Converter">
-      <h3><strong>Power Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/speed-converter/">
-    <div class="bcard">
-      <img src="../../images/speed-converter.webp" alt="Speed Converter">
-      <h3><strong>Speed Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/energy-converter/">
-    <div class="bcard">
-      <img src="../../images/energy-converter.webp" alt="Energy Converter">
-      <h3><strong>Energy Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/time-converter/">
-    <div class="bcard">
-      <img src="../../images/time-converter.webp" alt="Time Converter">
-      <h3><strong>Time Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/volume-converter/">
-    <div class="bcard">
-      <img src="../../images/volume-converter.webp" alt="Volume Converter">
-      <h3><strong>Volume Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/area-converter/">
-    <div class="bcard">
-      <img src="../../images/area-converter.webp" alt="Area Converter">
-      <h3><strong>Area Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/weight-mass-converter/">
-    <div class="bcard">
-      <img src="../../images/weight-mass-converter.webp" alt="Weight Mass Converter">
-      <h3><strong>Weight/Mass Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/temperature-converter/">
-    <div class="bcard">
-      <img src="../../images/temperature-converter.webp" alt="Temperature Converter">
-      <h3><strong>Temperature Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/length-distance-converter/">
-    <div class="bcard">
-      <img src="../../images/length-distance-converter.webp" alt="Length Distance Converter">
-      <h3><strong>Length/Distance Converter</strong></h3>
-    </div>
-  </a>
-</div>
-<div class="ads">
-<div class="ads-container">
-
-    <!-- First Ad -->
-    <div class="ads-box">
-       <div class="admoloBanner"
-data-publisher="eyJpdiI6Ikczc3o0emtYLzMvSWcyN3l5QUlpcGc9PSIsInZhbHVlIjoiaGswSXV0aFRUb1MxRkQvQjdTZzFNdz09IiwibWFjIjoiMzY3ODM5OGU4YTRkZWQyOGNmZmI3ZDhlYWU3MjVlZTcyNjVkMTViOTc1NmFiNjJiOTU3ZjQ4MDNiNDliMzRhNyIsInRhZyI6IiJ9"
-data-adsize="300x300"></div>
- </div>
-<!-- Second Ad -->
-    <div class="ads-box">
-        <div class="admoloBanner"
-data-publisher="eyJpdiI6InZMazRNekRxc2FReUM4UE0wNDQ4N2c9PSIsInZhbHVlIjoicWZycTVMSnZ1YzhDN2lWeUE3QmtPdz09IiwibWFjIjoiZGI5YzA2ZTNhNTM5YjE2MzYyNzY1MTE2MDM1MGIyNDEyN2M3MGQyNDI2YzYzYWMzYjRkYWI4OWI5ZjBjOWY2YiIsInRhZyI6IiJ9"
-data-adsize="320x180"></div>
-</div>
-
-</div>
-</div>
-
-    <h2>All Types Calculator Tools</h2>
-
-    <div class="grid">
-            <a href="../../calculator-tool/currency-converter/">
-        <div class="bcard">
-          <img src="../../images/currency-converter.webp" alt="Currency Converter">
-          <h3><strong>Currency Calculator</strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/gst-calculator/">
-        <div class="bcard">
-          <img src="../../images/gst-calculator.webp" alt="GST Calculator">
-          <h3><strong>GST Calculator </strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/bmi-calculator/">
-        <div class="bcard">
-          <img src="../../images/bmi-calculator.webp" alt="BMI Calculator">
-          <h3><strong>BMI Calculator</strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/loan-emi-calculator/">
-        <div class="bcard">
-          <img src="../../images/loan-emi-calculator.webp" alt="Loan EMI Calculator">
-          <h3><strong>Loan EMI Calculator</strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/age-calculator/">
-        <div class="bcard">
-          <img src="../../images/age-calculator.webp" alt="Age Calculator">
-          <h3><strong>Age Calculator</strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/unit-converter/">
-        <div class="bcard">
-          <img src="../../images/unit-converter.webp" alt="unit converter">
-          <h3><strong>Unit Converter</strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/date-duration-calculator/">
-        <div class="bcard">
-          <img src="../../images/date-duration-calculator.webp" alt="date and duration calculator">
-          <h3><strong>Date and duration </strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/gpa-cgpa-calculator/">
-        <div class="bcard">
-          <img src="../../images/gpa-cgpa-calculator.webp" alt="gpa cgpa calculator">
-          <h3><strong>GPA & CGPA Calculator</strong></h3>
-        </div>
-      </a>
-
-      <a href="../../calculator-tool/discount-calculator/">
-        <div class="bcard">
-          <img src="../../images/discount-calculator.webp" alt="discount calculator">
-          <h3><strong>Discount Calculator</strong></h3>
-        </div>
-      </a>
-
-      <a href="../../calculator-tool/b
-
-apk home app
+</body>
 </html>
