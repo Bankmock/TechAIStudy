@@ -1,143 +1,186 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikTok Downloader</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:Arial;background:#000;color:#fff;padding:20px}
-        .container{max-width:500px;margin:0 auto}
-        input,button{width:100%;padding:15px;margin:10px 0;border:none;border-radius:10px;font-size:16px}
-        input{background:#222;color:#fff;border:2px solid #333}
-        button{background:#ff0050;color:#fff;font-weight:bold;cursor:pointer}
-        button:active{transform:scale(0.95)}
-        #status{padding:15px;margin:10px 0;border-radius:10px;text-align:center}
-        .loading{background:#333;color:#ff0}
-        .error{background:#511;color:#f44}
-        .success{background:#151;color:#4f4}
-        video{width:100%;border-radius:10px;margin:10px 0}
-        .hidden{display:none}
-        .download-btn{background:#00d4ff;color:#000;margin:5px 0}
-    </style>
+<script class="admoloScript" src="https://cdn.admolo.com/assets/ads/ad.js"></script>
+<script>(function(s){s.dataset.zone='10579197',s.src='https://izcle.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download TikTok Video</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+}
+
+/* Heading */
+h1 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+/* Loader */
+.loader {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #aaa;
+}
+
+/* Video */
+video {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+/* Button */
+button {
+  background: #ff0050;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  margin-top: 15px;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #e60045;
+}
+
+/* Ads */
+.ad-box {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .container {
+    max-width: 600px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  button {
+    width: 60%;
+  }
+}
+</style>
 </head>
+
 <body>
 
 <div class="container">
-    <h1 style="text-align:center;color:#ff0050">🎵 TikTok Downloader</h1>
-    <p style="text-align:center;color:#888;margin:10px 0">Paste TikTok URL and download</p>
-    
-    <input type="text" id="urlInput" placeholder="https://www.tiktok.com/@user/video/123...">
-    <button id="getBtn">📥 Get Video</button>
-    
-    <div id="status">Paste URL and click Get Video</div>
-    
-    <div id="videoContainer" class="hidden">
-        <video id="videoPlayer" controls playsinline></video>
-        <button id="downloadBtn" class="download-btn">⬇️ Download Video</button>
-    </div>
+<div class="admoloBanner"
+data-publisher="eyJpdiI6ImdOaGEzMkNROHlNaGxSNjNmdm9hR0E9PSIsInZhbHVlIjoiSjBqZS9ncHNOMHRwNmgxNVhyMXowQT09IiwibWFjIjoiY2YyY2VhZGNmNmU5Yjg1NjZjYzRmYjY5YjJlODRlMWMwMzIwYTc4ZmQ1NjAxMGY3MTUxZjIyZjljNmM2YmQ4NyIsInRhZyI6IiJ9"
+data-adsize="728x90"></div>
+
+<h1>Processing your video...</h1>
+
+<!-- TOP AD -->
+<div class="ad-box">
+<div class="admoloBanner"
+data-publisher="eyJpdiI6ImM4SUdTZ3dNbHR4ZENPTlh6QWN2Ync9PSIsInZhbHVlIjoicHhNd0YxYVpwSjZQZ2F6QkQvM04vZz09IiwibWFjIjoiMTc3OGY2YWNhNTY1YWE4NTIyMjY3YmFkYTcwMDdhZTlmOTM0NGFiN2VlNDJkOGIwNWVhNWY4MTMyOTBiMDc2MyIsInRhZyI6IiJ9"
+data-adsize="320x100"></div>
+</div>
+
+<div id="result">
+  <div class="loader">Fetching video... ⏳</div>
+</div>
+
+<!-- BOTTOM AD -->
+<div class="ad-box">
+<div class="admoloBanner"
+data-publisher="eyJpdiI6IjQzY1c1UWdtYStINWJLdGhwckxaM3c9PSIsInZhbHVlIjoiYlJBajVaZzNwcm8zaERCcm1OUzczQT09IiwibWFjIjoiNGMxOTRjYzY5NWY2NGVkZTk2N2M2NTgwYzU2ZGU2ODUxZTBhNGM4YmQxY2IzZDFmNWZkNTIzOTAwYzJlOGRlMiIsInRhZyI6IiJ9"
+data-adsize="300x300"></div>
+</div>
+
 </div>
 
 <script>
-const urlInput = document.getElementById('urlInput');
-const getBtn = document.getElementById('getBtn');
-const statusDiv = document.getElementById('status');
-const videoContainer = document.getElementById('videoContainer');
-const videoPlayer = document.getElementById('videoPlayer');
-const downloadBtn = document.getElementById('downloadBtn');
 
-let currentUrl = '';
+// Get URL from query parameter
+function getUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("url");
+}
 
-getBtn.onclick = () => {
-    const url = urlInput.value.trim();
-    if (!url) {
-        statusDiv.className = 'error';
-        statusDiv.textContent = '❌ Please enter a URL';
-        return;
-    }
-    fetchVideo(url);
+// Auto run on load
+window.onload = function () {
+  let url = getUrl();
+
+  if (!url) {
+    showError("No URL provided ❌");
+    return;
+  }
+
+  fetchVideo(url);
 };
 
-urlInput.onkeypress = (e) => {
-    if (e.key === 'Enter') getBtn.click();
-};
-
+// Fetch video details from tikwm API
 async function fetchVideo(url) {
-    statusDiv.className = 'loading';
-    statusDiv.textContent = '⏳ Fetching video...';
-    videoContainer.classList.add('hidden');
+  let api = `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`;
 
-    try {
-        const api = `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`;
-        const res = await fetch(api);
-        const data = await res.json();
+  try {
+    let res = await fetch(api);
+    let data = await res.json();
 
-        if (data.code !== 0) {
-            statusDiv.className = 'error';
-            statusDiv.textContent = '❌ Video not found';
-            return;
-        }
-
-        currentUrl = data.data.play;
-        videoPlayer.src = currentUrl;
-        videoContainer.classList.remove('hidden');
-        
-        statusDiv.className = 'success';
-        statusDiv.textContent = '✅ Video loaded! Click download';
-
-    } catch (err) {
-        statusDiv.className = 'error';
-        statusDiv.textContent = '❌ Error loading video';
-        console.error(err);
+    if (data.code !== 0) {
+      showError("Invalid TikTok link ❌");
+      return;
     }
+
+    let videoUrl = data.data.play;
+    let title = data.data.title || "TikTok Video";
+
+    document.getElementById("result").innerHTML = `
+      <h3>${title}</h3>
+      <video src="${videoUrl}" controls></video>
+      <button onclick="downloadVideo('${videoUrl}')">⬇ Download Video</button>
+    `;
+
+  } catch (err) {
+    console.error(err);
+    showError("Failed to load video ❌");
+  }
 }
 
-downloadBtn.onclick = async () => {
-    if (!currentUrl) {
-        statusDiv.className = 'error';
-        statusDiv.textContent = '❌ No video to download';
-        return;
-    }
-
-    statusDiv.className = 'loading';
-    statusDiv.textContent = '⏳ Downloading...';
-
-    try {
-        // Method 1: Direct download
-        const response = await fetch(currentUrl);
-        const blob = await response.blob();
-        const blobUrl = URL.createObjectURL(blob);
-        
-        const a = document.createElement('a');
-        a.href = blobUrl;
-        a.download = `tiktok_${Date.now()}.mp4`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        
-        setTimeout(() => URL.revokeObjectURL(blobUrl), 5000);
-
-        statusDiv.className = 'success';
-        statusDiv.textContent = '✅ Download started!';
-
-    } catch (err) {
-        // Method 2: Open in new tab (works in most browsers)
-        window.open(currentUrl, '_blank');
-        
-        statusDiv.className = 'success';
-        statusDiv.textContent = '✅ Download started in new tab';
-        console.error('Download error:', err);
-    }
-};
-
-// Auto load from URL parameter
-const params = new URLSearchParams(window.location.search);
-const urlParam = params.get('url');
-if (urlParam) {
-    urlInput.value = urlParam;
-    fetchVideo(urlParam);
+// Modified download function compatible with Android WebView DownloadListener
+function downloadVideo(url) {
+  if (!url) return;
+  // Triggers window location shift so Android DownloadListener intercepts the URL natively
+  window.location.href = url;
 }
+
+// Error UI renderer
+function showError(msg) {
+  document.getElementById("result").innerHTML = `
+    <p style="color:red; margin-top:20px;">${msg}</p>
+  `;
+}
+
 </script>
 
 </body>
-</html>
+</html>kuldip kl
