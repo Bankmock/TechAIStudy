@@ -58,6 +58,7 @@ button {
   color: #fff;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 button:hover {
@@ -119,13 +120,13 @@ data-adsize="300x300"></div>
 
 <script>
 
-// Get URL from query
+// Get URL from query parameter
 function getUrl() {
   const params = new URLSearchParams(window.location.search);
   return params.get("url");
 }
 
-// Auto run
+// Auto run on load
 window.onload = function () {
   let url = getUrl();
 
@@ -137,7 +138,7 @@ window.onload = function () {
   fetchVideo(url);
 };
 
-// Fetch video
+// Fetch video details from tikwm API
 async function fetchVideo(url) {
   let api = `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`;
 
@@ -165,29 +166,14 @@ async function fetchVideo(url) {
   }
 }
 
-// Download
-async function downloadVideo(url) {
-  try {
-    let response = await fetch(url);
-    let blob = await response.blob();
-
-    let blobUrl = URL.createObjectURL(blob);
-
-    let a = document.createElement("a");
-    a.href = blobUrl;
-    a.download = "tiktok-video.mp4";
-    document.body.appendChild(a);
-    a.click();
-
-    a.remove();
-    URL.revokeObjectURL(blobUrl);
-
-  } catch (err) {
-    alert("Download failed ❌");
-  }
+// Modified download function compatible with Android WebView DownloadListener
+function downloadVideo(url) {
+  if (!url) return;
+  // Triggers window location shift so Android DownloadListener intercepts the URL natively
+  window.location.href = url;
 }
 
-// Error UI
+// Error UI renderer
 function showError(msg) {
   document.getElementById("result").innerHTML = `
     <p style="color:red; margin-top:20px;">${msg}</p>
@@ -198,3 +184,4 @@ function showError(msg) {
 
 </body>
 </html>
+h
