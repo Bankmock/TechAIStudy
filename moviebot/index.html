@@ -17,7 +17,7 @@
   </main>
   <script>
     const FIRST_WAIT_SECONDS = 30;
-    const app = window.Telegram.WebApp, token = new URLSearchParams(location.search).get('token');
+    const app = window.Telegram.WebApp, params = new URLSearchParams(location.search), token = params.get('token'), botUsername = params.get('bot');
     app.ready(); app.expand();
     function countdown(seconds, element, done) {
       let left = seconds; element.textContent = left;
@@ -25,7 +25,7 @@
     }
     const next = document.getElementById('next');
     countdown(FIRST_WAIT_SECONDS, document.getElementById('timer1'), () => { next.disabled = false; document.getElementById('nextHint').textContent = 'Neeche scroll karein aur Next button dabayein.'; });
-    next.onclick = () => { window.location.href = 'unlock.html?token=' + encodeURIComponent(token || ''); };
+    next.onclick = () => { window.location.href = 'unlock.html?token=' + encodeURIComponent(token || '') + '&bot=' + encodeURIComponent(botUsername || ''); };
   </script>
 </body>
 </html>
