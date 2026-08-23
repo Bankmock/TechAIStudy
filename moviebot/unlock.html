@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    *{box-sizing:border-box}body{font-family:system-ui,-apple-system,sans-serif;background:var(--tg-theme-bg-color,#fff);color:var(--tg-theme-text-color,#111);margin:0;min-height:100vh}.page{min-height:100vh;padding:32px 24px 24px;display:flex;flex-direction:column;text-align:center}.badge{margin:24px auto 18px;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-size:28px;background:var(--tg-theme-secondary-bg-color,#eef4fa)}h2{margin:0 0 12px;font-size:24px}p{margin:0;color:var(--tg-theme-hint-color,#666);line-height:1.5}.timer{font-size:46px;font-weight:750;letter-spacing:-2px;margin:34px 0 8px;color:var(--tg-theme-button-color,#2481cc)}.bottom{margin-top:auto;padding-top:28px}button{border:0;border-radius:13px;background:var(--tg-theme-button-color,#2481cc);color:var(--tg-theme-button-text-color,#fff);font-size:17px;font-weight:650;padding:15px;width:100%;cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.fine{font-size:13px;margin-top:13px}
+  </style>
+</head>
+<body>
+  <main class="page"><div class="badge">🔐</div><h2>Almost ready</h2><p>Ek final verification complete ho rahi hai.</p><div id="timer" class="timer">10</div><p>seconds remaining</p><div class="bottom"><button id="unlock" disabled>Unlock video</button><p id="hint" class="fine">Unlock button timer khatam hone par active hoga.</p></div></main>
+  <script>
+    const WAIT_SECONDS = 30, app = window.Telegram.WebApp, token = new URLSearchParams(location.search).get('token');
+    app.ready(); app.expand();
+    let left = WAIT_SECONDS; const timer = document.getElementById('timer'), unlock = document.getElementById('unlock'); timer.textContent = left;
+    const interval = setInterval(() => { left -= 1; timer.textContent = left; if (left <= 0) { clearInterval(interval); unlock.disabled = false; document.getElementById('hint').textContent = 'Video paane ke liye Unlock video dabayein.'; } }, 1000);
+    unlock.onclick = () => { if (!token) return; unlock.disabled = true; app.sendData('unlock:' + token); app.close(); };
+  </script>
+</body>
+</html>
