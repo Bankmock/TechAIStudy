@@ -1,1 +1,31 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script src="https://telegram.org/js/telegram-web-app.js"></script><style>body{font-family:system-ui;background:var(--tg-theme-bg-color,#fff);color:var(--tg-theme-text-color,#111);margin:32px;text-align:center}button{border:0;border-radius:12px;background:var(--tg-theme-button-color,#2481cc);color:var(--tg-theme-button-text-color,#fff);font-size:17px;font-weight:600;padding:14px 30px;width:100%}p{color:var(--tg-theme-hint-color,#666)}</style></head><body><h2>Movie access</h2><p>Unlock dabane ke baad video 60 seconds mein bot chat mein aayegi. Access 3 hours ke liye hai.</p><button id="unlock">Unlock video</button><script>const app=window.Telegram.WebApp;app.ready();document.getElementById('unlock').onclick=()=>{const token=new URLSearchParams(location.search).get('token');if(!token)return;app.sendData('unlock:'+token);app.close()};</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    *{box-sizing:border-box}body{font-family:system-ui,-apple-system,sans-serif;background:var(--tg-theme-bg-color,#fff);color:var(--tg-theme-text-color,#111);margin:0;min-height:100vh}.page{min-height:140vh;padding:32px 24px 24px;display:flex;flex-direction:column;text-align:center}.badge{margin:24px auto 18px;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-size:28px;background:var(--tg-theme-secondary-bg-color,#eef4fa)}h2{margin:0 0 12px;font-size:24px}p{margin:0;color:var(--tg-theme-hint-color,#666);line-height:1.5}.timer{font-size:46px;font-weight:750;letter-spacing:-2px;margin:34px 0 8px;color:var(--tg-theme-button-color,#2481cc)}.bottom{margin-top:auto;padding-top:28px}button{border:0;border-radius:13px;background:var(--tg-theme-button-color,#2481cc);color:var(--tg-theme-button-text-color,#fff);font-size:17px;font-weight:650;padding:15px;width:100%;cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.hidden{display:none!important}.fine{font-size:13px;margin-top:13px}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="badge">🎬</div><h2>Movie access</h2>
+    <p>Access verification shuru ho gaya hai. Thoda wait karein.</p>
+    <div id="timer1" class="timer">10</div><p>seconds remaining</p>
+    <div class="bottom"><button id="next" disabled>Next</button><p id="nextHint" class="fine">Next button timer khatam hone par active hoga.</p></div>
+  </main>
+  <script>
+    const FIRST_WAIT_SECONDS = 30;
+    const app = window.Telegram.WebApp, token = new URLSearchParams(location.search).get('token');
+    app.ready(); app.expand();
+    function countdown(seconds, element, done) {
+      let left = seconds; element.textContent = left;
+      const interval = setInterval(() => { left -= 1; element.textContent = left; if (left <= 0) { clearInterval(interval); done(); } }, 1000);
+    }
+    const next = document.getElementById('next');
+    countdown(FIRST_WAIT_SECONDS, document.getElementById('timer1'), () => { next.disabled = false; document.getElementById('nextHint').textContent = 'Neeche scroll karein aur Next button dabayein.'; });
+    next.onclick = () => { window.location.href = 'unlock.html?token=' + encodeURIComponent(token || ''); };
+  </script>
+</body>
+</html>
