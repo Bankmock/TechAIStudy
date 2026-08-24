@@ -9,18 +9,23 @@
   </style>
 </head>
 <body>
-  <main class="page"><div class="badge">🔐</div><h2>Almost ready</h2><p>Ek final verification complete ho rahi hai.</p><div id="timer" class="timer">10</div><p>seconds remaining</p><div class="bottom"><button id="unlock" disabled>Unlock video</button><p id="hint" class="fine">Unlock button timer khatam hone par active hoga.</p></div></main>
+  <main class="page"><div class="badge">🔐</div><h2>Almost ready</h2><p>Ek final verification complete ho rahi hai.</p><div id="timer" class="timer">30</div><p>seconds remaining</p><p id="finishHint" class="fine"></p><div class="bottom"><button id="unlock" disabled>Unlock video</button><p id="hint" class="fine">Unlock button timer khatam hone par active hoga.</p></div></main>
   <script>
     const WAIT_SECONDS = 30, app = window.Telegram.WebApp, params = new URLSearchParams(location.search), token = params.get('token'), botUsername = params.get('bot');
     app.ready(); app.expand();
     let left = WAIT_SECONDS; const timer = document.getElementById('timer'), unlock = document.getElementById('unlock'); timer.textContent = left;
-    const interval = setInterval(() => { left -= 1; timer.textContent = left; if (left <= 0) { clearInterval(interval); unlock.disabled = false; document.getElementById('hint').textContent = 'Video paane ke liye Unlock video dabayein.'; } }, 1000);
+    const interval = setInterval(() => { left -= 1; timer.textContent = left; if (left <= 0) { clearInterval(interval); unlock.disabled = false; document.getElementById('finishHint').textContent = '✅ Finished! 👇 Neeche Unlock video dabayein.'; document.getElementById('hint').textContent = 'Video paane ke liye Unlock video dabayein.'; } }, 1000);
     unlock.onclick = () => {
       if (!token || !botUsername) return;
       unlock.disabled = true;
+      unlock.textContent = 'Verified — opening bot…';
+      document.getElementById('hint').textContent = 'Movie bot chat mein bheji ja rahi hai.';
       // Inline Web App buttons do not deliver sendData() to the bot. This opens
       // the bot with a random one-time token; bot.py validates the Telegram user.
-      app.openTelegramLink('https://t.me/' + botUsername + '?start=unlock_' + encodeURIComponent(token));
+      const destination = 'https://t.me/' + botUsername + '?start=unlock_' + encodeURIComponent(token);
+      try { app.openTelegramLink(destination); } catch (_) { window.location.href = destination; }
+      // Give Telegram a moment to open the deep link, then dismiss this Mini App.
+      setTimeout(() => app.close(), 800);
     };
   </script>
 </body>
