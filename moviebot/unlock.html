@@ -1,32 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <style>
-    *{box-sizing:border-box}body{font-family:system-ui,-apple-system,sans-serif;background:var(--tg-theme-bg-color,#fff);color:var(--tg-theme-text-color,#111);margin:0;min-height:100vh}.page{min-height:100vh;padding:32px 24px 24px;display:flex;flex-direction:column;text-align:center}.badge{margin:24px auto 18px;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-size:28px;background:var(--tg-theme-secondary-bg-color,#eef4fa)}h2{margin:0 0 12px;font-size:24px}p{margin:0;color:var(--tg-theme-hint-color,#666);line-height:1.5}.timer{font-size:46px;font-weight:750;letter-spacing:-2px;margin:34px 0 8px;color:var(--tg-theme-button-color,#2481cc)}.bottom{margin-top:auto;padding-top:28px}button{border:0;border-radius:13px;background:var(--tg-theme-button-color,#2481cc);color:var(--tg-theme-button-text-color,#fff);font-size:17px;font-weight:650;padding:15px;width:100%;cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.fine{font-size:13px;margin-top:13px}
+    :root{--accent:#63a7ff;--mint:#60e6c5;--bg:#09111f;--panel:#111d31;--muted:#9babc2;--line:#26364e}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#193256 0,var(--bg) 48%);color:#f4f8ff;font:15px/1.5 Inter,system-ui,-apple-system,sans-serif}.page{min-height:138vh;padding:20px 18px 28px;display:flex;flex-direction:column}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:27px}.brand{font-weight:800;letter-spacing:.2px}.brand span{color:var(--accent)}.secure{font-size:12px;color:var(--mint);border:1px solid #277562;border-radius:20px;padding:5px 9px}.hero{text-align:center}.icon{width:74px;height:74px;margin:auto;border-radius:24px;display:grid;place-items:center;font-size:34px;background:linear-gradient(135deg,#3e71af,#193457);box-shadow:0 12px 32px #0008}h1{font-size:27px;line-height:1.12;margin:20px 0 10px}p{color:var(--muted);margin:0}.card{background:linear-gradient(135deg,#16243a,#0e192a);border:1px solid var(--line);border-radius:20px;padding:18px;margin-top:24px;box-shadow:0 10px 28px #0003}.timer{font-size:58px;font-weight:850;line-height:1;color:var(--mint);margin:12px 0 2px;letter-spacing:-3px}.caption{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:#7d91ae}.features{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.feature{background:#101d30;border:1px solid var(--line);border-radius:14px;padding:13px;font-size:12px;color:#bdcce0}.feature i{display:block;font-size:20px;font-style:normal;margin-bottom:6px}.notice{margin-top:22px;text-align:left;border-left:3px solid var(--mint);padding:3px 0 3px 12px;font-size:12px;color:var(--muted)}.bottom{margin-top:auto;padding-top:45px;text-align:center}button{width:100%;border:0;border-radius:15px;padding:16px;background:linear-gradient(135deg,#57c9ab,#2c977d);color:#06271f;font-size:16px;font-weight:850;box-shadow:0 10px 23px #0005}button:disabled{opacity:.42;box-shadow:none}.fine{font-size:13px;min-height:20px;margin-top:12px}.scroll{font-size:22px;margin-bottom:5px}
   </style>
 </head>
-<body>
-  <main class="page"><div class="badge">🔐</div><h2>Almost ready</h2><p>Ek final verification complete ho rahi hai.</p><div id="timer" class="timer">30</div><p>seconds remaining</p><p id="finishHint" class="fine"></p><div class="bottom"><button id="unlock" disabled>Unlock video</button><p id="hint" class="fine">Unlock button timer khatam hone par active hoga.</p></div></main>
-  <script>
-    const WAIT_SECONDS = 30, app = window.Telegram.WebApp, params = new URLSearchParams(location.search), token = params.get('token'), botUsername = params.get('bot');
-    app.ready(); app.expand();
-    let left = WAIT_SECONDS; const timer = document.getElementById('timer'), unlock = document.getElementById('unlock'); timer.textContent = left;
-    const interval = setInterval(() => { left -= 1; timer.textContent = left; if (left <= 0) { clearInterval(interval); unlock.disabled = false; document.getElementById('finishHint').textContent = '✅ Finished! 👇 Neeche Unlock video dabayein.'; document.getElementById('hint').textContent = 'Video paane ke liye Unlock video dabayein.'; } }, 1000);
-    unlock.onclick = () => {
-      if (!token || !botUsername) return;
-      unlock.disabled = true;
-      unlock.textContent = 'Verified — opening bot…';
-      document.getElementById('hint').textContent = 'Movie bot chat mein bheji ja rahi hai.';
-      // Inline Web App buttons do not deliver sendData() to the bot. This opens
-      // the bot with a random one-time token; bot.py validates the Telegram user.
-      const destination = 'https://t.me/' + botUsername + '?start=unlock_' + encodeURIComponent(token);
-      try { app.openTelegramLink(destination); } catch (_) { window.location.href = destination; }
-      // Give Telegram a moment to open the deep link, then dismiss this Mini App.
-      setTimeout(() => app.close(), 800);
-    };
-  </script>
-</body>
-</html>
+<body><main class="page">
+  <header class="top"><div class="brand">Search<span>X</span>Hub</div><div class="secure">● Final check</div></header>
+  <section class="hero"><div class="icon">🔐</div><h1>Almost ready</h1><p>Complete the final step to receive your movie.</p></section>
+  <section class="card"><div class="caption">Final verification</div><div id="timer" class="timer">30</div><p>seconds remaining</p></section>
+  <section class="features"><div class="feature"><i>🤖</i>AI-powered tools that save time.</div><div class="feature"><i>🧭</i>Find what you need with less effort.</div><div class="feature"><i>🎬</i>Private movie access inside Telegram.</div><div class="feature"><i>₿</i>Stay alert: crypto has risk, never share secrets.</div></section>
+  <section class="notice">After delivery, save or forward your movie if needed. Temporary access messages can expire automatically.</section>
+  <section class="bottom"><div id="finishHint" class="fine"></div><div class="scroll">👇</div><button id="unlock" disabled>Unlock video</button><p id="hint" class="fine">Please wait while we complete verification.</p></section>
+</main><script>
+  const WAIT_SECONDS=30,app=window.Telegram.WebApp,params=new URLSearchParams(location.search),token=params.get('token'),botUsername=params.get('bot');app.ready();app.expand();
+  let left=WAIT_SECONDS;const timer=document.getElementById('timer'),unlock=document.getElementById('unlock');timer.textContent=left;
+  const interval=setInterval(()=>{left-=1;timer.textContent=left;if(left<=0){clearInterval(interval);unlock.disabled=false;document.getElementById('finishHint').textContent='✅ Finished! Scroll below and unlock your video.';document.getElementById('hint').textContent='👇 Neeche Unlock video dabayein.';}},1000);
+  unlock.onclick=()=>{if(!token||!botUsername)return;unlock.disabled=true;unlock.textContent='Verified — opening bot…';document.getElementById('hint').textContent='Movie bot chat mein bheji ja rahi hai.';const destination='https://t.me/'+botUsername+'?start=unlock_'+encodeURIComponent(token);try{app.openTelegramLink(destination);}catch(_){window.location.href=destination;}setTimeout(()=>app.close(),800);};
+</script></body></html>
