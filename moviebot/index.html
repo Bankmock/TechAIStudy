@@ -1,35 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <style>
-    *{box-sizing:border-box}body{font-family:system-ui,-apple-system,sans-serif;background:var(--tg-theme-bg-color,#fff);color:var(--tg-theme-text-color,#111);margin:0;min-height:100vh}.page{min-height:140vh;padding:32px 24px 24px;display:flex;flex-direction:column;text-align:center}.badge{margin:24px auto 18px;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-size:28px;background:var(--tg-theme-secondary-bg-color,#eef4fa)}h2{margin:0 0 12px;font-size:24px}p{margin:0;color:var(--tg-theme-hint-color,#666);line-height:1.5}.timer{font-size:46px;font-weight:750;letter-spacing:-2px;margin:34px 0 8px;color:var(--tg-theme-button-color,#2481cc)}.bottom{margin-top:auto;padding-top:28px}button{border:0;border-radius:13px;background:var(--tg-theme-button-color,#2481cc);color:var(--tg-theme-button-text-color,#fff);font-size:17px;font-weight:650;padding:15px;width:100%;cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.hidden{display:none!important}.fine{font-size:13px;margin-top:13px}
+    :root{--accent:#63a7ff;--mint:#60e6c5;--bg:#09111f;--panel:#111d31;--muted:#9babc2;--line:#26364e}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#193256 0,var(--bg) 48%);color:#f4f8ff;font:15px/1.5 Inter,system-ui,-apple-system,sans-serif}.page{min-height:150vh;padding:20px 18px 28px;display:flex;flex-direction:column}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:27px}.brand{font-weight:800;letter-spacing:.2px}.brand span{color:var(--accent)}.secure{font-size:12px;color:var(--mint);border:1px solid #277562;border-radius:20px;padding:5px 9px}.hero{text-align:center}.icon{width:74px;height:74px;margin:auto;border-radius:24px;display:grid;place-items:center;font-size:34px;background:linear-gradient(135deg,#2d6cb9,#17395f);box-shadow:0 12px 32px #0008}h1{font-size:27px;line-height:1.12;margin:20px 0 10px}p{color:var(--muted);margin:0}.card{background:linear-gradient(135deg,#16243a,#0e192a);border:1px solid var(--line);border-radius:20px;padding:18px;margin-top:24px;box-shadow:0 10px 28px #0003}.timer{font-size:58px;font-weight:850;line-height:1;color:var(--accent);margin:12px 0 2px;letter-spacing:-3px}.caption{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:#7d91ae}.steps{margin-top:20px;display:grid;gap:11px;text-align:left}.step{display:flex;gap:11px;align-items:flex-start}.num{min-width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#233c61;color:var(--accent);font-size:12px;font-weight:800}.step b{display:block;font-size:13px}.step small{display:block;color:var(--muted);font-size:12px;margin-top:2px}.info{margin-top:24px;border-top:1px solid var(--line);padding-top:18px;text-align:left}.info h2{font-size:15px;margin:0 0 8px}.tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid #2a4264;border-radius:20px;padding:6px 9px;color:#bfd2ed;font-size:12px}.bottom{margin-top:auto;padding-top:50px;text-align:center}button{width:100%;border:0;border-radius:15px;padding:16px;background:linear-gradient(135deg,#5798ef,#3974cd);color:white;font-size:16px;font-weight:800;box-shadow:0 10px 23px #0005}button:disabled{opacity:.42;box-shadow:none}.fine{font-size:13px;min-height:20px;margin-top:12px}.scroll{font-size:22px;margin-bottom:5px}.hidden{display:none}
   </style>
 </head>
-<body>
-  <main class="page">
-    <div class="badge">🎬</div><h2>Movie access</h2>
-    <p>Access verification shuru ho gaya hai. Thoda wait karein.</p>
-    <div id="timer1" class="timer">30</div><p>seconds remaining</p><p id="finishHint" class="fine"></p>
-    <div class="bottom"><button id="next" disabled>Next</button><p id="nextHint" class="fine">Next button timer khatam hone par active hoga.</p></div>
-  </main>
-  <script>
-    const FIRST_WAIT_SECONDS = 30;
-    const app = window.Telegram.WebApp, params = new URLSearchParams(location.search), token = params.get('token'), botUsername = params.get('bot');
-    app.ready(); app.expand();
-    function countdown(seconds, element, done) {
-      let left = seconds; element.textContent = left;
-      const interval = setInterval(() => { left -= 1; element.textContent = left; if (left <= 0) { clearInterval(interval); done(); } }, 1000);
-    }
-    const next = document.getElementById('next');
-    countdown(FIRST_WAIT_SECONDS, document.getElementById('timer1'), () => {
-      next.disabled = false;
-      document.getElementById('finishHint').textContent = '✅ Finished! 👇 Neeche scroll karke Next button dabayein.';
-      document.getElementById('nextHint').textContent = '👇 Scroll below to continue.';
-    });
-    next.onclick = () => { window.location.href = 'unlock.html?token=' + encodeURIComponent(token || '') + '&bot=' + encodeURIComponent(botUsername || ''); };
-  </script>
-</body>
-</html>
+<body><main class="page">
+  <header class="top"><div class="brand">Search<span>X</span>Hub</div><div class="secure">● Secure access</div></header>
+  <section class="hero"><div class="icon">🎬</div><h1>Movie access<br>verification</h1><p>We are preparing your private movie request.</p></section>
+  <section class="card"><div class="caption">Verification timer</div><div id="timer1" class="timer">30</div><p>seconds remaining</p></section>
+  <section class="steps"><div class="step"><div class="num">1</div><div><b>Private & simple</b><small>Your request stays inside Telegram.</small></div></div><div class="step"><div class="num">2</div><div><b>Useful tools, one place</b><small>Discover movie, AI and everyday utility tools.</small></div></div><div class="step"><div class="num">3</div><div><b>Use crypto carefully</b><small>Always verify links and never share wallet recovery phrases.</small></div></div></section>
+  <section class="info"><h2>Built to make digital life easier</h2><div class="tags"><span class="tag">AI tools</span><span class="tag">Movie search</span><span class="tag">Simple utilities</span><span class="tag">Crypto awareness</span></div></section>
+  <section class="bottom"><div id="finishHint" class="fine"></div><div class="scroll">👇</div><button id="next" disabled>Continue to final check</button><p id="nextHint" class="fine">Please wait while access is verified.</p></section>
+</main><script>
+  const FIRST_WAIT_SECONDS=30,app=window.Telegram.WebApp,params=new URLSearchParams(location.search),token=params.get('token'),botUsername=params.get('bot');app.ready();app.expand();
+  const next=document.getElementById('next');let left=FIRST_WAIT_SECONDS;const timer=document.getElementById('timer1');timer.textContent=left;
+  const interval=setInterval(()=>{left-=1;timer.textContent=left;if(left<=0){clearInterval(interval);next.disabled=false;document.getElementById('finishHint').textContent='✅ Finished! Scroll below to continue.';document.getElementById('nextHint').textContent='👇 Neeche scroll karke Continue button dabayein.';}},1000);
+  next.onclick=()=>{window.location.href='unlock.html?token='+encodeURIComponent(token||'')+'&bot='+encodeURIComponent(botUsername||'');};
+</script></body></html>
