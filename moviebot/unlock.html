@@ -1,22 +1,474 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- SEO -->
+  <title>SearchXHub - Hindi, Bollywood & South Indian Movies</title>
+  <meta name="description" content="Explore Hindi movies, Bollywood cinema, South Indian movies, Tamil, Telugu, Malayalam and Kannada films. Discover movie information, genres, releases and popular Indian cinema.">
+  <meta name="keywords" content="Hindi movies, Bollywood movies, South Indian movies, Tamil movies, Telugu movies, Malayalam movies, Kannada movies, Indian cinema, Bollywood films, latest movies, Hindi film">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="SearchXHub">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SearchXHub - Hindi, Bollywood & South Indian Movies">
+  <meta property="og:description" content="Discover Hindi, Bollywood and South Indian cinema including Tamil, Telugu, Malayalam and Kannada movies.">
+  <meta property="og:type" content="website">
+
+  <!-- Telegram -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
   <style>
-    :root{--accent:#63a7ff;--mint:#60e6c5;--bg:#09111f;--panel:#111d31;--muted:#9babc2;--line:#26364e}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#193256 0,var(--bg) 48%);color:#f4f8ff;font:15px/1.5 Inter,system-ui,-apple-system,sans-serif}.page{min-height:138vh;padding:20px 18px 28px;display:flex;flex-direction:column}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:27px}.brand{font-weight:800;letter-spacing:.2px}.brand span{color:var(--accent)}.secure{font-size:12px;color:var(--mint);border:1px solid #277562;border-radius:20px;padding:5px 9px}.hero{text-align:center}.icon{width:74px;height:74px;margin:auto;border-radius:24px;display:grid;place-items:center;font-size:34px;background:linear-gradient(135deg,#3e71af,#193457);box-shadow:0 12px 32px #0008}h1{font-size:27px;line-height:1.12;margin:20px 0 10px}p{color:var(--muted);margin:0}.card{background:linear-gradient(135deg,#16243a,#0e192a);border:1px solid var(--line);border-radius:20px;padding:18px;margin-top:24px;box-shadow:0 10px 28px #0003}.timer{font-size:58px;font-weight:850;line-height:1;color:var(--mint);margin:12px 0 2px;letter-spacing:-3px}.caption{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:#7d91ae}.features{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.feature{background:#101d30;border:1px solid var(--line);border-radius:14px;padding:13px;font-size:12px;color:#bdcce0}.feature i{display:block;font-size:20px;font-style:normal;margin-bottom:6px}.notice{margin-top:22px;text-align:left;border-left:3px solid var(--mint);padding:3px 0 3px 12px;font-size:12px;color:var(--muted)}.bottom{margin-top:auto;padding-top:45px;text-align:center}button{width:100%;border:0;border-radius:15px;padding:16px;background:linear-gradient(135deg,#57c9ab,#2c977d);color:#06271f;font-size:16px;font-weight:850;box-shadow:0 10px 23px #0005}button:disabled{opacity:.42;box-shadow:none}.fine{font-size:13px;min-height:20px;margin-top:12px}.scroll{font-size:22px;margin-bottom:5px}
+    :root{
+      --accent:#2563eb;
+      --accent-dark:#1d4ed8;
+      --mint:#0f9f78;
+      --bg:#f5f7fb;
+      --white:#ffffff;
+      --panel:#ffffff;
+      --text:#172033;
+      --muted:#687386;
+      --line:#e3e8f0;
+      --soft:#f0f5ff;
+      --success-bg:#ecfdf5;
+      --shadow:0 12px 35px rgba(23,32,51,.08);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top left,#eaf2ff 0,#f5f7fb 38%),
+        var(--bg);
+      color:var(--text);
+      font:15px/1.6 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+
+    .page{
+      min-height:138vh;
+      max-width:760px;
+      margin:0 auto;
+      padding:22px 18px 35px;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:30px;
+    }
+
+    .brand{
+      font-weight:850;
+      font-size:18px;
+      letter-spacing:-.3px;
+      color:#172033;
+    }
+
+    .brand span{
+      color:var(--accent);
+    }
+
+    .secure{
+      font-size:12px;
+      color:var(--mint);
+      background:var(--success-bg);
+      border:1px solid #b7ead9;
+      border-radius:20px;
+      padding:5px 10px;
+      font-weight:700;
+    }
+
+    .hero{
+      text-align:center;
+      padding:10px 8px 0;
+    }
+
+    .icon{
+      width:78px;
+      height:78px;
+      margin:auto;
+      border-radius:24px;
+      display:grid;
+      place-items:center;
+      font-size:34px;
+      background:linear-gradient(135deg,#dbeafe,#eff6ff);
+      border:1px solid #c9dcff;
+      box-shadow:0 12px 30px rgba(37,99,235,.12);
+    }
+
+    h1{
+      font-size:30px;
+      line-height:1.15;
+      margin:19px 0 9px;
+      letter-spacing:-.7px;
+    }
+
+    .hero p{
+      max-width:600px;
+      margin:auto;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:20px;
+      margin-top:25px;
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
+
+    .caption{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+      color:#7a8699;
+      font-weight:750;
+    }
+
+    .timer{
+      font-size:60px;
+      font-weight:900;
+      line-height:1;
+      color:var(--accent);
+      margin:13px 0 3px;
+      letter-spacing:-4px;
+    }
+
+    .card > p{
+      color:var(--muted);
+      margin:0;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .feature{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:15px;
+      font-size:13px;
+      color:#586579;
+      box-shadow:0 5px 18px rgba(23,32,51,.04);
+    }
+
+    .feature i{
+      display:block;
+      font-size:21px;
+      font-style:normal;
+      margin-bottom:7px;
+    }
+
+    .feature strong{
+      display:block;
+      color:var(--text);
+      margin-bottom:3px;
+      font-size:14px;
+    }
+
+    .seo-content{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:20px;
+      margin-top:18px;
+      box-shadow:0 6px 22px rgba(23,32,51,.045);
+    }
+
+    .seo-content h2{
+      margin:0 0 10px;
+      font-size:20px;
+      line-height:1.3;
+      letter-spacing:-.3px;
+    }
+
+    .seo-content h3{
+      margin:18px 0 7px;
+      font-size:16px;
+      line-height:1.35;
+    }
+
+    .seo-content p{
+      margin:0 0 10px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .movie-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:13px;
+    }
+
+    .movie-tags span{
+      background:var(--soft);
+      color:#315da8;
+      border:1px solid #d8e5ff;
+      border-radius:30px;
+      padding:6px 10px;
+      font-size:12px;
+      font-weight:650;
+    }
+
+    .notice{
+      margin-top:18px;
+      text-align:left;
+      background:#f8fafc;
+      border:1px solid var(--line);
+      border-left:3px solid var(--mint);
+      border-radius:12px;
+      padding:11px 13px;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .bottom{
+      margin-top:auto;
+      padding-top:42px;
+      text-align:center;
+    }
+
+    button{
+      width:100%;
+      border:0;
+      border-radius:15px;
+      padding:16px;
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
+      color:#fff;
+      font-size:16px;
+      font-weight:850;
+      box-shadow:0 10px 23px rgba(37,99,235,.22);
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    button:not(:disabled):hover{
+      transform:translateY(-1px);
+      box-shadow:0 13px 28px rgba(37,99,235,.28);
+    }
+
+    button:disabled{
+      opacity:.42;
+      box-shadow:none;
+      cursor:not-allowed;
+    }
+
+    .fine{
+      font-size:13px;
+      color:var(--muted);
+      min-height:20px;
+      margin-top:12px;
+    }
+
+    .scroll{
+      font-size:22px;
+      margin-bottom:6px;
+    }
+
+    .footer-seo{
+      text-align:center;
+      color:#8993a3;
+      font-size:11px;
+      line-height:1.5;
+      margin-top:25px;
+    }
+
+    @media(max-width:520px){
+      .page{
+        padding:17px 14px 28px;
+      }
+
+      h1{
+        font-size:26px;
+      }
+
+      .features{
+        grid-template-columns:1fr;
+      }
+
+      .timer{
+        font-size:55px;
+      }
+
+      .seo-content{
+        padding:17px;
+      }
+    }
   </style>
 </head>
-<body><main class="page">
-  <header class="top"><div class="brand">Search<span>X</span>Hub</div><div class="secure">● Final check</div></header>
-  <section class="hero"><div class="icon">🔐</div><h1>Almost ready</h1><p>Complete the final step to receive your movie.</p></section>
-  <section class="card"><div class="caption">Final verification</div><div id="timer" class="timer">30</div><p>seconds remaining</p></section>
-  <section class="features"><div class="feature"><i>🤖</i>AI-powered tools that save time.</div><div class="feature"><i>🧭</i>Find what you need with less effort.</div><div class="feature"><i>🎬</i>Private movie access inside Telegram.</div><div class="feature"><i>₿</i>Stay alert: crypto has risk, never share secrets.</div></section>
-  <section class="notice">After delivery, save or forward your movie if needed. Temporary access messages can expire automatically.</section>
-  <section class="bottom"><div id="finishHint" class="fine"></div><div class="scroll">👇</div><button id="unlock" disabled>Unlock video</button><p id="hint" class="fine">Please wait while we complete verification.</p></section>
-</main><script>
+
+<body>
+<main class="page">
+
+  <header class="top">
+    <div class="brand">Search<span>X</span>Hub</div>
+    <div class="secure">● Final check</div>
+  </header>
+
+  <section class="hero">
+    <div class="icon">🎬</div>
+
+    <h1>Almost Ready</h1>
+
+    <p>
+      Complete the final step to continue and access your selected movie
+      through Telegram.
+    </p>
+  </section>
+
+  <section class="card">
+    <div class="caption">Final verification</div>
+
+    <div id="timer" class="timer">30</div>
+
+    <p>seconds remaining</p>
+  </section>
+
+  <section class="features">
+
+    <div class="feature">
+      <i>🎬</i>
+      <strong>Indian Cinema</strong>
+      Discover information about Hindi, Bollywood and popular Indian movies.
+    </div>
+
+    <div class="feature">
+      <i>🇮🇳</i>
+      <strong>Bollywood Movies</strong>
+      Explore Hindi cinema, Bollywood films, genres, actors and movie culture.
+    </div>
+
+    <div class="feature">
+      <i>🌟</i>
+      <strong>South Indian Cinema</strong>
+      Learn about Tamil, Telugu, Malayalam and Kannada movies and filmmakers.
+    </div>
+
+    <div class="feature">
+      <i>🔒</i>
+      <strong>Telegram Access</strong>
+      Continue through Telegram after the verification process is completed.
+    </div>
+
+  </section>
+
+  <section class="seo-content">
+
+    <h2>Hindi, Bollywood & South Indian Movies</h2>
+
+    <p>
+      Indian cinema is one of the world's largest and most diverse film
+      industries, producing movies in Hindi and many regional languages.
+      SearchXHub brings together useful movie-related information covering
+      Bollywood, Hindi films and South Indian cinema.
+    </p>
+
+    <p>
+      From action and comedy to romance, thriller, drama, family entertainment
+      and science fiction, Indian movies offer a wide variety of stories for
+      different audiences. Hindi cinema, commonly known as Bollywood, has a
+      long history of memorable actors, directors, music and popular films.
+    </p>
+
+    <h3>Bollywood and Hindi Movies</h3>
+
+    <p>
+      Bollywood is an important part of Indian entertainment and is primarily
+      associated with Hindi-language films. Hindi movies are known for their
+      combination of storytelling, music, dance, drama, comedy, romance and
+      action. Audiences can explore different genres, filmmakers, performers
+      and eras of Hindi cinema.
+    </p>
+
+    <h3>South Indian Movies</h3>
+
+    <p>
+      South Indian cinema includes several major film industries, especially
+      Tamil, Telugu, Malayalam and Kannada cinema. These industries have
+      developed distinctive styles of storytelling and have produced acclaimed
+      actors, directors, composers and filmmakers. South Indian movies are
+      increasingly popular with audiences throughout India and internationally.
+    </p>
+
+    <p>
+      Telugu and Tamil cinema are particularly well known for large-scale
+      productions, action entertainment and commercial storytelling, while
+      Malayalam cinema is widely recognized for character-driven stories and
+      strong screenwriting. Kannada cinema has also gained significant
+      national and international attention in recent years.
+    </p>
+
+    <div class="movie-tags">
+      <span>Hindi Movies</span>
+      <span>Bollywood</span>
+      <span>Indian Cinema</span>
+      <span>Tamil Movies</span>
+      <span>Telugu Movies</span>
+      <span>Malayalam Movies</span>
+      <span>Kannada Movies</span>
+      <span>Action Movies</span>
+      <span>Romance</span>
+      <span>Thrillers</span>
+      <span>Comedy</span>
+      <span>Drama</span>
+    </div>
+
+  </section>
+
+  <section class="notice">
+    After delivery, save or forward your movie information if needed.
+    Temporary Telegram messages or access messages can expire automatically.
+  </section>
+
+  <section class="bottom">
+
+    <div id="finishHint" class="fine"></div>
+
+    <div class="scroll">👇</div>
+
+    <button id="unlock" disabled>Unlock video</button>
+
+    <p id="hint" class="fine">
+      Please wait while we complete verification.
+    </p>
+
+  </section>
+
+  <footer class="footer-seo">
+    SearchXHub — Hindi movies, Bollywood cinema and South Indian movie
+    information including Tamil, Telugu, Malayalam and Kannada films.
+  </footer>
+
+</main>
+
+<script>
   const WAIT_SECONDS=30,app=window.Telegram.WebApp,params=new URLSearchParams(location.search),token=params.get('token'),botUsername=params.get('bot');app.ready();app.expand();
   let left=WAIT_SECONDS;const timer=document.getElementById('timer'),unlock=document.getElementById('unlock');timer.textContent=left;
   const interval=setInterval(()=>{left-=1;timer.textContent=left;if(left<=0){clearInterval(interval);unlock.disabled=false;document.getElementById('finishHint').textContent='✅ Finished! Scroll below and unlock your video.';document.getElementById('hint').textContent='👇 Neeche Unlock video dabayein.';}},1000);
   unlock.onclick=()=>{if(!token||!botUsername)return;unlock.disabled=true;unlock.textContent='Verified — opening bot…';document.getElementById('hint').textContent='Movie bot chat mein bheji ja rahi hai.';const destination='https://t.me/'+botUsername+'?start=unlock_'+encodeURIComponent(token);try{app.openTelegramLink(destination);}catch(_){window.location.href=destination;}setTimeout(()=>app.close(),800);};
-</script></body></html>
+</script>
+
+</body>
+</html>
+```
