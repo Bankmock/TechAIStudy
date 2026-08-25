@@ -1,22 +1,514 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>AI Movie Tools for Bollywood & South Indian Movies | SearchXHub</title>
+
+  <meta name="description" content="Discover AI-powered movie search tools, Bollywood and Hindi cinema information, South Indian movies, Tamil, Telugu, Malayalam and Kannada films through useful Telegram-based tools.">
+  <meta name="keywords" content="AI movie tools, AI movie search, Bollywood movies, Hindi movies, South Indian movies, Tamil movies, Telugu movies, Malayalam movies, Kannada movies, Indian cinema, Telegram movie bot, movie search Telegram, Bollywood Telegram bot, South Indian movie search">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="SearchXHub">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:title" content="AI Movie Tools for Bollywood & South Indian Movies">
+  <meta property="og:description" content="Explore AI-powered movie discovery tools, Bollywood, Hindi and South Indian cinema information through SearchXHub.">
+  <meta property="og:type" content="website">
+
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
   <style>
-    :root{--accent:#63a7ff;--mint:#60e6c5;--bg:#09111f;--panel:#111d31;--muted:#9babc2;--line:#26364e}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#193256 0,var(--bg) 48%);color:#f4f8ff;font:15px/1.5 Inter,system-ui,-apple-system,sans-serif}.page{min-height:150vh;padding:20px 18px 28px;display:flex;flex-direction:column}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:27px}.brand{font-weight:800;letter-spacing:.2px}.brand span{color:var(--accent)}.secure{font-size:12px;color:var(--mint);border:1px solid #277562;border-radius:20px;padding:5px 9px}.hero{text-align:center}.icon{width:74px;height:74px;margin:auto;border-radius:24px;display:grid;place-items:center;font-size:34px;background:linear-gradient(135deg,#2d6cb9,#17395f);box-shadow:0 12px 32px #0008}h1{font-size:27px;line-height:1.12;margin:20px 0 10px}p{color:var(--muted);margin:0}.card{background:linear-gradient(135deg,#16243a,#0e192a);border:1px solid var(--line);border-radius:20px;padding:18px;margin-top:24px;box-shadow:0 10px 28px #0003}.timer{font-size:58px;font-weight:850;line-height:1;color:var(--accent);margin:12px 0 2px;letter-spacing:-3px}.caption{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:#7d91ae}.steps{margin-top:20px;display:grid;gap:11px;text-align:left}.step{display:flex;gap:11px;align-items:flex-start}.num{min-width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#233c61;color:var(--accent);font-size:12px;font-weight:800}.step b{display:block;font-size:13px}.step small{display:block;color:var(--muted);font-size:12px;margin-top:2px}.info{margin-top:24px;border-top:1px solid var(--line);padding-top:18px;text-align:left}.info h2{font-size:15px;margin:0 0 8px}.tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid #2a4264;border-radius:20px;padding:6px 9px;color:#bfd2ed;font-size:12px}.bottom{margin-top:auto;padding-top:50px;text-align:center}button{width:100%;border:0;border-radius:15px;padding:16px;background:linear-gradient(135deg,#5798ef,#3974cd);color:white;font-size:16px;font-weight:800;box-shadow:0 10px 23px #0005}button:disabled{opacity:.42;box-shadow:none}.fine{font-size:13px;min-height:20px;margin-top:12px}.scroll{font-size:22px;margin-bottom:5px}.hidden{display:none}
+    :root{
+      --accent:#2563eb;
+      --accent-dark:#1d4ed8;
+      --mint:#0f9f78;
+      --bg:#f5f7fb;
+      --panel:#ffffff;
+      --text:#172033;
+      --muted:#687386;
+      --line:#e3e8f0;
+      --soft:#eff6ff;
+      --green-soft:#ecfdf5;
+      --shadow:0 12px 35px rgba(23,32,51,.08);
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top left,#eaf2ff 0,#f5f7fb 40%),
+        var(--bg);
+      color:var(--text);
+      font:15px/1.6 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+
+    .page{
+      min-height:150vh;
+      max-width:760px;
+      margin:0 auto;
+      padding:22px 18px 32px;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:28px;
+    }
+
+    .brand{
+      font-weight:850;
+      font-size:18px;
+      letter-spacing:-.3px;
+    }
+
+    .brand span{color:var(--accent)}
+
+    .secure{
+      font-size:12px;
+      color:var(--mint);
+      background:var(--green-soft);
+      border:1px solid #b7ead9;
+      border-radius:20px;
+      padding:5px 10px;
+      font-weight:700;
+    }
+
+    .hero{
+      text-align:center;
+      padding:8px 5px 0;
+    }
+
+    .icon{
+      width:78px;
+      height:78px;
+      margin:auto;
+      border-radius:24px;
+      display:grid;
+      place-items:center;
+      font-size:35px;
+      background:linear-gradient(135deg,#dbeafe,#eff6ff);
+      border:1px solid #c9dcff;
+      box-shadow:0 12px 30px rgba(37,99,235,.12);
+    }
+
+    h1{
+      font-size:29px;
+      line-height:1.13;
+      margin:19px 0 9px;
+      letter-spacing:-.7px;
+    }
+
+    .hero p{
+      max-width:620px;
+      margin:auto;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:20px;
+      margin-top:24px;
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
+
+    .caption{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+      color:#7a8699;
+      font-weight:750;
+    }
+
+    .timer{
+      font-size:60px;
+      font-weight:900;
+      line-height:1;
+      color:var(--accent);
+      margin:13px 0 3px;
+      letter-spacing:-4px;
+    }
+
+    .card p{
+      color:var(--muted);
+      margin:0;
+    }
+
+    .steps{
+      margin-top:18px;
+      display:grid;
+      gap:11px;
+      text-align:left;
+    }
+
+    .step{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:15px;
+      padding:13px;
+      box-shadow:0 5px 18px rgba(23,32,51,.04);
+    }
+
+    .num{
+      min-width:27px;
+      height:27px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:#eaf2ff;
+      color:var(--accent);
+      font-size:12px;
+      font-weight:850;
+    }
+
+    .step b{
+      display:block;
+      font-size:13px;
+    }
+
+    .step small{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      margin-top:2px;
+    }
+
+    .info{
+      margin-top:19px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:20px;
+      box-shadow:0 6px 22px rgba(23,32,51,.045);
+    }
+
+    .info h2{
+      font-size:20px;
+      line-height:1.3;
+      margin:0 0 9px;
+      letter-spacing:-.3px;
+    }
+
+    .info h3{
+      font-size:16px;
+      line-height:1.35;
+      margin:19px 0 7px;
+    }
+
+    .info p{
+      color:var(--muted);
+      font-size:14px;
+      margin:0 0 10px;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+      margin-top:13px;
+    }
+
+    .tag{
+      background:var(--soft);
+      border:1px solid #d8e5ff;
+      border-radius:20px;
+      padding:6px 9px;
+      color:#315da8;
+      font-size:12px;
+      font-weight:650;
+    }
+
+    .notice{
+      margin-top:18px;
+      padding:12px 14px;
+      background:#f8fafc;
+      border:1px solid var(--line);
+      border-left:3px solid var(--mint);
+      border-radius:12px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .bottom{
+      margin-top:auto;
+      padding-top:48px;
+      text-align:center;
+    }
+
+    button{
+      width:100%;
+      border:0;
+      border-radius:15px;
+      padding:16px;
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
+      color:#fff;
+      font-size:16px;
+      font-weight:850;
+      box-shadow:0 10px 23px rgba(37,99,235,.22);
+      cursor:pointer;
+    }
+
+    button:not(:disabled):hover{
+      transform:translateY(-1px);
+    }
+
+    button:disabled{
+      opacity:.42;
+      box-shadow:none;
+      cursor:not-allowed;
+    }
+
+    .fine{
+      font-size:13px;
+      color:var(--muted);
+      min-height:20px;
+      margin-top:12px;
+    }
+
+    .scroll{
+      font-size:22px;
+      margin-bottom:5px;
+    }
+
+    .footer{
+      text-align:center;
+      color:#8993a3;
+      font-size:11px;
+      line-height:1.5;
+      margin-top:25px;
+    }
+
+    @media(max-width:520px){
+      .page{padding:17px 14px 28px}
+      h1{font-size:26px}
+      .timer{font-size:55px}
+      .info{padding:17px}
+    }
   </style>
 </head>
-<body><main class="page">
-  <header class="top"><div class="brand">Search<span>X</span>Hub</div><div class="secure">● Secure access</div></header>
-  <section class="hero"><div class="icon">🎬</div><h1>Movie access<br>verification</h1><p>We are preparing your private movie request.</p></section>
-  <section class="card"><div class="caption">Verification timer</div><div id="timer1" class="timer">30</div><p>seconds remaining</p></section>
-  <section class="steps"><div class="step"><div class="num">1</div><div><b>Private & simple</b><small>Your request stays inside Telegram.</small></div></div><div class="step"><div class="num">2</div><div><b>Useful tools, one place</b><small>Discover movie, AI and everyday utility tools.</small></div></div><div class="step"><div class="num">3</div><div><b>Use crypto carefully</b><small>Always verify links and never share wallet recovery phrases.</small></div></div></section>
-  <section class="info"><h2>Built to make digital life easier</h2><div class="tags"><span class="tag">AI tools</span><span class="tag">Movie search</span><span class="tag">Simple utilities</span><span class="tag">Crypto awareness</span></div></section>
-  <section class="bottom"><div id="finishHint" class="fine"></div><div class="scroll">👇</div><button id="next" disabled>Continue to final check</button><p id="nextHint" class="fine">Please wait while access is verified.</p></section>
-</main><script>
+
+<body>
+<main class="page">
+
+  <header class="top">
+    <div class="brand">Search<span>X</span>Hub</div>
+    <div class="secure">● Secure access</div>
+  </header>
+
+  <section class="hero">
+
+    <div class="icon">🎬</div>
+
+    <h1>
+      AI Movie Tools for<br>
+      Bollywood & South Indian Cinema
+    </h1>
+
+    <p>
+      Discover smarter ways to search, explore and organize movie information
+      using AI-powered tools and Telegram-based utilities.
+    </p>
+
+  </section>
+
+  <section class="card">
+
+    <div class="caption">Verification timer</div>
+
+    <div id="timer1" class="timer">30</div>
+
+    <p>seconds remaining</p>
+
+  </section>
+
+  <section class="steps">
+
+    <div class="step">
+      <div class="num">1</div>
+      <div>
+        <b>AI-powered movie discovery</b>
+        <small>
+          Use intelligent search tools to find movie titles, genres,
+          languages, actors and other useful information faster.
+        </small>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">2</div>
+      <div>
+        <b>Bollywood & Hindi cinema</b>
+        <small>
+          Explore Hindi movies, Bollywood films, actors, directors,
+          genres, releases and Indian cinema information.
+        </small>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">3</div>
+      <div>
+        <b>South Indian movie discovery</b>
+        <small>
+          Search and discover information about Tamil, Telugu,
+          Malayalam and Kannada cinema in one convenient place.
+        </small>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">4</div>
+      <div>
+        <b>Telegram movie tools</b>
+        <small>
+          Telegram-based tools can make movie search, notifications,
+          recommendations and entertainment utilities easier to access.
+        </small>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="info">
+
+    <h2>AI Tools for Bollywood & Indian Movies</h2>
+
+    <p>
+      Artificial intelligence is changing the way people discover movies,
+      organize entertainment information and find recommendations.
+      AI-powered movie tools can understand search queries, identify genres,
+      suggest related titles and help users discover films based on language,
+      actors, directors or preferred categories.
+    </p>
+
+    <p>
+      SearchXHub is designed around simple movie discovery and useful
+      digital tools. Whether you are interested in Bollywood, Hindi cinema,
+      Tamil movies, Telugu movies, Malayalam films or Kannada cinema,
+      intelligent search can help you find relevant information with less
+      effort.
+    </p>
+
+    <h3>Bollywood Movie Search</h3>
+
+    <p>
+      Bollywood and Hindi cinema have a huge variety of movies covering
+      action, romance, comedy, thriller, drama, family entertainment,
+      crime, adventure and more. A movie search tool can help organize
+      information about Hindi-language films, popular actors, directors,
+      genres and different periods of Bollywood cinema.
+    </p>
+
+    <h3>South Indian Movie Search</h3>
+
+    <p>
+      South Indian cinema includes major industries from Tamil Nadu,
+      Andhra Pradesh and Telangana, Kerala and Karnataka. Tamil, Telugu,
+      Malayalam and Kannada movies have their own unique storytelling
+      traditions, stars, music and filmmaking styles.
+    </p>
+
+    <p>
+      Modern audiences increasingly watch Indian movies across language
+      boundaries. A Telugu movie can become popular among Hindi-speaking
+      audiences, while Tamil, Malayalam and Kannada films can attract viewers
+      throughout India and internationally.
+    </p>
+
+    <h3>Telegram Movie Bot & Search Tools</h3>
+
+    <p>
+      Telegram bots can provide convenient interfaces for searching movie
+      information, receiving notifications, finding recommendations and
+      accessing entertainment-related utilities. Instead of navigating
+      through multiple pages, users can interact with a bot using simple
+      commands or search queries.
+    </p>
+
+    <p>
+      Movie-related Telegram tools should be used responsibly and only for
+      content and services that the user has the legal right to access.
+      Availability, regional rights and copyright rules can differ between
+      movies and countries.
+    </p>
+
+    <h3>AI Movie Recommendations</h3>
+
+    <p>
+      AI can also help users discover movies based on preferences such as
+      language, genre, actors, directors, release period or previous viewing
+      interests. This makes it easier to explore Indian cinema beyond the
+      most popular titles.
+    </p>
+
+    <div class="tags">
+      <span class="tag">AI Movie Tools</span>
+      <span class="tag">AI Search</span>
+      <span class="tag">Bollywood</span>
+      <span class="tag">Hindi Movies</span>
+      <span class="tag">South Indian Movies</span>
+      <span class="tag">Tamil Movies</span>
+      <span class="tag">Telugu Movies</span>
+      <span class="tag">Malayalam Movies</span>
+      <span class="tag">Kannada Movies</span>
+      <span class="tag">Movie Search</span>
+      <span class="tag">Telegram Bot</span>
+      <span class="tag">Indian Cinema</span>
+    </div>
+
+  </section>
+
+  <section class="notice">
+    <strong>Responsible access:</strong>
+    Movie and entertainment tools should be used for legitimate,
+    authorized content. Always respect copyright, licensing requirements
+    and the laws applicable in your region.
+  </section>
+
+  <section class="bottom">
+
+    <div id="finishHint" class="fine"></div>
+
+    <div class="scroll">👇</div>
+
+    <button id="next" disabled>
+      Continue to final check
+    </button>
+
+    <p id="nextHint" class="fine">
+      Please wait while access is verified.
+    </p>
+
+  </section>
+
+  <footer class="footer">
+    SearchXHub — AI movie tools, Bollywood and Hindi movie discovery,
+    South Indian cinema, Tamil, Telugu, Malayalam and Kannada movie
+    information and Telegram-based entertainment utilities.
+  </footer>
+
+</main>
+
+<script>
   const FIRST_WAIT_SECONDS=30,app=window.Telegram.WebApp,params=new URLSearchParams(location.search),token=params.get('token'),botUsername=params.get('bot');app.ready();app.expand();
   const next=document.getElementById('next');let left=FIRST_WAIT_SECONDS;const timer=document.getElementById('timer1');timer.textContent=left;
   const interval=setInterval(()=>{left-=1;timer.textContent=left;if(left<=0){clearInterval(interval);next.disabled=false;document.getElementById('finishHint').textContent='✅ Finished! Scroll below to continue.';document.getElementById('nextHint').textContent='👇 Neeche scroll karke Continue button dabayein.';}},1000);
   next.onclick=()=>{window.location.href='unlock.html?token='+encodeURIComponent(token||'')+'&bot='+encodeURIComponent(botUsername||'');};
-</script></body></html>
+</script>
+
+</body>
+</html>
+```
