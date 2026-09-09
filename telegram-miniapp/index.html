@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Watch Ad &amp; Download</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --card: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.10);
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --accent: #22c55e;
+    --accent2: #0ea5e9;
+    --accent-grad: linear-gradient(135deg, #22c55e, #0ea5e9);
+    --danger: #f43f5e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+  .card {
+    width: 100%;
+    max-width: 400px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 24px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    text-align: center;
+  }
+  .logo {
+    width: 64px; height: 64px;
+    border-radius: 18px;
+    background: var(--accent-grad);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 30px;
+    box-shadow: 0 8px 24px rgba(34,197,94,0.35);
+  }
+  h1 { font-size: 20px; margin-bottom: 6px; letter-spacing: 0.3px; }
+  p.sub { color: var(--muted); font-size: 13.5px; margin-bottom: 22px; line-height: 1.5; }
+
+  /* Timer ring */
+  .ring-wrap { position: relative; width: 150px; height: 150px; margin: 10px auto 16px; }
+  .ring{ transform: rotate(-90deg); }
+  .ring .bg { fill: none; stroke: rgba(255,255,255,0.08); stroke-width: 8; }
+  .ring .fg { fill: none; stroke: url(#grad); stroke-width: 8; stroke-linecap: round;
+              stroke-dasharray: 425; stroke-dashoffset: 425;
+              transition: stroke-dashoffset 1s linear; }
+  .center { position: absolute; inset: 0; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; }
+  .center .time { font-size: 38px; font-weight: 700; line-height: 1; }
+  .center .lbl { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  .progress-txt { color: var(--muted); font-size: 13px; margin: 4px 0 18px; min-height: 18px; }
+
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; padding: 14px; font-size: 15px; font-weight: 600;
+    border: none; border-radius: 14px; cursor: pointer; color: #fff;
+    background: var(--accent-grad); transition: transform .15s, opacity .15s;
+    text-decoration: none;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .btn.secondary {
+    background: rgba(255,255,255,0.08); border: 1px solid var(--border);
+    margin-top: 10px;
+  }
+  .btn.copied { background: var(--accent); }
+
+  .toast {
+    position: fixed; left: 50%; bottom: 40px; transform: translate(-50%, 90px);
+    background: #14532d; border: 1px solid #16a34a; color: #f0fdf4;
+    padding: 14px 20px; border-radius: 14px; font-size: 14px; font-weight: 600;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4); display: flex; align-items: center; gap: 10px;
+    transition: transform .35s cubic-bezier(.2,.9,.3,1.2); z-index: 99; max-width: 90%;
+    text-align: center;
+  }
+  .toast.show { transform: translate(-50%, 0); }
+  .hidden { display: none !important; }
+
+  .note { color: var(--muted); font-size: 12px; margin-top: 16px; line-height: 1.5; }
+  .hidden-state { display: none; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="logo">🎬</div>
+  <h1>Watch Ad &amp; Download</h1>
+  <p class="sub">Ad dekhne ke baad aap video download kar sakte ho. Thoda time lagega — bas video ko focus karo!</p>
+
+  <div class="hidden-state" id="doneSection">
+    <div class="logo" style="background: linear-gradient(135deg,#22c55e,#84cc16);">✅</div>
+    <h1>Verified!</h1>
+    <p class="sub">Aapne ad dekha. Ab video download karo — unlimited &amp; free.</p>
+  </div>
+
+  <div id="loadingSection">
+    <p class="sub">Ad load ho raha hai...</p>
+    <div class="progress-txt">Thoda wait karo, ad shuru ho raha hai...</div>
+  </div>
+
+  <div id="timerSection" class="hidden">
+    <div class="ring-wrap">
+      <svg class="ring" width="150" height="150" viewBox="0 0 150 150">
+        <circle class="bg" cx="75" cy="75" r="67.5"></circle>
+        <circle class="fg" cx="75" cy="75" r="67.5"></circle>
+        <defs>
+          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#22c55e"></stop>
+            <stop offset="100%" stop-color="#0ea5e9"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="center">
+        <div class="time" id="timer">30</div>
+        <div class="lbl">seconds</div>
+      </div>
+    </div>
+    <div class="progress-txt" id="progressTxt">Ad watch kar rahe ho — <b id="countTxt">30</b>s</div>
+
+    <button class="btn" id="downloadBtn" disabled>🔒 Awaiting Verification</button>
+    <button class="btn secondary" id="copyBtn" disabled>📋 Copy Video Link</button>
+    <button class="btn secondary" id="reopenBtn" disabled>📤 Send Link to Bot</button>
+  </div>
+
+  <p class="note" id="note">Watching ad me ~30 seconds lagenge. Baad me download button unlock ho jayega.</p>
+</div>
+
+<div class="toast" id="toast"><span id="toastIcon">✅</span><span id="toastText"></span></div>
+
+<script>
+(function () {
+  'use strict';
+
+  var params = new URLSearchParams(window.location.search);
+  var videoUrl = params.get('url') || '';
+  var seconds = parseInt(params.get('t') || '30', 10);
+  if (isNaN(seconds) || seconds < 5) seconds = 30;
+
+  var tg = null;
+  try {
+    if (window.Telegram && window.Telegram.WebApp) {
+      tg = window.Telegram.WebApp;
+      tg.ready();
+      tg.expand();
+    }
+  } catch (e) { /* ignore */ }
+
+  var timerSection = document.getElementById('timerSection');
+  var loadingSection = document.getElementById('loadingSection');
+  var doneSection = document.getElementById('doneSection');
+  var timerEl = document.getElementById('timer');
+  var countTxt = document.getElementById('countTxt');
+  var progressTxt = document.getElementById('progressTxt');
+  var downloadBtn = document.getElementById('downloadBtn');
+  var copyBtn = document.getElementById('copyBtn');
+  var reopenBtn = document.getElementById('reopenBtn');
+  var fgCircle = document.querySelector('.ring .fg');
+  var toast = document.getElementById('toast');
+  var toastText = document.getElementById('toastText');
+  var toastIcon = document.getElementById('toastIcon');
+  var note = document.getElementById('note');
+  var verified = false;
+
+  var RING_LEN = 425;
+
+  function showToast(msg, icon) {
+    toastIcon.textContent = icon || '✅';
+    toastText.textContent = msg;
+    toast.classList.add('show');
+    if (tg && tg.HapticFeedback) {
+      try { tg.HapticFeedback.notificationOccurred(icon === '❌' ? 'error' : 'success'); } catch (e) {}
+    }
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function () { toast.classList.remove('show'); }, 3500);
+  }
+
+  function getDownloadUrl() {
+    // URL page me nhi mila? Phir bh a bottle default video link button telegram pe hi unlock karne do
+    return videoUrl || 'tg://resolve?domain=' + (location.hostname !== '' ? '' : '') ;
+  }
+
+  function enableDownload() {
+    verified = true;
+    timerSection.classList.add('hidden');
+    doneSection.classList.remove('hidden');
+    note.textContent = '🎉 Verified! Aap ab video download kar sakte ho — unlimited.';
+    showToast('Verified! You can download video now', '✅');
+
+    // Download button -> full link
+    var finalLink = videoUrl || '';
+    if (finalLink) {
+      downloadBtn.textContent = '⬇️ Download Video';
+      downloadBtn.removeAttribute('disabled');
+      downloadBtn.onclick = function () {
+        window.open(finalLink, '_blank');
+        showToast('Download shuru!', '⬇️');
+      };
+      copyBtn.removeAttribute('disabled');
+      copyBtn.onclick = function () {
+        copyText(finalLink);
+      };
+    } else {
+      downloadBtn.textContent = '🎯 Open Bot & Send Link';
+      downloadBtn.removeAttribute('disabled');
+      downloadBtn.onclick = function () {
+        openBot();
+      };
+    }
+
+    reopenBtn.removeAttribute('disabled');
+    reopenBtn.onclick = function () {
+      if (finalLink) openBotWithUrl(finalLink);
+      else openBot();
+    };
+
+    if (tg) {
+      try {
+        tg.MainButton.setText('⬇️ Download Video').show().onClick(function () {
+          if (finalLink) window.open(finalLink, '_blank');
+          else openBot();
+        });
+        // MainButton vertical placement (new base API)
+        try { tg.setHeaderColor && tg.setHeaderColor('#0f172a'); } catch (e) {}
+      } catch (e) {}
+    }
+  }
+
+  function copyText(text) {
+    var done = false;
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done = true; } catch (e) {}
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        showToast('Link copied!', '📋');
+      }).catch(function () { fallback(); if (done) showToast('Link copied!', '📋'); });
+    } else {
+      fallback();
+      if (done) showToast('Link copied!', '📋');
+    }
+  }
+
+  function openBot() {
+    // Without URL: mini app bot waise bhi khul hi chuka hai — copy instructions
+    copyText(getDownloadUrl());
+    showToast('Link copy kar liya — bot me paste karo!', '📤');
+  }
+
+  function openBotWithUrl(url) {
+    // Inside Telegram WebApp → send verification back to the bot
+    if (window.Telegram && window.Telegram.WebApp && typeof window.Telegram.WebApp.sendData === 'function') {
+      try {
+        window.Telegram.WebApp.sendData('watchads:done');
+        return;
+      } catch (e) { /* fall through to share/copy */ }
+    }
+    // Send video url link: telegram share/open
+    var encoded = encodeURIComponent(url);
+    var botUsername = document.getElementById('botUser').value || '';
+    if (botUsername) {
+      window.open('https://t.me/' + botUsername + '?start=' + encodeURIComponent('dl_') + encoded.slice(0,0), '_blank');
+      return;
+    }
+    // Default: try telegram share to self, fallback copy
+    window.open('tg://msg_url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent('Video Download: ' + url), '_blank');
+    setTimeout(function () { showToast('Bot me link send karo!', '📤'); }, 400);
+  }
+
+  // Send Link to Bot → verify to bot (unlock 2 large videos)
+  var reopenBtn = document.getElementById('reopenBtn');
+  if (reopenBtn) {
+    reopenBtn.addEventListener('click', function () {
+      if (window.Telegram && window.Telegram.WebApp && typeof window.Telegram.WebApp.sendData === 'function') {
+        try {
+          window.Telegram.WebApp.sendData('watchads:done');
+          return;
+        } catch (e) {}
+      }
+      openBotWithUrl(getDownloadUrl());
+    });
+  }
+
+  function startTimer() {
+    var remaining = seconds;
+    var total = seconds;
+
+    function tick() {
+      remaining = Math.max(0, remaining);
+      timerEl.textContent = remaining;
+      countTxt.textContent = remaining;
+
+      var offset = RING_LEN - (remaining / total) * RING_LEN;
+      fgCircle.style.strokeDashoffset = offset;
+
+      if (remaining > 0) {
+        progressTxt.innerHTML = 'Ad watch kar rahe ho — <b>' + remaining + '</b>s &nbsp;·&nbsp; ' + (total > 30 ? '' : '') ;
+        remaining -= 1;
+        setTimeout(tick, 1000);
+      } else {
+        progressTxt.textContent = '✅ Ad complete! Download unlock ho gaya.';
+        enableDownload();
+      }
+    }
+    // start with a small hiccup to let ad iframe load
+    progressTxt.textContent = 'Ad load ho raha hai...';
+    setTimeout(function () { tick(); }, 2600);
+  }
+
+  // Optional: bot username from query (recommended: seek & set)
+  var botUserInput = document.createElement('input');
+  botUserInput.type = 'hidden';
+  botUserInput.id = 'botUser';
+  botUserInput.value = params.get('bot') || 'videosaverXdownloaderBot';
+  document.body.appendChild(botUserInput);
+
+  // Fake ad placeholder (aap isko real ad iframe se replace kar sakte ho)
+  note.textContent = '📢 Ad bashakal me chal raha hai... 30 seconds ke baad download unlock hoga.';
+
+  // Init: show timer
+  loadingSection.classList.add('hidden');
+  timerSection.classList.remove('hidden');
+  startTimer();
+})();
+</script>
+</body>
+</html>
