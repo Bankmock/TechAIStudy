@@ -199,6 +199,8 @@
     if (tg && typeof tg.sendData === 'function') {
       try {
         tg.sendData('watchads:done');
+        // Data tabhi bot tak pahunchta hai jab app close ho — moviebot bhi sendData+close karta hai.
+        setTimeout(function () { try { tg.close && tg.close(); } catch (e) {} }, 500);
         return true;
       } catch (e) { /* fall through */ }
     }
