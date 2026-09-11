@@ -149,6 +149,7 @@
 
   var params = new URLSearchParams(window.location.search);
   var videoUrl = params.get('url') || '';
+  var botUsername = params.get('bot') || '';
   var seconds = parseInt(params.get('timer') || params.get('t') || '30', 10);
   if (isNaN(seconds) || seconds < 5) seconds = 30;
 
@@ -196,14 +197,16 @@
   }
 
   function notifyBotVerified() {
-    if (tg && typeof tg.sendData === 'function') {
-      try {
-        tg.sendData('watchads:done');
-        // Data tabhi bot tak pahunchta hai jab app close ho — moviebot bhi sendData+close karta hai.
-        setTimeout(function () { try { tg.close && tg.close(); } catch (e) {} }, 500);
-        return true;
-      } catch (e) { /* fall through */ }
+    // Inline se khula miniapp: sendData bot tak nahi pahunchta, isliye deep-link handoff use hota hai.
+    return openBotVerify();
+  }
+
+  function openBotVerify() {
+    var link = 'https://t.me/' + (botUsername || 'SocialBot') + '?start=watchadsverify';
+    if (tg && typeof tg.openTelegramLink === 'function') {
+      try { tg.openTelegramLink(link); return true; } catch (e) { /* fall through */ }
     }
+    try { window.open(link, '_blank'); return true; } catch (e) {}
     return false;
   }
 
@@ -332,8 +335,8 @@
       } else {
         progressTxt.textContent = '✅ Ad complete! Download unlock ho gaya.';
         enableDownload();
-        // Bot ko verification bhejo (reply-keyboard web app se sendData guaranteed chalta hai)
-        notifyBotVerified();
+        // Verification: app band ho kar bot chat me le jaata hai — yahan user Start dabata hai aur download chalu hota hai.
+        setTimeout(notifyBotVerified, 900);
       }
     }
     // start with a small hiccup to let ad iframe load
