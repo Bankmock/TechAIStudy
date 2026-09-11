@@ -149,7 +149,7 @@
 
   var params = new URLSearchParams(window.location.search);
   var videoUrl = params.get('url') || '';
-  var seconds = parseInt(params.get('t') || '30', 10);
+  var seconds = parseInt(params.get('timer') || params.get('t') || '30', 10);
   if (isNaN(seconds) || seconds < 5) seconds = 30;
 
   var tg = null;
@@ -193,6 +193,16 @@
   function getDownloadUrl() {
     // URL page me nhi mila? Phir bh a bottle default video link button telegram pe hi unlock karne do
     return videoUrl || 'tg://resolve?domain=' + (location.hostname !== '' ? '' : '') ;
+  }
+
+  function notifyBotVerified() {
+    if (tg && typeof tg.sendData === 'function') {
+      try {
+        tg.sendData('watchads:done');
+        return true;
+      } catch (e) { /* fall through */ }
+    }
+    return false;
   }
 
   function enableDownload() {
@@ -320,6 +330,8 @@
       } else {
         progressTxt.textContent = '✅ Ad complete! Download unlock ho gaya.';
         enableDownload();
+        // Bot ko verification bhejo (reply-keyboard web app se sendData guaranteed chalta hai)
+        notifyBotVerified();
       }
     }
     // start with a small hiccup to let ad iframe load
