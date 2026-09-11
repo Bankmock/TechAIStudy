@@ -196,11 +196,6 @@
     return videoUrl || 'tg://resolve?domain=' + (location.hostname !== '' ? '' : '') ;
   }
 
-  function notifyBotVerified() {
-    // Inline se khula miniapp: sendData bot tak nahi pahunchta, isliye deep-link handoff use hota hai.
-    return openBotVerify();
-  }
-
   function openBotVerify() {
     var link = 'https://t.me/' + (botUsername || 'SocialBot') + '?start=watchadsverify';
     if (tg && typeof tg.openTelegramLink === 'function') {
@@ -333,10 +328,15 @@
         remaining -= 1;
         setTimeout(tick, 1000);
       } else {
-        progressTxt.textContent = '✅ Ad complete! Download unlock ho gaya.';
-        enableDownload();
-        // Verification: app band ho kar bot chat me le jaata hai — yahan user Start dabata hai aur download chalu hota hai.
-        setTimeout(notifyBotVerified, 900);
+        progressTxt.textContent = '✅ Ad complete! Ab "Verify" button dabao.';
+        // Verify button (moviebot jaisa): tap = verification handoff, Start pe aate hi download chalu.
+        downloadBtn.textContent = '✅ Verify & Download';
+        downloadBtn.removeAttribute('disabled');
+        downloadBtn.onclick = openBotVerify;
+        copyBtn.classList.add('hidden');
+        reopenBtn.classList.add('hidden');
+        note.textContent = '🎉 Ad complete! Verify button dabao — phir Start dabate hi video download ho jayegi.';
+        showToast('Ad complete — Verify dabao!', '✅');
       }
     }
     // start with a small hiccup to let ad iframe load
