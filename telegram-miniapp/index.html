@@ -278,6 +278,13 @@
   }
 
   function openBotVerify() {
+    // In-webview: verification seedha bot pe send — koi chat switch / Start nahi.
+    if (window.Telegram && window.Telegram.WebApp && typeof window.Telegram.WebApp.sendData === 'function') {
+      try {
+        window.Telegram.WebApp.sendData('watchads:done');
+        return true;
+      } catch (e) { /* fall through */ }
+    }
     var link = 'https://t.me/' + (botUsername || 'SocialBot') + '?start=watchadsverify';
     if (tg && typeof tg.openTelegramLink === 'function') {
       try { tg.openTelegramLink(link); return true; } catch (e) { /* fall through */ }
