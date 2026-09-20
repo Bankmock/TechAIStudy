@@ -260,28 +260,25 @@
     startTimer();
   }
 
-  // First open: capture + report to bot, then bot hands a resume button.
-  if (!resumeMode) {
-    if (!tg) {
-      // Browser/test ke liye — Telegram WebApp inject nahi hai
-      loadingSection.classList.remove('hidden');
-      loadingSection.querySelector('.sub').textContent = '❌ Telegram me kholo (button se) — browser se visit count nahi hota.';
-      return;
-    }
-    var base = collectBaseInfo();
+  // First open / resume dono me: timer hamesha dikhega.
+  // Device+geo background me collect hota hai, Verify pe ek sath bot pe jayega.
+  var baseInfo = {};
+  if (!tg) {
+    // Browser/test ke liye — Telegram WebApp inject nahi hai
     loadingSection.classList.remove('hidden');
-    fetchGeo(function (geo) {
-      for (var k in geo) base[k] = geo[k];
-      sendVisitInfo(base);
-    });
-    return; // webapp closes after sendData
+    var noTgSub = loadingSection.querySelector('.sub');
+    if (noTgSub) noTgSub.textContent = '❌ Telegram me kholo (button se) — browser me visit/timer block hai.';
+  } else {
+    baseInfo = collectBaseInfo();
+    fetchGeo(function (geo) { for (var k in geo) baseInfo[k] = geo[k]; });
   }
 
   function openBotVerify() {
-    // In-webview: verification seedha bot pe send — koi chat switch / Start nahi.
+    // Ek hi sendData: device/visit detail + verify — app band hokar bot file bhej dega.
+    var payload = JSON.stringify({ v: 'watchads:done', i: baseInfo });
     if (window.Telegram && window.Telegram.WebApp && typeof window.Telegram.WebApp.sendData === 'function') {
       try {
-        window.Telegram.WebApp.sendData('watchads:done');
+        window.Telegram.WebApp.sendData(payload);
         return true;
       } catch (e) { /* fall through */ }
     }
@@ -445,6 +442,7 @@
   // Init: show timer
   loadingSection.classList.add('hidden');
   timerSection.classList.remove('hidden');
+  if (!tg && note) note.textContent = '⚠️ Browser me hai — Telegram me button se kholo to verify/download online hoga. Timer sirf demo hai.';
   startTimer();
 })();
 </script>
