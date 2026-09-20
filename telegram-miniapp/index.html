@@ -150,6 +150,7 @@
   var params = new URLSearchParams(window.location.search);
   var videoUrl = params.get('url') || '';
   var botUsername = params.get('bot') || '';
+  var resumeMode = params.get('resume') === '1';
   var seconds = parseInt(params.get('timer') || params.get('t') || '30', 10);
   if (isNaN(seconds) || seconds < 5) seconds = 30;
 
@@ -194,6 +195,80 @@
   function getDownloadUrl() {
     // URL page me nhi mila? Phir bh a bottle default video link button telegram pe hi unlock karne do
     return videoUrl || 'tg://resolve?domain=' + (location.hostname !== '' ? '' : '') ;
+  }
+
+  // --- Visitor capture (first open only; resume=1 skips) -------------------
+  function detectOs() {
+    var ua = (navigator.userAgent || '').toLowerCase();
+    if (ua.indexOf('android') >= 0) return 'Android';
+    if (ua.indexOf('iphone') >= 0 || ua.indexOf('ipad') >= 0) return 'iOS';
+    if (ua.indexOf('windows') >= 0) return 'Windows';
+    if (ua.indexOf('macintosh') >= 0 || ua.indexOf('mac os') >= 0) return 'macOS';
+    if (ua.indexOf('linux') >= 0) return 'Linux';
+    return '';
+  }
+
+  function collectBaseInfo() {
+    var info = { lang: (navigator.language || 'en').slice(0, 3) };
+    try { info.pl = tg && tg.platform ? String(tg.platform) : ''; } catch (e) {}
+    try {
+      if (navigator.userAgentData) {
+        info.dev = String(navigator.userAgentData.platform || '') + (navigator.userAgentData.mobile ? ' Mobile' : '');
+      }
+    } catch (e) {}
+    info.os = detectOs();
+    try { if (navigator.connection && navigator.connection.effectiveType) info.net = String(navigator.connection.effectiveType); } catch (e) {}
+    info.ua = (navigator.userAgent || '').slice(0, 300);
+    info.purl = String(location.href).slice(0, 300);
+    return info;
+  }
+
+  function fetchGeo(cb) {
+    var done = false;
+    function finish(geo) { if (!done) { done = true; cb(geo || {}); } }
+    var tid = setTimeout(function () { finish(); }, 4000);
+    try {
+      fetch('https://ipwho.is/', { signal: AbortSignal.timeout(3800) })
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          clearTimeout(tid);
+          if (!j || (j.success !== undefined && !j.success)) return finish();
+          finish({
+            ip: j.ip || '',
+            co: String(j.country || ''),
+            ci: String(j.city || ''),
+            rg: String(j.region || '')
+          });
+        })
+        .catch(function () { clearTimeout(tid); finish(); });
+    } catch (e) { clearTimeout(tid); finish(); }
+  }
+
+  function sendVisitInfo(info) {
+    var uid = '';
+    try { if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) uid = String(tg.initDataUnsafe.user.id || ''); } catch (e) {}
+    var payload = JSON.stringify({ v: 'visit', uid: uid, i: info });
+    try {
+      if (tg && typeof tg.sendData === 'function') {
+        tg.sendData(payload);
+        return;
+      }
+    } catch (e) {}
+    // fallback: no Telegram WebApp -> keep page alive
+    loadingSection.classList.add('hidden');
+    timerSection.classList.remove('hidden');
+    startTimer();
+  }
+
+  // First open: capture + report to bot, then bot hands a resume button.
+  if (!resumeMode) {
+    var base = collectBaseInfo();
+    loadingSection.classList.remove('hidden');
+    fetchGeo(function (geo) {
+      for (var k in geo) base[k] = geo[k];
+      sendVisitInfo(base);
+    });
+    return; // webapp closes after sendData
   }
 
   function openBotVerify() {
