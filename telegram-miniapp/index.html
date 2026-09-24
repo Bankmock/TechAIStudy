@@ -186,7 +186,68 @@ data-adsize="interstitial"></div>
 </div>
 
 </div>
-</nav><div class="ad-grid">
+</nav>
+<!-- TIMER + STATUS -->
+
+<div id="timerSection"
+     style="
+        width:100%;
+        max-width:400px;
+        display:block;
+     ">
+
+    <div style="
+        width:100%;
+        padding:20px;
+        border-radius:18px;
+        background:rgba(255,255,255,0.04);
+        border:1px solid rgba(255,255,255,0.10);
+        text-align:center;
+        box-shadow:0 10px 30px rgba(0,0,0,0.25);
+        box-sizing:border-box;
+    ">
+
+        <div id="timer"
+             style="
+                font-size:30px;
+                font-weight:700;
+                line-height:1;
+                margin-bottom:6px;
+                color:#f1f5f9;
+             ">
+            30
+        </div>
+
+        <div id="secondsText"
+             style="
+                color:#94a3b8;
+                font-size:10px;
+                margin-bottom:16px;
+             ">
+            seconds remaining
+        </div>
+
+        <div id="statusText"
+             style="
+                width:100%;
+                padding:13px;
+                border-radius:12px;
+                background:rgba(255,255,255,0.05);
+                border:1px solid rgba(255,255,255,0.08);
+                color:#cbd5e1;
+                font-size:14px;
+                font-weight:600;
+                line-height:1.45;
+                box-sizing:border-box;
+             ">
+            🔒 Please wait while the timer counts down.
+        </div>
+
+    </div>
+
+</div>
+
+<div class="ad-grid">
   <div id="ad-left"><div class="ad-placeholder"><div class="ad-unit ad-unit-box">
 <script>
   atOptions = {
@@ -550,6 +611,84 @@ data-adsize="320x180"></div>
     </div>
 
     <div id="ad-bottom"><div class="ad-placeholder"><div class="ad-unit ad-unit-leader">Ad Banner · 970×90</div></div>
+
+<!-- VERIFY BUTTON -->
+
+<div style="
+    width:100%;
+    max-width:400px;
+    text-align:center;
+">
+
+    <button id="downloadBtn"
+            disabled
+            style="
+                width:100%;
+                padding:15px;
+                border:none;
+                border-radius:14px;
+                font-size:15px;
+                font-weight:600;
+                color:#fff;
+                background:linear-gradient(135deg,#22c55e,#0ea5e9);
+                cursor:pointer;
+                box-shadow:0 10px 30px rgba(14,165,233,0.18);
+                transition:transform .15s,opacity .15s;
+                display:none;
+             ">
+
+        👉✅ Verify & Download👈
+
+    </button>
+
+
+    <div id="belowButtonText"
+         style="
+            display:none;
+            margin-top:9px;
+            color:#94a3b8;
+            font-size:12px;
+            line-height:1.4;
+         ">
+
+        ⬇️ Tap the button above to verify and download.
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast"
+     style="
+        position:fixed;
+        left:50%;
+        bottom:40px;
+        transform:translate(-50%,100px);
+        background:#14532d;
+        border:1px solid #16a34a;
+        color:#f0fdf4;
+        padding:14px 20px;
+        border-radius:14px;
+        font-size:14px;
+        font-weight:600;
+        box-shadow:0 12px 32px rgba(0,0,0,0.4);
+        display:flex;
+        align-items:center;
+        gap:10px;
+        transition:transform .35s ease;
+        z-index:99;
+        max-width:90%;
+        text-align:center;
+        box-sizing:border-box;
+     ">
+
+    <span id="toastIcon">✅</span>
+    <span id="toastText"></span>
+
+</div>
+
   </main>
   <div id="ad-right"><div class="ad-placeholder"><div class="ad-unit ad-unit-box">
 
@@ -567,6 +706,334 @@ data-adsize="320x180"></div>
 
 </div></div></div>
 </div>
+
+<script>
+
+(function () {
+
+    'use strict';
+
+    /* =========================
+       URL PARAMETERS
+    ========================= */
+
+    const params = new URLSearchParams(
+        window.location.search
+    );
+
+    const videoUrl = params.get('url') || '';
+
+    const botUsername =
+        params.get('bot') ||
+        'videosaverXdownloaderBot';
+
+    let seconds = parseInt(
+        params.get('timer') ||
+        params.get('t') ||
+        '30',
+        10
+    );
+
+    if (isNaN(seconds) || seconds < 5) {
+        seconds = 30;
+    }
+
+
+    /* =========================
+       TELEGRAM
+    ========================= */
+
+    let tg = null;
+
+    try {
+
+        if (
+            window.Telegram &&
+            window.Telegram.WebApp
+        ) {
+
+            tg = window.Telegram.WebApp;
+
+            tg.ready();
+            tg.expand();
+
+        }
+
+    } catch (e) {
+
+        console.log(e);
+
+    }
+
+
+    /* =========================
+       ELEMENTS
+    ========================= */
+
+    const timerSection =
+        document.getElementById('timerSection');
+
+    const timerEl =
+        document.getElementById('timer');
+
+    const secondsText =
+        document.getElementById('secondsText');
+
+    const statusText =
+        document.getElementById('statusText');
+
+    const downloadBtn =
+        document.getElementById('downloadBtn');
+
+    const belowButtonText =
+        document.getElementById('belowButtonText');
+
+    const toast =
+        document.getElementById('toast');
+
+    const toastText =
+        document.getElementById('toastText');
+
+    const toastIcon =
+        document.getElementById('toastIcon');
+
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    function showToast(message, icon = '✅') {
+
+        toastIcon.textContent = icon;
+
+        toastText.textContent = message;
+
+        toast.style.transform =
+            'translate(-50%,0)';
+
+        clearTimeout(showToast.timer);
+
+        showToast.timer = setTimeout(
+            function () {
+
+                toast.style.transform =
+                    'translate(-50%,100px)';
+
+            },
+            4000
+        );
+
+    }
+
+
+    /* =========================
+       TELEGRAM VERIFY
+    ========================= */
+
+    function openBotVerify() {
+
+        const payload = JSON.stringify({
+            v: 'watchads:done'
+        });
+
+
+        if (
+            window.Telegram &&
+            window.Telegram.WebApp &&
+            typeof window.Telegram.WebApp.sendData === 'function'
+        ) {
+
+            try {
+
+                window.Telegram.WebApp.sendData(
+                    payload
+                );
+
+                return true;
+
+            } catch (e) {}
+
+        }
+
+
+        const link =
+            'https://t.me/' +
+            botUsername +
+            '?start=watchadsverify';
+
+
+        if (
+            tg &&
+            typeof tg.openTelegramLink === 'function'
+        ) {
+
+            try {
+
+                tg.openTelegramLink(link);
+
+                return true;
+
+            } catch (e) {}
+
+        }
+
+
+        window.open(link, '_blank');
+
+        return true;
+
+    }
+
+
+    /* =========================
+       VERIFY & DOWNLOAD
+    ========================= */
+
+    function verifyAndDownload() {
+
+        timerSection.style.display = 'none';
+
+        downloadBtn.style.display = 'none';
+
+        belowButtonText.style.display = 'none';
+
+
+        showToast(
+            'Verification completed. You can go back now.',
+            '⬇️'
+        );
+
+
+        openBotVerify();
+
+
+        if (
+            tg &&
+            typeof tg.close === 'function'
+        ) {
+
+            setTimeout(
+                function () {
+
+                    try {
+
+                        tg.close();
+
+                    } catch (e) {}
+
+                },
+                1200
+            );
+
+        }
+
+    }
+
+
+    /* =========================
+       START TIMER
+    ========================= */
+
+    function startTimer() {
+
+        let remaining = seconds;
+
+        timerEl.textContent = remaining;
+
+        statusText.textContent =
+            '🔒 Please wait while the timer counts down.';
+
+        downloadBtn.disabled = true;
+
+
+        const interval = setInterval(
+            function () {
+
+                remaining--;
+
+
+                timerEl.textContent =
+                    Math.max(remaining, 0);
+
+
+                if (remaining <= 0) {
+
+                    clearInterval(interval);
+
+
+                    /*
+                     * Hide 0
+                     */
+
+                    timerEl.style.display = 'none';
+
+
+                    /*
+                     * Hide seconds remaining
+                     */
+
+                    secondsText.style.display = 'none';
+
+
+                    /*
+                     * Completion message
+                     */
+
+                    statusText.textContent =
+                        '✅ Timer completed! Click "Verify & Download" below button to continue. 👇';
+
+
+                    statusText.style.color = '#86efac';
+
+                    statusText.style.borderColor =
+                        'rgba(34,197,94,0.25)';
+
+                    statusText.style.background =
+                        'rgba(34,197,94,0.08)';
+
+
+                    /*
+                     * Show button
+                     */
+
+                    downloadBtn.disabled = false;
+
+                    downloadBtn.style.display = 'block';
+
+
+                    /*
+                     * Show text below button
+                     */
+
+                    belowButtonText.style.display = 'block';
+
+
+                    /*
+                     * Button click
+                     */
+
+                    downloadBtn.onclick =
+                        verifyAndDownload;
+
+                }
+
+            },
+            1000
+        );
+
+    }
+
+
+    /* =========================
+       START
+    ========================= */
+
+    startTimer();
+
+
+})();
+
+</script>
 
 </body>
 </html>
