@@ -1,2372 +1,585 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0,
                    maximum-scale=1.0, user-scalable=no">
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Watch Ad & Download</title>
 
-    <title>MiniApp</title>
-
-
-    <!-- =====================================================
-         AD SCRIPTS
-    ====================================================== -->
-
-    <script class="admoloScript"
-            src="https://cdn.admolo.com/assets/ads/ad.js">
-    </script>
-
-    <script src="//libtl.com/sdk.js"
-            data-zone="9379707"
-            data-sdk="show_9379707">
-    </script>
-
-
-    <!-- =====================================================
-         GOOGLE
-    ====================================================== -->
-
-    <script async
-            src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF">
-    </script>
-
-    <script src="../../js/headerScript.js" defer></script>
-
-    <script src="../../js/googletrackingid.js"></script>
-
-
-    <!-- =====================================================
-         CSS
-    ====================================================== -->
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-
-        /* =================================================
-           RESET
-        ================================================= */
-
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
+        :root {
+            --bg: #0f172a;
+            --card: #111827;
+            --card-2: #172033;
+            --border: rgba(255,255,255,.10);
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --blue: #3b82f6;
+            --green: #22c55e;
+            --yellow: #facc15;
+            --red: #ef4444;
         }
 
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
         html {
             width: 100%;
             min-height: 100%;
-            margin: 0;
-            padding: 0;
+            scroll-behavior: auto;
         }
 
-
         body {
+            margin: 0;
+            padding: 0;
             width: 100%;
             min-height: 100vh;
 
-            margin: 0;
-            padding: 0;
+            background:
+                radial-gradient(
+                    circle at top,
+                    #172554 0%,
+                    var(--bg) 42%,
+                    #020617 100%
+                );
 
-            background: #ffffff;
-
-            color: #0f172a;
-
-            font-family:
-                'Outfit',
-                Arial,
-                Helvetica,
-                sans-serif;
-
+            color: var(--text);
+            font-family: "Outfit", sans-serif;
             overflow-x: hidden;
         }
 
-
-        img {
-            max-width: 100%;
-        }
-
-
-        button,
-        input {
+        button {
             font-family: inherit;
         }
 
-
-        a {
-            color: inherit;
-        }
-
-
-        /* =================================================
-           ROOT
-        ================================================= */
-
-        :root {
-
-            --text-main: #0f172a;
-
-            --text-muted: #475569;
-
-            --accent: #ff0000;
-
-            --border: #e2e8f0;
-
-            --light-bg: #f8fafc;
-
-            --card-bg: #ffffff;
-
-        }
-
-
-        /* =================================================
-           MAIN
-        ================================================= */
-
-        main {
-
+        .page {
             width: 100%;
-
-            max-width: 1024px;
-
+            max-width: 1200px;
             margin: 0 auto;
-
-            padding:
-                0
-                20px
-                40px;
-
-            flex: 1;
-
+            padding: 14px;
         }
 
-
-        h1 {
-
-            margin:
-                0
-                0
-                8px;
-
-            font-size: 36px;
-
-            font-weight: 700;
-
-            color: var(--text-main);
-
-            text-align: center;
-
-        }
-
-
-        h2 {
-
-            margin:
-                28px
-                0
-                10px;
-
-            font-size: 20px;
-
-            font-weight: 700;
-
-            color: var(--text-main);
-
-        }
-
-
-        p.subtitle {
-
-            color: var(--text-muted);
-
-            margin:
-                0
-                0
-                20px;
-
-            font-size: 15px;
-
-            font-weight: 300;
-
-            text-align: center;
-
-        }
-
-
-        /* =================================================
-           GENERAL ADS
-        ================================================= */
-
-        .ads {
-
-            width: 100%;
-
-            text-align: center;
-
-            overflow: hidden;
-
-        }
-
+        /* =========================
+           ADS
+        ========================= */
 
         .ads-container {
-
             width: 100%;
-
             display: flex;
-
-            justify-content: center;
-
+            flex-direction: column;
             align-items: center;
-
-            flex-wrap: wrap;
-
-            gap: 4px;
-
-            padding:
-                10px
-                0;
-
-            overflow: hidden;
-
+            gap: 10px;
+            margin-bottom: 14px;
         }
 
+        .ad-box {
+            width: 100%;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 12px;
+        }
 
-        .ads-box {
+        /* =========================
+           TIMER GATE
+        ========================= */
 
-            flex:
-                0 0 auto;
+        .gate-area {
+            width: 100%;
+            margin: 0 0 18px 0;
 
-            max-width: 100%;
+            padding: 18px 14px 20px;
+
+            background: rgba(15, 23, 42, .96);
+            border: 1px solid var(--border);
+            border-radius: 18px;
 
             text-align: center;
 
-            overflow: hidden;
+            position: relative;
+            z-index: 10000;
 
+            isolation: isolate;
         }
 
-
-        /* =================================================
-           AD GRID
-        ================================================= */
-
-        .ad-grid {
-
+        #timerSection {
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-            max-width: 1364px;
+        #timer {
+            width: 90px;
+            height: 90px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 12px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #2563eb,
+                    #1d4ed8
+                );
+
+            border: 4px solid rgba(255,255,255,.12);
+
+            box-shadow:
+                0 10px 30px rgba(37,99,235,.30);
+
+            font-size: 34px;
+            font-weight: 800;
+
+            color: #fff;
+
+            flex-shrink: 0;
+        }
+
+        #statusText {
+            width: 100%;
+            max-width: 600px;
 
             margin: 0 auto;
 
-            padding:
-                0
-                15px;
+            color: var(--muted);
 
-            display: grid;
-
-            grid-template-columns:
-                auto
-                minmax(0, 1fr)
-                auto;
-
-            grid-template-rows:
-                auto
-                auto
-                auto;
-
-            grid-template-areas:
-
-                "top top top"
-
-                "left main right"
-
-                "bottom bottom bottom";
-
-        }
-
-
-        /* =================================================
-           TOP AD AREA
-        ================================================= */
-
-        #top-ad-area {
-
-            grid-area: top;
-
-            width: 100%;
+            font-size: 15px;
+            line-height: 1.55;
 
             text-align: center;
-
-            padding:
-                8px
-                0;
-
-            background: #fafafa;
-
-            border-bottom:
-                1px solid
-                var(--border);
-
         }
 
-
-        /* =================================================
-           LEFT AD
-        ================================================= */
-
-        #left-ad-area {
-
-            grid-area: left;
-
-            width: 100%;
-
-            background:
-                #f8fafc;
-
-            border-right:
-                1px solid
-                var(--border);
-
-            display: flex;
-
-            align-items:
-                flex-start;
-
-            justify-content:
-                center;
-
-            padding: 10px;
-
-            position: sticky;
-
-            top: 10px;
-
-            align-self:
-                start;
-
-        }
-
-
-        /* =================================================
-           RIGHT AD
-        ================================================= */
-
-        #right-ad-area {
-
-            grid-area: right;
-
-            width: 100%;
-
-            background:
-                #f8fafc;
-
-            border-left:
-                1px solid
-                var(--border);
-
-            display: flex;
-
-            align-items:
-                flex-start;
-
-            justify-content:
-                center;
-
-            padding: 10px;
-
-            position: sticky;
-
-            top: 10px;
-
-            align-self:
-                start;
-
-        }
-
-
-        /* =================================================
-           BOTTOM AD
-        ================================================= */
-
-        #bottom-ad-area {
-
-            grid-area: bottom;
-
-            width: 100%;
-
-            text-align: center;
-
-            padding:
-                8px
-                0;
-
-            background:
-                #fafafa;
-
-            border-top:
-                1px solid
-                var(--border);
-
-        }
-
-
-        /* =================================================
-           AD PLACEHOLDER
-        ================================================= */
-
-        .ad-placeholder {
-
-            width: 100%;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            font-family: Arial, sans-serif;
-
-        }
-
-
-        .ad-unit {
-
-            background:
-                #f1f5f9;
-
-            border:
-                1px dashed
-                #cbd5e1;
-
-            border-radius: 6px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            color:
-                #94a3b8;
-
-            font-size: 11px;
-
-            overflow: hidden;
-
-        }
-
-
-        .ad-unit-leader {
-
-            width: 100%;
-
-            max-width: 970px;
-
-            min-height: 90px;
-
-        }
-
-
-        .ad-unit-box {
-
-            width: 160px;
-
-            min-height: 300px;
-
-        }
-
-
-        /* =================================================
-           TOOL GRID
-        ================================================= */
-
-        .grid {
-
-            width: 100%;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fill,
-                    minmax(
-                        150px,
-                        1fr
-                    )
-                );
-
-            gap: 12px;
-
-            margin:
-                12px
-                0
-                24px;
-
-        }
-
-
-        .grid a {
-
-            text-decoration:
-                none;
-
-            color:
-                inherit;
-
-            min-width: 0;
-
-        }
-
-
-        .bcard {
-
-            width: 100%;
-
-            min-height: 120px;
-
-            background:
-                var(--card-bg);
-
-            border:
-                1px solid
-                var(--border);
-
-            border-radius: 12px;
-
-            padding:
-                16px
-                10px;
-
-            text-align:
-                center;
-
-            transition:
-                all .2s ease;
-
-        }
-
-
-        .bcard:hover {
-
-            border-color:
-                var(--accent);
-
-            box-shadow:
-                0 4px 12px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    .08
-                );
-
-            transform:
-                translateY(-2px);
-
-        }
-
-
-        .bcard img {
-
-            width: 48px;
-
-            height: 48px;
-
-            object-fit:
-                contain;
-
-            margin-bottom:
-                8px;
-
-            border-radius:
-                6px;
-
-        }
-
-
-        .bcard h3 {
-
-            margin: 0;
-
-            font-size: 13px;
-
-            font-weight: 600;
-
-            color:
-                var(--text-main);
-
-            line-height: 1.3;
-
-        }
-
-
-        /* =================================================
-           TIMER AREA
-        ================================================= */
-
-        #timerSection {
-
-            width: 100%;
-
-            max-width: 400px;
-
-            margin:
-                0 auto;
-
-            display:
-                block;
-
-            text-align:
-                center;
-
-        }
-
-
-        .timer-card {
-
-            width: 100%;
-
-            padding:
-                12px;
-
-            background:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.04
-                );
-
-        }
-
-
-        #timer {
-
-            display: block;
-
-            margin:
-                0
-                0
-                12px;
-
-            font-size: 30px;
-
-            font-weight: 700;
-
-            line-height: 1;
-
-            color:
-                #2563eb;
-
-            text-align:
-                center;
-
-        }
-
-
-        /* =================================================
-           TIMER STATUS
-        ================================================= */
-
-        #statusText {
-
-            width: 100%;
-
-            padding:
-                13px;
-
-            border-radius:
-                12px;
-
-            background:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    .05
-                );
-
-            border:
-                1px solid
-                rgba(
-                    15,
-                    23,
-                    42,
-                    .08
-                );
-
-            color:
-                #111827;
-
-            font-size:
-                14px;
-
-            font-weight:
-                600;
-
-            line-height:
-                1.45;
-
-            text-align:
-                center;
-
-            word-wrap:
-                break-word;
-
-        }
-
-
-        /* =================================================
+        /* =========================
            VERIFY SECTION
-        ================================================= */
+        ========================= */
 
         #verifySection {
+            width: 100%;
 
-            position:
-                relative;
+            display: none;
 
-            z-index:
-                999999;
+            margin-top: 16px;
+            padding-top: 16px;
 
-            width:
-                100%;
+            border-top: 1px solid rgba(255,255,255,.08);
 
-            max-width:
-                500px;
+            position: relative;
+            z-index: 10001;
 
-            margin:
-                20px auto
-                40px;
-
-            padding:
-                15px;
-
-            display:
-                block;
-
-            visibility:
-                visible;
-
-            opacity:
-                1;
-
-            background:
-                #ffffff;
-
-            text-align:
-                center;
-
-            overflow:
-                visible;
-
+            text-align: center;
         }
-
-
-        /* =================================================
-           VERIFY MESSAGE
-        ================================================= */
 
         #verifyStatus {
+            width: 100%;
+            max-width: 650px;
 
-            width:
-                100%;
+            margin: 0 auto 14px;
 
-            padding:
-                13px;
+            color: var(--green);
 
-            margin:
-                0
-                0
-                15px;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.5;
 
-            border-radius:
-                12px;
-
-            background:
-                #f8fafc;
-
-            border:
-                1px solid
-                #e2e8f0;
-
-            color:
-                #111827;
-
-            font-size:
-                14px;
-
-            font-weight:
-                600;
-
-            line-height:
-                1.45;
-
-            text-align:
-                center;
-
-            word-wrap:
-                break-word;
-
+            text-align: center;
         }
-
-
-        /* =================================================
-           VERIFY BUTTON BOX
-        ================================================= */
-
-        #verifyButtonBox {
-
-            width:
-                100%;
-
-            display:
-                block;
-
-            position:
-                relative;
-
-            z-index:
-                1000000;
-
-            overflow:
-                visible;
-
-        }
-
-
-        /* =================================================
-           VERIFY BUTTON
-        ================================================= */
 
         #downloadBtn {
+            width: 100%;
+            max-width: 420px;
 
-            width:
-                100% !important;
+            min-height: 52px;
 
-            min-height:
-                52px;
+            border: 0;
+            border-radius: 14px;
 
-            padding:
-                15px
-                18px;
-
-            margin:
-                0;
-
-            border:
-                none;
-
-            border-radius:
-                14px;
-
-            font-size:
-                15px;
-
-            font-weight:
-                700;
-
-            line-height:
-                1.2;
-
-            color:
-                #ffffff;
+            padding: 13px 18px;
 
             background:
                 linear-gradient(
                     135deg,
                     #22c55e,
-                    #0ea5e9
+                    #16a34a
                 );
 
-            cursor:
-                pointer;
+            color: #fff;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            cursor: pointer;
 
             box-shadow:
-                0 10px 30px
-                rgba(
-                    14,
-                    165,
-                    233,
-                    .18
-                );
+                0 8px 24px rgba(34,197,94,.25);
 
             transition:
                 transform .15s ease,
                 opacity .15s ease;
-
-            display:
-                none;
-
-            visibility:
-                hidden;
-
-            opacity:
-                0;
-
-            position:
-                relative;
-
-            z-index:
-                1000001;
-
-            -webkit-appearance:
-                none;
-
-            appearance:
-                none;
-
         }
-
-
-        #downloadBtn:hover {
-
-            transform:
-                translateY(-1px);
-
-        }
-
 
         #downloadBtn:active {
-
-            transform:
-                scale(.98);
-
+            transform: scale(.97);
         }
-
 
         #downloadBtn:disabled {
-
-            cursor:
-                not-allowed;
-
+            opacity: .65;
+            cursor: not-allowed;
         }
-
-
-        /* =================================================
-           BELOW BUTTON TEXT
-        ================================================= */
 
         #belowButtonText {
+            width: 100%;
+            max-width: 500px;
 
-            width:
-                100%;
+            margin: 12px auto 0;
 
-            margin:
-                10px
-                0
-                0;
+            color: var(--muted);
 
-            padding:
-                0
-                5px;
+            font-size: 13px;
+            line-height: 1.5;
 
-            display:
-                none;
-
-            visibility:
-                hidden;
-
-            opacity:
-                0;
-
-            color:
-                #64748b;
-
-            font-size:
-                12px;
-
-            font-weight:
-                500;
-
-            line-height:
-                1.4;
-
-            text-align:
-                center;
-
+            text-align: center;
         }
 
+        /* =========================
+           MAIN CONTENT
+        ========================= */
 
-        /* =================================================
-           TOAST
-        ================================================= */
+        .content-grid {
+            width: 100%;
 
-        #toast {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
 
-            position:
-                fixed;
+            gap: 16px;
+        }
 
-            left:
-                50%;
+        .main-content {
+            width: 100%;
+            min-width: 0;
+        }
 
-            bottom:
-                40px;
+        .side-content {
+            width: 100%;
+        }
 
-            transform:
-                translate(
-                    -50%,
-                    100px
-                );
+        .section-title {
+            margin: 0 0 12px;
+
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .tools-grid {
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 10px;
+        }
+
+        .tool-card {
+            min-width: 0;
+
+            padding: 14px;
+
+            border-radius: 15px;
 
             background:
-                #14532d;
-
-            border:
-                1px solid
-                #16a34a;
-
-            color:
-                #f0fdf4;
-
-            padding:
-                14px
-                20px;
-
-            border-radius:
-                14px;
-
-            font-size:
-                14px;
-
-            font-weight:
-                600;
-
-            box-shadow:
-                0 12px 32px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    .4
+                linear-gradient(
+                    145deg,
+                    rgba(30,41,59,.96),
+                    rgba(15,23,42,.96)
                 );
 
-            display:
-                flex;
+            border: 1px solid var(--border);
 
-            align-items:
-                center;
-
-            gap:
-                10px;
+            text-decoration: none;
+            color: var(--text);
 
             transition:
-                transform .35s ease;
-
-            z-index:
-                9999999;
-
-            max-width:
-                90%;
-
-            text-align:
-                center;
-
+                transform .15s ease,
+                border-color .15s ease;
         }
 
-
-        /* =================================================
-           TABLET
-        ================================================= */
-
-        @media (max-width: 1100px) {
-
-            #left-ad-area,
-            #right-ad-area {
-
-                display:
-                    none !important;
-
-            }
-
-
-            .ad-grid {
-
-                grid-template-columns:
-                    minmax(
-                        0,
-                        1fr
-                    );
-
-                grid-template-areas:
-
-                    "top"
-
-                    "main"
-
-                    "bottom";
-
-                padding:
-                    0;
-
-            }
-
+        .tool-card:active {
+            transform: scale(.97);
         }
 
-
-        /* =================================================
-           TABLET
-        ================================================= */
-
-        @media (max-width: 768px) {
-
-            main {
-
-                padding:
-                    0
-                    15px
-                    35px;
-
-            }
-
-
-            .ad-unit-leader {
-
-                max-width:
-                    468px;
-
-                min-height:
-                    60px;
-
-            }
-
-
-            .grid {
-
-                grid-template-columns:
-                    repeat(
-                        2,
-                        minmax(
-                            0,
-                            1fr
-                        )
-                    );
-
-                gap:
-                    10px;
-
-            }
-
-
-            .bcard {
-
-                padding:
-                    14px
-                    8px;
-
-            }
-
-
-            .bcard h3 {
-
-                font-size:
-                    12px;
-
-            }
-
-
-            #verifySection {
-
-                max-width:
-                    500px;
-
-                margin:
-                    15px auto
-                    30px;
-
-            }
-
+        .tool-icon {
+            font-size: 25px;
+            margin-bottom: 7px;
         }
 
+        .tool-title {
+            font-size: 14px;
+            font-weight: 700;
+        }
 
-        /* =================================================
-           MOBILE
-        ================================================= */
+        .tool-description {
+            margin-top: 3px;
 
-        @media (max-width: 600px) {
+            color: var(--muted);
 
-            body {
+            font-size: 11px;
+            line-height: 1.4;
+        }
 
-                overflow-x:
-                    hidden;
+        /* =========================
+           AD GRID
+        ========================= */
 
+        .ad-section {
+            width: 100%;
+            margin-top: 18px;
+        }
+
+        .ad-section-title {
+            margin-bottom: 10px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+            font-weight: 600;
+
+            text-align: center;
+        }
+
+        .ad-unit {
+            width: 100%;
+            min-height: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            border-radius: 12px;
+        }
+
+        /* =========================
+           DESKTOP
+        ========================= */
+
+        @media (min-width: 768px) {
+
+            .page {
+                padding: 20px;
             }
 
-
-            main {
-
-                width:
-                    100%;
-
-                padding:
-                    0
-                    10px
-                    30px;
-
-            }
-
-
-            .ads-container {
-
-                width:
-                    100%;
-
-                flex-direction:
-                    column;
-
-                flex-wrap:
-                    nowrap;
-
-                gap:
-                    6px;
-
-                overflow:
-                    hidden;
-
-            }
-
-
-            .ads-box {
-
-                width:
-                    100%;
-
-                max-width:
-                    100%;
-
-                overflow:
-                    hidden;
-
-            }
-
-
-            .ad-unit-leader {
-
-                width:
-                    100%;
-
-                max-width:
-                    320px;
-
-                min-height:
-                    50px;
-
-            }
-
-
-            .grid {
-
-                width:
-                    100%;
-
+            .content-grid {
                 grid-template-columns:
-                    repeat(
-                        2,
-                        minmax(
-                            0,
-                            1fr
-                        )
-                    );
-
-                gap:
-                    8px;
-
+                    minmax(0, 1fr)
+                    300px;
             }
 
-
-            .bcard {
-
-                min-height:
-                    110px;
-
-                padding:
-                    13px
-                    6px;
-
-                border-radius:
-                    10px;
-
+            .tools-grid {
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
             }
 
-
-            .bcard img {
-
-                width:
-                    44px;
-
-                height:
-                    44px;
-
+            .gate-area {
+                padding: 22px;
             }
-
-
-            .bcard h3 {
-
-                font-size:
-                    11px;
-
-                line-height:
-                    1.3;
-
-            }
-
-
-            h2 {
-
-                margin:
-                    22px
-                    0
-                    9px;
-
-                font-size:
-                    18px;
-
-            }
-
-
-            #top-ad-area {
-
-                padding:
-                    5px
-                    0;
-
-            }
-
-
-            #timerSection {
-
-                width:
-                    100%;
-
-                max-width:
-                    360px;
-
-            }
-
 
             #timer {
+                width: 100px;
+                height: 100px;
+                font-size: 38px;
+            }
+        }
 
-                font-size:
-                    28px;
+        /* =========================
+           MOBILE
+        ========================= */
 
-                margin-bottom:
-                    10px;
+        @media (max-width: 480px) {
 
+            .page {
+                padding: 10px;
             }
 
+            .gate-area {
+                padding: 16px 12px 18px;
+                border-radius: 16px;
+            }
+
+            #timer {
+                width: 78px;
+                height: 78px;
+
+                margin-bottom: 10px;
+
+                font-size: 29px;
+            }
 
             #statusText {
-
-                font-size:
-                    13px;
-
-                padding:
-                    12px;
-
+                font-size: 14px;
             }
-
-
-            /* =========================================
-               IMPORTANT MOBILE VERIFY FIX
-            ========================================= */
 
             #verifySection {
-
-                position:
-                    relative;
-
-                z-index:
-                    999999;
-
-                width:
-                    100%;
-
-                max-width:
-                    none;
-
-                margin:
-                    15px 0
-                    30px;
-
-                padding:
-                    15px
-                    12px
-                    30px;
-
-                display:
-                    block;
-
-                visibility:
-                    visible;
-
-                opacity:
-                    1;
-
-                background:
-                    #ffffff;
-
-                overflow:
-                    visible;
-
+                margin-top: 14px;
+                padding-top: 14px;
             }
-
 
             #verifyStatus {
-
-                width:
-                    100%;
-
-                font-size:
-                    13px;
-
-                padding:
-                    12px;
-
-                margin-bottom:
-                    14px;
-
+                font-size: 15px;
+                margin-bottom: 12px;
             }
-
-
-            #verifyButtonBox {
-
-                width:
-                    100%;
-
-                display:
-                    block;
-
-                position:
-                    relative;
-
-                z-index:
-                    1000000;
-
-                overflow:
-                    visible;
-
-            }
-
 
             #downloadBtn {
+                width: 100%;
+                min-height: 50px;
 
-                width:
-                    100% !important;
-
-                min-height:
-                    52px;
-
-                padding:
-                    14px
-                    12px;
-
-                font-size:
-                    14px;
-
-                border-radius:
-                    13px;
-
+                font-size: 15px;
+                border-radius: 13px;
             }
-
 
             #belowButtonText {
-
-                width:
-                    100%;
-
-                font-size:
-                    12px;
-
-                margin-top:
-                    9px;
-
+                font-size: 12px;
+                margin-top: 10px;
             }
 
+            .tools-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
 
-            #toast {
-
-                bottom:
-                    20px;
-
-                max-width:
-                    92%;
-
-                padding:
-                    12px
-                    15px;
-
-                font-size:
-                    13px;
-
+                gap: 8px;
             }
 
+            .tool-card {
+                padding: 12px;
+            }
+
+            .tool-icon {
+                font-size: 22px;
+            }
+
+            .tool-title {
+                font-size: 13px;
+            }
         }
 
+        /* Very small phones */
 
-        /* =================================================
-           SMALL MOBILE
-        ================================================= */
+        @media (max-width: 340px) {
 
-        @media (max-width: 380px) {
-
-            main {
-
-                padding-left:
-                    8px;
-
-                padding-right:
-                    8px;
-
+            .tools-grid {
+                grid-template-columns: 1fr;
             }
 
-
-            .grid {
-
-                gap:
-                    7px;
-
+            #timer {
+                width: 72px;
+                height: 72px;
+                font-size: 27px;
             }
-
-
-            .bcard {
-
-                min-height:
-                    105px;
-
-                padding:
-                    11px
-                    5px;
-
-            }
-
-
-            .bcard img {
-
-                width:
-                    40px;
-
-                height:
-                    40px;
-
-            }
-
-
-            .bcard h3 {
-
-                font-size:
-                    10px;
-
-            }
-
-
-            #verifySection {
-
-                padding:
-                    12px
-                    8px
-                    25px;
-
-            }
-
 
             #downloadBtn {
-
-                min-height:
-                    50px;
-
-                font-size:
-                    13px;
-
+                font-size: 14px;
             }
-
         }
-
     </style>
+
+    <!-- Telegram WebApp -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <!-- AdMolo -->
+    <script src="https://cdn.admolo.com/assets/ads/ad.js"></script>
+
+    <!-- libtl -->
+    <script src="//libtl.com/sdk.js"
+            data-zone="9379707"
+            data-sdk="show_9379707">
+    </script>
+
+    <!-- Google -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    </script>
 
 </head>
 
-
 <body>
 
+<div class="page">
 
-<!-- =====================================================
-     TOP ADS
-====================================================== -->
-
-<div class="ads">
+    <!-- =====================================================
+         TOP ADS
+    ====================================================== -->
 
     <div class="ads-container">
 
-
-        <!-- FIRST AD -->
-
-        <div class="ads-box">
-
-            <script type="text/javascript">
-
-                atOptions = {
-
-                    'key':
-                        '3353fc740693589865911ed5c4e259c1',
-
-                    'format':
-                        'iframe',
-
-                    'height':
-                        60,
-
-                    'width':
-                        468,
-
-                    'params':
-                        {}
-
-                };
-
-            </script>
-
-            <script type="text/javascript"
-                    src="//www.highperformanceformat.com/3353fc740693589865911ed5c4e259c1/invoke.js">
-            </script>
-
+        <div class="ad-box">
+            <!-- TOP AD CODE -->
         </div>
 
-
-        <!-- SECOND AD -->
-
-        <div class="ads-box">
-
-            <script type="text/javascript">
-
-                atOptions = {
-
-                    'key':
-                        'b522989fcf5cdf1fbc5167845934a0a9',
-
-                    'format':
-                        'iframe',
-
-                    'height':
-                        50,
-
-                    'width':
-                        320,
-
-                    'params':
-                        {}
-
-                };
-
-            </script>
-
-            <script type="text/javascript"
-                    src="//www.highperformanceformat.com/b522989fcf5cdf1fbc5167845934a0a9/invoke.js">
-            </script>
-
+        <div class="ad-box">
+            <!-- SECOND TOP AD CODE -->
         </div>
 
     </div>
-
-</div>
-
-
-<!-- =====================================================
-     AD GRID
-====================================================== -->
-
-<div class="ad-grid">
-
-
-    <!-- =================================================
-         TOP
-    ================================================== -->
-
-    <div id="top-ad-area">
-
-        <div class="ad-placeholder">
-
-            <div class="ad-unit ad-unit-leader">
-
-
-                <!-- TIMER -->
-
-                <div id="timerSection">
-
-                    <div class="timer-card">
-
-                        <div id="timer">
-                            30
-                        </div>
-
-                        <div id="statusText">
-                            🔒 Please wait while the timer counts down.
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- =================================================
-         LEFT
-    ================================================== -->
-
-    <div id="left-ad-area">
-
-        <div class="ad-placeholder">
-
-            <div class="ad-unit ad-unit-box">
-
-                <script>
-
-                    atOptions = {
-
-                        'key':
-                            'f52693494bde000182223aeddd8d7b4b',
-
-                        'format':
-                            'iframe',
-
-                        'height':
-                            600,
-
-                        'width':
-                            160,
-
-                        'params':
-                            {}
-
-                    };
-
-                </script>
-
-                <script src="https://www.highperformanceformat.com/f52693494bde000182223aeddd8d7b4b/invoke.js">
-                </script>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- =================================================
-         MAIN
-    ================================================== -->
-
-    <main>
-
-
-        <!-- MAIN AD -->
-
-        <div class="ads">
-
-            <div class="ads-container">
-
-                <div class="ads-box">
-
-                    <script async
-                            data-cfasync="false"
-                            src="https://pl25250725.effectivecpmnetwork.com/2c5610f6e714632e87626d65ca558bbd/invoke.js">
-                    </script>
-
-                    <div id="container-2c5610f6e714632e87626d65ca558bbd">
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
-             UNIT CONVERTER
-        ================================================== -->
-
-        <h2>
-            Unit Converter Tools
-        </h2>
-
-
-        <div class="grid">
-
-
-            <a href="../../unit-converter/illuminance-converter/">
-                <div class="bcard">
-                    <img src="../../images/illuminance-converter.webp"
-                         alt="Illuminance Converter">
-                    <h3>Illuminance Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/torque-converter/">
-                <div class="bcard">
-                    <img src="../../images/torque-converter.webp"
-                         alt="Torque Converter">
-                    <h3>Torque Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/flow-converter/">
-                <div class="bcard">
-                    <img src="../../images/flow-converter.webp"
-                         alt="Flow Converter">
-                    <h3>Flow Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/force-converter/">
-                <div class="bcard">
-                    <img src="../../images/force-converter.webp"
-                         alt="Force Converter">
-                    <h3>Force Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/frequency-converter/">
-                <div class="bcard">
-                    <img src="../../images/frequency-converter.webp"
-                         alt="Frequency Converter">
-                    <h3>Frequency Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/data-transfer-rate-converter/">
-                <div class="bcard">
-                    <img src="../../images/data-transfer-rate-converter.webp"
-                         alt="Data Transfer Rate Converter">
-                    <h3>Data Transfer Rate Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/angle-converter/">
-                <div class="bcard">
-                    <img src="../../images/angle-converter.webp"
-                         alt="Angle Converter">
-                    <h3>Angle Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/density-converter/">
-                <div class="bcard">
-                    <img src="../../images/density-converter.webp"
-                         alt="Density Converter">
-                    <h3>Density Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/fuel-consumption-converter/">
-                <div class="bcard">
-                    <img src="../../images/fuel-consumption-converter.webp"
-                         alt="Fuel Consumption Converter">
-                    <h3>Fuel Consumption Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/internet-data-converter/">
-                <div class="bcard">
-                    <img src="../../images/internet-data-converter.webp"
-                         alt="Internet Data Converter">
-                    <h3>Internet Data Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/pressure-converter/">
-                <div class="bcard">
-                    <img src="../../images/pressure-converter.webp"
-                         alt="Pressure Converter">
-                    <h3>Pressure Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/power-converter/">
-                <div class="bcard">
-                    <img src="../../images/power-converter.webp"
-                         alt="Power Converter">
-                    <h3>Power Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/speed-converter/">
-                <div class="bcard">
-                    <img src="../../images/speed-converter.webp"
-                         alt="Speed Converter">
-                    <h3>Speed Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/energy-converter/">
-                <div class="bcard">
-                    <img src="../../images/energy-converter.webp"
-                         alt="Energy Converter">
-                    <h3>Energy Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/time-converter/">
-                <div class="bcard">
-                    <img src="../../images/time-converter.webp"
-                         alt="Time Converter">
-                    <h3>Time Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/volume-converter/">
-                <div class="bcard">
-                    <img src="../../images/volume-converter.webp"
-                         alt="Volume Converter">
-                    <h3>Volume Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/area-converter/">
-                <div class="bcard">
-                    <img src="../../images/area-converter.webp"
-                         alt="Area Converter">
-                    <h3>Area Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/weight-mass-converter/">
-                <div class="bcard">
-                    <img src="../../images/weight-mass-converter.webp"
-                         alt="Weight/Mass Converter">
-                    <h3>Weight/Mass Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/temperature-converter/">
-                <div class="bcard">
-                    <img src="../../images/temperature-converter.webp"
-                         alt="Temperature Converter">
-                    <h3>Temperature Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../unit-converter/length-distance-converter/">
-                <div class="bcard">
-                    <img src="../../images/length-distance-converter.webp"
-                         alt="Length/Distance Converter">
-                    <h3>Length/Distance Converter</h3>
-                </div>
-            </a>
-
-        </div>
-
-
-        <!-- =================================================
-             ADS
-        ================================================== -->
-
-        <div class="ads">
-
-            <div class="ads-container">
-
-
-                <div class="ads-box">
-
-                    <div class="admoloBanner"
-                         data-publisher="eyJpdiI6Ikczc3o0emtYLzMvSWcyN3l5QUlpcGc9PSIsInZhbHVlIjoiaGswSXV0aFRUb1MxRkQvQjdTZzFNdz09IiwibWFjIjoiMzY3ODM5OGU4YTRkZWQyOGNmZmI3ZDhlYWU3MjVlZTcyNjVkMTViOTc1NmFiNjJiOTU3ZjQ4MDNiNDliMzRhNyIsInRhZyI6IiJ9"
-                         data-adsize="300x300">
-                    </div>
-
-                </div>
-
-
-                <div class="ads-box">
-
-                    <div class="admoloBanner"
-                         data-publisher="eyJpdiI6InZMazRNekRxc2FReUM4UE0wNDQ4N2c9PSIsInZhbHVlIjoicWZycTVMSnZ1YzhDN2lWeUE3QmtPdz09IiwibWFjIjoiZGI5YzA2ZTNhNTM5YjE2MzYyNzY1MTE2MDM1MGIyNDEyN2M3MGQyNDI2YzYzYWMzYjRkYWI4OWI5ZjBjOWY2YiIsInRhZyI6IiJ9"
-                         data-adsize="320x180">
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
-             CALCULATOR TOOLS
-        ================================================== -->
-
-        <h2>
-            All Types Calculator Tools
-        </h2>
-
-
-        <div class="grid">
-
-
-            <a href="../../calculator-tool/currency-converter/">
-                <div class="bcard">
-                    <img src="../../images/currency-converter.webp"
-                         alt="Currency Converter">
-                    <h3>Currency Calculator</h3>
-                </div>
-            </a>
-
-
-            <a href="../../calculator-tool/gst-calculator/">
-                <div class="bcard">
-                    <img src="../../images/gst-calculator.webp"
-                         alt="GST Calculator">
-                    <h3>GST Calculator</h3>
-                </div>
-            </a>
-
-
-            <a href="../../calculator-tool/bmi-calculator/">
-                <div class="bcard">
-                    <img src="../../images/bmi-calculator.webp"
-                         alt="BMI Calculator">
-                    <h3>BMI Calculator</h3>
-                </div>
-            </a>
-
-
-            <a href="../../calculator-tool/loan-emi-calculator/">
-                <div class="bcard">
-                    <img src="../../images/loan-emi-calculator.webp"
-                         alt="Loan EMI Calculator">
-                    <h3>Loan EMI Calculator</h3>
-                </div>
-            </a>
-
-
-            <a href="../../calculator-tool/age-calculator/">
-                <div class="bcard">
-                    <img src="../../images/age-calculator.webp"
-                         alt="Age Calculator">
-                    <h3>Age Calculator</h3>
-                </div>
-            </a>
-
-
-            <a href="../../calculator-tool/unit-converter/">
-                <div class="bcard">
-                    <img src="../../images/unit-converter.webp"
-                         alt="Unit Converter">
-                    <h3>Unit Converter</h3>
-                </div>
-            </a>
-
-
-            <a href="../../calculator-tool/date-duration-calculator/">
-                <div class="bcard">
-                    <img src="../../images/date-duration-calculator.webp"
-                         alt="Date and Duration Calculator">
-                    <h3>Date &amp; Duration</h3>
-                </div>
-            </a>
-
-
-            <a href="../../calculator-tool/gpa-cgpa-calculator/">
-                <div class="bcard">
-                    <img src="../../images/gpa-cgpa-calculator.webp"
-                         alt="GPA CGPA Calculator">
-                    <h3>GPA &amp; CGPA Calculator</h3>
-                </div>
-            </a>
-
-
-            <a href="../../calculator-tool/discount-calculator/">
-                <div class="bcard">
-                    <img src="../../images/discount-calculator.webp"
-                         alt="Discount Calculator">
-                    <h3>Discount Calculator</h3>
-                </div>
-            </a>
-
-
-            <a href="../../calculator-tool/base-converter/">
-                <div class="bcard">
-                    <img src="../../images/base-converter.webp"
-                         alt="Base Converter">
-                    <h3>Binary Decimal Hex</h3>
-                </div>
-            </a>
-
-
-            <a href="../../calculator-tool/percentage-calculator/">
-                <div class="bcard">
-                    <img src="../../images/percentage-calculator.webp"
-                         alt="Percentage Calculator">
-                    <h3>Percentage Calculator</h3>
-                </div>
-            </a>
-
-
-            <a href="../../calculator-tool/compound-interest-calculator/">
-                <div class="bcard">
-                    <img src="../../images/compound-interest-calculator.webp"
-                         alt="Compound Interest Calculator">
-                    <h3>Compound Interest</h3>
-                </div>
-            </a>
-
-        </div>
-
-
-        <!-- =================================================
-             IMAGE TOOLS
-        ================================================== -->
-
-        <h2>
-            Image Tools
-        </h2>
-
-
-        <div class="grid">
-
-
-            <a href="../../image-tool/image-background-remover/">
-                <div class="bcard">
-                    <img src="../../images/image-background-remover.webp"
-                         alt="Background Remover">
-                    <h3>Background Remover</h3>
-                </div>
-            </a>
-
-
-            <a href="../../image-tool/image-crop/">
-                <div class="bcard">
-                    <img src="../../images/image-crop.webp"
-                         alt="Crop Image">
-                    <h3>Image Cropper</h3>
-                </div>
-            </a>
-
-
-            <a href="../../image-tool/image-compressor/">
-                <div class="bcard">
-                    <img src="../../images/image-compressor.webp"
-                         alt="Image Compressor">
-                    <h3>Image Compressor</h3>
-                </div>
-            </a>
-
-
-            <a href="../../image-tool/image-resizer/">
-                <div class="bcard">
-                    <img src="../../images/image-resizer.webp"
-                         alt="Resize Image">
-                    <h3>Image Resizer</h3>
-                </div>
-            </a>
-
-
-            <a href="../../image-tool/passport-size-photo-generator/">
-                <div class="bcard">
-                    <img src="../../images/passport-size-photo-generator.webp"
-                         alt="Passport Photo Generator">
-                    <h3>Passport Size Photo Generator</h3>
-                </div>
-            </a>
-
-
-            <a href="../../image-tool/image-format-converter/">
-                <div class="bcard">
-                    <img src="../../images/image-format-converter.webp"
-                         alt="Image Format Converter">
-                    <h3>Image Format Converter</h3>
-                </div>
-            </a>
-
-        </div>
-
-
-        <!-- =================================================
-             PDF TOOLS
-        ================================================== -->
-
-        <h2>
-            PDF Tools
-        </h2>
-
-
-        <div class="grid">
-
-
-            <a href="../../pdf-tool/watermark-in-pdf/">
-                <div class="bcard">
-                    <img src="../../images/watermark-in-pdf.webp"
-                         alt="Watermark in PDF">
-                    <h3>Watermark in PDF</h3>
-                </div>
-            </a>
-
-
-            <a href="../../pdf-tool/compress-pdf/">
-                <div class="bcard">
-                    <img src="../../images/compress-pdf.webp"
-                         alt="Compress PDF">
-                    <h3>Compress PDF</h3>
-                </div>
-            </a>
-
-
-            <a href="../../pdf-tool/pdf-to-image/">
-                <div class="bcard">
-                    <img src="../../images/pdf-to-image.webp"
-                         alt="PDF to Images">
-                    <h3>PDF to Images</h3>
-                </div>
-            </a>
-
-
-            <a href="../../pdf-tool/merge-pdf/">
-                <div class="bcard">
-                    <img src="../../images/merge-pdf.webp"
-                         alt="Merge PDF">
-                    <h3>Merge PDF</h3>
-                </div>
-            </a>
-
-
-            <a href="../../pdf-tool/split-and-delete-pdf/">
-                <div class="bcard">
-                    <img src="../../images/split-and-delete-pdf.webp"
-                         alt="Split or Delete Pages">
-                    <h3>Split &amp; Delete Pages</h3>
-                </div>
-            </a>
-
-
-            <a href="../../pdf-tool/rotate-pdf-pages/">
-                <div class="bcard">
-                    <img src="../../images/rotate-pdf-pages.webp"
-                         alt="Rotate PDF">
-                    <h3>Rotate PDF Pages</h3>
-                </div>
-            </a>
-
-
-            <a href="../../pdf-tool/image-to-pdf/">
-                <div class="bcard">
-                    <img src="../../images/image-to-pdf.webp"
-                         alt="Image to PDF">
-                    <h3>Image to PDF</h3>
-                </div>
-            </a>
-
-
-            <a href="../../pdf-tool/text-to-pdf/">
-                <div class="bcard">
-                    <img src="../../images/text-to-pdf.webp"
-                         alt="Text to PDF">
-                    <h3>Text to PDF</h3>
-                </div>
-            </a>
-
-
-            <a href="../../pdf-tool/pdf-to-docx/">
-                <div class="bcard">
-                    <img src="../../images/pdf-to-docx.webp"
-                         alt="PDF to DOCX">
-                    <h3>PDF to Word</h3>
-                </div>
-            </a>
-
-
-            <a href="../../pdf-tool/pdf-to-pptx/">
-                <div class="bcard">
-                    <img src="../../images/pdf-to-pptx.webp"
-                         alt="PDF to PPTX">
-                    <h3>PDF to PowerPoint</h3>
-                </div>
-            </a>
-
-
-            <a href="../../pdf-tool/docx-to-pdf/">
-                <div class="bcard">
-                    <img src="../../images/docx-to-pdf.webp"
-                         alt="DOCX to PDF">
-                    <h3>DOCX to PDF</h3>
-                </div>
-            </a>
-
-
-            <a href="../../pdf-tool/csv-to-pdf/">
-                <div class="bcard">
-                    <img src="../../images/csv-to-pdf.webp"
-                         alt="CSV to PDF">
-                    <h3>CSV to PDF</h3>
-                </div>
-            </a>
-
-        </div>
-
-    </main>
 
 
     <!-- =====================================================
-         VERIFY SECTION
+         TIMER + VERIFY
          IMPORTANT:
-         OUTSIDE MAIN / AD GRID
-         SO MOBILE ADS CANNOT CLIP IT
+         Verify section is immediately below timer.
+         No automatic scrolling.
     ====================================================== -->
 
-    <section id="verifySection">
+    <section class="gate-area">
 
+        <!-- TIMER -->
 
-        <!-- Timer completion status -->
+        <div id="timerSection">
 
-        <div id="verifyStatus">
+            <div id="timer">30</div>
 
-            🔒 Please wait while the timer counts down.
+            <div id="statusText">
+                🔒 Please wait while the timer finishes...
+            </div>
 
         </div>
 
 
-        <!-- Button -->
+        <!-- VERIFY SECTION -->
 
-        <div id="verifyButtonBox">
+        <div id="verifySection">
 
-            <button id="downloadBtn"
-                    type="button"
-                    disabled>
+            <div id="verifyStatus">
+                ✅ Timer completed! Click "Verify & Download" below to continue. 👇
+            </div>
 
-                👉 ✅ Verify &amp; Download 👈
-
+            <button
+                id="downloadBtn"
+                type="button">
+                👉 ✅ Verify & Download 👈
             </button>
 
-
             <div id="belowButtonText">
-
                 ⬇️ Tap the button above to verify and download.
-
             </div>
 
         </div>
@@ -2375,320 +588,322 @@
 
 
     <!-- =====================================================
-         BOTTOM AD
+         MAIN AD
     ====================================================== -->
 
-    <div id="bottom-ad-area">
+    <div class="ad-section">
 
-        <div class="ad-placeholder">
-
-            <div class="ad-unit ad-unit-leader">
-
-
-                <script type="text/javascript">
-
-                    atOptions = {
-
-                        'key':
-                            'd989003ea8480512c7e859e4a01a08d2',
-
-                        'format':
-                            'iframe',
-
-                        'height':
-                            90,
-
-                        'width':
-                            728,
-
-                        'params':
-                            {}
-
-                    };
-
-                </script>
-
-
-                <script type="text/javascript"
-                        src="//www.highperformanceformat.com/d989003ea8480512c7e859e4a01a08d2/invoke.js">
-                </script>
-
-
-            </div>
-
+        <div class="ad-unit">
+            <!-- MAIN AD CODE -->
         </div>
 
     </div>
 
 
     <!-- =====================================================
-         RIGHT AD
+         CONTENT
     ====================================================== -->
 
-    <div id="right-ad-area">
+    <div class="content-grid">
 
-        <div class="ad-placeholder">
+        <main class="main-content">
 
-            <div class="ad-unit ad-unit-box">
+            <h2 class="section-title">
+                🛠️ Useful Tools
+            </h2>
 
+            <div class="tools-grid">
 
-                <script>
+                <a href="#" class="tool-card">
+                    <div class="tool-icon">🧮</div>
+                    <div class="tool-title">Calculator</div>
+                    <div class="tool-description">
+                        Quick calculations
+                    </div>
+                </a>
 
-                    atOptions = {
+                <a href="#" class="tool-card">
+                    <div class="tool-icon">📏</div>
+                    <div class="tool-title">Unit Converter</div>
+                    <div class="tool-description">
+                        Convert different units
+                    </div>
+                </a>
 
-                        'key':
-                            'e5ca98a26b2f5e9e3350260d41479d70',
+                <a href="#" class="tool-card">
+                    <div class="tool-icon">🖼️</div>
+                    <div class="tool-title">Image Tools</div>
+                    <div class="tool-description">
+                        Edit and convert images
+                    </div>
+                </a>
 
-                        'format':
-                            'iframe',
+                <a href="#" class="tool-card">
+                    <div class="tool-icon">📄</div>
+                    <div class="tool-title">PDF Tools</div>
+                    <div class="tool-description">
+                        Work with PDF files
+                    </div>
+                </a>
 
-                        'height':
-                            300,
+                <a href="#" class="tool-card">
+                    <div class="tool-icon">🔢</div>
+                    <div class="tool-title">Percentage</div>
+                    <div class="tool-description">
+                        Calculate percentages
+                    </div>
+                </a>
 
-                        'width':
-                            160,
-
-                        'params':
-                            {}
-
-                    };
-
-                </script>
-
-
-                <script src="https://www.highperformanceformat.com/e5ca98a26b2f5e9e3350260d41479d70/invoke.js">
-                </script>
-
+                <a href="#" class="tool-card">
+                    <div class="tool-icon">⏱️</div>
+                    <div class="tool-title">Time Converter</div>
+                    <div class="tool-description">
+                        Convert time values
+                    </div>
+                </a>
 
             </div>
 
+        </main>
+
+
+        <!-- SIDE CONTENT -->
+
+        <aside class="side-content">
+
+            <div class="ad-unit">
+                <!-- SIDE AD CODE -->
+            </div>
+
+        </aside>
+
+    </div>
+
+
+    <!-- =====================================================
+         BOTTOM ADS
+    ====================================================== -->
+
+    <div class="ad-section">
+
+        <div class="ad-unit">
+            <!-- BOTTOM AD CODE -->
         </div>
 
     </div>
 
-
-    <!-- =====================================================
-         TOAST
-    ====================================================== -->
-
-    <div id="toast">
-
-        <span id="toastIcon">
-            ✅
-        </span>
-
-        <span id="toastText"></span>
-
-    </div>
+</div>
 
 
-    <!-- =====================================================
-         ADMolo INTERSTITIAL
-    ====================================================== -->
+<script>
 
-    <div class="admoloInterstitial"
-         data-publisher="eyJpdiI6InlsOHJ6em9hc1kwbFVRaWIwWEFnWmc9PSIsInZhbHVlIjoiMUo4T2Niamh4aXMyVkN4QTZwK0oyZz09IiwibWFjIjoiNWIzNzdjYWFhNjNhZmUwMTM3ZWViNjE3ZGJlODc1MWUwNGVjZGViZTM3MmZhNGU1NmUxMzkwZjQzZTRkMDY1MyIsInRhZyI6IiJ9"
-         data-adsize="interstitial">
-    </div>
+(function () {
+
+    "use strict";
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
+    /* =====================================================
+       TELEGRAM
+    ====================================================== */
 
-    <script>
+    const tg =
+        window.Telegram &&
+        window.Telegram.WebApp
+            ? window.Telegram.WebApp
+            : null;
 
-    (function () {
-
-        'use strict';
-
-
-        /* =================================================
-           URL PARAMETERS
-        ================================================= */
-
-        const params =
-            new URLSearchParams(
-                window.location.search
-            );
-
-
-        const videoUrl =
-            params.get('url') || '';
-
-
-        const botUsername =
-            params.get('bot') ||
-            'videosaverXdownloaderBot';
-
-
-        let seconds =
-            parseInt(
-                params.get('timer') ||
-                params.get('t') ||
-                '30',
-                10
-            );
-
-
-        if (
-            isNaN(seconds) ||
-            seconds < 5
-        ) {
-
-            seconds = 30;
-
-        }
-
-
-        /* =================================================
-           TELEGRAM
-        ================================================= */
-
-        let tg = null;
-
-
+    if (tg) {
         try {
-
-            if (
-                window.Telegram &&
-                window.Telegram.WebApp
-            ) {
-
-                tg =
-                    window.Telegram.WebApp;
+            tg.ready();
+            tg.expand();
+        } catch (e) {
+            console.log("Telegram WebApp:", e);
+        }
+    }
 
 
-                tg.ready();
+    /* =====================================================
+       URL PARAMETERS
+    ====================================================== */
+
+    const params =
+        new URLSearchParams(window.location.search);
+
+    const downloadUrl =
+        params.get("url") || "";
+
+    const botUsername =
+        params.get("bot") || "";
+
+    let timerValue =
+        parseInt(
+            params.get("timer") ||
+            params.get("t") ||
+            "30",
+            10
+        );
+
+    if (
+        !Number.isFinite(timerValue) ||
+        timerValue < 1
+    ) {
+        timerValue = 30;
+    }
 
 
-                tg.expand();
+    /* =====================================================
+       ELEMENTS
+    ====================================================== */
 
-            }
+    const timer =
+        document.getElementById("timer");
 
-        } catch (error) {
+    const statusText =
+        document.getElementById("statusText");
 
-            console.log(
-                'Telegram initialization error:',
-                error
-            );
+    const verifySection =
+        document.getElementById("verifySection");
 
+    const verifyStatus =
+        document.getElementById("verifyStatus");
+
+    const downloadBtn =
+        document.getElementById("downloadBtn");
+
+    const belowButtonText =
+        document.getElementById("belowButtonText");
+
+
+    /* =====================================================
+       INITIAL STATE
+    ====================================================== */
+
+    verifySection.style.display = "none";
+
+    timer.textContent = String(timerValue);
+
+    statusText.textContent =
+        "🔒 Please wait while the timer finishes...";
+
+
+    /* =====================================================
+       TIMER
+    ====================================================== */
+
+    let remaining = timerValue;
+
+    let timerInterval = null;
+
+
+    function startTimer() {
+
+        if (timerInterval) {
+            clearInterval(timerInterval);
         }
 
+        timerInterval = setInterval(function () {
 
-        /* =================================================
-           ELEMENTS
-        ================================================= */
+            remaining--;
 
-        const timerEl =
-            document.getElementById(
-                'timer'
-            );
+            if (remaining <= 0) {
 
+                clearInterval(timerInterval);
 
-        const statusText =
-            document.getElementById(
-                'statusText'
-            );
+                timerInterval = null;
 
-
-        const verifyStatus =
-            document.getElementById(
-                'verifyStatus'
-            );
-
-
-        const downloadBtn =
-            document.getElementById(
-                'downloadBtn'
-            );
-
-
-        const belowButtonText =
-            document.getElementById(
-                'belowButtonText'
-            );
-
-
-        const toast =
-            document.getElementById(
-                'toast'
-            );
-
-
-        const toastText =
-            document.getElementById(
-                'toastText'
-            );
-
-
-        const toastIcon =
-            document.getElementById(
-                'toastIcon'
-            );
-
-
-        /* =================================================
-           TOAST
-        ================================================= */
-
-        function showToast(
-            message,
-            icon = '✅'
-        ) {
-
-            if (
-                !toast ||
-                !toastText ||
-                !toastIcon
-            ) {
+                completeTimer();
 
                 return;
-
             }
 
+            timer.textContent =
+                String(remaining);
 
-            toastIcon.textContent =
-                icon;
-
-
-            toastText.textContent =
-                message;
+        }, 1000);
+    }
 
 
-            toast.style.transform =
-                'translate(-50%, 0)';
+    /* =====================================================
+       TIMER COMPLETE
+    ====================================================== */
+
+    function completeTimer() {
+
+        /*
+         * IMPORTANT:
+         * Do NOT show 0.
+         */
+
+        timer.style.display = "none";
 
 
-            clearTimeout(
-                showToast.timer
-            );
+        /*
+         * Change waiting message
+         */
+
+        statusText.textContent =
+            "✅ Timer completed! Click \"Verify & Download\" below to continue. 👇";
+
+        statusText.style.color =
+            "#22c55e";
+
+        statusText.style.fontWeight =
+            "700";
 
 
-            showToast.timer =
-                setTimeout(
-                    function () {
+        /*
+         * Show verify section immediately
+         * below the timer.
+         */
 
-                        toast.style.transform =
-                            'translate(-50%, 100px)';
-
-                    },
-                    4000
-                );
-
-        }
+        verifySection.style.display =
+            "block";
 
 
-        /* =================================================
-           TELEGRAM VERIFY
-        ================================================= */
+        /*
+         * Make sure these are visible.
+         */
 
-        function openBotVerify() {
+        verifyStatus.style.display =
+            "block";
 
-            const payload =
-                JSON.stringify({
-                    v: 'watchads:done'
-                });
+        downloadBtn.style.display =
+            "block";
+
+        belowButtonText.style.display =
+            "block";
+
+
+        /*
+         * IMPORTANT:
+         * There is NO:
+         *
+         * scrollIntoView()
+         * window.scrollTo()
+         * window.scroll()
+         *
+         * here.
+         */
+
+    }
+
+
+    /* =====================================================
+       VERIFY & DOWNLOAD
+    ====================================================== */
+
+    downloadBtn.addEventListener(
+        "click",
+        function () {
+
+            if (downloadBtn.disabled) {
+                return;
+            }
+
+            downloadBtn.disabled = true;
+
+            downloadBtn.textContent =
+                "⏳ Verifying...";
 
 
             /*
@@ -2696,497 +911,115 @@
              */
 
             if (
-                window.Telegram &&
-                window.Telegram.WebApp &&
-                typeof
-                window.Telegram.WebApp.sendData ===
-                'function'
+                tg &&
+                typeof tg.sendData === "function"
             ) {
 
                 try {
 
-                    window.Telegram.WebApp.sendData(
-                        payload
+                    tg.sendData(
+                        JSON.stringify({
+                            v: "watchads:done",
+                            url: downloadUrl
+                        })
                     );
 
-                    return true;
-
-                } catch (error) {
-
-                    console.log(
-                        'Telegram sendData error:',
-                        error
-                    );
-
-                }
-
-            }
-
-
-            /*
-             * Telegram link
-             */
-
-            const link =
-                'https://t.me/' +
-                botUsername +
-                '?start=watchadsverify';
-
-
-            if (
-                tg &&
-                typeof tg.openTelegramLink ===
-                'function'
-            ) {
-
-                try {
-
-                    tg.openTelegramLink(
-                        link
-                    );
-
-                    return true;
-
-                } catch (error) {
-
-                    console.log(
-                        'Telegram link error:',
-                        error
-                    );
-
-                }
-
-            }
-
-
-            /*
-             * Browser fallback
-             */
-
-            try {
-
-                window.open(
-                    link,
-                    '_blank'
-                );
-
-            } catch (error) {
-
-                window.location.href =
-                    link;
-
-            }
-
-
-            return true;
-
-        }
-
-
-        /* =================================================
-           VERIFY BUTTON CLICK
-        ================================================= */
-
-        function verifyAndDownload() {
-
-
-            /*
-             * Disable button immediately
-             */
-
-            downloadBtn.disabled =
-                true;
-
-
-            downloadBtn.style.opacity =
-                '0.6';
-
-
-            /*
-             * Show toast
-             */
-
-            showToast(
-                'Verification completed. You can go back now.',
-                '⬇️'
-            );
-
-
-            /*
-             * Send verification
-             */
-
-            openBotVerify();
-
-
-            /*
-             * Close Mini App
-             */
-
-            if (
-                tg &&
-                typeof tg.close ===
-                'function'
-            ) {
-
-                setTimeout(
-                    function () {
+                    setTimeout(function () {
 
                         try {
-
                             tg.close();
-
-                        } catch (error) {
-
-                            console.log(
-                                'Telegram close error:',
-                                error
-                            );
-
+                        } catch (e) {
+                            console.log(e);
                         }
 
-                    },
-                    1200
-                );
+                    }, 1200);
 
-            }
+                    return;
 
-        }
+                } catch (error) {
 
-
-        /* =================================================
-           TIMER COMPLETED
-        ================================================= */
-
-        function completeTimer() {
-
-
-            console.log(
-                'Timer completed'
-            );
-
-
-            /*
-             * Hide timer number
-             */
-
-            timerEl.style.display =
-                'none';
-
-
-            /*
-             * Update original status
-             */
-
-            statusText.textContent =
-                '';
-
-
-            statusText.style.display =
-                'none';
-
-
-            /*
-             * Show completion message
-             * in dedicated verify section
-             */
-
-            verifyStatus.textContent =
-                '✅ Timer completed! Click "Verify & Download" below to continue. 👇';
-
-
-            verifyStatus.style.color =
-                '#15803d';
-
-
-            verifyStatus.style.borderColor =
-                'rgba(34,197,94,0.25)';
-
-
-            verifyStatus.style.background =
-                'rgba(34,197,94,0.08)';
-
-
-            /*
-             * Enable button
-             */
-
-            downloadBtn.disabled =
-                false;
-
-
-            /*
-             * FORCE SHOW BUTTON
-             */
-
-            downloadBtn.style.display =
-                'block';
-
-
-            downloadBtn.style.visibility =
-                'visible';
-
-
-            downloadBtn.style.opacity =
-                '1';
-
-
-            /*
-             * Show text below
-             */
-
-            belowButtonText.textContent =
-                '⬇️ Tap the button above to verify and download.';
-
-
-            belowButtonText.style.display =
-                'block';
-
-
-            belowButtonText.style.visibility =
-                'visible';
-
-
-            belowButtonText.style.opacity =
-                '1';
-
-
-            /*
-             * Button event
-             */
-
-            downloadBtn.onclick =
-                verifyAndDownload;
-
-
-            /*
-             * Scroll button into view
-             * on small screens
-             */
-
-            if (
-                window.innerWidth <= 600
-            ) {
-
-                setTimeout(
-                    function () {
-
-                        try {
-
-                            document
-                                .getElementById(
-                                    'verifySection'
-                                )
-                                .scrollIntoView({
-                                    behavior: 'smooth',
-                                    block: 'center'
-                                });
-
-                        } catch (error) {
-
-                            console.log(
-                                'Scroll error:',
-                                error
-                            );
-
-                        }
-
-                    },
-                    150
-                );
-
-            }
-
-        }
-
-
-        /* =================================================
-           START TIMER
-        ================================================= */
-
-        function startTimer() {
-
-            let remaining =
-                seconds;
-
-
-            /*
-             * Initial timer
-             */
-
-            timerEl.textContent =
-                remaining;
-
-
-            /*
-             * Initial status
-             */
-
-            statusText.textContent =
-                '🔒 Please wait while the timer counts down.';
-
-
-            /*
-             * Keep button hidden
-             */
-
-            downloadBtn.disabled =
-                true;
-
-
-            downloadBtn.style.display =
-                'none';
-
-
-            downloadBtn.style.visibility =
-                'hidden';
-
-
-            downloadBtn.style.opacity =
-                '0';
-
-
-            /*
-             * Hide below text
-             */
-
-            belowButtonText.style.display =
-                'none';
-
-
-            belowButtonText.style.visibility =
-                'hidden';
-
-
-            /*
-             * Timer interval
-             */
-
-            const interval =
-                setInterval(
-                    function () {
-
-
-                        remaining--;
-
-
-                        /*
-                         * Update number
-                         */
-
-                        timerEl.textContent =
-                            Math.max(
-                                remaining,
-                                0
-                            );
-
-
-                        /*
-                         * Completed
-                         */
-
-                        if (
-                            remaining <= 0
-                        ) {
-
-                            clearInterval(
-                                interval
-                            );
-
-
-                            completeTimer();
-
-                        }
-
-
-                    },
-                    1000
-                );
-
-        }
-
-
-        /* =================================================
-           START
-        ================================================= */
-
-        if (
-            timerEl &&
-            statusText &&
-            verifyStatus &&
-            downloadBtn &&
-            belowButtonText
-        ) {
-
-            startTimer();
-
-        } else {
-
-            console.error(
-                'Required elements are missing.'
-            );
-
-        }
-
-
-    })();
-
-    </script>
-
-
-    <!-- =====================================================
-         IN-APP INTERSTITIAL
-    ====================================================== -->
-
-    <script>
-
-    try {
-
-        if (
-            typeof show_9379707 ===
-            'function'
-        ) {
-
-            show_9379707({
-
-                type:
-                    'inApp',
-
-                inAppSettings: {
-
-                    frequency:
-                        2,
-
-                    capping:
-                        0.1,
-
-                    interval:
-                        30,
-
-                    timeout:
-                        370,
-
-                    everyPage:
-                        false
+                    console.log(
+                        "Telegram sendData error:",
+                        error
+                    );
 
                 }
+            }
 
-            });
+
+            /*
+             * Fallback
+             */
+
+            if (botUsername) {
+
+                const cleanBot =
+                    botUsername
+                        .replace("@", "")
+                        .trim();
+
+                if (cleanBot) {
+
+                    const telegramUrl =
+                        "https://t.me/" +
+                        cleanBot +
+                        "?start=watchadsverify";
+
+                    window.location.href =
+                        telegramUrl;
+
+                    return;
+                }
+            }
+
+
+            /*
+             * No Telegram bot available
+             */
+
+            downloadBtn.disabled = false;
+
+            downloadBtn.textContent =
+                "👉 ✅ Verify & Download 👈";
 
         }
+    );
 
-    } catch (error) {
 
-        console.log(
-            'Interstitial error:',
-            error
-        );
+    /* =====================================================
+       START
+    ====================================================== */
 
-    }
+    startTimer();
 
-    </script>
 
+    /* =====================================================
+       OPTIONAL LIBTL AD
+    ====================================================== */
+
+    /*
+       If your libtl SDK requires a specific
+       function call, keep your existing call here.
+
+       Example:
+
+       if (typeof show_9379707 === "function") {
+           show_9379707();
+       }
+    */
+
+
+})();
+
+</script>
+
+
+<!-- =====================================================
+     EXISTING LOCAL SCRIPTS
+====================================================== -->
+
+<script src="../../js/headerScript.js"></script>
+<script src="../../js/googletrackingid.js"></script>
 
 </body>
-
 </html>
