@@ -1,583 +1,572 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<script class="admoloScript" src="https://cdn.admolo.com/assets/ads/ad.js"></script>
+<script src='//libtl.com/sdk.js' data-zone='9379707' data-sdk='show_9379707'></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Window Tool App</title>
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0,
-               maximum-scale=1.0, user-scalable=no">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+ 
+  <script src="../../js/headerScript.js" defer></script>
+  <script src="../../js/googletrackingid.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+    * { box-sizing: border-box; }
+    :root {
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent: #ff0000;
+      --font: 'Outfit', sans-serif;
+    }
+    body { margin:0; min-height:100vh; background:#ffffff; color:var(--text-main); font-family:var(--font); display:flex; flex-direction:column; padding:0; overflow-x:hidden; }
+    main { width:100%; max-width:1024px; padding:0 20px 40px; margin:0; flex:1; }
+    h1 { margin:0 0 8px; font-size:36px; font-weight:700; color:var(--text-main); text-align:center; }
 
-<title>Watch Ad & Download</title>
 
-<style>
-:root {
-    --bg: #0f172a;
-    --card: rgba(255,255,255,0.04);
-    --border: rgba(255,255,255,0.10);
-    --text: #f1f5f9;
-    --muted: #94a3b8;
-    --accent: #22c55e;
-    --accent2: #0ea5e9;
-    --accent-grad: linear-gradient(135deg, #22c55e, #0ea5e9);
-}
 
-* {
+.ads-container {
+    width: 100%;
+    overflow-x: auto;   /* Scroll allowed inside, but no page overflow */
+    display: flex;
+    justify-content: center;
+    gap: 1px;
+    padding: 10px 0;
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
-body {
-    font-family: 'Segoe UI', system-ui, -apple-system,
-                 BlinkMacSystemFont, Roboto, sans-serif;
-
-    background: var(--bg);
-    color: var(--text);
-
-    min-height: 100dvh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-}
-
-.card {
-    width: 100%;
-    max-width: 400px;
-
-    background: var(--card);
-
-    border: 1px solid var(--border);
-    border-radius: 20px;
-
-    padding: 28px 24px;
-
-    backdrop-filter: blur(8px);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.45);
-
-    text-align: center;
-
-    transition:
-        opacity .3s ease,
-        transform .3s ease;
-}
-
-/* TIMER SECTION */
-
-#timerSection {
-    display: block;
-}
-
-#timerSection.hidden {
-    display: none !important;
-}
-
-.timer {
-    font-size: 52px;
-    font-weight: 700;
-
-    margin: 10px 0 4px;
-}
-
-.seconds {
-    color: var(--muted);
-    font-size: 13px;
-}
-
-.btn {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 8px;
-
-    width: 100%;
-
-    padding: 14px;
-
-    margin-top: 20px;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    border: none;
-    border-radius: 14px;
-
-    cursor: pointer;
-
-    color: #fff;
-
-    background: var(--accent-grad);
-
-    transition:
-        transform .15s,
-        opacity .15s;
-}
-
-.btn:active {
-    transform: scale(0.97);
-}
-
-.btn:disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
-}
-
-/* TOAST */
-
-.toast {
-    position: fixed;
-
-    left: 50%;
-    bottom: 40px;
-
-    transform: translate(-50%, 100px);
-
-    background: #14532d;
-
-    border: 1px solid #16a34a;
-
-    color: #f0fdf4;
-
-    padding: 14px 20px;
-
-    border-radius: 14px;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    box-shadow:
-        0 12px 32px rgba(0,0,0,0.4);
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    transition:
-        transform .35s ease;
-
-    z-index: 99;
-
-    max-width: 90%;
-
+.ads-box {
+    flex: 0 0 auto;      /* Prevent overflow */
     text-align: center;
 }
 
-.toast.show {
-    transform: translate(-50%, 0);
+/* Mobile view → wrap ads vertically */
+@media (max-width: 600px) {
+    .ads-container {
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden; /* No need for horizontal scroll on mobile */
+    }
+
+    .ads-box {
+        width: 100%;
+    }
 }
-</style>
+
+.ads {
+
+text-align:center;
+overflow-x: auto;
+}
+
+
+
+
+
+    p.subtitle { color:var(--text-muted); margin:0 0 20px; font-size:15px; font-weight:300; text-align:center; }
+    nav { position:relative; z-index:1000; display:flex; flex-wrap:wrap; justify-content:center; gap:3px; background:#f8fafc; padding:6px 10px; border-bottom:1px solid #e2e8f0; width:100%; }
+    nav span { display:inline-flex; align-items:center; gap:5px; color:var(--text-main); font-weight:600; font-size:11px; padding:4px 8px; border-radius:8px; white-space:nowrap; flex:0 1 auto; line-height:1.1; background:transparent; cursor:default; transition:background 0.2s; }
+    nav span:hover { background:color-mix(in srgb, var(--accent) 10%, transparent); }
+    .nav-icon { width:18px; height:18px; border-radius:4px; object-fit:contain; flex-shrink:0; }
+    .nav-label { max-width:9rem; overflow:hidden; text-overflow:ellipsis; }
+    form { display:flex; margin-bottom:15px; width:100%; max-width:1024px; margin:0 auto 15px; }
+    form input:focus { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
+    form button[type="submit"]:hover { filter:brightness(0.85); }
+    form button[type="submit"]:active { filter:brightness(0.7); }
+    #status { min-height:24px; color:#f87171; font-size:14px; margin-top:5px; }
+
+    .ad-grid { display:grid; grid-template-columns:auto minmax(0,1fr) auto; grid-template-rows:auto 1fr auto; grid-template-areas:"top top top" "left main right" "bottom bottom bottom"; max-width:1364px; margin:0 auto; width:100%; padding:0 15px; flex:1; }
+    .ad-grid #ad-top { grid-area:top; text-align:center; padding:8px 0; background:#fafafa; border-bottom:1px solid #e2e8f0; }
+    .ad-grid #ad-left { grid-area:left; background:#f8fafc; border-right:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:10px; font-family:sans-serif; position:sticky; top:10px; align-self:start; }
+    .ad-grid #ad-right { grid-area:right; background:#f8fafc; border-left:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:10px; font-family:sans-serif; position:sticky; top:10px; align-self:start; }
+    .ad-grid #ad-bottom { grid-area:bottom; text-align:center; padding:8px 0; background:#fafafa; border-top:1px solid #e2e8f0; }
+    .ad-grid main { grid-area:main; }
+    .ad-placeholder { display:flex; align-items:center; justify-content:center; font-family:sans-serif; }
+    .ad-placeholder .ad-unit { background:#f1f5f9; border:1px dashed #cbd5e1; border-radius:6px; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-size:11px; }
+    .ad-placeholder .ad-unit-leader { width:100%; max-width:970px; min-height:90px; }
+    .ad-placeholder .ad-unit-box { width:160px; height:600px; }
+    @media (max-width: 768px) { .ad-placeholder .ad-unit-leader { max-width:468px; min-height:60px; } }
+    @media (max-width: 480px) { .ad-placeholder .ad-unit-leader { max-width:320px; min-height:50px; } }
+    @media (max-width: 640px) {
+      form > div { flex-direction:row; }
+      form input { padding:10px 32px 10px 36px; font-size:13px; }
+      form button[type="submit"] { padding:8px 10px; font-size:12px; gap:3px; }
+      form button[type="submit"] svg { width:16px; height:16px; }
+      .clear-btn { right:4px; font-size:16px; }
+    }
+    @media (max-width: 1100px) { #ad-left, #ad-right { display:none !important; } }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; margin:12px 0 24px; }
+    .grid a { text-decoration:none; color:inherit; }
+    .bcard { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:16px 10px; text-align:center; transition:all .2s; }
+    .bcard:hover { border-color:var(--accent); box-shadow:0 4px 12px rgba(0,0,0,.08); transform:translateY(-2px); }
+    .bcard img { width:48px; height:48px; object-fit:contain; margin-bottom:8px; border-radius:6px; }
+    .bcard h3 { margin:0; font-size:13px; font-weight:600; color:var(--text-main); line-height:1.3; }
+    h2 { margin:28px 0 10px; font-size:20px; font-weight:700; color:var(--text-main); }
+  </style>
 </head>
-
 <body>
+<script>
 
-<div class="card" id="mainCard">
 
-    <div id="timerSection">
+// Rewarded interstitial
 
-        <div class="timer" id="timer">30</div>
+show_9379707().then(() => {
+    // You need to add your user reward function here, which will be executed after the user watches the ad.
+    // For more details, please refer to the detailed instructions.
+    alert('You have seen an ad!');
+})
 
-        <div class="seconds">
-            seconds
-        </div>
 
-        <button
-            class="btn"
-            id="downloadBtn"
-            disabled>
 
-            🔒 Please Wait
+// In-App Interstitial
 
-        </button>
+show_9379707({
+  type: 'inApp',
+  inAppSettings: {
+    frequency: 2,
+    capping: 0.1,
+    interval: 30,
+    timeout: 370,
+    everyPage: false
+  }
+})
 
+/*
+This value is decoded as follows:
+- show automatically 2 ads
+  within 0.1 hours (6 minutes)
+  with a 30-second interval between them
+  and a 5-second delay before the first one is shown.
+  The last digit, 0, means that the session will be saved when you navigate between pages.
+  If you set the last digit as 1, then at any transition between pages,
+  the session will be reset, and the ads will start again.
+*/
+
+</script>
+<div class="admoloInterstitial"
+data-publisher="eyJpdiI6InlsOHJ6em9hc1kwbFVRaWIwWEFnWmc9PSIsInZhbHVlIjoiMUo4T2Niamh4aXMyVkN4QTZwK0oyZz09IiwibWFjIjoiNWIzNzdjYWFhNjNhZmUwMTM3ZWViNjE3ZGJlODc1MWUwNGVjZGViZTM3MmZhNGU1NmUxMzkwZjQzZTRkMDY1MyIsInRhZyI6IiJ9"
+data-adsize="interstitial"></div>
+
+<nav>
+<div class="ads">  
+<div class="ads-container">
+
+    <!-- First Ad -->
+    <div class="ads-box">
+    	
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '3353fc740693589865911ed5c4e259c1',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/3353fc740693589865911ed5c4e259c1/invoke.js"></script>
+       
+    </div>
+
+    <!-- Second Ad -->
+    <div class="ads-box">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'b522989fcf5cdf1fbc5167845934a0a9',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/b522989fcf5cdf1fbc5167845934a0a9/invoke.js"></script>
     </div>
 
 </div>
 
+</div>
+</nav><div class="ad-grid">
+  <div id="ad-left"><div class="ad-placeholder"><div class="ad-unit ad-unit-box">
+<script>
+  atOptions = {
+    'key' : 'f52693494bde000182223aeddd8d7b4b',
+    'format' : 'iframe',
+    'height' : 600,
+    'width' : 160,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/f52693494bde000182223aeddd8d7b4b/invoke.js"></script>
 
-<!-- TOAST -->
 
-<div class="toast" id="toast">
+</div></div></div>
+   <main><div id="ad-top"><div class="ad-placeholder"><div class="ad-unit ad-unit-leader">
 
-    <span id="toastIcon">✅</span>
+<script async="async" data-cfasync="false" src="https://pl25250725.effectivecpmnetwork.com/2c5610f6e714632e87626d65ca558bbd/invoke.js"></script>
+<div id="container-2c5610f6e714632e87626d65ca558bbd"></div>
 
-    <span id="toastText"></span>
 
+
+</div></div></div>
+
+    <h2>Unit Converter Tools</h2>
+<div class="grid">
+  <a href="../../unit-converter/illuminance-converter/">
+    <div class="bcard">
+      <img src="../../images/illuminance-converter.webp" alt="Illuminance Converter">
+      <h3><strong>Illuminance Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/torque-converter/">
+    <div class="bcard">
+      <img src="../../images/torque-converter.webp" alt="Torque Converter">
+      <h3><strong>Torque Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/flow-converter/">
+    <div class="bcard">
+      <img src="../../images/flow-converter.webp" alt="Flow Converter">
+      <h3><strong>Flow Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/force-converter/">
+    <div class="bcard">
+      <img src="../../images/force-converter.webp" alt="Force Converter">
+      <h3><strong>Force Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/frequency-converter/">
+    <div class="bcard">
+      <img src="../../images/frequency-converter.webp" alt="Frequency Converter">
+      <h3><strong>Frequency Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/data-transfer-rate-converter/">
+    <div class="bcard">
+      <img src="../../images/data-transfer-rate-converter.webp" alt="Data Transfer Rate Converter">
+      <h3><strong>Data Transfer Rate Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/angle-converter/">
+    <div class="bcard">
+      <img src="../../images/angle-converter.webp" alt="Angle Converter">
+      <h3><strong>Angle Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/density-converter/">
+    <div class="bcard">
+      <img src="../../images/density-converter.webp" alt="Density Converter">
+      <h3><strong>Density Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/fuel-consumption-converter/">
+    <div class="bcard">
+      <img src="../../images/fuel-consumption-converter.webp" alt="Fuel Consumption Converter">
+      <h3><strong>Fuel Consumption Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/internet-data-converter/">
+    <div class="bcard">
+      <img src="../../images/internet-data-converter.webp" alt="Internet Data Converter">
+      <h3><strong>Internet Data Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/pressure-converter/">
+    <div class="bcard">
+      <img src="../../images/pressure-converter.webp" alt="Pressure Converter">
+      <h3><strong>Pressure Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/power-converter/">
+    <div class="bcard">
+      <img src="../../images/power-converter.webp" alt="Power Converter">
+      <h3><strong>Power Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/speed-converter/">
+    <div class="bcard">
+      <img src="../../images/speed-converter.webp" alt="Speed Converter">
+      <h3><strong>Speed Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/energy-converter/">
+    <div class="bcard">
+      <img src="../../images/energy-converter.webp" alt="Energy Converter">
+      <h3><strong>Energy Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/time-converter/">
+    <div class="bcard">
+      <img src="../../images/time-converter.webp" alt="Time Converter">
+      <h3><strong>Time Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/volume-converter/">
+    <div class="bcard">
+      <img src="../../images/volume-converter.webp" alt="Volume Converter">
+      <h3><strong>Volume Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/area-converter/">
+    <div class="bcard">
+      <img src="../../images/area-converter.webp" alt="Area Converter">
+      <h3><strong>Area Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/weight-mass-converter/">
+    <div class="bcard">
+      <img src="../../images/weight-mass-converter.webp" alt="Weight Mass Converter">
+      <h3><strong>Weight/Mass Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/temperature-converter/">
+    <div class="bcard">
+      <img src="../../images/temperature-converter.webp" alt="Temperature Converter">
+      <h3><strong>Temperature Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/length-distance-converter/">
+    <div class="bcard">
+      <img src="../../images/length-distance-converter.webp" alt="Length Distance Converter">
+      <h3><strong>Length/Distance Converter</strong></h3>
+    </div>
+  </a>
+</div>
+<div class="ads">
+<div class="ads-container">
+
+    <!-- First Ad -->
+    <div class="ads-box">
+       <div class="admoloBanner"
+data-publisher="eyJpdiI6Ikczc3o0emtYLzMvSWcyN3l5QUlpcGc9PSIsInZhbHVlIjoiaGswSXV0aFRUb1MxRkQvQjdTZzFNdz09IiwibWFjIjoiMzY3ODM5OGU4YTRkZWQyOGNmZmI3ZDhlYWU3MjVlZTcyNjVkMTViOTc1NmFiNjJiOTU3ZjQ4MDNiNDliMzRhNyIsInRhZyI6IiJ9"
+data-adsize="300x300"></div>
+ </div>
+<!-- Second Ad -->
+    <div class="ads-box">
+        <div class="admoloBanner"
+data-publisher="eyJpdiI6InZMazRNekRxc2FReUM4UE0wNDQ4N2c9PSIsInZhbHVlIjoicWZycTVMSnZ1YzhDN2lWeUE3QmtPdz09IiwibWFjIjoiZGI5YzA2ZTNhNTM5YjE2MzYyNzY1MTE2MDM1MGIyNDEyN2M3MGQyNDI2YzYzYWMzYjRkYWI4OWI5ZjBjOWY2YiIsInRhZyI6IiJ9"
+data-adsize="320x180"></div>
 </div>
 
+</div>
+</div>
+
+    <h2>All Types Calculator Tools</h2>
+
+    <div class="grid">
+    	<a href="../../calculator-tool/currency-converter/">
+        <div class="bcard">
+          <img src="../../images/currency-converter.webp" alt="Currency Converter">
+          <h3><strong>Currency Calculator</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/gst-calculator/">
+        <div class="bcard">
+          <img src="../../images/gst-calculator.webp" alt="GST Calculator">
+          <h3><strong>GST Calculator </strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/bmi-calculator/">
+        <div class="bcard">
+          <img src="../../images/bmi-calculator.webp" alt="BMI Calculator">
+          <h3><strong>BMI Calculator</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/loan-emi-calculator/">
+        <div class="bcard">
+          <img src="../../images/loan-emi-calculator.webp" alt="Loan EMI Calculator">
+          <h3><strong>Loan EMI Calculator</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/age-calculator/">
+        <div class="bcard">
+          <img src="../../images/age-calculator.webp" alt="Age Calculator">
+          <h3><strong>Age Calculator</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/unit-converter/">
+        <div class="bcard">
+          <img src="../../images/unit-converter.webp" alt="unit converter">
+          <h3><strong>Unit Converter</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/date-duration-calculator/">
+        <div class="bcard">
+          <img src="../../images/date-duration-calculator.webp" alt="date and duration calculator">
+          <h3><strong>Date and duration </strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/gpa-cgpa-calculator/">
+        <div class="bcard">
+          <img src="../../images/gpa-cgpa-calculator.webp" alt="gpa cgpa calculator">
+          <h3><strong>GPA & CGPA Calculator</strong></h3>
+        </div>
+      </a>
+      
+      <a href="../../calculator-tool/discount-calculator/">
+        <div class="bcard">
+          <img src="../../images/discount-calculator.webp" alt="discount calculator">
+          <h3><strong>Discount Calculator</strong></h3>
+        </div>
+      </a>
+      
+      <a href="../../calculator-tool/base-converter/">
+        <div class="bcard">
+          <img src="../../images/base-converter.webp" alt="base converter ">
+          <h3><strong>Binary Decimal hexa </strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/percentage-calculator/">
+        <div class="bcard">
+          <img src="../../images/percentage-calculator.webp" alt="percentage calculator">
+          <h3><strong>Percentage Calculator</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/compound-interest-calculator/">
+        <div class="bcard">
+          <img src="../../images/compound-interest-calculator.webp" alt="compound interest calculator">
+          <h3><strong>Compound interest</strong></h3>
+        </div>
+      </a>
+    </div>
+ 
+    
+
+    <h2>Image Tools</h2>
+    <div class="grid">
+      <a href="../../image-tool/image-background-remover/">
+        <div class="bcard">
+          <img src="../../images/image-background-remover.webp" alt="Background Remover">
+          <h3><strong>Background Remover</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/image-crop/">
+        <div class="bcard">
+          <img src="../../images/image-crop.webp" alt="Crop Image">
+          <h3><strong>Image Cropper</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/image-compressor/">
+        <div class="bcard">
+          <img src="../../images/image-compressor.webp" alt="Image Compressor">
+          <h3><strong>Image Compressor</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/image-resizer/">
+        <div class="bcard">
+          <img src="../../images/image-resizer.webp" alt="Resize Images">
+          <h3><strong>Image Resizer</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/passport-size-photo-generator/">
+        <div class="bcard">
+          <img src="../../images/passport-size-photo-generator.webp" alt="Passport Photo Generator">
+          <h3><strong>Passport Size Photo Generator</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/image-format-converter/">
+        <div class="bcard">
+          <img src="../../images/image-format-converter.webp" alt="Convert Image Format">
+          <h3><strong>Image Format Converter</strong></h3>
+        </div>
+      </a>
+    </div>
+<div class="ads"></div>
+    <h2>PDF Tools</h2>
+    <div class="grid">
+      <a href="../../pdf-tool/watermark-in-pdf/">
+        <div class="bcard">
+          <img src="../../images/watermark-in-pdf.webp" alt="Watermark in PDF">
+          <h3><strong>Watermark in PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/compress-pdf/">
+        <div class="bcard">
+          <img src="../../images/compress-pdf.webp" alt="Compress PDF File">
+          <h3><strong>Compress PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/pdf-to-image/">
+        <div class="bcard">
+          <img src="../../images/pdf-to-image.webp" alt="PDF to Images">
+          <h3><strong>PDF to Images</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/merge-pdf/">
+        <div class="bcard">
+          <img src="../../images/merge-pdf.webp" alt="Merge PDF Files">
+          <h3><strong>Merge PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/split-and-delete-pdf/">
+        <div class="bcard">
+          <img src="../../images/split-and-delete-pdf.webp" alt="Split or Delete Pages">
+          <h3><strong>Split & Delete Pages</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/rotate-pdf-pages/">
+        <div class="bcard">
+          <img src="../../images/rotate-pdf-pages.webp" alt="Rotate PDF">
+          <h3><strong>Rotate PDF Pages</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/image-to-pdf/">
+        <div class="bcard">
+          <img src="../../images/image-to-pdf.webp" alt="Image to PDF">
+          <h3><strong>Image to PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/text-to-pdf/">
+        <div class="bcard">
+          <img src="../../images/text-to-pdf.webp" alt="Text to PDF">
+          <h3><strong>Text to PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/pdf-to-docx/">
+        <div class="bcard">
+          <img src="../../images/pdf-to-docx.webp" alt="PDF to DOCX">
+          <h3><strong>PDF to Word</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/pdf-to-pptx/">
+        <div class="bcard">
+          <img src="../../images/pdf-to-pptx.webp" alt="PDF to PPT">
+          <h3><strong>PDF to PowerPoint</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/docx-to-pdf/">
+        <div class="bcard">
+          <img src="../../images/docx-to-pdf.webp" alt="DOCX to PDF">
+          <h3><strong>DOCX to PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/csv-to-pdf/">
+        <div class="bcard">
+          <img src="../../images/csv-to-pdf.webp" alt="CSV to PDF">
+          <h3><strong>CSV to PDF</strong></h3>
+        </div>
+      </a>
+    </div>
+
+    <div id="ad-bottom"><div class="ad-placeholder"><div class="ad-unit ad-unit-leader">Ad Banner · 970×90</div></div>
+  </main>
+  <div id="ad-right"><div class="ad-placeholder"><div class="ad-unit ad-unit-box">
 
 <script>
-(function () {
-
-    'use strict';
-
-
-    /* =========================
-       URL PARAMETERS
-    ========================= */
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-    const videoUrl =
-        params.get('url') || '';
-
-
-    const botUsername =
-        params.get('bot') ||
-        'videosaverXdownloaderBot';
-
-
-    let seconds =
-        parseInt(
-            params.get('timer') ||
-            params.get('t') ||
-            '30',
-            10
-        );
-
-
-    if (isNaN(seconds) || seconds < 5) {
-        seconds = 30;
-    }
-
-
-    /* =========================
-       TELEGRAM
-    ========================= */
-
-    let tg = null;
-
-
-    try {
-
-        if (
-            window.Telegram &&
-            window.Telegram.WebApp
-        ) {
-
-            tg =
-                window.Telegram.WebApp;
-
-            tg.ready();
-            tg.expand();
-
-        }
-
-    } catch (e) {
-        console.log(e);
-    }
-
-
-    /* =========================
-       ELEMENTS
-    ========================= */
-
-    const timerSection =
-        document.getElementById(
-            'timerSection'
-        );
-
-
-    const timerEl =
-        document.getElementById(
-            'timer'
-        );
-
-
-    const downloadBtn =
-        document.getElementById(
-            'downloadBtn'
-        );
-
-
-    const toast =
-        document.getElementById(
-            'toast'
-        );
-
-
-    const toastText =
-        document.getElementById(
-            'toastText'
-        );
-
-
-    const toastIcon =
-        document.getElementById(
-            'toastIcon'
-        );
-
-
-    /* =========================
-       TOAST
-    ========================= */
-
-    function showToast(
-        message,
-        icon = '✅'
-    ) {
-
-        toastIcon.textContent = icon;
-
-        toastText.textContent =
-            message;
-
-        toast.classList.add('show');
-
-
-        clearTimeout(
-            showToast.timer
-        );
-
-
-        showToast.timer =
-            setTimeout(
-                function () {
-
-                    toast.classList.remove(
-                        'show'
-                    );
-
-                },
-                4000
-            );
-
-    }
-
-
-    /* =========================
-       VERIFY
-    ========================= */
-
-    function openBotVerify() {
-
-        const payload =
-            JSON.stringify({
-                v: 'watchads:done'
-            });
-
-
-        /*
-         * Telegram Mini App
-         */
-
-        if (
-            window.Telegram &&
-            window.Telegram.WebApp &&
-            typeof
-            window.Telegram.WebApp.sendData
-            === 'function'
-        ) {
-
-            try {
-
-                window.Telegram.WebApp
-                    .sendData(payload);
-
-                return true;
-
-            } catch (e) {}
-
-        }
-
-
-        /*
-         * Normal Telegram link
-         */
-
-        const link =
-            'https://t.me/' +
-            botUsername +
-            '?start=watchadsverify';
-
-
-        if (
-            tg &&
-            typeof tg.openTelegramLink
-            === 'function'
-        ) {
-
-            try {
-
-                tg.openTelegramLink(
-                    link
-                );
-
-                return true;
-
-            } catch (e) {}
-
-        }
-
-
-        window.open(
-            link,
-            '_blank'
-        );
-
-        return true;
-
-    }
-
-
-    /* =========================
-       DOWNLOAD BUTTON
-    ========================= */
-
-    function verifyAndDownload() {
-
-        /*
-         * Hide timer immediately
-         */
-
-        timerSection.classList.add(
-            'hidden'
-        );
-
-
-        /*
-         * Show success message
-         */
-
-        showToast(
-            'You can go back now, downloading will start.',
-            '⬇️'
-        );
-
-
-        /*
-         * Tell Telegram bot
-         */
-
-        openBotVerify();
-
-
-        /*
-         * Close Mini App after
-         * short delay
-         */
-
-        if (
-            tg &&
-            typeof tg.close === 'function'
-        ) {
-
-            setTimeout(
-                function () {
-
-                    try {
-
-                        tg.close();
-
-                    } catch (e) {}
-
-                },
-                1200
-            );
-
-        }
-
-    }
-
-
-    /* =========================
-       TIMER
-    ========================= */
-
-    function startTimer() {
-
-        let remaining =
-            seconds;
-
-
-        /*
-         * Timer visible
-         */
-
-        timerSection.classList.remove(
-            'hidden'
-        );
-
-
-        timerEl.textContent =
-            remaining;
-
-
-        downloadBtn.disabled =
-            true;
-
-
-        downloadBtn.textContent =
-            '🔒 Please Wait';
-
-
-        const interval =
-            setInterval(
-                function () {
-
-                    remaining--;
-
-
-                    timerEl.textContent =
-                        Math.max(
-                            remaining,
-                            0
-                        );
-
-
-                    /*
-                     * TIMER COMPLETE
-                     */
-
-                    if (
-                        remaining <= 0
-                    ) {
-
-                        clearInterval(
-                            interval
-                        );
-
-
-                        downloadBtn.disabled =
-                            false;
-
-
-                        downloadBtn.textContent =
-                            '✅ Verify & Download';
-
-
-                        downloadBtn.onclick =
-                            verifyAndDownload;
-
-                    }
-
-                },
-                1000
-            );
-
-    }
-
-
-    /* =========================
-       START
-    ========================= */
-
-    startTimer();
-
-
-})();
+  atOptions = {
+    'key' : 'e5ca98a26b2f5e9e3350260d41479d70',
+    'format' : 'iframe',
+    'height' : 300,
+    'width' : 160,
+    'params' : {}
+  };
 </script>
+<script src="https://www.highperformanceformat.com/e5ca98a26b2f5e9e3350260d41479d70/invoke.js"></script>
+
+
+</div></div></div>
+</div>
 
 </body>
 </html>
