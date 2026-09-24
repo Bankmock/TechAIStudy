@@ -1,1224 +1,583 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width,
-               initial-scale=1.0,
-               maximum-scale=1.0,
-               user-scalable=no">
+      content="width=device-width, initial-scale=1.0,
+               maximum-scale=1.0, user-scalable=no">
 
 <title>Watch Ad & Download</title>
 
 <style>
-
 :root {
-  --bg: #0f172a;
-  --card: rgba(255,255,255,0.04);
-  --border: rgba(255,255,255,0.10);
-  --text: #f1f5f9;
-  --muted: #94a3b8;
-
-  --accent: #22c55e;
-  --accent2: #0ea5e9;
-
-  --accent-grad:
-    linear-gradient(135deg, #22c55e, #0ea5e9);
+    --bg: #0f172a;
+    --card: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.10);
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --accent: #22c55e;
+    --accent2: #0ea5e9;
+    --accent-grad: linear-gradient(135deg, #22c55e, #0ea5e9);
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html,
-body {
-  width: 100%;
-  min-height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family:
-    'Segoe UI',
-    system-ui,
-    -apple-system,
-    Roboto,
-    sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system,
+                 BlinkMacSystemFont, Roboto, sans-serif;
 
-  background: var(--bg);
-  color: var(--text);
+    background: var(--bg);
+    color: var(--text);
 
-  min-height: 100dvh;
+    min-height: 100dvh;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  padding: 20px;
-
-  overflow-x: hidden;
+    padding: 20px;
 }
-
-
-/* =========================
-   MAIN CARD
-========================= */
 
 .card {
+    width: 100%;
+    max-width: 400px;
 
-  width: 100%;
-  max-width: 400px;
+    background: var(--card);
 
-  background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
 
-  border: 1px solid var(--border);
+    padding: 28px 24px;
 
-  border-radius: 20px;
+    backdrop-filter: blur(8px);
 
-  padding: 28px 24px;
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.45);
 
-  backdrop-filter: blur(8px);
+    text-align: center;
 
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.45);
-
-  text-align: center;
+    transition:
+        opacity .3s ease,
+        transform .3s ease;
 }
 
+/* TIMER SECTION */
 
-/* =========================
-   LOGO
-========================= */
-
-.logo {
-
-  width: 64px;
-  height: 64px;
-
-  border-radius: 18px;
-
-  background: var(--accent-grad);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin: 0 auto 16px;
-
-  font-size: 30px;
-
-  box-shadow:
-    0 8px 24px rgba(34,197,94,0.35);
+#timerSection {
+    display: block;
 }
 
-
-/* =========================
-   TITLE
-========================= */
-
-h1 {
-
-  font-size: 20px;
-
-  margin-bottom: 20px;
-
-  letter-spacing: 0.3px;
+#timerSection.hidden {
+    display: none !important;
 }
-
-
-/* =========================
-   TIMER
-========================= */
 
 .timer {
+    font-size: 52px;
+    font-weight: 700;
 
-  font-size: 54px;
-
-  font-weight: 700;
-
-  line-height: 1;
-
-  margin: 25px 0 8px;
+    margin: 10px 0 4px;
 }
-
 
 .seconds {
-
-  color: var(--muted);
-
-  font-size: 13px;
-
-  margin-bottom: 25px;
+    color: var(--muted);
+    font-size: 13px;
 }
-
-
-/* =========================
-   BUTTON
-========================= */
 
 .btn {
+    display: flex;
 
-  display: flex;
+    align-items: center;
+    justify-content: center;
 
-  align-items: center;
+    gap: 8px;
 
-  justify-content: center;
+    width: 100%;
 
-  gap: 8px;
+    padding: 14px;
 
-  width: 100%;
+    margin-top: 20px;
 
-  padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
 
-  font-size: 15px;
+    border: none;
+    border-radius: 14px;
 
-  font-weight: 600;
+    cursor: pointer;
 
-  border: none;
+    color: #fff;
 
-  border-radius: 14px;
+    background: var(--accent-grad);
 
-  cursor: pointer;
-
-  color: #fff;
-
-  background: var(--accent-grad);
-
-  transition:
-    transform .15s,
-    opacity .15s;
+    transition:
+        transform .15s,
+        opacity .15s;
 }
-
 
 .btn:active {
-
-  transform: scale(0.97);
+    transform: scale(0.97);
 }
-
 
 .btn:disabled {
-
-  opacity: 0.45;
-
-  cursor: not-allowed;
+    opacity: 0.45;
+    cursor: not-allowed;
 }
 
-
-.btn.secondary {
-
-  background:
-    rgba(255,255,255,0.08);
-
-  border:
-    1px solid var(--border);
-
-  margin-top: 10px;
-}
-
-
-/* =========================
-   HIDDEN
-========================= */
-
-.hidden {
-
-  display: none !important;
-}
-
-
-/* =========================
-   TELEGRAM REQUIRED SCREEN
-========================= */
-
-.telegram-screen {
-
-  width: 100%;
-
-  min-height: 100dvh;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  text-align: center;
-
-  padding: 20px;
-}
-
-
-.telegram-box {
-
-  width: 100%;
-
-  max-width: 380px;
-
-  padding: 30px 24px;
-
-  background:
-    rgba(255,255,255,0.04);
-
-  border:
-    1px solid var(--border);
-
-  border-radius: 20px;
-}
-
-
-.telegram-icon {
-
-  font-size: 55px;
-
-  margin-bottom: 15px;
-}
-
-
-.telegram-box h2 {
-
-  font-size: 21px;
-
-  margin-bottom: 10px;
-}
-
-
-.telegram-box p {
-
-  color: var(--muted);
-
-  font-size: 14px;
-
-  line-height: 1.5;
-
-  margin-bottom: 20px;
-}
-
-
-/* =========================
-   TOAST
-========================= */
+/* TOAST */
 
 .toast {
+    position: fixed;
 
-  position: fixed;
+    left: 50%;
+    bottom: 40px;
 
-  left: 50%;
+    transform: translate(-50%, 100px);
 
-  bottom: 40px;
+    background: #14532d;
 
-  transform:
-    translate(-50%, 90px);
+    border: 1px solid #16a34a;
 
-  background: #14532d;
+    color: #f0fdf4;
 
-  border:
-    1px solid #16a34a;
+    padding: 14px 20px;
 
-  color: #f0fdf4;
+    border-radius: 14px;
 
-  padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 600;
 
-  border-radius: 14px;
+    box-shadow:
+        0 12px 32px rgba(0,0,0,0.4);
 
-  font-size: 14px;
+    display: flex;
 
-  font-weight: 600;
+    align-items: center;
 
-  box-shadow:
-    0 12px 32px rgba(0,0,0,0.4);
+    gap: 10px;
 
-  display: flex;
+    transition:
+        transform .35s ease;
 
-  align-items: center;
+    z-index: 99;
 
-  gap: 10px;
+    max-width: 90%;
 
-  transition:
-    transform .35s
-    cubic-bezier(.2,.9,.3,1.2);
-
-  z-index: 99;
-
-  max-width: 90%;
-
-  text-align: center;
+    text-align: center;
 }
-
 
 .toast.show {
-
-  transform:
-    translate(-50%, 0);
+    transform: translate(-50%, 0);
 }
-
 </style>
-
 </head>
-
 
 <body>
 
+<div class="card" id="mainCard">
 
-<!-- =====================================================
-     MAIN TELEGRAM MINI APP
-===================================================== -->
+    <div id="timerSection">
 
-<div class="card" id="appCard">
+        <div class="timer" id="timer">30</div>
 
-  <div class="logo">
-    🎬
-  </div>
+        <div class="seconds">
+            seconds
+        </div>
 
+        <button
+            class="btn"
+            id="downloadBtn"
+            disabled>
 
-  <h1>
-    Watch Ad & Download
-  </h1>
+            🔒 Please Wait
 
-
-  <!-- TIMER -->
-
-  <div id="timerSection">
-
-    <div
-      class="timer"
-      id="timer">
-      30
-    </div>
-
-
-    <div class="seconds">
-      seconds
-    </div>
-
-
-    <button
-      class="btn"
-      id="verifyBtn"
-      disabled>
-
-      🔒 Please Wait
-
-    </button>
-
-  </div>
-
-
-  <!-- VERIFIED -->
-
-  <div
-    id="doneSection"
-    class="hidden">
-
-
-    <div
-      class="logo"
-      style="
-        background:
-        linear-gradient(
-          135deg,
-          #22c55e,
-          #84cc16
-        );
-      ">
-
-      ✅
+        </button>
 
     </div>
-
-
-    <h1>
-      Verified!
-    </h1>
-
-
-    <button
-      class="btn"
-      id="downloadBtn">
-
-      ⬇️ Download Video
-
-    </button>
-
-
-    <button
-      class="btn secondary"
-      id="copyBtn">
-
-      📋 Copy Video Link
-
-    </button>
-
-
-    <button
-      class="btn secondary"
-      id="reopenBtn">
-
-      📤 Send Link to Bot
-
-    </button>
-
-  </div>
 
 </div>
 
 
-<!-- =====================================================
-     TELEGRAM REQUIRED SCREEN
-===================================================== -->
+<!-- TOAST -->
 
-<div
-  id="telegramRequired"
-  class="telegram-screen hidden">
+<div class="toast" id="toast">
 
-  <div class="telegram-box">
+    <span id="toastIcon">✅</span>
 
-    <div class="telegram-icon">
-      📱
-    </div>
-
-
-    <h2>
-      Open in Telegram
-    </h2>
-
-
-    <p>
-      Please open this page from the Telegram Mini App.
-    </p>
-
-
-    <button
-      class="btn"
-      id="telegramBtn">
-
-      ✈️ Open Telegram
-
-    </button>
-
-  </div>
-
-</div>
-
-
-<!-- =====================================================
-     TOAST
-===================================================== -->
-
-<div
-  class="toast"
-  id="toast">
-
-  <span id="toastIcon">
-    ✅
-  </span>
-
-  <span id="toastText"></span>
+    <span id="toastText"></span>
 
 </div>
 
 
 <script>
-
 (function () {
 
-  'use strict';
+    'use strict';
 
 
-  /* =====================================================
-     TELEGRAM CHECK
-  ===================================================== */
+    /* =========================
+       URL PARAMETERS
+    ========================= */
 
-  let tg = null;
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
-  try {
 
-    if (
-      window.Telegram &&
-      window.Telegram.WebApp
-    ) {
+    const videoUrl =
+        params.get('url') || '';
 
-      tg =
-        window.Telegram.WebApp;
 
+    const botUsername =
+        params.get('bot') ||
+        'videosaverXdownloaderBot';
+
+
+    let seconds =
+        parseInt(
+            params.get('timer') ||
+            params.get('t') ||
+            '30',
+            10
+        );
+
+
+    if (isNaN(seconds) || seconds < 5) {
+        seconds = 30;
     }
 
-  } catch (e) {
 
-    tg = null;
+    /* =========================
+       TELEGRAM
+    ========================= */
 
-  }
-
-
-  /*
-     Telegram Mini App ke andar
-     initData normally available hota hai.
-  */
-
-  const isTelegramWebApp =
-    !!(
-      tg &&
-      tg.initData &&
-      tg.initData.length > 0
-    );
+    let tg = null;
 
 
-  const appCard =
-    document.getElementById(
-      'appCard'
-    );
+    try {
 
+        if (
+            window.Telegram &&
+            window.Telegram.WebApp
+        ) {
 
-  const telegramRequired =
-    document.getElementById(
-      'telegramRequired'
-    );
+            tg =
+                window.Telegram.WebApp;
 
-
-  /* =====================================================
-     NORMAL BROWSER
-  ===================================================== */
-
-  if (!isTelegramWebApp) {
-
-    appCard.classList.add(
-      'hidden'
-    );
-
-
-    telegramRequired.classList.remove(
-      'hidden'
-    );
-
-
-    /*
-       User ko alert
-    */
-
-    setTimeout(function () {
-
-      alert(
-        '⚠️ Please open this page from Telegram.\n\n' +
-        'This page works only inside Telegram Mini App.'
-      );
-
-    }, 100);
-
-
-    /*
-       Telegram button
-    */
-
-    document
-      .getElementById('telegramBtn')
-      .addEventListener(
-        'click',
-        function () {
-
-          const bot =
-            new URLSearchParams(
-              window.location.search
-            ).get('bot')
-            || 'videosaverXdownloaderBot';
-
-
-          window.location.href =
-            'https://t.me/' +
-            bot;
+            tg.ready();
+            tg.expand();
 
         }
-      );
+
+    } catch (e) {
+        console.log(e);
+    }
 
 
-    return;
-  }
+    /* =========================
+       ELEMENTS
+    ========================= */
+
+    const timerSection =
+        document.getElementById(
+            'timerSection'
+        );
 
 
-  /* =====================================================
-     TELEGRAM INITIALIZE
-  ===================================================== */
+    const timerEl =
+        document.getElementById(
+            'timer'
+        );
 
-  try {
 
-    tg.ready();
+    const downloadBtn =
+        document.getElementById(
+            'downloadBtn'
+        );
 
-    tg.expand();
 
-    if (
-      typeof tg.setHeaderColor ===
-      'function'
+    const toast =
+        document.getElementById(
+            'toast'
+        );
+
+
+    const toastText =
+        document.getElementById(
+            'toastText'
+        );
+
+
+    const toastIcon =
+        document.getElementById(
+            'toastIcon'
+        );
+
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    function showToast(
+        message,
+        icon = '✅'
     ) {
 
-      tg.setHeaderColor(
-        '#0f172a'
-      );
+        toastIcon.textContent = icon;
+
+        toastText.textContent =
+            message;
+
+        toast.classList.add('show');
+
+
+        clearTimeout(
+            showToast.timer
+        );
+
+
+        showToast.timer =
+            setTimeout(
+                function () {
+
+                    toast.classList.remove(
+                        'show'
+                    );
+
+                },
+                4000
+            );
 
     }
 
-    if (
-      typeof tg.setBackgroundColor ===
-      'function'
-    ) {
 
-      tg.setBackgroundColor(
-        '#0f172a'
-      );
+    /* =========================
+       VERIFY
+    ========================= */
 
-    }
+    function openBotVerify() {
 
-  } catch (e) {}
-
-
-  /* =====================================================
-     URL PARAMETERS
-  ===================================================== */
-
-  const params =
-    new URLSearchParams(
-      window.location.search
-    );
+        const payload =
+            JSON.stringify({
+                v: 'watchads:done'
+            });
 
 
-  const videoUrl =
-    params.get('url') || '';
+        /*
+         * Telegram Mini App
+         */
+
+        if (
+            window.Telegram &&
+            window.Telegram.WebApp &&
+            typeof
+            window.Telegram.WebApp.sendData
+            === 'function'
+        ) {
+
+            try {
+
+                window.Telegram.WebApp
+                    .sendData(payload);
+
+                return true;
+
+            } catch (e) {}
+
+        }
 
 
-  const botUsername =
-    params.get('bot')
-    || 'videosaverXdownloaderBot';
+        /*
+         * Normal Telegram link
+         */
+
+        const link =
+            'https://t.me/' +
+            botUsername +
+            '?start=watchadsverify';
 
 
-  let seconds =
-    parseInt(
-      params.get('timer')
-      || params.get('t')
-      || '30',
-      10
-    );
+        if (
+            tg &&
+            typeof tg.openTelegramLink
+            === 'function'
+        ) {
+
+            try {
+
+                tg.openTelegramLink(
+                    link
+                );
+
+                return true;
+
+            } catch (e) {}
+
+        }
 
 
-  if (
-    isNaN(seconds) ||
-    seconds < 5
-  ) {
-
-    seconds = 30;
-
-  }
-
-
-  /* =====================================================
-     ELEMENTS
-  ===================================================== */
-
-  const timerSection =
-    document.getElementById(
-      'timerSection'
-    );
-
-
-  const doneSection =
-    document.getElementById(
-      'doneSection'
-    );
-
-
-  const timerEl =
-    document.getElementById(
-      'timer'
-    );
-
-
-  const verifyBtn =
-    document.getElementById(
-      'verifyBtn'
-    );
-
-
-  const downloadBtn =
-    document.getElementById(
-      'downloadBtn'
-    );
-
-
-  const copyBtn =
-    document.getElementById(
-      'copyBtn'
-    );
-
-
-  const reopenBtn =
-    document.getElementById(
-      'reopenBtn'
-    );
-
-
-  const toast =
-    document.getElementById(
-      'toast'
-    );
-
-
-  const toastText =
-    document.getElementById(
-      'toastText'
-    );
-
-
-  const toastIcon =
-    document.getElementById(
-      'toastIcon'
-    );
-
-
-  /* =====================================================
-     TOAST
-  ===================================================== */
-
-  function showToast(
-    message,
-    icon
-  ) {
-
-    toastIcon.textContent =
-      icon || '✅';
-
-
-    toastText.textContent =
-      message;
-
-
-    toast.classList.add(
-      'show'
-    );
-
-
-    clearTimeout(
-      showToast.timer
-    );
-
-
-    showToast.timer =
-      setTimeout(
-        function () {
-
-          toast.classList.remove(
-            'show'
-          );
-
-        },
-        3000
-      );
-
-  }
-
-
-  /* =====================================================
-     SEND VERIFICATION TO BOT
-  ===================================================== */
-
-  function sendVerification() {
-
-    const payload =
-      JSON.stringify({
-
-        v: 'watchads:done'
-
-      });
-
-
-    if (
-      tg &&
-      typeof tg.sendData ===
-      'function'
-    ) {
-
-      try {
-
-        tg.sendData(
-          payload
+        window.open(
+            link,
+            '_blank'
         );
 
         return true;
 
-      } catch (e) {}
-
     }
 
 
-    /*
-       Fallback
-    */
+    /* =========================
+       DOWNLOAD BUTTON
+    ========================= */
 
-    const botLink =
-      'https://t.me/' +
-      botUsername +
-      '?start=watchadsverify';
+    function verifyAndDownload() {
 
+        /*
+         * Hide timer immediately
+         */
 
-    try {
-
-      if (
-        tg &&
-        typeof tg.openTelegramLink ===
-        'function'
-      ) {
-
-        tg.openTelegramLink(
-          botLink
+        timerSection.classList.add(
+            'hidden'
         );
 
-        return true;
 
-      }
+        /*
+         * Show success message
+         */
 
-    } catch (e) {}
-
-
-    window.open(
-      botLink,
-      '_blank'
-    );
+        showToast(
+            'You can go back now, downloading will start.',
+            '⬇️'
+        );
 
 
-    return true;
+        /*
+         * Tell Telegram bot
+         */
 
-  }
-
-
-  /* =====================================================
-     COPY LINK
-  ===================================================== */
-
-  function copyText(text) {
-
-    if (!text) {
-
-      showToast(
-        'Video link not found',
-        '❌'
-      );
-
-      return;
-
-    }
+        openBotVerify();
 
 
-    if (
-      navigator.clipboard &&
-      navigator.clipboard.writeText
-    ) {
+        /*
+         * Close Mini App after
+         * short delay
+         */
 
-      navigator.clipboard
-        .writeText(text)
-        .then(
-          function () {
+        if (
+            tg &&
+            typeof tg.close === 'function'
+        ) {
 
-            showToast(
-              'Link copied!',
-              '📋'
+            setTimeout(
+                function () {
+
+                    try {
+
+                        tg.close();
+
+                    } catch (e) {}
+
+                },
+                1200
             );
 
-          }
-        )
-        .catch(
-          function () {
+        }
 
-            fallbackCopy(text);
+    }
 
-          }
+
+    /* =========================
+       TIMER
+    ========================= */
+
+    function startTimer() {
+
+        let remaining =
+            seconds;
+
+
+        /*
+         * Timer visible
+         */
+
+        timerSection.classList.remove(
+            'hidden'
         );
 
-    } else {
 
-      fallbackCopy(text);
+        timerEl.textContent =
+            remaining;
 
-    }
 
-  }
+        downloadBtn.disabled =
+            true;
 
 
-  /* =====================================================
-     COPY FALLBACK
-  ===================================================== */
+        downloadBtn.textContent =
+            '🔒 Please Wait';
 
-  function fallbackCopy(text) {
 
-    const textarea =
-      document.createElement(
-        'textarea'
-      );
+        const interval =
+            setInterval(
+                function () {
 
+                    remaining--;
 
-    textarea.value = text;
 
+                    timerEl.textContent =
+                        Math.max(
+                            remaining,
+                            0
+                        );
 
-    textarea.style.position =
-      'fixed';
 
-    textarea.style.opacity =
-      '0';
+                    /*
+                     * TIMER COMPLETE
+                     */
 
+                    if (
+                        remaining <= 0
+                    ) {
 
-    document.body.appendChild(
-      textarea
-    );
+                        clearInterval(
+                            interval
+                        );
 
 
-    textarea.select();
+                        downloadBtn.disabled =
+                            false;
 
 
-    try {
+                        downloadBtn.textContent =
+                            '✅ Verify & Download';
 
-      document.execCommand(
-        'copy'
-      );
 
+                        downloadBtn.onclick =
+                            verifyAndDownload;
 
-      showToast(
-        'Link copied!',
-        '📋'
-      );
+                    }
 
-    } catch (e) {
-
-      showToast(
-        'Copy failed',
-        '❌'
-      );
-
-    }
-
-
-    document.body.removeChild(
-      textarea
-    );
-
-  }
-
-
-  /* =====================================================
-     DOWNLOAD
-  ===================================================== */
-
-  function downloadVideo() {
-
-    if (!videoUrl) {
-
-      showToast(
-        'Video link not found',
-        '❌'
-      );
-
-      sendVerification();
-
-      return;
-
-    }
-
-
-    try {
-
-      window.open(
-        videoUrl,
-        '_blank'
-      );
-
-
-      showToast(
-        'Download started',
-        '⬇️'
-      );
-
-    } catch (e) {
-
-      showToast(
-        'Unable to open video',
-        '❌'
-      );
-
-    }
-
-  }
-
-
-  /* =====================================================
-     UNLOCK
-  ===================================================== */
-
-  function unlock() {
-
-    timerSection.classList.add(
-      'hidden'
-    );
-
-
-    doneSection.classList.remove(
-      'hidden'
-    );
-
-
-    showToast(
-      'Verified!',
-      '✅'
-    );
-
-
-    /*
-       Download button
-    */
-
-    downloadBtn.onclick =
-      function () {
-
-        downloadVideo();
-
-      };
-
-
-    /*
-       Copy button
-    */
-
-    copyBtn.onclick =
-      function () {
-
-        copyText(
-          videoUrl
-        );
-
-      };
-
-
-    /*
-       Send to bot
-    */
-
-    reopenBtn.onclick =
-      function () {
-
-        sendVerification();
-
-      };
-
-
-    /*
-       Telegram Main Button
-    */
-
-    try {
-
-      if (
-        tg &&
-        tg.MainButton
-      ) {
-
-        tg.MainButton
-          .setText(
-            '⬇️ Download Video'
-          )
-          .show();
-
-
-        tg.MainButton.onClick(
-          function () {
-
-            downloadVideo();
-
-          }
-        );
-
-      }
-
-    } catch (e) {}
-
-  }
-
-
-  /* =====================================================
-     TIMER
-  ===================================================== */
-
-  function startTimer() {
-
-    let remaining =
-      seconds;
-
-
-    timerEl.textContent =
-      remaining;
-
-
-    verifyBtn.disabled =
-      true;
-
-
-    verifyBtn.textContent =
-      '🔒 Please Wait';
-
-
-    const interval =
-      setInterval(
-        function () {
-
-          remaining--;
-
-
-          timerEl.textContent =
-            Math.max(
-              remaining,
-              0
+                },
+                1000
             );
 
-
-          if (
-            remaining <= 0
-          ) {
-
-            clearInterval(
-              interval
-            );
+    }
 
 
-            verifyBtn.disabled =
-              false;
+    /* =========================
+       START
+    ========================= */
 
+    startTimer();
 
-            verifyBtn.textContent =
-              '✅ Verify & Download';
-
-
-            verifyBtn.onclick =
-              function () {
-
-                sendVerification();
-
-              };
-
-          }
-
-        },
-        1000
-      );
-
-  }
-
-
-  /* =====================================================
-     START
-  ===================================================== */
-
-  startTimer();
 
 })();
-
 </script>
 
 </body>
 </html>
-```
-
-**Note:** Telegram ke bahar page open hone par JavaScript alert aa jayega aur actual timer/download UI hidden rahega. Telegram Mini App ke andar `initData` milne par actual interface load hoga.
