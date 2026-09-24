@@ -6,163 +6,266 @@
     <meta charset="utf-8">
 
     <meta name="viewport"
-          content="width=device-width,
-                   initial-scale=1.0,
-                   maximum-scale=1.0,
-                   user-scalable=no">
+          content="width=device-width, initial-scale=1.0,
+                   maximum-scale=1.0, user-scalable=no">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>MiniApp</title>
 
 
-    <!-- AdMolo -->
+    <!-- =====================================================
+         AD SCRIPTS
+    ====================================================== -->
+
     <script class="admoloScript"
             src="https://cdn.admolo.com/assets/ads/ad.js">
     </script>
 
-
-    <!-- Timed / Rewarded Ads -->
     <script src="//libtl.com/sdk.js"
             data-zone="9379707"
             data-sdk="show_9379707">
     </script>
 
 
-    <!-- Google -->
+    <!-- =====================================================
+         GOOGLE
+    ====================================================== -->
+
     <script async
             src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF">
     </script>
 
-
-    <!-- Your scripts -->
     <script src="../../js/headerScript.js" defer></script>
+
     <script src="../../js/googletrackingid.js"></script>
 
 
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
     <style>
 
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+        /* =================================================
+           RESET
+        ================================================= */
 
-
-        * {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
         }
 
 
-        :root {
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --accent: #ff0000;
-            --font: 'Outfit', sans-serif;
-        }
-
-
-        html,
-        body {
-            margin: 0;
-            padding: 0;
+        html {
             width: 100%;
             min-height: 100%;
+            margin: 0;
+            padding: 0;
         }
 
 
         body {
+            width: 100%;
             min-height: 100vh;
+
+            margin: 0;
+            padding: 0;
+
             background: #ffffff;
-            color: var(--text-main);
-            font-family: var(--font);
-            display: flex;
-            flex-direction: column;
+
+            color: #0f172a;
+
+            font-family:
+                'Outfit',
+                Arial,
+                Helvetica,
+                sans-serif;
+
             overflow-x: hidden;
         }
 
 
-        main {
-            width: 100%;
-            max-width: 1024px;
-            padding: 0 20px 40px;
-            margin: 0 auto;
-            flex: 1;
-        }
-
-
-        h1 {
-            margin: 0 0 8px;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--text-main);
-            text-align: center;
-        }
-
-
-        h2 {
-            margin: 28px 0 10px;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-
-        p.subtitle {
-            color: var(--text-muted);
-            margin: 0 0 20px;
-            font-size: 15px;
-            font-weight: 300;
-            text-align: center;
-        }
-
-
-        /* =========================
-           ADS
-        ========================= */
-
-        .ads {
-            width: 100%;
-            text-align: center;
-            overflow: hidden;
-        }
-
-
-        .ads-container {
-            width: 100%;
-            overflow-x: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 4px;
-            padding: 10px 0;
-        }
-
-
-        .ads-box {
-            flex: 0 0 auto;
-            text-align: center;
+        img {
             max-width: 100%;
         }
 
 
-        @media (max-width: 600px) {
+        button,
+        input {
+            font-family: inherit;
+        }
 
-            .ads-container {
-                flex-direction: column;
-                overflow-x: hidden;
-                gap: 6px;
-            }
 
-            .ads-box {
-                width: 100%;
-                max-width: 100%;
-            }
+        a {
+            color: inherit;
+        }
+
+
+        /* =================================================
+           ROOT
+        ================================================= */
+
+        :root {
+
+            --text-main: #0f172a;
+
+            --text-muted: #475569;
+
+            --accent: #ff0000;
+
+            --border: #e2e8f0;
+
+            --light-bg: #f8fafc;
+
+            --card-bg: #ffffff;
 
         }
 
 
-        /* =========================
+        /* =================================================
+           MAIN
+        ================================================= */
+
+        main {
+
+            width: 100%;
+
+            max-width: 1024px;
+
+            margin: 0 auto;
+
+            padding:
+                0
+                20px
+                40px;
+
+            flex: 1;
+
+        }
+
+
+        h1 {
+
+            margin:
+                0
+                0
+                8px;
+
+            font-size: 36px;
+
+            font-weight: 700;
+
+            color: var(--text-main);
+
+            text-align: center;
+
+        }
+
+
+        h2 {
+
+            margin:
+                28px
+                0
+                10px;
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+            color: var(--text-main);
+
+        }
+
+
+        p.subtitle {
+
+            color: var(--text-muted);
+
+            margin:
+                0
+                0
+                20px;
+
+            font-size: 15px;
+
+            font-weight: 300;
+
+            text-align: center;
+
+        }
+
+
+        /* =================================================
+           GENERAL ADS
+        ================================================= */
+
+        .ads {
+
+            width: 100%;
+
+            text-align: center;
+
+            overflow: hidden;
+
+        }
+
+
+        .ads-container {
+
+            width: 100%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 4px;
+
+            padding:
+                10px
+                0;
+
+            overflow: hidden;
+
+        }
+
+
+        .ads-box {
+
+            flex:
+                0 0 auto;
+
+            max-width: 100%;
+
+            text-align: center;
+
+            overflow: hidden;
+
+        }
+
+
+        /* =================================================
            AD GRID
-        ========================= */
+        ================================================= */
 
         .ad-grid {
+
+            width: 100%;
+
+            max-width: 1364px;
+
+            margin: 0 auto;
+
+            padding:
+                0
+                15px;
+
             display: grid;
 
             grid-template-columns:
@@ -172,276 +275,605 @@
 
             grid-template-rows:
                 auto
-                1fr
+                auto
                 auto;
 
             grid-template-areas:
+
                 "top top top"
+
                 "left main right"
+
                 "bottom bottom bottom";
 
-            max-width: 1364px;
-            margin: 0 auto;
-            width: 100%;
-            padding: 0 15px;
-            flex: 1;
         }
 
+
+        /* =================================================
+           TOP AD AREA
+        ================================================= */
 
         #top-ad-area {
+
             grid-area: top;
+
+            width: 100%;
+
             text-align: center;
-            padding: 8px 0;
+
+            padding:
+                8px
+                0;
+
             background: #fafafa;
-            border-bottom: 1px solid #e2e8f0;
+
+            border-bottom:
+                1px solid
+                var(--border);
+
         }
 
+
+        /* =================================================
+           LEFT AD
+        ================================================= */
 
         #left-ad-area {
+
             grid-area: left;
-            background: #f8fafc;
-            border-right: 1px solid #e2e8f0;
+
+            width: 100%;
+
+            background:
+                #f8fafc;
+
+            border-right:
+                1px solid
+                var(--border);
 
             display: flex;
-            align-items: flex-start;
-            justify-content: center;
+
+            align-items:
+                flex-start;
+
+            justify-content:
+                center;
 
             padding: 10px;
 
             position: sticky;
+
             top: 10px;
-            align-self: start;
+
+            align-self:
+                start;
+
         }
 
+
+        /* =================================================
+           RIGHT AD
+        ================================================= */
 
         #right-ad-area {
+
             grid-area: right;
-            background: #f8fafc;
-            border-left: 1px solid #e2e8f0;
+
+            width: 100%;
+
+            background:
+                #f8fafc;
+
+            border-left:
+                1px solid
+                var(--border);
 
             display: flex;
-            align-items: flex-start;
-            justify-content: center;
+
+            align-items:
+                flex-start;
+
+            justify-content:
+                center;
 
             padding: 10px;
 
             position: sticky;
+
             top: 10px;
-            align-self: start;
+
+            align-self:
+                start;
+
         }
 
+
+        /* =================================================
+           BOTTOM AD
+        ================================================= */
 
         #bottom-ad-area {
+
             grid-area: bottom;
+
+            width: 100%;
+
             text-align: center;
-            padding: 8px 0;
-            background: #fafafa;
-            border-top: 1px solid #e2e8f0;
+
+            padding:
+                8px
+                0;
+
+            background:
+                #fafafa;
+
+            border-top:
+                1px solid
+                var(--border);
+
         }
 
 
+        /* =================================================
+           AD PLACEHOLDER
+        ================================================= */
+
         .ad-placeholder {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: sans-serif;
+
             width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-family: Arial, sans-serif;
+
         }
 
 
         .ad-unit {
-            background: #f1f5f9;
-            border: 1px dashed #cbd5e1;
+
+            background:
+                #f1f5f9;
+
+            border:
+                1px dashed
+                #cbd5e1;
+
             border-radius: 6px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
-            color: #94a3b8;
+            color:
+                #94a3b8;
+
             font-size: 11px;
+
             overflow: hidden;
+
         }
 
 
         .ad-unit-leader {
+
             width: 100%;
+
             max-width: 970px;
+
             min-height: 90px;
+
         }
 
 
         .ad-unit-box {
+
             width: 160px;
+
             min-height: 300px;
-        }
-
-
-        @media (max-width: 1100px) {
-
-            #left-ad-area,
-            #right-ad-area {
-                display: none !important;
-            }
 
         }
 
 
-        @media (max-width: 768px) {
-
-            .ad-unit-leader {
-                max-width: 468px;
-                min-height: 60px;
-            }
-
-        }
-
-
-        @media (max-width: 480px) {
-
-            .ad-unit-leader {
-                max-width: 320px;
-                min-height: 50px;
-            }
-
-        }
-
-
-        /* =========================
+        /* =================================================
            TOOL GRID
-        ========================= */
+        ================================================= */
 
         .grid {
+
+            width: 100%;
+
             display: grid;
+
             grid-template-columns:
-                repeat(auto-fill, minmax(150px, 1fr));
+                repeat(
+                    auto-fill,
+                    minmax(
+                        150px,
+                        1fr
+                    )
+                );
 
             gap: 12px;
-            margin: 12px 0 24px;
+
+            margin:
+                12px
+                0
+                24px;
+
         }
 
 
         .grid a {
-            text-decoration: none;
-            color: inherit;
+
+            text-decoration:
+                none;
+
+            color:
+                inherit;
+
+            min-width: 0;
+
         }
 
 
         .bcard {
-            background: #fff;
-            border: 1px solid #e2e8f0;
+
+            width: 100%;
+
+            min-height: 120px;
+
+            background:
+                var(--card-bg);
+
+            border:
+                1px solid
+                var(--border);
+
             border-radius: 12px;
-            padding: 16px 10px;
-            text-align: center;
-            transition: all .2s;
+
+            padding:
+                16px
+                10px;
+
+            text-align:
+                center;
+
+            transition:
+                all .2s ease;
+
         }
 
 
         .bcard:hover {
-            border-color: var(--accent);
-            box-shadow: 0 4px 12px rgba(0,0,0,.08);
-            transform: translateY(-2px);
+
+            border-color:
+                var(--accent);
+
+            box-shadow:
+                0 4px 12px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    .08
+                );
+
+            transform:
+                translateY(-2px);
+
         }
 
 
         .bcard img {
+
             width: 48px;
+
             height: 48px;
-            object-fit: contain;
-            margin-bottom: 8px;
-            border-radius: 6px;
+
+            object-fit:
+                contain;
+
+            margin-bottom:
+                8px;
+
+            border-radius:
+                6px;
+
         }
 
 
         .bcard h3 {
+
             margin: 0;
+
             font-size: 13px;
+
             font-weight: 600;
-            color: var(--text-main);
+
+            color:
+                var(--text-main);
+
             line-height: 1.3;
+
         }
 
 
-        /* =========================
-           TIMER
-        ========================= */
+        /* =================================================
+           TIMER AREA
+        ================================================= */
 
         #timerSection {
+
             width: 100%;
+
             max-width: 400px;
-            margin: 0 auto;
-            display: block;
-            text-align: center;
+
+            margin:
+                0 auto;
+
+            display:
+                block;
+
+            text-align:
+                center;
+
         }
 
 
         .timer-card {
+
             width: 100%;
-            padding: 12px;
-            background: rgba(255,255,255,0.04);
+
+            padding:
+                12px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.04
+                );
+
         }
 
 
         #timer {
+
+            display: block;
+
+            margin:
+                0
+                0
+                12px;
+
             font-size: 30px;
+
             font-weight: 700;
+
             line-height: 1;
-            color: #2563eb;
-            margin-bottom: 12px;
+
+            color:
+                #2563eb;
+
+            text-align:
+                center;
+
         }
 
+
+        /* =================================================
+           TIMER STATUS
+        ================================================= */
 
         #statusText {
+
             width: 100%;
-            padding: 13px;
 
-            border-radius: 12px;
+            padding:
+                13px;
 
-            background: rgba(255,255,255,0.05);
+            border-radius:
+                12px;
 
-            border: 1px solid rgba(15,23,42,0.08);
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    .05
+                );
 
-            color: #111827;
+            border:
+                1px solid
+                rgba(
+                    15,
+                    23,
+                    42,
+                    .08
+                );
 
-            font-size: 14px;
-            font-weight: 600;
+            color:
+                #111827;
 
-            line-height: 1.45;
+            font-size:
+                14px;
 
-            text-align: center;
+            font-weight:
+                600;
 
-            word-wrap: break-word;
+            line-height:
+                1.45;
+
+            text-align:
+                center;
+
+            word-wrap:
+                break-word;
+
         }
 
 
-        /* =========================
+        /* =================================================
+           VERIFY SECTION
+        ================================================= */
+
+        #verifySection {
+
+            position:
+                relative;
+
+            z-index:
+                999999;
+
+            width:
+                100%;
+
+            max-width:
+                500px;
+
+            margin:
+                20px auto
+                40px;
+
+            padding:
+                15px;
+
+            display:
+                block;
+
+            visibility:
+                visible;
+
+            opacity:
+                1;
+
+            background:
+                #ffffff;
+
+            text-align:
+                center;
+
+            overflow:
+                visible;
+
+        }
+
+
+        /* =================================================
+           VERIFY MESSAGE
+        ================================================= */
+
+        #verifyStatus {
+
+            width:
+                100%;
+
+            padding:
+                13px;
+
+            margin:
+                0
+                0
+                15px;
+
+            border-radius:
+                12px;
+
+            background:
+                #f8fafc;
+
+            border:
+                1px solid
+                #e2e8f0;
+
+            color:
+                #111827;
+
+            font-size:
+                14px;
+
+            font-weight:
+                600;
+
+            line-height:
+                1.45;
+
+            text-align:
+                center;
+
+            word-wrap:
+                break-word;
+
+        }
+
+
+        /* =================================================
+           VERIFY BUTTON BOX
+        ================================================= */
+
+        #verifyButtonBox {
+
+            width:
+                100%;
+
+            display:
+                block;
+
+            position:
+                relative;
+
+            z-index:
+                1000000;
+
+            overflow:
+                visible;
+
+        }
+
+
+        /* =================================================
            VERIFY BUTTON
-        ========================= */
-
-        #verifyContainer {
-            width: 100%;
-            max-width: 400px;
-
-            margin: 20px auto 10px;
-
-            text-align: center;
-
-            padding: 0 10px;
-        }
-
+        ================================================= */
 
         #downloadBtn {
-            width: 100%;
 
-            padding: 15px;
+            width:
+                100% !important;
 
-            border: none;
-            border-radius: 14px;
+            min-height:
+                52px;
 
-            font-size: 15px;
-            font-weight: 600;
+            padding:
+                15px
+                18px;
 
-            color: #ffffff;
+            margin:
+                0;
+
+            border:
+                none;
+
+            border-radius:
+                14px;
+
+            font-size:
+                15px;
+
+            font-weight:
+                700;
+
+            line-height:
+                1.2;
+
+            color:
+                #ffffff;
 
             background:
                 linear-gradient(
@@ -450,119 +882,704 @@
                     #0ea5e9
                 );
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
             box-shadow:
                 0 10px 30px
-                rgba(14,165,233,0.18);
+                rgba(
+                    14,
+                    165,
+                    233,
+                    .18
+                );
 
             transition:
-                transform .15s,
-                opacity .15s;
+                transform .15s ease,
+                opacity .15s ease;
 
-            display: none;
+            display:
+                none;
 
-            visibility: hidden;
+            visibility:
+                hidden;
 
-            opacity: 0;
+            opacity:
+                0;
+
+            position:
+                relative;
+
+            z-index:
+                1000001;
+
+            -webkit-appearance:
+                none;
+
+            appearance:
+                none;
+
         }
 
 
         #downloadBtn:hover {
-            transform: translateY(-1px);
+
+            transform:
+                translateY(-1px);
+
         }
 
 
         #downloadBtn:active {
-            transform: scale(.98);
+
+            transform:
+                scale(.98);
+
         }
 
 
         #downloadBtn:disabled {
-            opacity: .6;
-            cursor: not-allowed;
+
+            cursor:
+                not-allowed;
+
         }
 
+
+        /* =================================================
+           BELOW BUTTON TEXT
+        ================================================= */
 
         #belowButtonText {
-            display: none;
 
-            margin-top: 9px;
+            width:
+                100%;
 
-            color: #64748b;
+            margin:
+                10px
+                0
+                0;
 
-            font-size: 12px;
+            padding:
+                0
+                5px;
 
-            line-height: 1.4;
+            display:
+                none;
 
-            text-align: center;
+            visibility:
+                hidden;
+
+            opacity:
+                0;
+
+            color:
+                #64748b;
+
+            font-size:
+                12px;
+
+            font-weight:
+                500;
+
+            line-height:
+                1.4;
+
+            text-align:
+                center;
+
         }
 
 
-        /* =========================
+        /* =================================================
            TOAST
-        ========================= */
+        ================================================= */
 
         #toast {
-            position: fixed;
 
-            left: 50%;
-            bottom: 40px;
+            position:
+                fixed;
+
+            left:
+                50%;
+
+            bottom:
+                40px;
 
             transform:
-                translate(-50%, 100px);
+                translate(
+                    -50%,
+                    100px
+                );
 
-            background: #14532d;
+            background:
+                #14532d;
 
-            border: 1px solid #16a34a;
+            border:
+                1px solid
+                #16a34a;
 
-            color: #f0fdf4;
+            color:
+                #f0fdf4;
 
-            padding: 14px 20px;
+            padding:
+                14px
+                20px;
 
-            border-radius: 14px;
+            border-radius:
+                14px;
 
-            font-size: 14px;
+            font-size:
+                14px;
 
-            font-weight: 600;
+            font-weight:
+                600;
 
             box-shadow:
                 0 12px 32px
-                rgba(0,0,0,0.4);
+                rgba(
+                    0,
+                    0,
+                    0,
+                    .4
+                );
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            gap: 10px;
+            gap:
+                10px;
 
             transition:
                 transform .35s ease;
 
-            z-index: 99999;
+            z-index:
+                9999999;
 
-            max-width: 90%;
+            max-width:
+                90%;
 
-            text-align: center;
+            text-align:
+                center;
 
-            box-sizing: border-box;
         }
 
 
-        @media (max-width: 480px) {
+        /* =================================================
+           TABLET
+        ================================================= */
+
+        @media (max-width: 1100px) {
+
+            #left-ad-area,
+            #right-ad-area {
+
+                display:
+                    none !important;
+
+            }
+
+
+            .ad-grid {
+
+                grid-template-columns:
+                    minmax(
+                        0,
+                        1fr
+                    );
+
+                grid-template-areas:
+
+                    "top"
+
+                    "main"
+
+                    "bottom";
+
+                padding:
+                    0;
+
+            }
+
+        }
+
+
+        /* =================================================
+           TABLET
+        ================================================= */
+
+        @media (max-width: 768px) {
+
+            main {
+
+                padding:
+                    0
+                    15px
+                    35px;
+
+            }
+
+
+            .ad-unit-leader {
+
+                max-width:
+                    468px;
+
+                min-height:
+                    60px;
+
+            }
+
+
+            .grid {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(
+                            0,
+                            1fr
+                        )
+                    );
+
+                gap:
+                    10px;
+
+            }
+
+
+            .bcard {
+
+                padding:
+                    14px
+                    8px;
+
+            }
+
+
+            .bcard h3 {
+
+                font-size:
+                    12px;
+
+            }
+
+
+            #verifySection {
+
+                max-width:
+                    500px;
+
+                margin:
+                    15px auto
+                    30px;
+
+            }
+
+        }
+
+
+        /* =================================================
+           MOBILE
+        ================================================= */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                overflow-x:
+                    hidden;
+
+            }
+
+
+            main {
+
+                width:
+                    100%;
+
+                padding:
+                    0
+                    10px
+                    30px;
+
+            }
+
+
+            .ads-container {
+
+                width:
+                    100%;
+
+                flex-direction:
+                    column;
+
+                flex-wrap:
+                    nowrap;
+
+                gap:
+                    6px;
+
+                overflow:
+                    hidden;
+
+            }
+
+
+            .ads-box {
+
+                width:
+                    100%;
+
+                max-width:
+                    100%;
+
+                overflow:
+                    hidden;
+
+            }
+
+
+            .ad-unit-leader {
+
+                width:
+                    100%;
+
+                max-width:
+                    320px;
+
+                min-height:
+                    50px;
+
+            }
+
+
+            .grid {
+
+                width:
+                    100%;
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(
+                            0,
+                            1fr
+                        )
+                    );
+
+                gap:
+                    8px;
+
+            }
+
+
+            .bcard {
+
+                min-height:
+                    110px;
+
+                padding:
+                    13px
+                    6px;
+
+                border-radius:
+                    10px;
+
+            }
+
+
+            .bcard img {
+
+                width:
+                    44px;
+
+                height:
+                    44px;
+
+            }
+
+
+            .bcard h3 {
+
+                font-size:
+                    11px;
+
+                line-height:
+                    1.3;
+
+            }
+
+
+            h2 {
+
+                margin:
+                    22px
+                    0
+                    9px;
+
+                font-size:
+                    18px;
+
+            }
+
+
+            #top-ad-area {
+
+                padding:
+                    5px
+                    0;
+
+            }
+
+
+            #timerSection {
+
+                width:
+                    100%;
+
+                max-width:
+                    360px;
+
+            }
+
 
             #timer {
-                font-size: 28px;
+
+                font-size:
+                    28px;
+
+                margin-bottom:
+                    10px;
+
             }
+
 
             #statusText {
-                font-size: 13px;
-                padding: 12px;
+
+                font-size:
+                    13px;
+
+                padding:
+                    12px;
+
             }
 
+
+            /* =========================================
+               IMPORTANT MOBILE VERIFY FIX
+            ========================================= */
+
+            #verifySection {
+
+                position:
+                    relative;
+
+                z-index:
+                    999999;
+
+                width:
+                    100%;
+
+                max-width:
+                    none;
+
+                margin:
+                    15px 0
+                    30px;
+
+                padding:
+                    15px
+                    12px
+                    30px;
+
+                display:
+                    block;
+
+                visibility:
+                    visible;
+
+                opacity:
+                    1;
+
+                background:
+                    #ffffff;
+
+                overflow:
+                    visible;
+
+            }
+
+
+            #verifyStatus {
+
+                width:
+                    100%;
+
+                font-size:
+                    13px;
+
+                padding:
+                    12px;
+
+                margin-bottom:
+                    14px;
+
+            }
+
+
+            #verifyButtonBox {
+
+                width:
+                    100%;
+
+                display:
+                    block;
+
+                position:
+                    relative;
+
+                z-index:
+                    1000000;
+
+                overflow:
+                    visible;
+
+            }
+
+
             #downloadBtn {
-                font-size: 14px;
-                padding: 14px;
+
+                width:
+                    100% !important;
+
+                min-height:
+                    52px;
+
+                padding:
+                    14px
+                    12px;
+
+                font-size:
+                    14px;
+
+                border-radius:
+                    13px;
+
+            }
+
+
+            #belowButtonText {
+
+                width:
+                    100%;
+
+                font-size:
+                    12px;
+
+                margin-top:
+                    9px;
+
+            }
+
+
+            #toast {
+
+                bottom:
+                    20px;
+
+                max-width:
+                    92%;
+
+                padding:
+                    12px
+                    15px;
+
+                font-size:
+                    13px;
+
+            }
+
+        }
+
+
+        /* =================================================
+           SMALL MOBILE
+        ================================================= */
+
+        @media (max-width: 380px) {
+
+            main {
+
+                padding-left:
+                    8px;
+
+                padding-right:
+                    8px;
+
+            }
+
+
+            .grid {
+
+                gap:
+                    7px;
+
+            }
+
+
+            .bcard {
+
+                min-height:
+                    105px;
+
+                padding:
+                    11px
+                    5px;
+
+            }
+
+
+            .bcard img {
+
+                width:
+                    40px;
+
+                height:
+                    40px;
+
+            }
+
+
+            .bcard h3 {
+
+                font-size:
+                    10px;
+
+            }
+
+
+            #verifySection {
+
+                padding:
+                    12px
+                    8px
+                    25px;
+
+            }
+
+
+            #downloadBtn {
+
+                min-height:
+                    50px;
+
+                font-size:
+                    13px;
+
             }
 
         }
@@ -575,26 +1592,38 @@
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      TOP ADS
-========================= -->
+====================================================== -->
 
 <div class="ads">
 
     <div class="ads-container">
 
-        <!-- Ad 1 -->
+
+        <!-- FIRST AD -->
 
         <div class="ads-box">
 
             <script type="text/javascript">
 
                 atOptions = {
-                    'key': '3353fc740693589865911ed5c4e259c1',
-                    'format': 'iframe',
-                    'height': 60,
-                    'width': 468,
-                    'params': {}
+
+                    'key':
+                        '3353fc740693589865911ed5c4e259c1',
+
+                    'format':
+                        'iframe',
+
+                    'height':
+                        60,
+
+                    'width':
+                        468,
+
+                    'params':
+                        {}
+
                 };
 
             </script>
@@ -606,18 +1635,29 @@
         </div>
 
 
-        <!-- Ad 2 -->
+        <!-- SECOND AD -->
 
         <div class="ads-box">
 
             <script type="text/javascript">
 
                 atOptions = {
-                    'key': 'b522989fcf5cdf1fbc5167845934a0a9',
-                    'format': 'iframe',
-                    'height': 50,
-                    'width': 320,
-                    'params': {}
+
+                    'key':
+                        'b522989fcf5cdf1fbc5167845934a0a9',
+
+                    'format':
+                        'iframe',
+
+                    'height':
+                        50,
+
+                    'width':
+                        320,
+
+                    'params':
+                        {}
+
                 };
 
             </script>
@@ -633,20 +1673,23 @@
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      AD GRID
-========================= -->
+====================================================== -->
 
 <div class="ad-grid">
 
 
-    <!-- TOP AREA -->
+    <!-- =================================================
+         TOP
+    ================================================== -->
 
     <div id="top-ad-area">
 
         <div class="ad-placeholder">
 
             <div class="ad-unit ad-unit-leader">
+
 
                 <!-- TIMER -->
 
@@ -657,7 +1700,6 @@
                         <div id="timer">
                             30
                         </div>
-
 
                         <div id="statusText">
                             🔒 Please wait while the timer counts down.
@@ -675,7 +1717,9 @@
     </div>
 
 
-    <!-- LEFT AD -->
+    <!-- =================================================
+         LEFT
+    ================================================== -->
 
     <div id="left-ad-area">
 
@@ -686,11 +1730,22 @@
                 <script>
 
                     atOptions = {
-                        'key': 'f52693494bde000182223aeddd8d7b4b',
-                        'format': 'iframe',
-                        'height': 600,
-                        'width': 160,
-                        'params': {}
+
+                        'key':
+                            'f52693494bde000182223aeddd8d7b4b',
+
+                        'format':
+                            'iframe',
+
+                        'height':
+                            600,
+
+                        'width':
+                            160,
+
+                        'params':
+                            {}
+
                     };
 
                 </script>
@@ -705,7 +1760,9 @@
     </div>
 
 
-    <!-- MAIN -->
+    <!-- =================================================
+         MAIN
+    ================================================== -->
 
     <main>
 
@@ -733,9 +1790,9 @@
         </div>
 
 
-        <!-- =========================
+        <!-- =================================================
              UNIT CONVERTER
-        ========================= -->
+        ================================================== -->
 
         <h2>
             Unit Converter Tools
@@ -743,6 +1800,7 @@
 
 
         <div class="grid">
+
 
             <a href="../../unit-converter/illuminance-converter/">
                 <div class="bcard">
@@ -926,13 +1984,14 @@
         </div>
 
 
-        <!-- =========================
-             MID ADS
-        ========================= -->
+        <!-- =================================================
+             ADS
+        ================================================== -->
 
         <div class="ads">
 
             <div class="ads-container">
+
 
                 <div class="ads-box">
 
@@ -958,9 +2017,9 @@
         </div>
 
 
-        <!-- =========================
-             CALCULATOR
-        ========================= -->
+        <!-- =================================================
+             CALCULATOR TOOLS
+        ================================================== -->
 
         <h2>
             All Types Calculator Tools
@@ -968,6 +2027,7 @@
 
 
         <div class="grid">
+
 
             <a href="../../calculator-tool/currency-converter/">
                 <div class="bcard">
@@ -1027,7 +2087,7 @@
                 <div class="bcard">
                     <img src="../../images/date-duration-calculator.webp"
                          alt="Date and Duration Calculator">
-                    <h3>Date & Duration</h3>
+                    <h3>Date &amp; Duration</h3>
                 </div>
             </a>
 
@@ -1036,7 +2096,7 @@
                 <div class="bcard">
                     <img src="../../images/gpa-cgpa-calculator.webp"
                          alt="GPA CGPA Calculator">
-                    <h3>GPA & CGPA Calculator</h3>
+                    <h3>GPA &amp; CGPA Calculator</h3>
                 </div>
             </a>
 
@@ -1054,7 +2114,7 @@
                 <div class="bcard">
                     <img src="../../images/base-converter.webp"
                          alt="Base Converter">
-                    <h3>Binary / Decimal / Hex</h3>
+                    <h3>Binary Decimal Hex</h3>
                 </div>
             </a>
 
@@ -1079,9 +2139,9 @@
         </div>
 
 
-        <!-- =========================
+        <!-- =================================================
              IMAGE TOOLS
-        ========================= -->
+        ================================================== -->
 
         <h2>
             Image Tools
@@ -1089,6 +2149,7 @@
 
 
         <div class="grid">
+
 
             <a href="../../image-tool/image-background-remover/">
                 <div class="bcard">
@@ -1102,7 +2163,7 @@
             <a href="../../image-tool/image-crop/">
                 <div class="bcard">
                     <img src="../../images/image-crop.webp"
-                         alt="Image Cropper">
+                         alt="Crop Image">
                     <h3>Image Cropper</h3>
                 </div>
             </a>
@@ -1120,7 +2181,7 @@
             <a href="../../image-tool/image-resizer/">
                 <div class="bcard">
                     <img src="../../images/image-resizer.webp"
-                         alt="Image Resizer">
+                         alt="Resize Image">
                     <h3>Image Resizer</h3>
                 </div>
             </a>
@@ -1129,7 +2190,7 @@
             <a href="../../image-tool/passport-size-photo-generator/">
                 <div class="bcard">
                     <img src="../../images/passport-size-photo-generator.webp"
-                         alt="Passport Size Photo Generator">
+                         alt="Passport Photo Generator">
                     <h3>Passport Size Photo Generator</h3>
                 </div>
             </a>
@@ -1146,9 +2207,9 @@
         </div>
 
 
-        <!-- =========================
+        <!-- =================================================
              PDF TOOLS
-        ========================= -->
+        ================================================== -->
 
         <h2>
             PDF Tools
@@ -1156,6 +2217,7 @@
 
 
         <div class="grid">
+
 
             <a href="../../pdf-tool/watermark-in-pdf/">
                 <div class="bcard">
@@ -1196,8 +2258,8 @@
             <a href="../../pdf-tool/split-and-delete-pdf/">
                 <div class="bcard">
                     <img src="../../images/split-and-delete-pdf.webp"
-                         alt="Split and Delete PDF Pages">
-                    <h3>Split & Delete Pages</h3>
+                         alt="Split or Delete Pages">
+                    <h3>Split &amp; Delete Pages</h3>
                 </div>
             </a>
 
@@ -1205,7 +2267,7 @@
             <a href="../../pdf-tool/rotate-pdf-pages/">
                 <div class="bcard">
                     <img src="../../images/rotate-pdf-pages.webp"
-                         alt="Rotate PDF Pages">
+                         alt="Rotate PDF">
                     <h3>Rotate PDF Pages</h3>
                 </div>
             </a>
@@ -1232,7 +2294,7 @@
             <a href="../../pdf-tool/pdf-to-docx/">
                 <div class="bcard">
                     <img src="../../images/pdf-to-docx.webp"
-                         alt="PDF to Word">
+                         alt="PDF to DOCX">
                     <h3>PDF to Word</h3>
                 </div>
             </a>
@@ -1241,7 +2303,7 @@
             <a href="../../pdf-tool/pdf-to-pptx/">
                 <div class="bcard">
                     <img src="../../images/pdf-to-pptx.webp"
-                         alt="PDF to PowerPoint">
+                         alt="PDF to PPTX">
                     <h3>PDF to PowerPoint</h3>
                 </div>
             </a>
@@ -1266,18 +2328,37 @@
 
         </div>
 
+    </main>
 
-        <!-- =========================
-             VERIFY SECTION
-        ========================= -->
 
-        <div id="verifyContainer">
+    <!-- =====================================================
+         VERIFY SECTION
+         IMPORTANT:
+         OUTSIDE MAIN / AD GRID
+         SO MOBILE ADS CANNOT CLIP IT
+    ====================================================== -->
+
+    <section id="verifySection">
+
+
+        <!-- Timer completion status -->
+
+        <div id="verifyStatus">
+
+            🔒 Please wait while the timer counts down.
+
+        </div>
+
+
+        <!-- Button -->
+
+        <div id="verifyButtonBox">
 
             <button id="downloadBtn"
                     type="button"
                     disabled>
 
-                👉 ✅ Verify & Download 👈
+                👉 ✅ Verify &amp; Download 👈
 
             </button>
 
@@ -1290,13 +2371,12 @@
 
         </div>
 
+    </section>
 
-    </main>
 
-
-    <!-- =========================
+    <!-- =====================================================
          BOTTOM AD
-    ========================= -->
+    ====================================================== -->
 
     <div id="bottom-ad-area">
 
@@ -1304,21 +2384,35 @@
 
             <div class="ad-unit ad-unit-leader">
 
+
                 <script type="text/javascript">
 
                     atOptions = {
-                        'key': 'd989003ea8480512c7e859e4a01a08d2',
-                        'format': 'iframe',
-                        'height': 90,
-                        'width': 728,
-                        'params': {}
+
+                        'key':
+                            'd989003ea8480512c7e859e4a01a08d2',
+
+                        'format':
+                            'iframe',
+
+                        'height':
+                            90,
+
+                        'width':
+                            728,
+
+                        'params':
+                            {}
+
                     };
 
                 </script>
 
+
                 <script type="text/javascript"
                         src="//www.highperformanceformat.com/d989003ea8480512c7e859e4a01a08d2/invoke.js">
                 </script>
+
 
             </div>
 
@@ -1327,7 +2421,9 @@
     </div>
 
 
-    <!-- RIGHT AD -->
+    <!-- =====================================================
+         RIGHT AD
+    ====================================================== -->
 
     <div id="right-ad-area">
 
@@ -1335,20 +2431,34 @@
 
             <div class="ad-unit ad-unit-box">
 
+
                 <script>
 
                     atOptions = {
-                        'key': 'e5ca98a26b2f5e9e3350260d41479d70',
-                        'format': 'iframe',
-                        'height': 300,
-                        'width': 160,
-                        'params': {}
+
+                        'key':
+                            'e5ca98a26b2f5e9e3350260d41479d70',
+
+                        'format':
+                            'iframe',
+
+                        'height':
+                            300,
+
+                        'width':
+                            160,
+
+                        'params':
+                            {}
+
                     };
 
                 </script>
 
+
                 <script src="https://www.highperformanceformat.com/e5ca98a26b2f5e9e3350260d41479d70/invoke.js">
                 </script>
+
 
             </div>
 
@@ -1356,654 +2466,679 @@
 
     </div>
 
-</div>
 
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
 
-<!-- =========================
-     TOAST
-========================= -->
+    <div id="toast">
 
-<div id="toast">
+        <span id="toastIcon">
+            ✅
+        </span>
 
-    <span id="toastIcon">
-        ✅
-    </span>
+        <span id="toastText"></span>
 
-    <span id="toastText">
-    </span>
+    </div>
 
-</div>
 
+    <!-- =====================================================
+         ADMolo INTERSTITIAL
+    ====================================================== -->
 
-<!-- =========================
-     ADMolo INTERSTITIAL
-========================= -->
+    <div class="admoloInterstitial"
+         data-publisher="eyJpdiI6InlsOHJ6em9hc1kwbFVRaWIwWEFnWmc9PSIsInZhbHVlIjoiMUo4T2Niamh4aXMyVkN4QTZwK0oyZz09IiwibWFjIjoiNWIzNzdjYWFhNjNhZmUwMTM3ZWViNjE3ZGJlODc1MWUwNGVjZGViZTM3MmZhNGU1NmUxMzkwZjQzZTRkMDY1MyIsInRhZyI6IiJ9"
+         data-adsize="interstitial">
+    </div>
 
-<div class="admoloInterstitial"
-     data-publisher="eyJpdiI6InlsOHJ6em9hc1kwbFVRaWIwWEFnWmc9PSIsInZhbHVlIjoiMUo4T2Niamh4aXMyVkN4QTZwK0oyZz09IiwibWFjIjoiNWIzNzdjYWFhNjNhZmUwMTM3ZWViNjE3ZGJlODc1MWUwNGVjZGViZTM3MmZhNGU1NmUxMzkwZjQzZTRkMDY1MyIsInRhZyI6IiJ9"
-     data-adsize="interstitial">
-</div>
 
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
-<!-- =========================
-     TIMER + TELEGRAM SCRIPT
-========================= -->
+    <script>
 
-<script>
+    (function () {
 
-(function () {
+        'use strict';
 
-    'use strict';
 
+        /* =================================================
+           URL PARAMETERS
+        ================================================= */
 
-    /* =========================
-       URL PARAMETERS
-    ========================= */
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-    const videoUrl =
-        params.get('url') || '';
-
-
-    const botUsername =
-        params.get('bot') ||
-        'videosaverXdownloaderBot';
-
-
-    let seconds =
-        parseInt(
-            params.get('timer') ||
-            params.get('t') ||
-            '30',
-            10
-        );
-
-
-    if (
-        isNaN(seconds) ||
-        seconds < 5
-    ) {
-
-        seconds = 30;
-
-    }
-
-
-    /* =========================
-       TELEGRAM WEB APP
-    ========================= */
-
-    let tg = null;
-
-
-    try {
-
-        if (
-            window.Telegram &&
-            window.Telegram.WebApp
-        ) {
-
-            tg =
-                window.Telegram.WebApp;
-
-
-            tg.ready();
-
-
-            tg.expand();
-
-        }
-
-    } catch (error) {
-
-        console.log(
-            'Telegram WebApp error:',
-            error
-        );
-
-    }
-
-
-    /* =========================
-       ELEMENTS
-    ========================= */
-
-    const timerSection =
-        document.getElementById(
-            'timerSection'
-        );
-
-
-    const timerEl =
-        document.getElementById(
-            'timer'
-        );
-
-
-    const statusText =
-        document.getElementById(
-            'statusText'
-        );
-
-
-    const downloadBtn =
-        document.getElementById(
-            'downloadBtn'
-        );
-
-
-    const belowButtonText =
-        document.getElementById(
-            'belowButtonText'
-        );
-
-
-    const toast =
-        document.getElementById(
-            'toast'
-        );
-
-
-    const toastText =
-        document.getElementById(
-            'toastText'
-        );
-
-
-    const toastIcon =
-        document.getElementById(
-            'toastIcon'
-        );
-
-
-    /* =========================
-       TOAST
-    ========================= */
-
-    function showToast(
-        message,
-        icon = '✅'
-    ) {
-
-        if (
-            !toast ||
-            !toastText ||
-            !toastIcon
-        ) {
-
-            return;
-
-        }
-
-
-        toastIcon.textContent =
-            icon;
-
-
-        toastText.textContent =
-            message;
-
-
-        toast.style.transform =
-            'translate(-50%, 0)';
-
-
-        clearTimeout(
-            showToast.timer
-        );
-
-
-        showToast.timer =
-            setTimeout(
-                function () {
-
-                    toast.style.transform =
-                        'translate(-50%, 100px)';
-
-                },
-                4000
+        const params =
+            new URLSearchParams(
+                window.location.search
             );
 
-    }
+
+        const videoUrl =
+            params.get('url') || '';
 
 
-    /* =========================
-       TELEGRAM VERIFY
-    ========================= */
-
-    function openBotVerify() {
-
-        const payload =
-            JSON.stringify({
-                v: 'watchads:done'
-            });
+        const botUsername =
+            params.get('bot') ||
+            'videosaverXdownloaderBot';
 
 
-        /*
-         * Mini App
-         */
+        let seconds =
+            parseInt(
+                params.get('timer') ||
+                params.get('t') ||
+                '30',
+                10
+            );
+
 
         if (
-            window.Telegram &&
-            window.Telegram.WebApp &&
-            typeof window.Telegram.WebApp.sendData ===
-                'function'
+            isNaN(seconds) ||
+            seconds < 5
         ) {
 
-            try {
-
-                window.Telegram.WebApp.sendData(
-                    payload
-                );
-
-                return true;
-
-            } catch (error) {
-
-                console.log(
-                    'sendData error:',
-                    error
-                );
-
-            }
+            seconds = 30;
 
         }
 
 
-        /*
-         * Telegram WebApp link
-         */
+        /* =================================================
+           TELEGRAM
+        ================================================= */
 
-        const link =
-            'https://t.me/' +
-            botUsername +
-            '?start=watchadsverify';
+        let tg = null;
 
-
-        if (
-            tg &&
-            typeof tg.openTelegramLink ===
-                'function'
-        ) {
-
-            try {
-
-                tg.openTelegramLink(
-                    link
-                );
-
-                return true;
-
-            } catch (error) {
-
-                console.log(
-                    'openTelegramLink error:',
-                    error
-                );
-
-            }
-
-        }
-
-
-        /*
-         * Normal browser fallback
-         */
 
         try {
 
-            window.open(
-                link,
-                '_blank'
-            );
+            if (
+                window.Telegram &&
+                window.Telegram.WebApp
+            ) {
+
+                tg =
+                    window.Telegram.WebApp;
+
+
+                tg.ready();
+
+
+                tg.expand();
+
+            }
 
         } catch (error) {
 
-            window.location.href =
-                link;
+            console.log(
+                'Telegram initialization error:',
+                error
+            );
 
         }
 
 
-        return true;
+        /* =================================================
+           ELEMENTS
+        ================================================= */
 
-    }
+        const timerEl =
+            document.getElementById(
+                'timer'
+            );
 
 
-    /* =========================
-       VERIFY & DOWNLOAD
-    ========================= */
+        const statusText =
+            document.getElementById(
+                'statusText'
+            );
 
-    function verifyAndDownload() {
 
-        /*
-         * Hide timer
-         */
+        const verifyStatus =
+            document.getElementById(
+                'verifyStatus'
+            );
 
-        if (timerSection) {
 
-            timerSection.style.display =
+        const downloadBtn =
+            document.getElementById(
+                'downloadBtn'
+            );
+
+
+        const belowButtonText =
+            document.getElementById(
+                'belowButtonText'
+            );
+
+
+        const toast =
+            document.getElementById(
+                'toast'
+            );
+
+
+        const toastText =
+            document.getElementById(
+                'toastText'
+            );
+
+
+        const toastIcon =
+            document.getElementById(
+                'toastIcon'
+            );
+
+
+        /* =================================================
+           TOAST
+        ================================================= */
+
+        function showToast(
+            message,
+            icon = '✅'
+        ) {
+
+            if (
+                !toast ||
+                !toastText ||
+                !toastIcon
+            ) {
+
+                return;
+
+            }
+
+
+            toastIcon.textContent =
+                icon;
+
+
+            toastText.textContent =
+                message;
+
+
+            toast.style.transform =
+                'translate(-50%, 0)';
+
+
+            clearTimeout(
+                showToast.timer
+            );
+
+
+            showToast.timer =
+                setTimeout(
+                    function () {
+
+                        toast.style.transform =
+                            'translate(-50%, 100px)';
+
+                    },
+                    4000
+                );
+
+        }
+
+
+        /* =================================================
+           TELEGRAM VERIFY
+        ================================================= */
+
+        function openBotVerify() {
+
+            const payload =
+                JSON.stringify({
+                    v: 'watchads:done'
+                });
+
+
+            /*
+             * Telegram Mini App
+             */
+
+            if (
+                window.Telegram &&
+                window.Telegram.WebApp &&
+                typeof
+                window.Telegram.WebApp.sendData ===
+                'function'
+            ) {
+
+                try {
+
+                    window.Telegram.WebApp.sendData(
+                        payload
+                    );
+
+                    return true;
+
+                } catch (error) {
+
+                    console.log(
+                        'Telegram sendData error:',
+                        error
+                    );
+
+                }
+
+            }
+
+
+            /*
+             * Telegram link
+             */
+
+            const link =
+                'https://t.me/' +
+                botUsername +
+                '?start=watchadsverify';
+
+
+            if (
+                tg &&
+                typeof tg.openTelegramLink ===
+                'function'
+            ) {
+
+                try {
+
+                    tg.openTelegramLink(
+                        link
+                    );
+
+                    return true;
+
+                } catch (error) {
+
+                    console.log(
+                        'Telegram link error:',
+                        error
+                    );
+
+                }
+
+            }
+
+
+            /*
+             * Browser fallback
+             */
+
+            try {
+
+                window.open(
+                    link,
+                    '_blank'
+                );
+
+            } catch (error) {
+
+                window.location.href =
+                    link;
+
+            }
+
+
+            return true;
+
+        }
+
+
+        /* =================================================
+           VERIFY BUTTON CLICK
+        ================================================= */
+
+        function verifyAndDownload() {
+
+
+            /*
+             * Disable button immediately
+             */
+
+            downloadBtn.disabled =
+                true;
+
+
+            downloadBtn.style.opacity =
+                '0.6';
+
+
+            /*
+             * Show toast
+             */
+
+            showToast(
+                'Verification completed. You can go back now.',
+                '⬇️'
+            );
+
+
+            /*
+             * Send verification
+             */
+
+            openBotVerify();
+
+
+            /*
+             * Close Mini App
+             */
+
+            if (
+                tg &&
+                typeof tg.close ===
+                'function'
+            ) {
+
+                setTimeout(
+                    function () {
+
+                        try {
+
+                            tg.close();
+
+                        } catch (error) {
+
+                            console.log(
+                                'Telegram close error:',
+                                error
+                            );
+
+                        }
+
+                    },
+                    1200
+                );
+
+            }
+
+        }
+
+
+        /* =================================================
+           TIMER COMPLETED
+        ================================================= */
+
+        function completeTimer() {
+
+
+            console.log(
+                'Timer completed'
+            );
+
+
+            /*
+             * Hide timer number
+             */
+
+            timerEl.style.display =
                 'none';
 
+
+            /*
+             * Update original status
+             */
+
+            statusText.textContent =
+                '';
+
+
+            statusText.style.display =
+                'none';
+
+
+            /*
+             * Show completion message
+             * in dedicated verify section
+             */
+
+            verifyStatus.textContent =
+                '✅ Timer completed! Click "Verify & Download" below to continue. 👇';
+
+
+            verifyStatus.style.color =
+                '#15803d';
+
+
+            verifyStatus.style.borderColor =
+                'rgba(34,197,94,0.25)';
+
+
+            verifyStatus.style.background =
+                'rgba(34,197,94,0.08)';
+
+
+            /*
+             * Enable button
+             */
+
+            downloadBtn.disabled =
+                false;
+
+
+            /*
+             * FORCE SHOW BUTTON
+             */
+
+            downloadBtn.style.display =
+                'block';
+
+
+            downloadBtn.style.visibility =
+                'visible';
+
+
+            downloadBtn.style.opacity =
+                '1';
+
+
+            /*
+             * Show text below
+             */
+
+            belowButtonText.textContent =
+                '⬇️ Tap the button above to verify and download.';
+
+
+            belowButtonText.style.display =
+                'block';
+
+
+            belowButtonText.style.visibility =
+                'visible';
+
+
+            belowButtonText.style.opacity =
+                '1';
+
+
+            /*
+             * Button event
+             */
+
+            downloadBtn.onclick =
+                verifyAndDownload;
+
+
+            /*
+             * Scroll button into view
+             * on small screens
+             */
+
+            if (
+                window.innerWidth <= 600
+            ) {
+
+                setTimeout(
+                    function () {
+
+                        try {
+
+                            document
+                                .getElementById(
+                                    'verifySection'
+                                )
+                                .scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'center'
+                                });
+
+                        } catch (error) {
+
+                            console.log(
+                                'Scroll error:',
+                                error
+                            );
+
+                        }
+
+                    },
+                    150
+                );
+
+            }
+
         }
 
 
-        /*
-         * Hide button after click
-         */
+        /* =================================================
+           START TIMER
+        ================================================= */
 
-        if (downloadBtn) {
+        function startTimer() {
+
+            let remaining =
+                seconds;
+
+
+            /*
+             * Initial timer
+             */
+
+            timerEl.textContent =
+                remaining;
+
+
+            /*
+             * Initial status
+             */
+
+            statusText.textContent =
+                '🔒 Please wait while the timer counts down.';
+
+
+            /*
+             * Keep button hidden
+             */
+
+            downloadBtn.disabled =
+                true;
+
 
             downloadBtn.style.display =
                 'none';
 
+
             downloadBtn.style.visibility =
                 'hidden';
 
-        }
+
+            downloadBtn.style.opacity =
+                '0';
 
 
-        /*
-         * Hide instruction
-         */
-
-        if (belowButtonText) {
+            /*
+             * Hide below text
+             */
 
             belowButtonText.style.display =
                 'none';
 
+
+            belowButtonText.style.visibility =
+                'hidden';
+
+
+            /*
+             * Timer interval
+             */
+
+            const interval =
+                setInterval(
+                    function () {
+
+
+                        remaining--;
+
+
+                        /*
+                         * Update number
+                         */
+
+                        timerEl.textContent =
+                            Math.max(
+                                remaining,
+                                0
+                            );
+
+
+                        /*
+                         * Completed
+                         */
+
+                        if (
+                            remaining <= 0
+                        ) {
+
+                            clearInterval(
+                                interval
+                            );
+
+
+                            completeTimer();
+
+                        }
+
+
+                    },
+                    1000
+                );
+
         }
 
 
-        /*
-         * Show success toast
-         */
-
-        showToast(
-            'Verification completed. You can go back now.',
-            '⬇️'
-        );
-
-
-        /*
-         * Send verification
-         */
-
-        openBotVerify();
-
-
-        /*
-         * Close Telegram Mini App
-         */
+        /* =================================================
+           START
+        ================================================= */
 
         if (
-            tg &&
-            typeof tg.close ===
-                'function'
+            timerEl &&
+            statusText &&
+            verifyStatus &&
+            downloadBtn &&
+            belowButtonText
         ) {
 
-            setTimeout(
-                function () {
+            startTimer();
 
-                    try {
+        } else {
 
-                        tg.close();
-
-                    } catch (error) {
-
-                        console.log(
-                            'Telegram close error:',
-                            error
-                        );
-
-                    }
-
-                },
-                1200
+            console.error(
+                'Required elements are missing.'
             );
 
         }
 
-    }
 
+    })();
 
-    /* =========================
-       COMPLETE TIMER
-    ========================= */
+    </script>
 
-    function completeTimer() {
 
-        /*
-         * Hide timer number.
-         *
-         * This prevents "0"
-         * from being displayed.
-         */
+    <!-- =====================================================
+         IN-APP INTERSTITIAL
+    ====================================================== -->
 
-        timerEl.style.display =
-            'none';
-
-
-        /*
-         * Completion message
-         */
-
-        statusText.textContent =
-            '✅ Timer completed! Click "Verify & Download" below to continue. 👇';
-
-
-        statusText.style.color =
-            '#15803d';
-
-
-        statusText.style.borderColor =
-            'rgba(34,197,94,0.25)';
-
-
-        statusText.style.background =
-            'rgba(34,197,94,0.08)';
-
-
-        /*
-         * Enable button
-         */
-
-        downloadBtn.disabled =
-            false;
-
-
-        /*
-         * Show button
-         */
-
-        downloadBtn.style.display =
-            'block';
-
-
-        downloadBtn.style.visibility =
-            'visible';
-
-
-        downloadBtn.style.opacity =
-            '1';
-
-
-        /*
-         * Show text below button
-         */
-
-        belowButtonText.textContent =
-            '⬇️ Tap the button above to verify and download.';
-
-
-        belowButtonText.style.display =
-            'block';
-
-
-        belowButtonText.style.visibility =
-            'visible';
-
-
-        /*
-         * Attach click handler
-         */
-
-        downloadBtn.onclick =
-            verifyAndDownload;
-
-    }
-
-
-    /* =========================
-       START TIMER
-    ========================= */
-
-    function startTimer() {
-
-        let remaining =
-            seconds;
-
-
-        /*
-         * Initial value
-         */
-
-        timerEl.textContent =
-            remaining;
-
-
-        statusText.textContent =
-            '🔒 Please wait while the timer counts down.';
-
-
-        /*
-         * Button disabled
-         */
-
-        downloadBtn.disabled =
-            true;
-
-
-        downloadBtn.style.display =
-            'none';
-
-
-        downloadBtn.style.visibility =
-            'hidden';
-
-
-        downloadBtn.style.opacity =
-            '0';
-
-
-        belowButtonText.style.display =
-            'none';
-
-
-        /*
-         * Timer
-         */
-
-        const interval =
-            setInterval(
-                function () {
-
-                    remaining--;
-
-
-                    /*
-                     * Do not allow
-                     * negative number.
-                     */
-
-                    timerEl.textContent =
-                        Math.max(
-                            remaining,
-                            0
-                        );
-
-
-                    /*
-                     * Timer finished
-                     */
-
-                    if (
-                        remaining <= 0
-                    ) {
-
-                        clearInterval(
-                            interval
-                        );
-
-
-                        completeTimer();
-
-                    }
-
-                },
-                1000
-            );
-
-    }
-
-
-    /* =========================
-       START
-    ========================= */
-
-    if (
-        timerEl &&
-        statusText &&
-        downloadBtn &&
-        belowButtonText
-    ) {
-
-        startTimer();
-
-    } else {
-
-        console.error(
-            'Required timer elements are missing.'
-        );
-
-    }
-
-
-})();
-
-</script>
-
-
-<!-- =========================
-     REWARDED / IN-APP ADS
-========================= -->
-
-<script>
-
-    /*
-     * Rewarded interstitial.
-     *
-     * Uncomment only if you want
-     * to manually trigger the ad.
-     */
-
-    /*
-    show_9379707().then(() => {
-
-        alert('You have seen an ad!');
-
-    });
-    */
-
-
-    /*
-     * In-App Interstitial
-     */
+    <script>
 
     try {
 
@@ -2014,19 +3149,25 @@
 
             show_9379707({
 
-                type: 'inApp',
+                type:
+                    'inApp',
 
                 inAppSettings: {
 
-                    frequency: 2,
+                    frequency:
+                        2,
 
-                    capping: 0.1,
+                    capping:
+                        0.1,
 
-                    interval: 30,
+                    interval:
+                        30,
 
-                    timeout: 370,
+                    timeout:
+                        370,
 
-                    everyPage: false
+                    everyPage:
+                        false
 
                 }
 
@@ -2037,14 +3178,15 @@
     } catch (error) {
 
         console.log(
-            'Ad initialization error:',
+            'Interstitial error:',
             error
         );
 
     }
 
-</script>
+    </script>
 
 
 </body>
+
 </html>
