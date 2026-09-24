@@ -1,723 +1,1393 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<script class="admoloScript" src="https://cdn.admolo.com/assets/ads/ad.js"></script>
-<script src='//libtl.com/sdk.js' data-zone='9379707' data-sdk='show_9379707'></script>
-  <meta charset="utf-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0,
-               maximum-scale=1.0, user-scalable=no"> 
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>MiniApp</title>
+    <meta charset="utf-8">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
- 
-  <script src="../../js/headerScript.js" defer></script>
-  <script src="../../js/googletrackingid.js"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-    * { box-sizing: border-box; }
-    :root {
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --accent: #ff0000;
-      --font: 'Outfit', sans-serif;
-    }
-    body { margin:0; min-height:100vh; background:#ffffff; color:var(--text-main); font-family:var(--font); display:flex; flex-direction:column; padding:0; overflow-x:hidden; }
-    main { width:100%; max-width:1024px; padding:0 20px 40px; margin:0; flex:1; }
-    h1 { margin:0 0 8px; font-size:36px; font-weight:700; color:var(--text-main); text-align:center; }
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>MiniApp</title>
 
 
-
-.ads-container {
-    width: 100%;
-    overflow-x: auto;   /* Scroll allowed inside, but no page overflow */
-    display: flex;
-    justify-content: center;
-    gap: 1px;
-    padding: 10px 0;
-    box-sizing: border-box;
-}
-
-.ads-box {
-    flex: 0 0 auto;      /* Prevent overflow */
-    text-align: center;
-}
-
-/* Mobile view → wrap ads vertically */
-@media (max-width: 600px) {
-    .ads-container {
-        flex-direction: column;
-        align-items: center;
-        overflow-x: hidden; /* No need for horizontal scroll on mobile */
-    }
-
-    .ads-box {
-        width: 100%;
-    }
-}
-
-.ads {
-
-text-align:center;
-overflow-x: auto;
-}
+    <!-- AdMolo -->
+    <script class="admoloScript"
+            src="https://cdn.admolo.com/assets/ads/ad.js">
+    </script>
 
 
+    <!-- Timed / Rewarded Ads -->
+    <script src="//libtl.com/sdk.js"
+            data-zone="9379707"
+            data-sdk="show_9379707">
+    </script>
 
 
+    <!-- Google -->
+    <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF">
+    </script>
 
-    p.subtitle { color:var(--text-muted); margin:0 0 20px; font-size:15px; font-weight:300; text-align:center; }
-    nav { position:relative; z-index:1000; display:flex; flex-wrap:wrap; justify-content:center; gap:3px; background:#f8fafc; padding:6px 10px; border-bottom:1px solid #e2e8f0; width:100%; }
-    nav span { display:inline-flex; align-items:center; gap:5px; color:var(--text-main); font-weight:600; font-size:11px; padding:4px 8px; border-radius:8px; white-space:nowrap; flex:0 1 auto; line-height:1.1; background:transparent; cursor:default; transition:background 0.2s; }
-    nav span:hover { background:color-mix(in srgb, var(--accent) 10%, transparent); }
-    .nav-icon { width:18px; height:18px; border-radius:4px; object-fit:contain; flex-shrink:0; }
-    .nav-label { max-width:9rem; overflow:hidden; text-overflow:ellipsis; }
-    form { display:flex; margin-bottom:15px; width:100%; max-width:1024px; margin:0 auto 15px; }
-    form input:focus { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
-    form button[type="submit"]:hover { filter:brightness(0.85); }
-    form button[type="submit"]:active { filter:brightness(0.7); }
-    #status { min-height:24px; color:#f87171; font-size:14px; margin-top:5px; }
 
-    .ad-grid { display:grid; grid-template-columns:auto minmax(0,1fr) auto; grid-template-rows:auto 1fr auto; grid-template-areas:"top top top" "left main right" "bottom bottom bottom"; max-width:1364px; margin:0 auto; width:100%; padding:0 15px; flex:1; }
-    .ad-grid #ad-top { grid-area:top; text-align:center; padding:8px 0; background:#fafafa; border-bottom:1px solid #e2e8f0; }
-    .ad-grid #ad-left { grid-area:left; background:#f8fafc; border-right:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:10px; font-family:sans-serif; position:sticky; top:10px; align-self:start; }
-    .ad-grid #ad-right { grid-area:right; background:#f8fafc; border-left:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:10px; font-family:sans-serif; position:sticky; top:10px; align-self:start; }
-    .ad-grid #ad-bottom { grid-area:bottom; text-align:center; padding:8px 0; background:#fafafa; border-top:1px solid #e2e8f0; }
-    .ad-grid main { grid-area:main; }
-    .ad-placeholder { display:flex; align-items:center; justify-content:center; font-family:sans-serif; }
-    .ad-placeholder .ad-unit { background:#f1f5f9; border:1px dashed #cbd5e1; border-radius:6px; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-size:11px; }
-    .ad-placeholder .ad-unit-leader { width:100%; max-width:970px; min-height:90px; }
-    .ad-placeholder .ad-unit-box { width:160px; height:600px; }
-    @media (max-width: 768px) { .ad-placeholder .ad-unit-leader { max-width:468px; min-height:60px; } }
-    @media (max-width: 480px) { .ad-placeholder .ad-unit-leader { max-width:320px; min-height:50px; } }
-    @media (max-width: 640px) {
-      form > div { flex-direction:row; }
-      form input { padding:10px 32px 10px 36px; font-size:13px; }
-      form button[type="submit"] { padding:8px 10px; font-size:12px; gap:3px; }
-      form button[type="submit"] svg { width:16px; height:16px; }
-      .clear-btn { right:4px; font-size:16px; }
-    }
-    @media (max-width: 1100px) { #ad-left, #ad-right { display:none !important; } }
-    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; margin:12px 0 24px; }
-    .grid a { text-decoration:none; color:inherit; }
-    .bcard { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:16px 10px; text-align:center; transition:all .2s; }
-    .bcard:hover { border-color:var(--accent); box-shadow:0 4px 12px rgba(0,0,0,.08); transform:translateY(-2px); }
-    .bcard img { width:48px; height:48px; object-fit:contain; margin-bottom:8px; border-radius:6px; }
-    .bcard h3 { margin:0; font-size:13px; font-weight:600; color:var(--text-main); line-height:1.3; }
-    h2 { margin:28px 0 10px; font-size:20px; font-weight:700; color:var(--text-main); }
-  </style>
+    <!-- Your scripts -->
+    <script src="../../js/headerScript.js" defer></script>
+    <script src="../../js/googletrackingid.js"></script>
+
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        :root {
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --accent: #ff0000;
+            --font: 'Outfit', sans-serif;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+            min-height: 100vh;
+            background: #ffffff;
+            color: var(--text-main);
+            font-family: var(--font);
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+
+        main {
+            width: 100%;
+            max-width: 1024px;
+            padding: 0 20px 40px;
+            margin: 0 auto;
+            flex: 1;
+        }
+
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-main);
+            text-align: center;
+        }
+
+
+        h2 {
+            margin: 28px 0 10px;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+
+        p.subtitle {
+            color: var(--text-muted);
+            margin: 0 0 20px;
+            font-size: 15px;
+            font-weight: 300;
+            text-align: center;
+        }
+
+
+        /* =========================
+           ADS
+        ========================= */
+
+        .ads {
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+
+
+        .ads-container {
+            width: 100%;
+            overflow-x: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            padding: 10px 0;
+        }
+
+
+        .ads-box {
+            flex: 0 0 auto;
+            text-align: center;
+            max-width: 100%;
+        }
+
+
+        @media (max-width: 600px) {
+
+            .ads-container {
+                flex-direction: column;
+                overflow-x: hidden;
+                gap: 6px;
+            }
+
+            .ads-box {
+                width: 100%;
+                max-width: 100%;
+            }
+
+        }
+
+
+        /* =========================
+           AD GRID
+        ========================= */
+
+        .ad-grid {
+            display: grid;
+
+            grid-template-columns:
+                auto
+                minmax(0, 1fr)
+                auto;
+
+            grid-template-rows:
+                auto
+                1fr
+                auto;
+
+            grid-template-areas:
+                "top top top"
+                "left main right"
+                "bottom bottom bottom";
+
+            max-width: 1364px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 15px;
+            flex: 1;
+        }
+
+
+        #top-ad-area {
+            grid-area: top;
+            text-align: center;
+            padding: 8px 0;
+            background: #fafafa;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+
+        #left-ad-area {
+            grid-area: left;
+            background: #f8fafc;
+            border-right: 1px solid #e2e8f0;
+
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+
+            padding: 10px;
+
+            position: sticky;
+            top: 10px;
+            align-self: start;
+        }
+
+
+        #right-ad-area {
+            grid-area: right;
+            background: #f8fafc;
+            border-left: 1px solid #e2e8f0;
+
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+
+            padding: 10px;
+
+            position: sticky;
+            top: 10px;
+            align-self: start;
+        }
+
+
+        #bottom-ad-area {
+            grid-area: bottom;
+            text-align: center;
+            padding: 8px 0;
+            background: #fafafa;
+            border-top: 1px solid #e2e8f0;
+        }
+
+
+        .ad-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: sans-serif;
+            width: 100%;
+        }
+
+
+        .ad-unit {
+            background: #f1f5f9;
+            border: 1px dashed #cbd5e1;
+            border-radius: 6px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #94a3b8;
+            font-size: 11px;
+            overflow: hidden;
+        }
+
+
+        .ad-unit-leader {
+            width: 100%;
+            max-width: 970px;
+            min-height: 90px;
+        }
+
+
+        .ad-unit-box {
+            width: 160px;
+            min-height: 300px;
+        }
+
+
+        @media (max-width: 1100px) {
+
+            #left-ad-area,
+            #right-ad-area {
+                display: none !important;
+            }
+
+        }
+
+
+        @media (max-width: 768px) {
+
+            .ad-unit-leader {
+                max-width: 468px;
+                min-height: 60px;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .ad-unit-leader {
+                max-width: 320px;
+                min-height: 50px;
+            }
+
+        }
+
+
+        /* =========================
+           TOOL GRID
+        ========================= */
+
+        .grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fill, minmax(150px, 1fr));
+
+            gap: 12px;
+            margin: 12px 0 24px;
+        }
+
+
+        .grid a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        .bcard {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px 10px;
+            text-align: center;
+            transition: all .2s;
+        }
+
+
+        .bcard:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,.08);
+            transform: translateY(-2px);
+        }
+
+
+        .bcard img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            margin-bottom: 8px;
+            border-radius: 6px;
+        }
+
+
+        .bcard h3 {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+            line-height: 1.3;
+        }
+
+
+        /* =========================
+           TIMER
+        ========================= */
+
+        #timerSection {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+        }
+
+
+        .timer-card {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255,255,255,0.04);
+        }
+
+
+        #timer {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1;
+            color: #2563eb;
+            margin-bottom: 12px;
+        }
+
+
+        #statusText {
+            width: 100%;
+            padding: 13px;
+
+            border-radius: 12px;
+
+            background: rgba(255,255,255,0.05);
+
+            border: 1px solid rgba(15,23,42,0.08);
+
+            color: #111827;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            line-height: 1.45;
+
+            text-align: center;
+
+            word-wrap: break-word;
+        }
+
+
+        /* =========================
+           VERIFY BUTTON
+        ========================= */
+
+        #verifyContainer {
+            width: 100%;
+            max-width: 400px;
+
+            margin: 20px auto 10px;
+
+            text-align: center;
+
+            padding: 0 10px;
+        }
+
+
+        #downloadBtn {
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+            border-radius: 14px;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            color: #ffffff;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #22c55e,
+                    #0ea5e9
+                );
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 30px
+                rgba(14,165,233,0.18);
+
+            transition:
+                transform .15s,
+                opacity .15s;
+
+            display: none;
+
+            visibility: hidden;
+
+            opacity: 0;
+        }
+
+
+        #downloadBtn:hover {
+            transform: translateY(-1px);
+        }
+
+
+        #downloadBtn:active {
+            transform: scale(.98);
+        }
+
+
+        #downloadBtn:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+
+
+        #belowButtonText {
+            display: none;
+
+            margin-top: 9px;
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            line-height: 1.4;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        #toast {
+            position: fixed;
+
+            left: 50%;
+            bottom: 40px;
+
+            transform:
+                translate(-50%, 100px);
+
+            background: #14532d;
+
+            border: 1px solid #16a34a;
+
+            color: #f0fdf4;
+
+            padding: 14px 20px;
+
+            border-radius: 14px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            box-shadow:
+                0 12px 32px
+                rgba(0,0,0,0.4);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            transition:
+                transform .35s ease;
+
+            z-index: 99999;
+
+            max-width: 90%;
+
+            text-align: center;
+
+            box-sizing: border-box;
+        }
+
+
+        @media (max-width: 480px) {
+
+            #timer {
+                font-size: 28px;
+            }
+
+            #statusText {
+                font-size: 13px;
+                padding: 12px;
+            }
+
+            #downloadBtn {
+                font-size: 14px;
+                padding: 14px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 <body>
-<script>
 
 
-// Rewarded interstitial
+<!-- =========================
+     TOP ADS
+========================= -->
 
-show_9379707().then(() => {
-    // You need to add your user reward function here, which will be executed after the user watches the ad.
-    // For more details, please refer to the detailed instructions.
-    alert('You have seen an ad!');
-})
-
-
-
-// In-App Interstitial
-
-show_9379707({
-  type: 'inApp',
-  inAppSettings: {
-    frequency: 2,
-    capping: 0.1,
-    interval: 30,
-    timeout: 370,
-    everyPage: false
-  }
-})
-
-/*
-This value is decoded as follows:
-- show automatically 2 ads
-  within 0.1 hours (6 minutes)
-  with a 30-second interval between them
-  and a 5-second delay before the first one is shown.
-  The last digit, 0, means that the session will be saved when you navigate between pages.
-  If you set the last digit as 1, then at any transition between pages,
-  the session will be reset, and the ads will start again.
-*/
-
-</script>
-<div class="admoloInterstitial"
-data-publisher="eyJpdiI6InlsOHJ6em9hc1kwbFVRaWIwWEFnWmc9PSIsInZhbHVlIjoiMUo4T2Niamh4aXMyVkN4QTZwK0oyZz09IiwibWFjIjoiNWIzNzdjYWFhNjNhZmUwMTM3ZWViNjE3ZGJlODc1MWUwNGVjZGViZTM3MmZhNGU1NmUxMzkwZjQzZTRkMDY1MyIsInRhZyI6IiJ9"
-data-adsize="interstitial"></div>
-
-<nav>
-<div class="ads">  
-<div class="ads-container">
-
-    <!-- First Ad -->
-    <div class="ads-box">
-    	
-        <script type="text/javascript">
-            atOptions = {
-                'key' : '3353fc740693589865911ed5c4e259c1',
-                'format' : 'iframe',
-                'height' : 60,
-                'width' : 468,
-                'params' : {}
-            };
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/3353fc740693589865911ed5c4e259c1/invoke.js"></script>
-       
-    </div>
-
-    <!-- Second Ad -->
-    <div class="ads-box">
-        <script type="text/javascript">
-            atOptions = {
-                'key' : 'b522989fcf5cdf1fbc5167845934a0a9',
-                'format' : 'iframe',
-                'height' : 50,
-                'width' : 320,
-                'params' : {}
-            };
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/b522989fcf5cdf1fbc5167845934a0a9/invoke.js"></script>
-    </div>
-
-</div>
-
-</div>
-</nav>
-
-<div id="ad-top"><div class="ad-placeholder"><div class="ad-unit ad-unit-leader">
-<!-- TIMER + STATUS -->
-
-<div id="timerSection"
-     style="
-        width:100%;
-        max-width:300px;
-        display:block;
-  text-align:center;
-     ">
-
-    <div style="
-        width:100%;
-    
-  
-        background:rgba(255,255,255,0.04);
-       
-
-    ">
-
-        <div id="timer"
-             style="
-                font-size:30px;
-                font-weight:700;
-                line-height:1;
-             
-                color:blue;
-             ">
-            30
-        </div>
-
-   
-
-        <div id="statusText"
-             style="
-                width:100%;
-                padding:13px;
-                border-radius:12px;
-                background:rgba(255,255,255,0.05);
-                border:1px solid rgba(255,255,255,0.08);
-                color:black;
-                font-size:14px;
-                font-weight:600;
-                line-height:1.45;
-                box-sizing:border-box;
-             ">
-            🔒 Please wait while the timer counts down.
-        </div>
-
-    </div></div>
-
-
-
-
-
-</div></div></div>
-<div class="ad-grid">
-  <div id="ad-left"><div class="ad-placeholder"><div class="ad-unit ad-unit-box">
-<script>
-  atOptions = {
-    'key' : 'f52693494bde000182223aeddd8d7b4b',
-    'format' : 'iframe',
-    'height' : 600,
-    'width' : 160,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/f52693494bde000182223aeddd8d7b4b/invoke.js"></script>
-
-
-</div></div></div>
-   <main><div id="ad-top"><div class="ad-placeholder"><div class="ad-unit ad-unit-leader">
-
-<script async="async" data-cfasync="false" src="https://pl25250725.effectivecpmnetwork.com/2c5610f6e714632e87626d65ca558bbd/invoke.js"></script>
-<div id="container-2c5610f6e714632e87626d65ca558bbd"></div>
-
-
-
-</div></div></div>
-
-    <h2>Unit Converter Tools</h2>
-<div class="grid">
-  <a href="../../unit-converter/illuminance-converter/">
-    <div class="bcard">
-      <img src="../../images/illuminance-converter.webp" alt="Illuminance Converter">
-      <h3><strong>Illuminance Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/torque-converter/">
-    <div class="bcard">
-      <img src="../../images/torque-converter.webp" alt="Torque Converter">
-      <h3><strong>Torque Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/flow-converter/">
-    <div class="bcard">
-      <img src="../../images/flow-converter.webp" alt="Flow Converter">
-      <h3><strong>Flow Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/force-converter/">
-    <div class="bcard">
-      <img src="../../images/force-converter.webp" alt="Force Converter">
-      <h3><strong>Force Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/frequency-converter/">
-    <div class="bcard">
-      <img src="../../images/frequency-converter.webp" alt="Frequency Converter">
-      <h3><strong>Frequency Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/data-transfer-rate-converter/">
-    <div class="bcard">
-      <img src="../../images/data-transfer-rate-converter.webp" alt="Data Transfer Rate Converter">
-      <h3><strong>Data Transfer Rate Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/angle-converter/">
-    <div class="bcard">
-      <img src="../../images/angle-converter.webp" alt="Angle Converter">
-      <h3><strong>Angle Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/density-converter/">
-    <div class="bcard">
-      <img src="../../images/density-converter.webp" alt="Density Converter">
-      <h3><strong>Density Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/fuel-consumption-converter/">
-    <div class="bcard">
-      <img src="../../images/fuel-consumption-converter.webp" alt="Fuel Consumption Converter">
-      <h3><strong>Fuel Consumption Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/internet-data-converter/">
-    <div class="bcard">
-      <img src="../../images/internet-data-converter.webp" alt="Internet Data Converter">
-      <h3><strong>Internet Data Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/pressure-converter/">
-    <div class="bcard">
-      <img src="../../images/pressure-converter.webp" alt="Pressure Converter">
-      <h3><strong>Pressure Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/power-converter/">
-    <div class="bcard">
-      <img src="../../images/power-converter.webp" alt="Power Converter">
-      <h3><strong>Power Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/speed-converter/">
-    <div class="bcard">
-      <img src="../../images/speed-converter.webp" alt="Speed Converter">
-      <h3><strong>Speed Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/energy-converter/">
-    <div class="bcard">
-      <img src="../../images/energy-converter.webp" alt="Energy Converter">
-      <h3><strong>Energy Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/time-converter/">
-    <div class="bcard">
-      <img src="../../images/time-converter.webp" alt="Time Converter">
-      <h3><strong>Time Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/volume-converter/">
-    <div class="bcard">
-      <img src="../../images/volume-converter.webp" alt="Volume Converter">
-      <h3><strong>Volume Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/area-converter/">
-    <div class="bcard">
-      <img src="../../images/area-converter.webp" alt="Area Converter">
-      <h3><strong>Area Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/weight-mass-converter/">
-    <div class="bcard">
-      <img src="../../images/weight-mass-converter.webp" alt="Weight Mass Converter">
-      <h3><strong>Weight/Mass Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/temperature-converter/">
-    <div class="bcard">
-      <img src="../../images/temperature-converter.webp" alt="Temperature Converter">
-      <h3><strong>Temperature Converter</strong></h3>
-    </div>
-  </a>
-  <a href="../../unit-converter/length-distance-converter/">
-    <div class="bcard">
-      <img src="../../images/length-distance-converter.webp" alt="Length Distance Converter">
-      <h3><strong>Length/Distance Converter</strong></h3>
-    </div>
-  </a>
-</div>
 <div class="ads">
-<div class="ads-container">
 
-    <!-- First Ad -->
-    <div class="ads-box">
-       <div class="admoloBanner"
-data-publisher="eyJpdiI6Ikczc3o0emtYLzMvSWcyN3l5QUlpcGc9PSIsInZhbHVlIjoiaGswSXV0aFRUb1MxRkQvQjdTZzFNdz09IiwibWFjIjoiMzY3ODM5OGU4YTRkZWQyOGNmZmI3ZDhlYWU3MjVlZTcyNjVkMTViOTc1NmFiNjJiOTU3ZjQ4MDNiNDliMzRhNyIsInRhZyI6IiJ9"
-data-adsize="300x300"></div>
- </div>
-<!-- Second Ad -->
-    <div class="ads-box">
-        <div class="admoloBanner"
-data-publisher="eyJpdiI6InZMazRNekRxc2FReUM4UE0wNDQ4N2c9PSIsInZhbHVlIjoicWZycTVMSnZ1YzhDN2lWeUE3QmtPdz09IiwibWFjIjoiZGI5YzA2ZTNhNTM5YjE2MzYyNzY1MTE2MDM1MGIyNDEyN2M3MGQyNDI2YzYzYWMzYjRkYWI4OWI5ZjBjOWY2YiIsInRhZyI6IiJ9"
-data-adsize="320x180"></div>
-</div>
+    <div class="ads-container">
 
-</div>
-</div>
+        <!-- Ad 1 -->
 
-    <h2>All Types Calculator Tools</h2>
+        <div class="ads-box">
 
-    <div class="grid">
-    	<a href="../../calculator-tool/currency-converter/">
-        <div class="bcard">
-          <img src="../../images/currency-converter.webp" alt="Currency Converter">
-          <h3><strong>Currency Calculator</strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/gst-calculator/">
-        <div class="bcard">
-          <img src="../../images/gst-calculator.webp" alt="GST Calculator">
-          <h3><strong>GST Calculator </strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/bmi-calculator/">
-        <div class="bcard">
-          <img src="../../images/bmi-calculator.webp" alt="BMI Calculator">
-          <h3><strong>BMI Calculator</strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/loan-emi-calculator/">
-        <div class="bcard">
-          <img src="../../images/loan-emi-calculator.webp" alt="Loan EMI Calculator">
-          <h3><strong>Loan EMI Calculator</strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/age-calculator/">
-        <div class="bcard">
-          <img src="../../images/age-calculator.webp" alt="Age Calculator">
-          <h3><strong>Age Calculator</strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/unit-converter/">
-        <div class="bcard">
-          <img src="../../images/unit-converter.webp" alt="unit converter">
-          <h3><strong>Unit Converter</strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/date-duration-calculator/">
-        <div class="bcard">
-          <img src="../../images/date-duration-calculator.webp" alt="date and duration calculator">
-          <h3><strong>Date and duration </strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/gpa-cgpa-calculator/">
-        <div class="bcard">
-          <img src="../../images/gpa-cgpa-calculator.webp" alt="gpa cgpa calculator">
-          <h3><strong>GPA & CGPA Calculator</strong></h3>
-        </div>
-      </a>
-      
-      <a href="../../calculator-tool/discount-calculator/">
-        <div class="bcard">
-          <img src="../../images/discount-calculator.webp" alt="discount calculator">
-          <h3><strong>Discount Calculator</strong></h3>
-        </div>
-      </a>
-      
-      <a href="../../calculator-tool/base-converter/">
-        <div class="bcard">
-          <img src="../../images/base-converter.webp" alt="base converter ">
-          <h3><strong>Binary Decimal hexa </strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/percentage-calculator/">
-        <div class="bcard">
-          <img src="../../images/percentage-calculator.webp" alt="percentage calculator">
-          <h3><strong>Percentage Calculator</strong></h3>
-        </div>
-      </a>
-      <a href="../../calculator-tool/compound-interest-calculator/">
-        <div class="bcard">
-          <img src="../../images/compound-interest-calculator.webp" alt="compound interest calculator">
-          <h3><strong>Compound interest</strong></h3>
-        </div>
-      </a>
-    </div>
- 
-    
+            <script type="text/javascript">
 
-    <h2>Image Tools</h2>
-    <div class="grid">
-      <a href="../../image-tool/image-background-remover/">
-        <div class="bcard">
-          <img src="../../images/image-background-remover.webp" alt="Background Remover">
-          <h3><strong>Background Remover</strong></h3>
-        </div>
-      </a>
-      <a href="../../image-tool/image-crop/">
-        <div class="bcard">
-          <img src="../../images/image-crop.webp" alt="Crop Image">
-          <h3><strong>Image Cropper</strong></h3>
-        </div>
-      </a>
-      <a href="../../image-tool/image-compressor/">
-        <div class="bcard">
-          <img src="../../images/image-compressor.webp" alt="Image Compressor">
-          <h3><strong>Image Compressor</strong></h3>
-        </div>
-      </a>
-      <a href="../../image-tool/image-resizer/">
-        <div class="bcard">
-          <img src="../../images/image-resizer.webp" alt="Resize Images">
-          <h3><strong>Image Resizer</strong></h3>
-        </div>
-      </a>
-      <a href="../../image-tool/passport-size-photo-generator/">
-        <div class="bcard">
-          <img src="../../images/passport-size-photo-generator.webp" alt="Passport Photo Generator">
-          <h3><strong>Passport Size Photo Generator</strong></h3>
-        </div>
-      </a>
-      <a href="../../image-tool/image-format-converter/">
-        <div class="bcard">
-          <img src="../../images/image-format-converter.webp" alt="Convert Image Format">
-          <h3><strong>Image Format Converter</strong></h3>
-        </div>
-      </a>
-    </div>
-<div class="ads"></div>
-    <h2>PDF Tools</h2>
-    <div class="grid">
-      <a href="../../pdf-tool/watermark-in-pdf/">
-        <div class="bcard">
-          <img src="../../images/watermark-in-pdf.webp" alt="Watermark in PDF">
-          <h3><strong>Watermark in PDF</strong></h3>
-        </div>
-      </a>
-      <a href="../../pdf-tool/compress-pdf/">
-        <div class="bcard">
-          <img src="../../images/compress-pdf.webp" alt="Compress PDF File">
-          <h3><strong>Compress PDF</strong></h3>
-        </div>
-      </a>
-      <a href="../../pdf-tool/pdf-to-image/">
-        <div class="bcard">
-          <img src="../../images/pdf-to-image.webp" alt="PDF to Images">
-          <h3><strong>PDF to Images</strong></h3>
-        </div>
-      </a>
-      <a href="../../pdf-tool/merge-pdf/">
-        <div class="bcard">
-          <img src="../../images/merge-pdf.webp" alt="Merge PDF Files">
-          <h3><strong>Merge PDF</strong></h3>
-        </div>
-      </a>
-      <a href="../../pdf-tool/split-and-delete-pdf/">
-        <div class="bcard">
-          <img src="../../images/split-and-delete-pdf.webp" alt="Split or Delete Pages">
-          <h3><strong>Split & Delete Pages</strong></h3>
-        </div>
-      </a>
-      <a href="../../pdf-tool/rotate-pdf-pages/">
-        <div class="bcard">
-          <img src="../../images/rotate-pdf-pages.webp" alt="Rotate PDF">
-          <h3><strong>Rotate PDF Pages</strong></h3>
-        </div>
-      </a>
-      <a href="../../pdf-tool/image-to-pdf/">
-        <div class="bcard">
-          <img src="../../images/image-to-pdf.webp" alt="Image to PDF">
-          <h3><strong>Image to PDF</strong></h3>
-        </div>
-      </a>
-      <a href="../../pdf-tool/text-to-pdf/">
-        <div class="bcard">
-          <img src="../../images/text-to-pdf.webp" alt="Text to PDF">
-          <h3><strong>Text to PDF</strong></h3>
-        </div>
-      </a>
-      <a href="../../pdf-tool/pdf-to-docx/">
-        <div class="bcard">
-          <img src="../../images/pdf-to-docx.webp" alt="PDF to DOCX">
-          <h3><strong>PDF to Word</strong></h3>
-        </div>
-      </a>
-      <a href="../../pdf-tool/pdf-to-pptx/">
-        <div class="bcard">
-          <img src="../../images/pdf-to-pptx.webp" alt="PDF to PPT">
-          <h3><strong>PDF to PowerPoint</strong></h3>
-        </div>
-      </a>
-      <a href="../../pdf-tool/docx-to-pdf/">
-        <div class="bcard">
-          <img src="../../images/docx-to-pdf.webp" alt="DOCX to PDF">
-          <h3><strong>DOCX to PDF</strong></h3>
-        </div>
-      </a>
-      <a href="../../pdf-tool/csv-to-pdf/">
-        <div class="bcard">
-          <img src="../../images/csv-to-pdf.webp" alt="CSV to PDF">
-          <h3><strong>CSV to PDF</strong></h3>
-        </div>
-      </a>
-    </div>
+                atOptions = {
+                    'key': '3353fc740693589865911ed5c4e259c1',
+                    'format': 'iframe',
+                    'height': 60,
+                    'width': 468,
+                    'params': {}
+                };
 
-    <div id="ad-bottom"> 
-<!-- VERIFY BUTTON -->
+            </script>
 
-<div style="
-    width:100%;
-    max-width:400px;
-    text-align:center;
-">
+            <script type="text/javascript"
+                    src="//www.highperformanceformat.com/3353fc740693589865911ed5c4e259c1/invoke.js">
+            </script>
 
-    <button id="downloadBtn"
-            disabled
-            style="
-                width:100%;
-                padding:15px;
-                border:none;
-                border-radius:14px;
-                font-size:15px;
-                font-weight:600;
-                color:#fff;
-                background:linear-gradient(135deg,#22c55e,#0ea5e9);
-                cursor:pointer;
-                box-shadow:0 10px 30px rgba(14,165,233,0.18);
-                transition:transform .15s,opacity .15s;
-                display:none;
-             ">
-
-        👉✅ Verify & Download👈
-
-    </button>
+        </div>
 
 
-    <div id="belowButtonText"
-         style="
-            display:none;
-            margin-top:9px;
-            color:#94a3b8;
-            font-size:12px;
-            line-height:1.4;
-         ">
+        <!-- Ad 2 -->
 
-        ⬇️ Tap the button above to verify and download.
+        <div class="ads-box">
+
+            <script type="text/javascript">
+
+                atOptions = {
+                    'key': 'b522989fcf5cdf1fbc5167845934a0a9',
+                    'format': 'iframe',
+                    'height': 50,
+                    'width': 320,
+                    'params': {}
+                };
+
+            </script>
+
+            <script type="text/javascript"
+                    src="//www.highperformanceformat.com/b522989fcf5cdf1fbc5167845934a0a9/invoke.js">
+            </script>
+
+        </div>
 
     </div>
 
 </div>
 
 
-<!-- TOAST -->
+<!-- =========================
+     AD GRID
+========================= -->
 
-<div id="toast"
-     style="
-        position:fixed;
-        left:50%;
-        bottom:40px;
-        transform:translate(-50%,100px);
-        background:#14532d;
-        border:1px solid #16a34a;
-        color:#f0fdf4;
-        padding:14px 20px;
-        border-radius:14px;
-        font-size:14px;
-        font-weight:600;
-        box-shadow:0 12px 32px rgba(0,0,0,0.4);
-        display:flex;
-        align-items:center;
-        gap:10px;
-        transition:transform .35s ease;
-        z-index:99;
-        max-width:90%;
-        text-align:center;
-        box-sizing:border-box;
-     ">
+<div class="ad-grid">
 
-    <span id="toastIcon">✅</span>
-    <span id="toastText"></span>
+
+    <!-- TOP AREA -->
+
+    <div id="top-ad-area">
+
+        <div class="ad-placeholder">
+
+            <div class="ad-unit ad-unit-leader">
+
+                <!-- TIMER -->
+
+                <div id="timerSection">
+
+                    <div class="timer-card">
+
+                        <div id="timer">
+                            30
+                        </div>
+
+
+                        <div id="statusText">
+                            🔒 Please wait while the timer counts down.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- LEFT AD -->
+
+    <div id="left-ad-area">
+
+        <div class="ad-placeholder">
+
+            <div class="ad-unit ad-unit-box">
+
+                <script>
+
+                    atOptions = {
+                        'key': 'f52693494bde000182223aeddd8d7b4b',
+                        'format': 'iframe',
+                        'height': 600,
+                        'width': 160,
+                        'params': {}
+                    };
+
+                </script>
+
+                <script src="https://www.highperformanceformat.com/f52693494bde000182223aeddd8d7b4b/invoke.js">
+                </script>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MAIN -->
+
+    <main>
+
+
+        <!-- MAIN AD -->
+
+        <div class="ads">
+
+            <div class="ads-container">
+
+                <div class="ads-box">
+
+                    <script async
+                            data-cfasync="false"
+                            src="https://pl25250725.effectivecpmnetwork.com/2c5610f6e714632e87626d65ca558bbd/invoke.js">
+                    </script>
+
+                    <div id="container-2c5610f6e714632e87626d65ca558bbd">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             UNIT CONVERTER
+        ========================= -->
+
+        <h2>
+            Unit Converter Tools
+        </h2>
+
+
+        <div class="grid">
+
+            <a href="../../unit-converter/illuminance-converter/">
+                <div class="bcard">
+                    <img src="../../images/illuminance-converter.webp"
+                         alt="Illuminance Converter">
+                    <h3>Illuminance Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/torque-converter/">
+                <div class="bcard">
+                    <img src="../../images/torque-converter.webp"
+                         alt="Torque Converter">
+                    <h3>Torque Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/flow-converter/">
+                <div class="bcard">
+                    <img src="../../images/flow-converter.webp"
+                         alt="Flow Converter">
+                    <h3>Flow Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/force-converter/">
+                <div class="bcard">
+                    <img src="../../images/force-converter.webp"
+                         alt="Force Converter">
+                    <h3>Force Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/frequency-converter/">
+                <div class="bcard">
+                    <img src="../../images/frequency-converter.webp"
+                         alt="Frequency Converter">
+                    <h3>Frequency Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/data-transfer-rate-converter/">
+                <div class="bcard">
+                    <img src="../../images/data-transfer-rate-converter.webp"
+                         alt="Data Transfer Rate Converter">
+                    <h3>Data Transfer Rate Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/angle-converter/">
+                <div class="bcard">
+                    <img src="../../images/angle-converter.webp"
+                         alt="Angle Converter">
+                    <h3>Angle Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/density-converter/">
+                <div class="bcard">
+                    <img src="../../images/density-converter.webp"
+                         alt="Density Converter">
+                    <h3>Density Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/fuel-consumption-converter/">
+                <div class="bcard">
+                    <img src="../../images/fuel-consumption-converter.webp"
+                         alt="Fuel Consumption Converter">
+                    <h3>Fuel Consumption Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/internet-data-converter/">
+                <div class="bcard">
+                    <img src="../../images/internet-data-converter.webp"
+                         alt="Internet Data Converter">
+                    <h3>Internet Data Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/pressure-converter/">
+                <div class="bcard">
+                    <img src="../../images/pressure-converter.webp"
+                         alt="Pressure Converter">
+                    <h3>Pressure Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/power-converter/">
+                <div class="bcard">
+                    <img src="../../images/power-converter.webp"
+                         alt="Power Converter">
+                    <h3>Power Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/speed-converter/">
+                <div class="bcard">
+                    <img src="../../images/speed-converter.webp"
+                         alt="Speed Converter">
+                    <h3>Speed Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/energy-converter/">
+                <div class="bcard">
+                    <img src="../../images/energy-converter.webp"
+                         alt="Energy Converter">
+                    <h3>Energy Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/time-converter/">
+                <div class="bcard">
+                    <img src="../../images/time-converter.webp"
+                         alt="Time Converter">
+                    <h3>Time Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/volume-converter/">
+                <div class="bcard">
+                    <img src="../../images/volume-converter.webp"
+                         alt="Volume Converter">
+                    <h3>Volume Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/area-converter/">
+                <div class="bcard">
+                    <img src="../../images/area-converter.webp"
+                         alt="Area Converter">
+                    <h3>Area Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/weight-mass-converter/">
+                <div class="bcard">
+                    <img src="../../images/weight-mass-converter.webp"
+                         alt="Weight/Mass Converter">
+                    <h3>Weight/Mass Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/temperature-converter/">
+                <div class="bcard">
+                    <img src="../../images/temperature-converter.webp"
+                         alt="Temperature Converter">
+                    <h3>Temperature Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../unit-converter/length-distance-converter/">
+                <div class="bcard">
+                    <img src="../../images/length-distance-converter.webp"
+                         alt="Length/Distance Converter">
+                    <h3>Length/Distance Converter</h3>
+                </div>
+            </a>
+
+        </div>
+
+
+        <!-- =========================
+             MID ADS
+        ========================= -->
+
+        <div class="ads">
+
+            <div class="ads-container">
+
+                <div class="ads-box">
+
+                    <div class="admoloBanner"
+                         data-publisher="eyJpdiI6Ikczc3o0emtYLzMvSWcyN3l5QUlpcGc9PSIsInZhbHVlIjoiaGswSXV0aFRUb1MxRkQvQjdTZzFNdz09IiwibWFjIjoiMzY3ODM5OGU4YTRkZWQyOGNmZmI3ZDhlYWU3MjVlZTcyNjVkMTViOTc1NmFiNjJiOTU3ZjQ4MDNiNDliMzRhNyIsInRhZyI6IiJ9"
+                         data-adsize="300x300">
+                    </div>
+
+                </div>
+
+
+                <div class="ads-box">
+
+                    <div class="admoloBanner"
+                         data-publisher="eyJpdiI6InZMazRNekRxc2FReUM4UE0wNDQ4N2c9PSIsInZhbHVlIjoicWZycTVMSnZ1YzhDN2lWeUE3QmtPdz09IiwibWFjIjoiZGI5YzA2ZTNhNTM5YjE2MzYyNzY1MTE2MDM1MGIyNDEyN2M3MGQyNDI2YzYzYWMzYjRkYWI4OWI5ZjBjOWY2YiIsInRhZyI6IiJ9"
+                         data-adsize="320x180">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             CALCULATOR
+        ========================= -->
+
+        <h2>
+            All Types Calculator Tools
+        </h2>
+
+
+        <div class="grid">
+
+            <a href="../../calculator-tool/currency-converter/">
+                <div class="bcard">
+                    <img src="../../images/currency-converter.webp"
+                         alt="Currency Converter">
+                    <h3>Currency Calculator</h3>
+                </div>
+            </a>
+
+
+            <a href="../../calculator-tool/gst-calculator/">
+                <div class="bcard">
+                    <img src="../../images/gst-calculator.webp"
+                         alt="GST Calculator">
+                    <h3>GST Calculator</h3>
+                </div>
+            </a>
+
+
+            <a href="../../calculator-tool/bmi-calculator/">
+                <div class="bcard">
+                    <img src="../../images/bmi-calculator.webp"
+                         alt="BMI Calculator">
+                    <h3>BMI Calculator</h3>
+                </div>
+            </a>
+
+
+            <a href="../../calculator-tool/loan-emi-calculator/">
+                <div class="bcard">
+                    <img src="../../images/loan-emi-calculator.webp"
+                         alt="Loan EMI Calculator">
+                    <h3>Loan EMI Calculator</h3>
+                </div>
+            </a>
+
+
+            <a href="../../calculator-tool/age-calculator/">
+                <div class="bcard">
+                    <img src="../../images/age-calculator.webp"
+                         alt="Age Calculator">
+                    <h3>Age Calculator</h3>
+                </div>
+            </a>
+
+
+            <a href="../../calculator-tool/unit-converter/">
+                <div class="bcard">
+                    <img src="../../images/unit-converter.webp"
+                         alt="Unit Converter">
+                    <h3>Unit Converter</h3>
+                </div>
+            </a>
+
+
+            <a href="../../calculator-tool/date-duration-calculator/">
+                <div class="bcard">
+                    <img src="../../images/date-duration-calculator.webp"
+                         alt="Date and Duration Calculator">
+                    <h3>Date & Duration</h3>
+                </div>
+            </a>
+
+
+            <a href="../../calculator-tool/gpa-cgpa-calculator/">
+                <div class="bcard">
+                    <img src="../../images/gpa-cgpa-calculator.webp"
+                         alt="GPA CGPA Calculator">
+                    <h3>GPA & CGPA Calculator</h3>
+                </div>
+            </a>
+
+
+            <a href="../../calculator-tool/discount-calculator/">
+                <div class="bcard">
+                    <img src="../../images/discount-calculator.webp"
+                         alt="Discount Calculator">
+                    <h3>Discount Calculator</h3>
+                </div>
+            </a>
+
+
+            <a href="../../calculator-tool/base-converter/">
+                <div class="bcard">
+                    <img src="../../images/base-converter.webp"
+                         alt="Base Converter">
+                    <h3>Binary / Decimal / Hex</h3>
+                </div>
+            </a>
+
+
+            <a href="../../calculator-tool/percentage-calculator/">
+                <div class="bcard">
+                    <img src="../../images/percentage-calculator.webp"
+                         alt="Percentage Calculator">
+                    <h3>Percentage Calculator</h3>
+                </div>
+            </a>
+
+
+            <a href="../../calculator-tool/compound-interest-calculator/">
+                <div class="bcard">
+                    <img src="../../images/compound-interest-calculator.webp"
+                         alt="Compound Interest Calculator">
+                    <h3>Compound Interest</h3>
+                </div>
+            </a>
+
+        </div>
+
+
+        <!-- =========================
+             IMAGE TOOLS
+        ========================= -->
+
+        <h2>
+            Image Tools
+        </h2>
+
+
+        <div class="grid">
+
+            <a href="../../image-tool/image-background-remover/">
+                <div class="bcard">
+                    <img src="../../images/image-background-remover.webp"
+                         alt="Background Remover">
+                    <h3>Background Remover</h3>
+                </div>
+            </a>
+
+
+            <a href="../../image-tool/image-crop/">
+                <div class="bcard">
+                    <img src="../../images/image-crop.webp"
+                         alt="Image Cropper">
+                    <h3>Image Cropper</h3>
+                </div>
+            </a>
+
+
+            <a href="../../image-tool/image-compressor/">
+                <div class="bcard">
+                    <img src="../../images/image-compressor.webp"
+                         alt="Image Compressor">
+                    <h3>Image Compressor</h3>
+                </div>
+            </a>
+
+
+            <a href="../../image-tool/image-resizer/">
+                <div class="bcard">
+                    <img src="../../images/image-resizer.webp"
+                         alt="Image Resizer">
+                    <h3>Image Resizer</h3>
+                </div>
+            </a>
+
+
+            <a href="../../image-tool/passport-size-photo-generator/">
+                <div class="bcard">
+                    <img src="../../images/passport-size-photo-generator.webp"
+                         alt="Passport Size Photo Generator">
+                    <h3>Passport Size Photo Generator</h3>
+                </div>
+            </a>
+
+
+            <a href="../../image-tool/image-format-converter/">
+                <div class="bcard">
+                    <img src="../../images/image-format-converter.webp"
+                         alt="Image Format Converter">
+                    <h3>Image Format Converter</h3>
+                </div>
+            </a>
+
+        </div>
+
+
+        <!-- =========================
+             PDF TOOLS
+        ========================= -->
+
+        <h2>
+            PDF Tools
+        </h2>
+
+
+        <div class="grid">
+
+            <a href="../../pdf-tool/watermark-in-pdf/">
+                <div class="bcard">
+                    <img src="../../images/watermark-in-pdf.webp"
+                         alt="Watermark in PDF">
+                    <h3>Watermark in PDF</h3>
+                </div>
+            </a>
+
+
+            <a href="../../pdf-tool/compress-pdf/">
+                <div class="bcard">
+                    <img src="../../images/compress-pdf.webp"
+                         alt="Compress PDF">
+                    <h3>Compress PDF</h3>
+                </div>
+            </a>
+
+
+            <a href="../../pdf-tool/pdf-to-image/">
+                <div class="bcard">
+                    <img src="../../images/pdf-to-image.webp"
+                         alt="PDF to Images">
+                    <h3>PDF to Images</h3>
+                </div>
+            </a>
+
+
+            <a href="../../pdf-tool/merge-pdf/">
+                <div class="bcard">
+                    <img src="../../images/merge-pdf.webp"
+                         alt="Merge PDF">
+                    <h3>Merge PDF</h3>
+                </div>
+            </a>
+
+
+            <a href="../../pdf-tool/split-and-delete-pdf/">
+                <div class="bcard">
+                    <img src="../../images/split-and-delete-pdf.webp"
+                         alt="Split and Delete PDF Pages">
+                    <h3>Split & Delete Pages</h3>
+                </div>
+            </a>
+
+
+            <a href="../../pdf-tool/rotate-pdf-pages/">
+                <div class="bcard">
+                    <img src="../../images/rotate-pdf-pages.webp"
+                         alt="Rotate PDF Pages">
+                    <h3>Rotate PDF Pages</h3>
+                </div>
+            </a>
+
+
+            <a href="../../pdf-tool/image-to-pdf/">
+                <div class="bcard">
+                    <img src="../../images/image-to-pdf.webp"
+                         alt="Image to PDF">
+                    <h3>Image to PDF</h3>
+                </div>
+            </a>
+
+
+            <a href="../../pdf-tool/text-to-pdf/">
+                <div class="bcard">
+                    <img src="../../images/text-to-pdf.webp"
+                         alt="Text to PDF">
+                    <h3>Text to PDF</h3>
+                </div>
+            </a>
+
+
+            <a href="../../pdf-tool/pdf-to-docx/">
+                <div class="bcard">
+                    <img src="../../images/pdf-to-docx.webp"
+                         alt="PDF to Word">
+                    <h3>PDF to Word</h3>
+                </div>
+            </a>
+
+
+            <a href="../../pdf-tool/pdf-to-pptx/">
+                <div class="bcard">
+                    <img src="../../images/pdf-to-pptx.webp"
+                         alt="PDF to PowerPoint">
+                    <h3>PDF to PowerPoint</h3>
+                </div>
+            </a>
+
+
+            <a href="../../pdf-tool/docx-to-pdf/">
+                <div class="bcard">
+                    <img src="../../images/docx-to-pdf.webp"
+                         alt="DOCX to PDF">
+                    <h3>DOCX to PDF</h3>
+                </div>
+            </a>
+
+
+            <a href="../../pdf-tool/csv-to-pdf/">
+                <div class="bcard">
+                    <img src="../../images/csv-to-pdf.webp"
+                         alt="CSV to PDF">
+                    <h3>CSV to PDF</h3>
+                </div>
+            </a>
+
+        </div>
+
+
+        <!-- =========================
+             VERIFY SECTION
+        ========================= -->
+
+        <div id="verifyContainer">
+
+            <button id="downloadBtn"
+                    type="button"
+                    disabled>
+
+                👉 ✅ Verify & Download 👈
+
+            </button>
+
+
+            <div id="belowButtonText">
+
+                ⬇️ Tap the button above to verify and download.
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =========================
+         BOTTOM AD
+    ========================= -->
+
+    <div id="bottom-ad-area">
+
+        <div class="ad-placeholder">
+
+            <div class="ad-unit ad-unit-leader">
+
+                <script type="text/javascript">
+
+                    atOptions = {
+                        'key': 'd989003ea8480512c7e859e4a01a08d2',
+                        'format': 'iframe',
+                        'height': 90,
+                        'width': 728,
+                        'params': {}
+                    };
+
+                </script>
+
+                <script type="text/javascript"
+                        src="//www.highperformanceformat.com/d989003ea8480512c7e859e4a01a08d2/invoke.js">
+                </script>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT AD -->
+
+    <div id="right-ad-area">
+
+        <div class="ad-placeholder">
+
+            <div class="ad-unit ad-unit-box">
+
+                <script>
+
+                    atOptions = {
+                        'key': 'e5ca98a26b2f5e9e3350260d41479d70',
+                        'format': 'iframe',
+                        'height': 300,
+                        'width': 160,
+                        'params': {}
+                    };
+
+                </script>
+
+                <script src="https://www.highperformanceformat.com/e5ca98a26b2f5e9e3350260d41479d70/invoke.js">
+                </script>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
+
+
+<!-- =========================
+     TOAST
+========================= -->
+
+<div id="toast">
+
+    <span id="toastIcon">
+        ✅
+    </span>
+
+    <span id="toastText">
+    </span>
+
 </div>
-    <div id="ad-bottom"><div class="ad-placeholder"><div class="ad-unit ad-unit-leader"><script type="text/javascript">
-        atOptions = {
-                'key' : 'd989003ea8480512c7e859e4a01a08d2',
-                'format' : 'iframe',
-                'height' : 90,
-                'width' : 728,
-                'params' : {}
-        };
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/d989003ea8480512c7e859e4a01a08d2/invoke.js"></script></div></div></div>
 
 
+<!-- =========================
+     ADMolo INTERSTITIAL
+========================= -->
 
-  </main>
-  <div id="ad-right"><div class="ad-placeholder"><div class="ad-unit ad-unit-box">
-
-<script>
-  atOptions = {
-    'key' : 'e5ca98a26b2f5e9e3350260d41479d70',
-    'format' : 'iframe',
-    'height' : 300,
-    'width' : 160,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/e5ca98a26b2f5e9e3350260d41479d70/invoke.js"></script>
-
-
-</div></div></div>
+<div class="admoloInterstitial"
+     data-publisher="eyJpdiI6InlsOHJ6em9hc1kwbFVRaWIwWEFnWmc9PSIsInZhbHVlIjoiMUo4T2Niamh4aXMyVkN4QTZwK0oyZz09IiwibWFjIjoiNWIzNzdjYWFhNjNhZmUwMTM3ZWViNjE3ZGJlODc1MWUwNGVjZGViZTM3MmZhNGU1NmUxMzkwZjQzZTRkMDY1MyIsInRhZyI6IiJ9"
+     data-adsize="interstitial">
 </div>
+
+
+<!-- =========================
+     TIMER + TELEGRAM SCRIPT
+========================= -->
 
 <script>
 
@@ -725,37 +1395,51 @@ data-adsize="320x180"></div>
 
     'use strict';
 
+
     /* =========================
        URL PARAMETERS
     ========================= */
 
-    const params = new URLSearchParams(
-        window.location.search
-    );
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
-    const videoUrl = params.get('url') || '';
+
+    const videoUrl =
+        params.get('url') || '';
+
 
     const botUsername =
         params.get('bot') ||
         'videosaverXdownloaderBot';
 
-    let seconds = parseInt(
-        params.get('timer') ||
-        params.get('t') ||
-        '30',
-        10
-    );
 
-    if (isNaN(seconds) || seconds < 5) {
+    let seconds =
+        parseInt(
+            params.get('timer') ||
+            params.get('t') ||
+            '30',
+            10
+        );
+
+
+    if (
+        isNaN(seconds) ||
+        seconds < 5
+    ) {
+
         seconds = 30;
+
     }
 
 
     /* =========================
-       TELEGRAM
+       TELEGRAM WEB APP
     ========================= */
 
     let tg = null;
+
 
     try {
 
@@ -764,16 +1448,23 @@ data-adsize="320x180"></div>
             window.Telegram.WebApp
         ) {
 
-            tg = window.Telegram.WebApp;
+            tg =
+                window.Telegram.WebApp;
+
 
             tg.ready();
+
+
             tg.expand();
 
         }
 
-    } catch (e) {
+    } catch (error) {
 
-        console.log(e);
+        console.log(
+            'Telegram WebApp error:',
+            error
+        );
 
     }
 
@@ -783,57 +1474,100 @@ data-adsize="320x180"></div>
     ========================= */
 
     const timerSection =
-        document.getElementById('timerSection');
+        document.getElementById(
+            'timerSection'
+        );
+
 
     const timerEl =
-        document.getElementById('timer');
+        document.getElementById(
+            'timer'
+        );
 
-    const secondsText =
-        document.getElementById('secondsText');
 
     const statusText =
-        document.getElementById('statusText');
+        document.getElementById(
+            'statusText'
+        );
+
 
     const downloadBtn =
-        document.getElementById('downloadBtn');
+        document.getElementById(
+            'downloadBtn'
+        );
+
 
     const belowButtonText =
-        document.getElementById('belowButtonText');
+        document.getElementById(
+            'belowButtonText'
+        );
+
 
     const toast =
-        document.getElementById('toast');
+        document.getElementById(
+            'toast'
+        );
+
 
     const toastText =
-        document.getElementById('toastText');
+        document.getElementById(
+            'toastText'
+        );
+
 
     const toastIcon =
-        document.getElementById('toastIcon');
+        document.getElementById(
+            'toastIcon'
+        );
 
 
     /* =========================
        TOAST
     ========================= */
 
-    function showToast(message, icon = '✅') {
+    function showToast(
+        message,
+        icon = '✅'
+    ) {
 
-        toastIcon.textContent = icon;
+        if (
+            !toast ||
+            !toastText ||
+            !toastIcon
+        ) {
 
-        toastText.textContent = message;
+            return;
+
+        }
+
+
+        toastIcon.textContent =
+            icon;
+
+
+        toastText.textContent =
+            message;
+
 
         toast.style.transform =
-            'translate(-50%,0)';
+            'translate(-50%, 0)';
 
-        clearTimeout(showToast.timer);
 
-        showToast.timer = setTimeout(
-            function () {
-
-                toast.style.transform =
-                    'translate(-50%,100px)';
-
-            },
-            4000
+        clearTimeout(
+            showToast.timer
         );
+
+
+        showToast.timer =
+            setTimeout(
+                function () {
+
+                    toast.style.transform =
+                        'translate(-50%, 100px)';
+
+                },
+                4000
+            );
 
     }
 
@@ -844,15 +1578,21 @@ data-adsize="320x180"></div>
 
     function openBotVerify() {
 
-        const payload = JSON.stringify({
-            v: 'watchads:done'
-        });
+        const payload =
+            JSON.stringify({
+                v: 'watchads:done'
+            });
 
+
+        /*
+         * Mini App
+         */
 
         if (
             window.Telegram &&
             window.Telegram.WebApp &&
-            typeof window.Telegram.WebApp.sendData === 'function'
+            typeof window.Telegram.WebApp.sendData ===
+                'function'
         ) {
 
             try {
@@ -863,10 +1603,21 @@ data-adsize="320x180"></div>
 
                 return true;
 
-            } catch (e) {}
+            } catch (error) {
+
+                console.log(
+                    'sendData error:',
+                    error
+                );
+
+            }
 
         }
 
+
+        /*
+         * Telegram WebApp link
+         */
 
         const link =
             'https://t.me/' +
@@ -876,21 +1627,48 @@ data-adsize="320x180"></div>
 
         if (
             tg &&
-            typeof tg.openTelegramLink === 'function'
+            typeof tg.openTelegramLink ===
+                'function'
         ) {
 
             try {
 
-                tg.openTelegramLink(link);
+                tg.openTelegramLink(
+                    link
+                );
 
                 return true;
 
-            } catch (e) {}
+            } catch (error) {
+
+                console.log(
+                    'openTelegramLink error:',
+                    error
+                );
+
+            }
 
         }
 
 
-        window.open(link, '_blank');
+        /*
+         * Normal browser fallback
+         */
+
+        try {
+
+            window.open(
+                link,
+                '_blank'
+            );
+
+        } catch (error) {
+
+            window.location.href =
+                link;
+
+        }
+
 
         return true;
 
@@ -903,12 +1681,48 @@ data-adsize="320x180"></div>
 
     function verifyAndDownload() {
 
-        timerSection.style.display = 'none';
+        /*
+         * Hide timer
+         */
 
-        downloadBtn.style.display = 'none';
+        if (timerSection) {
 
-        belowButtonText.style.display = 'none';
+            timerSection.style.display =
+                'none';
 
+        }
+
+
+        /*
+         * Hide button after click
+         */
+
+        if (downloadBtn) {
+
+            downloadBtn.style.display =
+                'none';
+
+            downloadBtn.style.visibility =
+                'hidden';
+
+        }
+
+
+        /*
+         * Hide instruction
+         */
+
+        if (belowButtonText) {
+
+            belowButtonText.style.display =
+                'none';
+
+        }
+
+
+        /*
+         * Show success toast
+         */
 
         showToast(
             'Verification completed. You can go back now.',
@@ -916,12 +1730,21 @@ data-adsize="320x180"></div>
         );
 
 
+        /*
+         * Send verification
+         */
+
         openBotVerify();
 
 
+        /*
+         * Close Telegram Mini App
+         */
+
         if (
             tg &&
-            typeof tg.close === 'function'
+            typeof tg.close ===
+                'function'
         ) {
 
             setTimeout(
@@ -931,7 +1754,14 @@ data-adsize="320x180"></div>
 
                         tg.close();
 
-                    } catch (e) {}
+                    } catch (error) {
+
+                        console.log(
+                            'Telegram close error:',
+                            error
+                        );
+
+                    }
 
                 },
                 1200
@@ -943,95 +1773,181 @@ data-adsize="320x180"></div>
 
 
     /* =========================
+       COMPLETE TIMER
+    ========================= */
+
+    function completeTimer() {
+
+        /*
+         * Hide timer number.
+         *
+         * This prevents "0"
+         * from being displayed.
+         */
+
+        timerEl.style.display =
+            'none';
+
+
+        /*
+         * Completion message
+         */
+
+        statusText.textContent =
+            '✅ Timer completed! Click "Verify & Download" below to continue. 👇';
+
+
+        statusText.style.color =
+            '#15803d';
+
+
+        statusText.style.borderColor =
+            'rgba(34,197,94,0.25)';
+
+
+        statusText.style.background =
+            'rgba(34,197,94,0.08)';
+
+
+        /*
+         * Enable button
+         */
+
+        downloadBtn.disabled =
+            false;
+
+
+        /*
+         * Show button
+         */
+
+        downloadBtn.style.display =
+            'block';
+
+
+        downloadBtn.style.visibility =
+            'visible';
+
+
+        downloadBtn.style.opacity =
+            '1';
+
+
+        /*
+         * Show text below button
+         */
+
+        belowButtonText.textContent =
+            '⬇️ Tap the button above to verify and download.';
+
+
+        belowButtonText.style.display =
+            'block';
+
+
+        belowButtonText.style.visibility =
+            'visible';
+
+
+        /*
+         * Attach click handler
+         */
+
+        downloadBtn.onclick =
+            verifyAndDownload;
+
+    }
+
+
+    /* =========================
        START TIMER
     ========================= */
 
     function startTimer() {
 
-        let remaining = seconds;
+        let remaining =
+            seconds;
 
-        timerEl.textContent = remaining;
+
+        /*
+         * Initial value
+         */
+
+        timerEl.textContent =
+            remaining;
+
 
         statusText.textContent =
             '🔒 Please wait while the timer counts down.';
 
-        downloadBtn.disabled = true;
+
+        /*
+         * Button disabled
+         */
+
+        downloadBtn.disabled =
+            true;
 
 
-        const interval = setInterval(
-            function () {
-
-                remaining--;
+        downloadBtn.style.display =
+            'none';
 
 
-                timerEl.textContent =
-                    Math.max(remaining, 0);
+        downloadBtn.style.visibility =
+            'hidden';
 
 
-                if (remaining <= 0) {
-
-                    clearInterval(interval);
-
-
-                    /*
-                     * Hide 0
-                     */
-
-                    timerEl.style.display = 'none';
+        downloadBtn.style.opacity =
+            '0';
 
 
-                    /*
-                     * Hide seconds remaining
-                     */
-
-                    secondsText.style.display = 'none';
+        belowButtonText.style.display =
+            'none';
 
 
-                    /*
-                     * Completion message
-                     */
+        /*
+         * Timer
+         */
 
-                    statusText.textContent =
-                        '✅ Timer completed! Click "Verify & Download" below button to continue. 👇';
+        const interval =
+            setInterval(
+                function () {
 
-
-                    statusText.style.color = '#86efac';
-
-                    statusText.style.borderColor =
-                        'rgba(34,197,94,0.25)';
-
-                    statusText.style.background =
-                        'rgba(34,197,94,0.08)';
+                    remaining--;
 
 
                     /*
-                     * Show button
+                     * Do not allow
+                     * negative number.
                      */
 
-                    downloadBtn.disabled = false;
-
-                    downloadBtn.style.display = 'block';
+                    timerEl.textContent =
+                        Math.max(
+                            remaining,
+                            0
+                        );
 
 
                     /*
-                     * Show text below button
+                     * Timer finished
                      */
 
-                    belowButtonText.style.display = 'block';
+                    if (
+                        remaining <= 0
+                    ) {
+
+                        clearInterval(
+                            interval
+                        );
 
 
-                    /*
-                     * Button click
-                     */
+                        completeTimer();
 
-                    downloadBtn.onclick =
-                        verifyAndDownload;
+                    }
 
-                }
-
-            },
-            1000
-        );
+                },
+                1000
+            );
 
     }
 
@@ -1040,12 +1956,95 @@ data-adsize="320x180"></div>
        START
     ========================= */
 
-    startTimer();
+    if (
+        timerEl &&
+        statusText &&
+        downloadBtn &&
+        belowButtonText
+    ) {
+
+        startTimer();
+
+    } else {
+
+        console.error(
+            'Required timer elements are missing.'
+        );
+
+    }
 
 
 })();
 
 </script>
+
+
+<!-- =========================
+     REWARDED / IN-APP ADS
+========================= -->
+
+<script>
+
+    /*
+     * Rewarded interstitial.
+     *
+     * Uncomment only if you want
+     * to manually trigger the ad.
+     */
+
+    /*
+    show_9379707().then(() => {
+
+        alert('You have seen an ad!');
+
+    });
+    */
+
+
+    /*
+     * In-App Interstitial
+     */
+
+    try {
+
+        if (
+            typeof show_9379707 ===
+            'function'
+        ) {
+
+            show_9379707({
+
+                type: 'inApp',
+
+                inAppSettings: {
+
+                    frequency: 2,
+
+                    capping: 0.1,
+
+                    interval: 30,
+
+                    timeout: 370,
+
+                    everyPage: false
+
+                }
+
+            });
+
+        }
+
+    } catch (error) {
+
+        console.log(
+            'Ad initialization error:',
+            error
+        );
+
+    }
+
+</script>
+
 
 </body>
 </html>
