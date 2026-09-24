@@ -1704,6 +1704,11 @@
                         <div id="statusText">
                             🔒 Please wait while the timer counts down.
                         </div>
+ <div id="verifyStatus">
+
+            🔒 Please wait while the timer counts down.
+
+        </div>
 
                     </div>
 
@@ -2343,13 +2348,6 @@
 
         <!-- Timer completion status -->
 
-        <div id="verifyStatus">
-
-            🔒 Please wait while the timer counts down.
-
-        </div>
-
-
         <!-- Button -->
 
         <div id="verifyButtonBox">
@@ -2959,45 +2957,7 @@
                 verifyAndDownload;
 
 
-            /*
-             * Scroll button into view
-             * on small screens
-             */
 
-            if (
-                window.innerWidth <= 600
-            ) {
-
-                setTimeout(
-                    function () {
-
-                        try {
-
-                            document
-                                .getElementById(
-                                    'verifySection'
-                                )
-                                .scrollIntoView({
-                                    behavior: 'smooth',
-                                    block: 'center'
-                                });
-
-                        } catch (error) {
-
-                            console.log(
-                                'Scroll error:',
-                                error
-                            );
-
-                        }
-
-                    },
-                    150
-                );
-
-            }
-
-        }
 
 
         /* =================================================
@@ -3134,59 +3094,6 @@
     </script>
 
 
-    <!-- =====================================================
-         IN-APP INTERSTITIAL
-    ====================================================== -->
-
-    <script>
-
-    try {
-
-        if (
-            typeof show_9379707 ===
-            'function'
-        ) {
-
-            show_9379707({
-
-                type:
-                    'inApp',
-
-                inAppSettings: {
-
-                    frequency:
-                        2,
-
-                    capping:
-                        0.1,
-
-                    interval:
-                        30,
-
-                    timeout:
-                        370,
-
-                    everyPage:
-                        false
-
-                }
-
-            });
-
-        }
-
-    } catch (error) {
-
-        console.log(
-            'Interstitial error:',
-            error
-        );
-
-    }
-
-    </script>
-
-
-</body>
+    </body>
 
 </html>
