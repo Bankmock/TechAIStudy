@@ -5,8 +5,7 @@
 <script src='//libtl.com/sdk.js' data-zone='9379707' data-sdk='show_9379707'></script>
   <meta charset="utf-8">
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0,
-               maximum-scale=1.0, user-scalable=no"> 
+      content="width=device-width, initial-scale=1.0">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>MiniApp</title>
@@ -107,6 +106,383 @@ overflow-x: auto;
     .bcard img { width:48px; height:48px; object-fit:contain; margin-bottom:8px; border-radius:6px; }
     .bcard h3 { margin:0; font-size:13px; font-weight:600; color:var(--text-main); line-height:1.3; }
     h2 { margin:28px 0 10px; font-size:20px; font-weight:700; color:var(--text-main); }
+
+    /* ============================================================
+       RESPONSIVE LAYOUT (CSS only)
+       ============================================================ */
+
+    html { -webkit-text-size-adjust:100%; }
+
+    main { margin:0 auto; min-width:0; }
+
+    /* ---- Top area & banners ---- */
+    body > #ad-top {
+      width:100%;
+      padding:10px 15px;
+      background:#f8fafc;
+      border-bottom:1px solid #e2e8f0;
+      text-align:center;
+    }
+
+    .ads-container {
+      align-items:center;
+      justify-content:safe center;
+      flex-wrap:wrap;
+      gap:8px;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:thin;
+    }
+
+    .ads-box { max-width:100%; }
+
+    /* Top banner ads: responsive per device width (no horizontal scroll) */
+    nav .ads-container {
+      flex-wrap:wrap;
+      justify-content:center;
+      overflow:visible;
+      padding:8px 0;
+    }
+
+    nav .ads-box {
+      flex:0 1 auto;
+      width:auto;
+      max-width:100%;
+      overflow:visible;
+    }
+
+    nav .ads-box iframe { max-width:100%; }
+
+    /* Hide any scrollbar / scroll indicator on ad areas */
+    .ads,
+    .ads-container {
+      overflow-x:hidden;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+    }
+
+    .ads::-webkit-scrollbar,
+    .ads-container::-webkit-scrollbar {
+      display:none;
+      width:0;
+      height:0;
+    }
+
+    /* Scale fixed-size top banners to the device width (full ad stays visible) */
+    @media (max-width:500px) {
+      nav .ads-box iframe[width="468"] { zoom:.90; }
+    }
+    @media (max-width:440px) {
+      nav .ads-box iframe[width="468"] { zoom:.80; }
+    }
+    @media (max-width:400px) {
+      nav .ads-box iframe[width="468"] { zoom:.74; }
+    }
+    @media (max-width:360px) {
+      nav .ads-box iframe[width="468"] { zoom:.68; }
+      nav .ads-box iframe[width="320"] { zoom:.94; }
+    }
+    @media (max-width:345px) {
+      nav .ads-box iframe[width="468"] { zoom:.63; }
+    }
+    @media (max-width:330px) {
+      nav .ads-box iframe[width="468"] { zoom:.60; }
+      nav .ads-box iframe[width="320"] { zoom:.90; }
+    }
+    @media (max-width:310px) {
+      nav .ads-box iframe[width="468"] { zoom:.55; }
+      nav .ads-box iframe[width="320"] { zoom:.83; }
+    }
+
+    /* Bottom 728x90 banner: scale to fit on tablet/mobile (no clipping or scroll) */
+    @media (max-width:768px) {
+      #ad-bottom iframe[width="728"] { zoom:.64; }
+    }
+    @media (max-width:600px) {
+      #ad-bottom iframe[width="728"] { zoom:.60; }
+    }
+    @media (max-width:480px) {
+      #ad-bottom iframe[width="728"] { zoom:.43; }
+    }
+    @media (max-width:360px) {
+      #ad-bottom iframe[width="728"] { zoom:.41; }
+    }
+    @media (max-width:340px) {
+      #ad-bottom iframe[width="728"] { zoom:.39; }
+    }
+    @media (max-width:300px) {
+      #ad-bottom iframe[width="728"] { zoom:.34; }
+    }
+
+    .ads-box iframe,
+    .ad-placeholder iframe,
+    .admoloBanner iframe,
+    .admoloBanner img {
+      max-width:100%;
+      border:0;
+    }
+
+    .admoloBanner {
+      max-width:100%;
+      overflow:hidden;
+      text-align:center;
+    }
+
+    /* ---- Timer card: readable on the white page ---- */
+    #timerSection {
+      margin-left:auto;
+      margin-right:auto;
+      max-width:320px !important;
+    }
+
+    #timerSection > div {
+      background:#ffffff !important;
+      border-color:#e2e8f0 !important;
+      box-shadow:0 10px 30px rgba(15,23,42,.08) !important;
+      padding:12px 14px !important;
+    }
+
+    /* Compact timer box (less height) */
+    #timer { font-size:28px !important; }
+    #secondsText { margin-bottom:6px !important; font-size:9.5px !important; }
+    #statusText {
+      padding:8px 10px !important;
+      font-size:12px !important;
+      line-height:1.3 !important;
+    }
+
+    /* ---- Ad grid ---- */
+    .ad-grid { min-width:0; }
+    .ad-grid main { min-width:0; }
+    .ad-placeholder { max-width:100%; }
+    .ad-placeholder .ad-unit { overflow:hidden; }
+
+    /* ---- Cards ---- */
+    .grid a { display:block; height:100%; }
+
+    .bcard {
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      transition:border-color .2s, box-shadow .2s, transform .2s;
+    }
+
+    .bcard h3 { overflow-wrap:anywhere; }
+
+    @media (hover:hover) {
+      .bcard:hover {
+        border-color:var(--accent);
+        box-shadow:0 4px 12px rgba(0,0,0,.08);
+        transform:translateY(-2px);
+      }
+    }
+
+    /* ---- Verify & download ---- */
+    main > div:has(> #downloadBtn) { margin:6px auto 24px; }
+
+    #downloadBtn { max-width:400px; margin:0 auto; }
+
+    #downloadBtn:hover:not(:disabled) {
+      transform:translateY(-1px);
+      filter:brightness(1.03);
+    }
+
+    #downloadBtn:active:not(:disabled) { transform:translateY(0); }
+
+    /* ================= Tablets ================= */
+    @media (max-width:1100px) {
+      .ad-grid {
+        grid-template-columns:minmax(0,1fr);
+        grid-template-areas:"top" "main" "bottom";
+        padding:0;
+      }
+
+      #ad-left,
+      #ad-right { display:none !important; }
+    }
+
+    /* ================= Phones ================= */
+    @media (max-width:600px) {
+      main { padding:0 16px 32px; }
+
+      h1 { font-size:28px; }
+      h2 { margin:24px 0 8px; font-size:18px; }
+      p.subtitle { font-size:13px; margin-bottom:16px; }
+
+      nav { padding:4px 8px; }
+
+      .ads-container {
+        flex-direction:column;
+        align-items:center;
+        overflow-x:hidden;
+        gap:6px;
+        padding:8px 10px;
+      }
+
+      .ads-box { width:100%; overflow-x:auto; }
+
+      .grid { gap:10px; margin:10px 0 20px; }
+      .bcard { padding:14px 8px; }
+      .bcard img { width:44px; height:44px; margin-bottom:6px; }
+      .bcard h3 { font-size:12.5px; }
+
+      main > div:has(> #downloadBtn) { margin-bottom:20px; }
+
+      #toast {
+        bottom:20px !important;
+        max-width:calc(100% - 24px) !important;
+        font-size:13px !important;
+        padding:12px 16px !important;
+      }
+    }
+
+    @media (max-width:480px) {
+      .grid { grid-template-columns:repeat(auto-fill,minmax(132px,1fr)); }
+    }
+
+    @media (max-width:380px) {
+      main { padding:0 12px 28px; }
+
+      h1 { font-size:25px; }
+
+      .grid {
+        grid-template-columns:repeat(auto-fill,minmax(124px,1fr));
+        gap:8px;
+      }
+
+      .bcard { padding:12px 6px; }
+      .bcard img { width:40px; height:40px; }
+      .bcard h3 { font-size:12px; }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .bcard,
+      #downloadBtn { transition:none; }
+    }
+
+    /* ============================================================
+       CLEANUP: no empty ad boxes / gaps
+       ============================================================ */
+
+    /* Remove the visible dashed "ad box" frames */
+    .ad-placeholder .ad-unit,
+    .ad-placeholder .ad-unit-leader,
+    .ad-placeholder .ad-unit-box {
+      background:transparent;
+      border:0;
+      border-radius:0;
+    }
+
+    /* Let empty ad slots collapse instead of reserving blank height */
+    .ad-placeholder .ad-unit-leader { min-height:0; }
+
+    /* Hide empty side ad columns when no ad is loaded */
+    .ad-grid #ad-left:not(:has(iframe)),
+    .ad-grid #ad-right:not(:has(iframe)) {
+      display:none !important;
+    }
+
+    /* Hide empty admolo slots (no ad / spinner only) */
+    .admoloBanner:has(> .no-ad),
+    .admoloBanner:has(> .admolo-slot-loader) {
+      display:none !important;
+    }
+
+    .ads-box:has(> .admoloBanner > .no-ad),
+    .ads-box:has(> .admoloBanner > .admolo-slot-loader) {
+      display:none !important;
+    }
+
+    /* No leftover padding around in-content ad rows */
+    main .ads-container { padding:0; }
+
+    /* Center any real admolo banner that does load */
+    body > .admoloBanner {
+      margin-left:auto;
+      margin-right:auto;
+      text-align:center;
+    }
+
+    /* Remove gray strips around ad areas */
+    body > #ad-top {
+      background:#ffffff;
+      border-bottom:0;
+      padding:12px 15px 4px;
+    }
+
+    .ad-grid main > #ad-top {
+      background:transparent;
+      border:0;
+      padding:0;
+    }
+
+    .ad-grid main > #ad-bottom {
+      background:transparent;
+      border:0;
+      padding:8px 0 0;
+    }
+
+    .ad-grid #ad-left,
+    .ad-grid #ad-right {
+      background:transparent;
+      border:0;
+      padding:8px;
+    }
+
+    /* Tighter section spacing */
+    h2 { margin-top:22px; }
+    .grid { margin-bottom:18px; }
+
+    /* Keep content and embedded ad frames inside the available viewport. */
+    body,
+    .ad-grid,
+    .ad-grid main,
+    main,
+    .grid,
+    .ads,
+    .ads-container,
+    .ads-box {
+      min-width:0;
+    }
+
+    img,
+    iframe,
+    video {
+      max-width:100%;
+    }
+
+    .grid img { display:block; }
+    .ads-box iframe { vertical-align:middle; }
+
+    @media (max-width:768px) {
+      .ad-grid {
+        grid-template-columns:minmax(0,1fr);
+        grid-template-areas:"top" "main" "bottom";
+        padding:0;
+      }
+
+      .ad-grid main { width:100%; }
+      main { padding-left:16px; padding-right:16px; }
+    }
+
+    @media (max-width:380px) {
+      nav { padding-left:4px; padding-right:4px; }
+      main { padding-left:12px; padding-right:12px; }
+      .grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .bcard { min-width:0; }
+    }
+
+    /* Reduce the vertical gap around the timer and its adjacent ad slots. */
+    body > #ad-top { padding-top:4px; padding-bottom:0; }
+    #timerSection { margin-top:0; margin-bottom:0; }
+    #timerSection > div { padding:8px 10px !important; }
+    .ad-grid main > #ad-top,
+    .ad-grid main > #ad-bottom { margin:0; min-height:0; }
+    .ad-grid main > #ad-top .ad-placeholder,
+    .ad-grid main > #ad-bottom .ad-placeholder,
+    .ad-grid main > #ad-top .ad-unit,
+    .ad-grid main > #ad-bottom .ad-unit { min-height:0; }
   </style>
 </head>
 <body>
@@ -249,19 +625,12 @@ This value is decoded as follows:
             🔒 Please wait while the timer counts down.
         </div>
 
-    </div></div>
-
-
-
-
-
-</div></div></div>
-<div class="admoloBanner"
-data-publisher="eyJpdiI6InQzdlV0dGhaQ0NwRVc3My9TMHUzWmc9PSIsInZhbHVlIjoiS2NkM1o5V3pwSW9CTVR6VWJTSjBzdz09IiwibWFjIjoiNjdhZWM4ZGY5ZTgwMzA2MWQ2YzJkYjM5ODliZGI3MDIzOGVhY2U4N2NlY2E4ZmIzMzM5OGU5NmYxN2UxMGYyYiIsInRhZyI6IiJ9"
-data-adsize="320x180"></div>
+    </div></div> </div></div></div>
 
 <div class="ad-grid">
-  <div id="ad-left"><div class="ad-placeholder"><div class="ad-unit ad-unit-box">
+  <div id="ad-left">
+<div class="ad-placeholder">
+ <div class="ad-unit ad-unit-box">
 <script>
   atOptions = {
     'key' : 'f52693494bde000182223aeddd8d7b4b',
@@ -279,9 +648,6 @@ data-adsize="320x180"></div>
 
 <script async="async" data-cfasync="false" src="https://pl25250725.effectivecpmnetwork.com/2c5610f6e714632e87626d65ca558bbd/invoke.js"></script>
 <div id="container-2c5610f6e714632e87626d65ca558bbd"></div>
-
-
-
 </div></div></div>
 
     <h2>Unit Converter Tools</h2>
