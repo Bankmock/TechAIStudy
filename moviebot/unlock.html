@@ -1,473 +1,1181 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script class="admoloScript" src="https://cdn.admolo.com/assets/ads/ad.js"></script>
+<script src='//libtl.com/sdk.js' data-zone='9379707' data-sdk='show_9379707'></script>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO -->
-  <title>SearchXHub - Hindi, Bollywood & South Indian Movies</title>
-  <meta name="description" content="Explore Hindi movies, Bollywood cinema, South Indian movies, Tamil, Telugu, Malayalam and Kannada films. Discover movie information, genres, releases and popular Indian cinema.">
-  <meta name="keywords" content="Hindi movies, Bollywood movies, South Indian movies, Tamil movies, Telugu movies, Malayalam movies, Kannada movies, Indian cinema, Bollywood films, latest movies, Hindi film">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="SearchXHub">
-  <meta name="theme-color" content="#ffffff">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>MiniApp</title>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="SearchXHub - Hindi, Bollywood & South Indian Movies">
-  <meta property="og:description" content="Discover Hindi, Bollywood and South Indian cinema including Tamil, Telugu, Malayalam and Kannada movies.">
-  <meta property="og:type" content="website">
-
-  <!-- Telegram -->
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WEZ36N4FPF"></script>
+ 
+  <script src="../../js/headerScript.js" defer></script>
+  <script src="../../js/googletrackingid.js"></script>
   <style>
-    :root{
-      --accent:#2563eb;
-      --accent-dark:#1d4ed8;
-      --mint:#0f9f78;
-      --bg:#f5f7fb;
-      --white:#ffffff;
-      --panel:#ffffff;
-      --text:#172033;
-      --muted:#687386;
-      --line:#e3e8f0;
-      --soft:#f0f5ff;
-      --success-bg:#ecfdf5;
-      --shadow:0 12px 35px rgba(23,32,51,.08);
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+    * { box-sizing: border-box; }
+    :root {
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent: #ff0000;
+      --font: 'Outfit', sans-serif;
+    }
+    body { margin:0; min-height:100vh; background:#ffffff; color:var(--text-main); font-family:var(--font); display:flex; flex-direction:column; padding:0; overflow-x:hidden; }
+    main { width:100%; max-width:1024px; padding:0 20px 40px; margin:0; flex:1; }
+    h1 { margin:0 0 8px; font-size:36px; font-weight:700; color:var(--text-main); text-align:center; }
+
+
+
+.ads-container {
+    width: 100%;
+    overflow-x: auto;   /* Scroll allowed inside, but no page overflow */
+    display: flex;
+    justify-content: center;
+    gap: 1px;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.ads-box {
+    flex: 0 0 auto;      /* Prevent overflow */
+    text-align: center;
+}
+
+/* Mobile view → wrap ads vertically */
+@media (max-width: 600px) {
+    .ads-container {
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden; /* No need for horizontal scroll on mobile */
     }
 
-    *{
-      box-sizing:border-box;
+    .ads-box {
+        width: 100%;
+    }
+}
+
+.ads {
+
+text-align:center;
+overflow-x: auto;
+}
+
+
+
+
+
+    p.subtitle { color:var(--text-muted); margin:0 0 20px; font-size:15px; font-weight:300; text-align:center; }
+    nav { position:relative; z-index:1000; display:flex; flex-wrap:wrap; justify-content:center; gap:3px; background:#f8fafc; padding:6px 10px; border-bottom:1px solid #e2e8f0; width:100%; }
+    nav span { display:inline-flex; align-items:center; gap:5px; color:var(--text-main); font-weight:600; font-size:11px; padding:4px 8px; border-radius:8px; white-space:nowrap; flex:0 1 auto; line-height:1.1; background:transparent; cursor:default; transition:background 0.2s; }
+    nav span:hover { background:color-mix(in srgb, var(--accent) 10%, transparent); }
+    .nav-icon { width:18px; height:18px; border-radius:4px; object-fit:contain; flex-shrink:0; }
+    .nav-label { max-width:9rem; overflow:hidden; text-overflow:ellipsis; }
+    form { display:flex; margin-bottom:15px; width:100%; max-width:1024px; margin:0 auto 15px; }
+    form input:focus { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
+    form button[type="submit"]:hover { filter:brightness(0.85); }
+    form button[type="submit"]:active { filter:brightness(0.7); }
+    #status { min-height:24px; color:#f87171; font-size:14px; margin-top:5px; }
+
+    .ad-grid { display:grid; grid-template-columns:auto minmax(0,1fr) auto; grid-template-rows:auto 1fr auto; grid-template-areas:"top top top" "left main right" "bottom bottom bottom"; max-width:1364px; margin:0 auto; width:100%; padding:0 15px; flex:1; }
+    .ad-grid #ad-top { grid-area:top; text-align:center; padding:8px 0; background:#fafafa; border-bottom:1px solid #e2e8f0; }
+    .ad-grid #ad-left { grid-area:left; background:#f8fafc; border-right:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:10px; font-family:sans-serif; position:sticky; top:10px; align-self:start; }
+    .ad-grid #ad-right { grid-area:right; background:#f8fafc; border-left:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; padding:10px; font-family:sans-serif; position:sticky; top:10px; align-self:start; }
+    .ad-grid #ad-bottom { grid-area:bottom; text-align:center; padding:8px 0; background:#fafafa; border-top:1px solid #e2e8f0; }
+    .ad-grid main { grid-area:main; }
+    .ad-placeholder { display:flex; align-items:center; justify-content:center; font-family:sans-serif; }
+    .ad-placeholder .ad-unit { background:#f1f5f9; border:1px dashed #cbd5e1; border-radius:6px; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-size:11px; }
+    .ad-placeholder .ad-unit-leader { width:100%; max-width:970px; min-height:90px; }
+    .ad-placeholder .ad-unit-box { width:160px; height:600px; }
+    @media (max-width: 768px) { .ad-placeholder .ad-unit-leader { max-width:468px; min-height:60px; } }
+    @media (max-width: 480px) { .ad-placeholder .ad-unit-leader { max-width:320px; min-height:50px; } }
+    @media (max-width: 640px) {
+      form > div { flex-direction:row; }
+      form input { padding:10px 32px 10px 36px; font-size:13px; }
+      form button[type="submit"] { padding:8px 10px; font-size:12px; gap:3px; }
+      form button[type="submit"] svg { width:16px; height:16px; }
+      .clear-btn { right:4px; font-size:16px; }
+    }
+    @media (max-width: 1100px) { #ad-left, #ad-right { display:none !important; } }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; margin:12px 0 24px; }
+    .grid a { text-decoration:none; color:inherit; }
+    .bcard { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:16px 10px; text-align:center; transition:all .2s; }
+    .bcard:hover { border-color:var(--accent); box-shadow:0 4px 12px rgba(0,0,0,.08); transform:translateY(-2px); }
+    .bcard img { width:48px; height:48px; object-fit:contain; margin-bottom:8px; border-radius:6px; }
+    .bcard h3 { margin:0; font-size:13px; font-weight:600; color:var(--text-main); line-height:1.3; }
+    h2 { margin:28px 0 10px; font-size:20px; font-weight:700; color:var(--text-main); }
+
+    /* ============================================================
+       RESPONSIVE LAYOUT (CSS only)
+       ============================================================ */
+
+    html { -webkit-text-size-adjust:100%; }
+
+    main { margin:0 auto; min-width:0; }
+
+    /* ---- Top area & banners ---- */
+    body > #ad-top {
+      width:100%;
+      padding:10px 15px;
+      background:#f8fafc;
+      border-bottom:1px solid #e2e8f0;
+      text-align:center;
     }
 
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      margin:0;
-      background:
-        radial-gradient(circle at top left,#eaf2ff 0,#f5f7fb 38%),
-        var(--bg);
-      color:var(--text);
-      font:15px/1.6 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    }
-
-    .page{
-      min-height:138vh;
-      max-width:760px;
-      margin:0 auto;
-      padding:22px 18px 35px;
-      display:flex;
-      flex-direction:column;
-    }
-
-    .top{
-      display:flex;
-      justify-content:space-between;
+    .ads-container {
       align-items:center;
-      margin-bottom:30px;
-    }
-
-    .brand{
-      font-weight:850;
-      font-size:18px;
-      letter-spacing:-.3px;
-      color:#172033;
-    }
-
-    .brand span{
-      color:var(--accent);
-    }
-
-    .secure{
-      font-size:12px;
-      color:var(--mint);
-      background:var(--success-bg);
-      border:1px solid #b7ead9;
-      border-radius:20px;
-      padding:5px 10px;
-      font-weight:700;
-    }
-
-    .hero{
-      text-align:center;
-      padding:10px 8px 0;
-    }
-
-    .icon{
-      width:78px;
-      height:78px;
-      margin:auto;
-      border-radius:24px;
-      display:grid;
-      place-items:center;
-      font-size:34px;
-      background:linear-gradient(135deg,#dbeafe,#eff6ff);
-      border:1px solid #c9dcff;
-      box-shadow:0 12px 30px rgba(37,99,235,.12);
-    }
-
-    h1{
-      font-size:30px;
-      line-height:1.15;
-      margin:19px 0 9px;
-      letter-spacing:-.7px;
-    }
-
-    .hero p{
-      max-width:600px;
-      margin:auto;
-      color:var(--muted);
-      font-size:15px;
-    }
-
-    .card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:20px;
-      margin-top:25px;
-      box-shadow:var(--shadow);
-      text-align:center;
-    }
-
-    .caption{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:1.2px;
-      color:#7a8699;
-      font-weight:750;
-    }
-
-    .timer{
-      font-size:60px;
-      font-weight:900;
-      line-height:1;
-      color:var(--accent);
-      margin:13px 0 3px;
-      letter-spacing:-4px;
-    }
-
-    .card > p{
-      color:var(--muted);
-      margin:0;
-    }
-
-    .features{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-      margin-top:16px;
-    }
-
-    .feature{
-      background:var(--white);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:15px;
-      font-size:13px;
-      color:#586579;
-      box-shadow:0 5px 18px rgba(23,32,51,.04);
-    }
-
-    .feature i{
-      display:block;
-      font-size:21px;
-      font-style:normal;
-      margin-bottom:7px;
-    }
-
-    .feature strong{
-      display:block;
-      color:var(--text);
-      margin-bottom:3px;
-      font-size:14px;
-    }
-
-    .seo-content{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:20px;
-      margin-top:18px;
-      box-shadow:0 6px 22px rgba(23,32,51,.045);
-    }
-
-    .seo-content h2{
-      margin:0 0 10px;
-      font-size:20px;
-      line-height:1.3;
-      letter-spacing:-.3px;
-    }
-
-    .seo-content h3{
-      margin:18px 0 7px;
-      font-size:16px;
-      line-height:1.35;
-    }
-
-    .seo-content p{
-      margin:0 0 10px;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .movie-tags{
-      display:flex;
+      justify-content:safe center;
       flex-wrap:wrap;
       gap:8px;
-      margin-top:13px;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:thin;
     }
 
-    .movie-tags span{
-      background:var(--soft);
-      color:#315da8;
-      border:1px solid #d8e5ff;
-      border-radius:30px;
-      padding:6px 10px;
-      font-size:12px;
-      font-weight:650;
+    .ads-box { max-width:100%; }
+
+    /* Top banner ads: responsive per device width (no horizontal scroll) */
+    nav .ads-container {
+      flex-wrap:wrap;
+      justify-content:center;
+      overflow:visible;
+      padding:8px 0;
     }
 
-    .notice{
-      margin-top:18px;
-      text-align:left;
-      background:#f8fafc;
-      border:1px solid var(--line);
-      border-left:3px solid var(--mint);
-      border-radius:12px;
-      padding:11px 13px;
-      font-size:12px;
-      color:var(--muted);
+    nav .ads-box {
+      flex:0 1 auto;
+      width:auto;
+      max-width:100%;
+      overflow:visible;
     }
 
-    .bottom{
-      margin-top:auto;
-      padding-top:42px;
-      text-align:center;
+    nav .ads-box iframe { max-width:100%; }
+
+    /* Hide any scrollbar / scroll indicator on ad areas */
+    .ads,
+    .ads-container {
+      overflow-x:hidden;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
     }
 
-    button{
-      width:100%;
+    .ads::-webkit-scrollbar,
+    .ads-container::-webkit-scrollbar {
+      display:none;
+      width:0;
+      height:0;
+    }
+
+    /* Scale fixed-size top banners to the device width (full ad stays visible) */
+    @media (max-width:500px) {
+      nav .ads-box iframe[width="468"] { zoom:.90; }
+    }
+    @media (max-width:440px) {
+      nav .ads-box iframe[width="468"] { zoom:.80; }
+    }
+    @media (max-width:400px) {
+      nav .ads-box iframe[width="468"] { zoom:.74; }
+    }
+    @media (max-width:360px) {
+      nav .ads-box iframe[width="468"] { zoom:.68; }
+      nav .ads-box iframe[width="320"] { zoom:.94; }
+    }
+    @media (max-width:345px) {
+      nav .ads-box iframe[width="468"] { zoom:.63; }
+    }
+    @media (max-width:330px) {
+      nav .ads-box iframe[width="468"] { zoom:.60; }
+      nav .ads-box iframe[width="320"] { zoom:.90; }
+    }
+    @media (max-width:310px) {
+      nav .ads-box iframe[width="468"] { zoom:.55; }
+      nav .ads-box iframe[width="320"] { zoom:.83; }
+    }
+
+    /* Bottom 728x90 banner: scale to fit on tablet/mobile (no clipping or scroll) */
+    @media (max-width:768px) {
+      #ad-bottom iframe[width="728"] { zoom:.64; }
+    }
+    @media (max-width:600px) {
+      #ad-bottom iframe[width="728"] { zoom:.60; }
+    }
+    @media (max-width:480px) {
+      #ad-bottom iframe[width="728"] { zoom:.43; }
+    }
+    @media (max-width:360px) {
+      #ad-bottom iframe[width="728"] { zoom:.41; }
+    }
+    @media (max-width:340px) {
+      #ad-bottom iframe[width="728"] { zoom:.39; }
+    }
+    @media (max-width:300px) {
+      #ad-bottom iframe[width="728"] { zoom:.34; }
+    }
+
+    .ads-box iframe,
+    .ad-placeholder iframe,
+    .admoloBanner iframe,
+    .admoloBanner img {
+      max-width:100%;
       border:0;
-      border-radius:15px;
-      padding:16px;
-      background:linear-gradient(135deg,#2563eb,#1d4ed8);
-      color:#fff;
-      font-size:16px;
-      font-weight:850;
-      box-shadow:0 10px 23px rgba(37,99,235,.22);
-      cursor:pointer;
-      transition:.2s ease;
     }
 
-    button:not(:disabled):hover{
-      transform:translateY(-1px);
-      box-shadow:0 13px 28px rgba(37,99,235,.28);
-    }
-
-    button:disabled{
-      opacity:.42;
-      box-shadow:none;
-      cursor:not-allowed;
-    }
-
-    .fine{
-      font-size:13px;
-      color:var(--muted);
-      min-height:20px;
-      margin-top:12px;
-    }
-
-    .scroll{
-      font-size:22px;
-      margin-bottom:6px;
-    }
-
-    .footer-seo{
+    .admoloBanner {
+      max-width:100%;
+      overflow:hidden;
       text-align:center;
-      color:#8993a3;
-      font-size:11px;
-      line-height:1.5;
-      margin-top:25px;
     }
 
-    @media(max-width:520px){
-      .page{
-        padding:17px 14px 28px;
-      }
+    /* ---- Timer card: readable on the white page ---- */
+    #timerSection {
+      margin-left:auto;
+      margin-right:auto;
+      max-width:320px !important;
+    }
 
-      h1{
-        font-size:26px;
-      }
+    #timerSection > div {
+      background:#ffffff !important;
+      border-color:#e2e8f0 !important;
+      box-shadow:0 10px 30px rgba(15,23,42,.08) !important;
+      padding:12px 14px !important;
+    }
 
-      .features{
-        grid-template-columns:1fr;
-      }
+    /* Compact timer box (less height) */
+    #timer { font-size:28px !important; }
+    #secondsText { margin-bottom:6px !important; font-size:9.5px !important; }
+    #statusText {
+      padding:8px 10px !important;
+      font-size:12px !important;
+      line-height:1.3 !important;
+    }
 
-      .timer{
-        font-size:55px;
-      }
+    /* ---- Ad grid ---- */
+    .ad-grid { min-width:0; }
+    .ad-grid main { min-width:0; }
+    .ad-placeholder { max-width:100%; }
+    .ad-placeholder .ad-unit { overflow:hidden; }
 
-      .seo-content{
-        padding:17px;
+    /* ---- Cards ---- */
+    .grid a { display:block; height:100%; }
+
+    .bcard {
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      transition:border-color .2s, box-shadow .2s, transform .2s;
+    }
+
+    .bcard h3 { overflow-wrap:anywhere; }
+
+    @media (hover:hover) {
+      .bcard:hover {
+        border-color:var(--accent);
+        box-shadow:0 4px 12px rgba(0,0,0,.08);
+        transform:translateY(-2px);
       }
     }
+
+    /* ---- Verify & download ---- */
+    main > div:has(> #downloadBtn) { margin:6px auto 24px; }
+
+    #downloadBtn { max-width:400px; margin:0 auto; }
+    #downloadBtn:disabled { display:none; }
+    #downloadBtn:not(:disabled) { display:block; }
+    #downloadBtn:not(:disabled) + #belowButtonText { display:block !important; }
+
+    #downloadBtn:hover:not(:disabled) {
+      transform:translateY(-1px);
+      filter:brightness(1.03);
+    }
+
+    #downloadBtn:active:not(:disabled) { transform:translateY(0); }
+
+    /* ================= Tablets ================= */
+    @media (max-width:1100px) {
+      .ad-grid {
+        grid-template-columns:minmax(0,1fr);
+        grid-template-areas:"top" "main" "bottom";
+        padding:0;
+      }
+
+      #ad-left,
+      #ad-right { display:none !important; }
+    }
+
+    /* ================= Phones ================= */
+    @media (max-width:600px) {
+      main { padding:0 16px 32px; }
+
+      h1 { font-size:28px; }
+      h2 { margin:24px 0 8px; font-size:18px; }
+      p.subtitle { font-size:13px; margin-bottom:16px; }
+
+      nav { padding:4px 8px; }
+
+      .ads-container {
+        flex-direction:column;
+        align-items:center;
+        overflow-x:hidden;
+        gap:6px;
+        padding:8px 10px;
+      }
+
+      .ads-box { width:100%; overflow-x:auto; }
+
+      .grid { gap:10px; margin:10px 0 20px; }
+      .bcard { padding:14px 8px; }
+      .bcard img { width:44px; height:44px; margin-bottom:6px; }
+      .bcard h3 { font-size:12.5px; }
+
+      main > div:has(> #downloadBtn) { margin-bottom:20px; }
+
+      #toast {
+        bottom:20px !important;
+        max-width:calc(100% - 24px) !important;
+        font-size:13px !important;
+        padding:12px 16px !important;
+      }
+    }
+
+    @media (max-width:480px) {
+      .grid { grid-template-columns:repeat(auto-fill,minmax(132px,1fr)); }
+    }
+
+    @media (max-width:380px) {
+      main { padding:0 12px 28px; }
+
+      h1 { font-size:25px; }
+
+      .grid {
+        grid-template-columns:repeat(auto-fill,minmax(124px,1fr));
+        gap:8px;
+      }
+
+      .bcard { padding:12px 6px; }
+      .bcard img { width:40px; height:40px; }
+      .bcard h3 { font-size:12px; }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .bcard,
+      #downloadBtn { transition:none; }
+    }
+
+    /* ============================================================
+       CLEANUP: no empty ad boxes / gaps
+       ============================================================ */
+
+    /* Remove the visible dashed "ad box" frames */
+    .ad-placeholder .ad-unit,
+    .ad-placeholder .ad-unit-leader,
+    .ad-placeholder .ad-unit-box {
+      background:transparent;
+      border:0;
+      border-radius:0;
+    }
+
+    /* Let empty ad slots collapse instead of reserving blank height */
+    .ad-placeholder .ad-unit-leader { min-height:0; }
+
+    /* Hide empty side ad columns when no ad is loaded */
+    .ad-grid #ad-left:not(:has(iframe)),
+    .ad-grid #ad-right:not(:has(iframe)) {
+      display:none !important;
+    }
+
+    /* Hide empty admolo slots (no ad / spinner only) */
+    .admoloBanner:has(> .no-ad),
+    .admoloBanner:has(> .admolo-slot-loader) {
+      display:none !important;
+    }
+
+    .ads-box:has(> .admoloBanner > .no-ad),
+    .ads-box:has(> .admoloBanner > .admolo-slot-loader) {
+      display:none !important;
+    }
+
+    /* No leftover padding around in-content ad rows */
+    main .ads-container { padding:0; }
+
+    /* Center any real admolo banner that does load */
+    body > .admoloBanner {
+      margin-left:auto;
+      margin-right:auto;
+      text-align:center;
+    }
+
+    /* Remove gray strips around ad areas */
+    body > #ad-top {
+      background:#ffffff;
+      border-bottom:0;
+      padding:12px 15px 4px;
+    }
+
+    .ad-grid main > #ad-top {
+      background:transparent;
+      border:0;
+      padding:0;
+    }
+
+    .ad-grid main > #ad-bottom {
+      background:transparent;
+      border:0;
+      padding:8px 0 0;
+    }
+
+    .ad-grid #ad-left,
+    .ad-grid #ad-right {
+      background:transparent;
+      border:0;
+      padding:8px;
+    }
+
+    /* Tighter section spacing */
+    h2 { margin-top:22px; }
+    .grid { margin-bottom:18px; }
+
+    /* Keep content and embedded ad frames inside the available viewport. */
+    body,
+    .ad-grid,
+    .ad-grid main,
+    main,
+    .grid,
+    .ads,
+    .ads-container,
+    .ads-box {
+      min-width:0;
+    }
+
+    img,
+    iframe,
+    video {
+      max-width:100%;
+    }
+
+    .grid img { display:block; }
+    .ads-box iframe { vertical-align:middle; }
+
+    @media (max-width:768px) {
+      .ad-grid {
+        grid-template-columns:minmax(0,1fr);
+        grid-template-areas:"top" "main" "bottom";
+        padding:0;
+      }
+
+      .ad-grid main { width:100%; }
+      main { padding-left:16px; padding-right:16px; }
+    }
+
+    @media (max-width:380px) {
+      nav { padding-left:4px; padding-right:4px; }
+      main { padding-left:12px; padding-right:12px; }
+      .grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .bcard { min-width:0; }
+    }
+
+    /* Reduce the vertical gap around the timer and its adjacent ad slots. */
+    body > #ad-top { padding-top:4px; padding-bottom:0; }
+    #timerSection { margin-top:0; margin-bottom:0; }
+    #timerSection > div { padding:8px 10px !important; }
+    .ad-grid main > #ad-top,
+    .ad-grid main > #ad-bottom { margin:0; min-height:0; }
+    .ad-grid main > #ad-top .ad-placeholder,
+    .ad-grid main > #ad-bottom .ad-placeholder,
+    .ad-grid main > #ad-top .ad-unit,
+    .ad-grid main > #ad-bottom .ad-unit { min-height:0; }
   </style>
 </head>
-
 <body>
-<main class="page">
-
-  <header class="top">
-    <div class="brand">Search<span>X</span>Hub</div>
-    <div class="secure">● Final check</div>
-  </header>
-
-  <section class="hero">
-    <div class="icon">🎬</div>
-
-    <h1>Almost Ready</h1>
-
-    <p>
-      Complete the final step to continue and access your selected movie
-      through Telegram.
-    </p>
-  </section>
-
-  <section class="card">
-    <div class="caption">Final verification</div>
-
-    <div id="timer" class="timer">30</div>
-
-    <p>seconds remaining</p>
-  </section>
-
-  <section class="features">
-
-    <div class="feature">
-      <i>🎬</i>
-      <strong>Indian Cinema</strong>
-      Discover information about Hindi, Bollywood and popular Indian movies.
-    </div>
-
-    <div class="feature">
-      <i>🇮🇳</i>
-      <strong>Bollywood Movies</strong>
-      Explore Hindi cinema, Bollywood films, genres, actors and movie culture.
-    </div>
-
-    <div class="feature">
-      <i>🌟</i>
-      <strong>South Indian Cinema</strong>
-      Learn about Tamil, Telugu, Malayalam and Kannada movies and filmmakers.
-    </div>
-
-    <div class="feature">
-      <i>🔒</i>
-      <strong>Telegram Access</strong>
-      Continue through Telegram after the verification process is completed.
-    </div>
-
-  </section>
-
-  <section class="seo-content">
-
-    <h2>Hindi, Bollywood & South Indian Movies</h2>
-
-    <p>
-      Indian cinema is one of the world's largest and most diverse film
-      industries, producing movies in Hindi and many regional languages.
-      SearchXHub brings together useful movie-related information covering
-      Bollywood, Hindi films and South Indian cinema.
-    </p>
-
-    <p>
-      From action and comedy to romance, thriller, drama, family entertainment
-      and science fiction, Indian movies offer a wide variety of stories for
-      different audiences. Hindi cinema, commonly known as Bollywood, has a
-      long history of memorable actors, directors, music and popular films.
-    </p>
-
-    <h3>Bollywood and Hindi Movies</h3>
-
-    <p>
-      Bollywood is an important part of Indian entertainment and is primarily
-      associated with Hindi-language films. Hindi movies are known for their
-      combination of storytelling, music, dance, drama, comedy, romance and
-      action. Audiences can explore different genres, filmmakers, performers
-      and eras of Hindi cinema.
-    </p>
-
-    <h3>South Indian Movies</h3>
-
-    <p>
-      South Indian cinema includes several major film industries, especially
-      Tamil, Telugu, Malayalam and Kannada cinema. These industries have
-      developed distinctive styles of storytelling and have produced acclaimed
-      actors, directors, composers and filmmakers. South Indian movies are
-      increasingly popular with audiences throughout India and internationally.
-    </p>
-
-    <p>
-      Telugu and Tamil cinema are particularly well known for large-scale
-      productions, action entertainment and commercial storytelling, while
-      Malayalam cinema is widely recognized for character-driven stories and
-      strong screenwriting. Kannada cinema has also gained significant
-      national and international attention in recent years.
-    </p>
-
-    <div class="movie-tags">
-      <span>Hindi Movies</span>
-      <span>Bollywood</span>
-      <span>Indian Cinema</span>
-      <span>Tamil Movies</span>
-      <span>Telugu Movies</span>
-      <span>Malayalam Movies</span>
-      <span>Kannada Movies</span>
-      <span>Action Movies</span>
-      <span>Romance</span>
-      <span>Thrillers</span>
-      <span>Comedy</span>
-      <span>Drama</span>
-    </div>
-
-  </section>
-
-  <section class="notice">
-    After delivery, save or forward your movie information if needed.
-    Temporary Telegram messages or access messages can expire automatically.
-  </section>
-
-  <section class="bottom">
-
-    <div id="finishHint" class="fine"></div>
-
-    <div class="scroll">👇</div>
-
-    <button id="unlock" disabled>Unlock video</button>
-
-    <p id="hint" class="fine">
-      Please wait while we complete verification.
-    </p>
-
-  </section>
-
-  <footer class="footer-seo">
-    SearchXHub — Hindi movies, Bollywood cinema and South Indian movie
-    information including Tamil, Telugu, Malayalam and Kannada films.
-  </footer>
-
-</main>
+<div class="admoloInterstitial"
+data-publisher="eyJpdiI6ImprdHBtdEY2aHR2cGdvcnp1bnJyWlE9PSIsInZhbHVlIjoianlwOWZDcXpya3V0VS96K0lmWjI3QT09IiwibWFjIjoiMGFjMThmYmFkMzc0MTA0MTlmZjk4NDE2ZDAxMGQ2OGViNWY4ODdmZWJkZjdlOGQ1NDQ0MDMzNGQ0MzNhNzNmYSIsInRhZyI6IiJ9"
+data-adsize="interstitial"></div>
 
 <script>
-  const WAIT_SECONDS=30,app=window.Telegram.WebApp,params=new URLSearchParams(location.search),token=params.get('token'),botUsername=params.get('bot');app.ready();app.expand();
-  let left=WAIT_SECONDS;const timer=document.getElementById('timer'),unlock=document.getElementById('unlock');timer.textContent=left;
-  const interval=setInterval(()=>{left-=1;timer.textContent=left;if(left<=0){clearInterval(interval);unlock.disabled=false;document.getElementById('finishHint').textContent='✅ Finished! Scroll below and unlock your video.';document.getElementById('hint').textContent='👇 Neeche Unlock video dabayein.';}},1000);
-  unlock.onclick=()=>{if(!token||!botUsername)return;unlock.disabled=true;unlock.textContent='Verified — opening bot…';document.getElementById('hint').textContent='Movie bot chat mein bheji ja rahi hai.';const destination='https://t.me/'+botUsername+'?start=unlock_'+encodeURIComponent(token);try{app.openTelegramLink(destination);}catch(_){window.location.href=destination;}setTimeout(()=>app.close(),800);};
-</script>
 
+
+// Rewarded interstitial
+
+show_9379707().then(() => {
+    // You need to add your user reward function here, which will be executed after the user watches the ad.
+    // For more details, please refer to the detailed instructions.
+    alert('You have seen an ad!');
+})
+
+
+
+// In-App Interstitial
+
+show_9379707({
+  type: 'inApp',
+  inAppSettings: {
+    frequency: 2,
+    capping: 0.1,
+    interval: 30,
+    timeout: 370,
+    everyPage: false
+  }
+})
+
+/*
+This value is decoded as follows:
+- show automatically 2 ads
+  within 0.1 hours (6 minutes)
+  with a 30-second interval between them
+  and a 5-second delay before the first one is shown.
+  The last digit, 0, means that the session will be saved when you navigate between pages.
+  If you set the last digit as 1, then at any transition between pages,
+  the session will be reset, and the ads will start again.
+*/
+
+</script>
+<nav>
+<div class="ads">  
+<div class="ads-container">
+
+    <!-- First Ad -->
+    <div class="ads-box">
+    	
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '3353fc740693589865911ed5c4e259c1',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/3353fc740693589865911ed5c4e259c1/invoke.js"></script>
+       
+    </div>
+
+    <!-- Second Ad -->
+    <div class="ads-box">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'b522989fcf5cdf1fbc5167845934a0a9',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/b522989fcf5cdf1fbc5167845934a0a9/invoke.js"></script>
+    </div>
+
+</div>
+
+</div>
+</nav>
+
+<div id="ad-top"><div class="ad-placeholder"><div class="ad-unit ad-unit-leader">
+<!-- TIMER + STATUS -->
+
+<div id="timerSection"
+     style="
+        width:100%;
+        max-width:300px;
+        display:block;
+  text-align:center;
+     ">
+
+    <div style="
+        width:100%;
+        padding:20px;
+        border-radius:18px;
+        background:rgba(255,255,255,0.04);
+        border:1px solid rgba(255,255,255,0.10);
+        text-align:center;
+        box-shadow:0 10px 30px rgba(0,0,0,0.25);
+        box-sizing:border-box;
+    ">
+
+        <div id="timer"
+             style="
+                font-size:30px;
+                font-weight:700;
+                line-height:1;
+             
+                color:blue;
+             ">
+            30
+        </div>
+
+        <div id="secondsText"
+             style="
+                color:#94a3b8;
+                font-size:10px;
+                margin-bottom:16px;
+             ">
+            seconds remaining
+        </div>
+
+        <div id="statusText"
+             style="
+                width:100%;
+                padding:13px;
+                border-radius:12px;
+                background:rgba(255,255,255,0.05);
+                border:1px solid rgba(255,255,255,0.08);
+                color:blue;
+                font-size:14px;
+                font-weight:600;
+                line-height:1.45;
+                box-sizing:border-box;
+             ">
+            🔒 Please wait while the timer counts down.
+        </div>
+
+        <span id="hint" hidden></span>
+        <span id="finishHint" hidden></span>
+
+    </div></div> </div></div></div>
+
+
+
+
+<div class="ad-grid">
+  <div id="ad-left">
+<div class="ad-placeholder">
+ <div class="ad-unit ad-unit-box">
+<script>
+  atOptions = {
+    'key' : 'f52693494bde000182223aeddd8d7b4b',
+    'format' : 'iframe',
+    'height' : 600,
+    'width' : 160,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/f52693494bde000182223aeddd8d7b4b/invoke.js"></script>
+
+
+</div></div></div>
+   <main><div id="ad-top"><div class="ad-placeholder"><div class="ad-unit ad-unit-leader">
+
+<script async="async" data-cfasync="false" src="https://pl25250725.effectivecpmnetwork.com/2c5610f6e714632e87626d65ca558bbd/invoke.js"></script>
+<div id="container-2c5610f6e714632e87626d65ca558bbd"></div>
+</div></div></div>
+
+    <h2>Unit Converter Tools</h2>
+<div class="grid">
+  <a href="../../unit-converter/illuminance-converter/">
+    <div class="bcard">
+      <img src="../../images/illuminance-converter.webp" alt="Illuminance Converter">
+      <h3><strong>Illuminance Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/torque-converter/">
+    <div class="bcard">
+      <img src="../../images/torque-converter.webp" alt="Torque Converter">
+      <h3><strong>Torque Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/flow-converter/">
+    <div class="bcard">
+      <img src="../../images/flow-converter.webp" alt="Flow Converter">
+      <h3><strong>Flow Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/force-converter/">
+    <div class="bcard">
+      <img src="../../images/force-converter.webp" alt="Force Converter">
+      <h3><strong>Force Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/frequency-converter/">
+    <div class="bcard">
+      <img src="../../images/frequency-converter.webp" alt="Frequency Converter">
+      <h3><strong>Frequency Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/data-transfer-rate-converter/">
+    <div class="bcard">
+      <img src="../../images/data-transfer-rate-converter.webp" alt="Data Transfer Rate Converter">
+      <h3><strong>Data Transfer Rate Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/angle-converter/">
+    <div class="bcard">
+      <img src="../../images/angle-converter.webp" alt="Angle Converter">
+      <h3><strong>Angle Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/density-converter/">
+    <div class="bcard">
+      <img src="../../images/density-converter.webp" alt="Density Converter">
+      <h3><strong>Density Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/fuel-consumption-converter/">
+    <div class="bcard">
+      <img src="../../images/fuel-consumption-converter.webp" alt="Fuel Consumption Converter">
+      <h3><strong>Fuel Consumption Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/internet-data-converter/">
+    <div class="bcard">
+      <img src="../../images/internet-data-converter.webp" alt="Internet Data Converter">
+      <h3><strong>Internet Data Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/pressure-converter/">
+    <div class="bcard">
+      <img src="../../images/pressure-converter.webp" alt="Pressure Converter">
+      <h3><strong>Pressure Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/power-converter/">
+    <div class="bcard">
+      <img src="../../images/power-converter.webp" alt="Power Converter">
+      <h3><strong>Power Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/speed-converter/">
+    <div class="bcard">
+      <img src="../../images/speed-converter.webp" alt="Speed Converter">
+      <h3><strong>Speed Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/energy-converter/">
+    <div class="bcard">
+      <img src="../../images/energy-converter.webp" alt="Energy Converter">
+      <h3><strong>Energy Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/time-converter/">
+    <div class="bcard">
+      <img src="../../images/time-converter.webp" alt="Time Converter">
+      <h3><strong>Time Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/volume-converter/">
+    <div class="bcard">
+      <img src="../../images/volume-converter.webp" alt="Volume Converter">
+      <h3><strong>Volume Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/area-converter/">
+    <div class="bcard">
+      <img src="../../images/area-converter.webp" alt="Area Converter">
+      <h3><strong>Area Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/weight-mass-converter/">
+    <div class="bcard">
+      <img src="../../images/weight-mass-converter.webp" alt="Weight Mass Converter">
+      <h3><strong>Weight/Mass Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/temperature-converter/">
+    <div class="bcard">
+      <img src="../../images/temperature-converter.webp" alt="Temperature Converter">
+      <h3><strong>Temperature Converter</strong></h3>
+    </div>
+  </a>
+  <a href="../../unit-converter/length-distance-converter/">
+    <div class="bcard">
+      <img src="../../images/length-distance-converter.webp" alt="Length Distance Converter">
+      <h3><strong>Length/Distance Converter</strong></h3>
+    </div>
+  </a>
+</div>
+<div class="ads">
+<div class="ads-container">
+
+    <!-- First Ad -->
+    <div class="ads-box">
+       <div class="admoloBanner"
+data-publisher="eyJpdiI6Ikczc3o0emtYLzMvSWcyN3l5QUlpcGc9PSIsInZhbHVlIjoiaGswSXV0aFRUb1MxRkQvQjdTZzFNdz09IiwibWFjIjoiMzY3ODM5OGU4YTRkZWQyOGNmZmI3ZDhlYWU3MjVlZTcyNjVkMTViOTc1NmFiNjJiOTU3ZjQ4MDNiNDliMzRhNyIsInRhZyI6IiJ9"
+data-adsize="300x300"></div>
+ </div>
+<!-- Second Ad -->
+    <div class="ads-box">
+        <div class="admoloBanner"
+data-publisher="eyJpdiI6InZMazRNekRxc2FReUM4UE0wNDQ4N2c9PSIsInZhbHVlIjoicWZycTVMSnZ1YzhDN2lWeUE3QmtPdz09IiwibWFjIjoiZGI5YzA2ZTNhNTM5YjE2MzYyNzY1MTE2MDM1MGIyNDEyN2M3MGQyNDI2YzYzYWMzYjRkYWI4OWI5ZjBjOWY2YiIsInRhZyI6IiJ9"
+data-adsize="320x180"></div>
+</div>
+
+</div>
+</div>
+
+    <h2>All Types Calculator Tools</h2>
+
+    <div class="grid">
+    	<a href="../../calculator-tool/currency-converter/">
+        <div class="bcard">
+          <img src="../../images/currency-converter.webp" alt="Currency Converter">
+          <h3><strong>Currency Calculator</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/gst-calculator/">
+        <div class="bcard">
+          <img src="../../images/gst-calculator.webp" alt="GST Calculator">
+          <h3><strong>GST Calculator </strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/bmi-calculator/">
+        <div class="bcard">
+          <img src="../../images/bmi-calculator.webp" alt="BMI Calculator">
+          <h3><strong>BMI Calculator</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/loan-emi-calculator/">
+        <div class="bcard">
+          <img src="../../images/loan-emi-calculator.webp" alt="Loan EMI Calculator">
+          <h3><strong>Loan EMI Calculator</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/age-calculator/">
+        <div class="bcard">
+          <img src="../../images/age-calculator.webp" alt="Age Calculator">
+          <h3><strong>Age Calculator</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/unit-converter/">
+        <div class="bcard">
+          <img src="../../images/unit-converter.webp" alt="unit converter">
+          <h3><strong>Unit Converter</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/date-duration-calculator/">
+        <div class="bcard">
+          <img src="../../images/date-duration-calculator.webp" alt="date and duration calculator">
+          <h3><strong>Date and duration </strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/gpa-cgpa-calculator/">
+        <div class="bcard">
+          <img src="../../images/gpa-cgpa-calculator.webp" alt="gpa cgpa calculator">
+          <h3><strong>GPA & CGPA Calculator</strong></h3>
+        </div>
+      </a>
+      
+      <a href="../../calculator-tool/discount-calculator/">
+        <div class="bcard">
+          <img src="../../images/discount-calculator.webp" alt="discount calculator">
+          <h3><strong>Discount Calculator</strong></h3>
+        </div>
+      </a>
+      
+      <a href="../../calculator-tool/base-converter/">
+        <div class="bcard">
+          <img src="../../images/base-converter.webp" alt="base converter ">
+          <h3><strong>Binary Decimal hexa </strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/percentage-calculator/">
+        <div class="bcard">
+          <img src="../../images/percentage-calculator.webp" alt="percentage calculator">
+          <h3><strong>Percentage Calculator</strong></h3>
+        </div>
+      </a>
+      <a href="../../calculator-tool/compound-interest-calculator/">
+        <div class="bcard">
+          <img src="../../images/compound-interest-calculator.webp" alt="compound interest calculator">
+          <h3><strong>Compound interest</strong></h3>
+        </div>
+      </a>
+    </div>
+ 
+    
+
+    <h2>Image Tools</h2>
+    <div class="grid">
+      <a href="../../image-tool/image-background-remover/">
+        <div class="bcard">
+          <img src="../../images/image-background-remover.webp" alt="Background Remover">
+          <h3><strong>Background Remover</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/image-crop/">
+        <div class="bcard">
+          <img src="../../images/image-crop.webp" alt="Crop Image">
+          <h3><strong>Image Cropper</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/image-compressor/">
+        <div class="bcard">
+          <img src="../../images/image-compressor.webp" alt="Image Compressor">
+          <h3><strong>Image Compressor</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/image-resizer/">
+        <div class="bcard">
+          <img src="../../images/image-resizer.webp" alt="Resize Images">
+          <h3><strong>Image Resizer</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/passport-size-photo-generator/">
+        <div class="bcard">
+          <img src="../../images/passport-size-photo-generator.webp" alt="Passport Photo Generator">
+          <h3><strong>Passport Size Photo Generator</strong></h3>
+        </div>
+      </a>
+      <a href="../../image-tool/image-format-converter/">
+        <div class="bcard">
+          <img src="../../images/image-format-converter.webp" alt="Convert Image Format">
+          <h3><strong>Image Format Converter</strong></h3>
+        </div>
+      </a>
+    </div>
+<div class="ads"></div>
+    <h2>PDF Tools</h2>
+    <div class="grid">
+      <a href="../../pdf-tool/watermark-in-pdf/">
+        <div class="bcard">
+          <img src="../../images/watermark-in-pdf.webp" alt="Watermark in PDF">
+          <h3><strong>Watermark in PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/compress-pdf/">
+        <div class="bcard">
+          <img src="../../images/compress-pdf.webp" alt="Compress PDF File">
+          <h3><strong>Compress PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/pdf-to-image/">
+        <div class="bcard">
+          <img src="../../images/pdf-to-image.webp" alt="PDF to Images">
+          <h3><strong>PDF to Images</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/merge-pdf/">
+        <div class="bcard">
+          <img src="../../images/merge-pdf.webp" alt="Merge PDF Files">
+          <h3><strong>Merge PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/split-and-delete-pdf/">
+        <div class="bcard">
+          <img src="../../images/split-and-delete-pdf.webp" alt="Split or Delete Pages">
+          <h3><strong>Split & Delete Pages</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/rotate-pdf-pages/">
+        <div class="bcard">
+          <img src="../../images/rotate-pdf-pages.webp" alt="Rotate PDF">
+          <h3><strong>Rotate PDF Pages</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/image-to-pdf/">
+        <div class="bcard">
+          <img src="../../images/image-to-pdf.webp" alt="Image to PDF">
+          <h3><strong>Image to PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/text-to-pdf/">
+        <div class="bcard">
+          <img src="../../images/text-to-pdf.webp" alt="Text to PDF">
+          <h3><strong>Text to PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/pdf-to-docx/">
+        <div class="bcard">
+          <img src="../../images/pdf-to-docx.webp" alt="PDF to DOCX">
+          <h3><strong>PDF to Word</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/pdf-to-pptx/">
+        <div class="bcard">
+          <img src="../../images/pdf-to-pptx.webp" alt="PDF to PPT">
+          <h3><strong>PDF to PowerPoint</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/docx-to-pdf/">
+        <div class="bcard">
+          <img src="../../images/docx-to-pdf.webp" alt="DOCX to PDF">
+          <h3><strong>DOCX to PDF</strong></h3>
+        </div>
+      </a>
+      <a href="../../pdf-tool/csv-to-pdf/">
+        <div class="bcard">
+          <img src="../../images/csv-to-pdf.webp" alt="CSV to PDF">
+          <h3><strong>CSV to PDF</strong></h3>
+        </div>
+      </a>
+    </div>
+<!-- VERIFY BUTTON -->
+
+<div style="
+    width:100%;
+    max-width:400px;
+    text-align:center;
+">
+
+    <button id="downloadBtn"
+            disabled
+            style="
+                width:100%;
+                padding:15px;
+                border:none;
+                border-radius:14px;
+                font-size:15px;
+                font-weight:600;
+                color:#fff;
+                background:linear-gradient(135deg,#22c55e,#0ea5e9);
+                cursor:pointer;
+                box-shadow:0 10px 30px rgba(14,165,233,0.18);
+                transition:transform .15s,opacity .15s;
+             ">
+
+        👉✅ 1/2 Next 👈
+
+    </button>
+
+
+
+    <div id="belowButtonText"
+         style="
+            display:none;
+            margin-top:9px;
+            color:#94a3b8;
+            font-size:12px;
+            line-height:1.4;
+         ">
+
+        ⬇️ Tap the button above for final verification and to download your movie.
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast"
+     style="
+        position:fixed;
+        left:50%;
+        bottom:40px;
+        transform:translate(-50%,100px);
+        background:#14532d;
+        border:1px solid #16a34a;
+        color:#f0fdf4;
+        padding:14px 20px;
+        border-radius:14px;
+        font-size:14px;
+        font-weight:600;
+        box-shadow:0 12px 32px rgba(0,0,0,0.4);
+        display:flex;
+        align-items:center;
+        gap:10px;
+        transition:transform .35s ease;
+        z-index:99;
+        max-width:90%;
+        text-align:center;
+        box-sizing:border-box;
+     ">
+
+    <span id="toastIcon">✅</span>
+    <span id="toastText"></span>
+
+</div>
+    <div id="ad-bottom"><div class="ad-placeholder"><div class="ad-unit ad-unit-leader"><script type="text/javascript">
+        atOptions = {
+                'key' : 'd989003ea8480512c7e859e4a01a08d2',
+                'format' : 'iframe',
+                'height' : 90,
+                'width' : 728,
+                'params' : {}
+        };
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/d989003ea8480512c7e859e4a01a08d2/invoke.js"></script></div></div></div>
+
+
+
+  </main>
+  <div id="ad-right"><div class="ad-placeholder"><div class="ad-unit ad-unit-box">
+
+<script>
+  atOptions = {
+    'key' : 'e5ca98a26b2f5e9e3350260d41479d70',
+    'format' : 'iframe',
+    'height' : 300,
+    'width' : 160,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/e5ca98a26b2f5e9e3350260d41479d70/invoke.js"></script>
+
+
+</div></div></div>
+</div>
+
+<script>
+  const params=new URLSearchParams(location.search);
+  const token=params.get('token')||'';
+  const botUsername=params.get('bot')||'';
+  const app=window.Telegram&&window.Telegram.WebApp?window.Telegram.WebApp:null;
+  if(app){try{app.ready();app.expand();}catch(e){}}
+
+  const timerEl=document.getElementById('timer');
+  const secondsText=document.getElementById('secondsText');
+  const unlock=document.getElementById('downloadBtn');
+  const hint=document.getElementById('hint');
+  const finishHint=document.getElementById('finishHint');
+  const toast=document.getElementById('toast');
+  const toastText=document.getElementById('toastText');
+  let toastTimer;
+
+  function showToast(message){
+    toastText.textContent=message;
+    toast.style.transform='translate(-50%,0)';
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(()=>{toast.style.transform='translate(-50%,100px)';},3000);
+  }
+
+
+
+    const statusText = document.getElementById('statusText');
+    const timerSection = document.getElementById('timerSection');
+
+    const belowButtonText = document.getElementById('belowButtonText');
+
+
+
+  let left=30;
+  timerEl.textContent=left;
+
+  const interval=setInterval(()=>{
+    left--;
+    timerEl.textContent=Math.max(left,0);
+    if(left<=0){
+      clearInterval(interval);
+      secondsText.textContent='Verification complete';
+      finishHint.textContent='✅ Timer completed! Click below to continue. 👇';
+      hint.textContent='Tap Unlock video to return to Telegram.';
+      unlock.disabled=false;
+    }
+  },1000);
+
+  unlock.addEventListener('click',()=>{
+    if(unlock.disabled)return;
+    if(!token||!botUsername){
+      hint.textContent='Unlock link incomplete. Open the full link provided by your movie bot.';
+      showToast('Unlock link incomplete. Please open the full link from your movie bot.');
+      return;
+    }
+    if(!/^[A-Za-z0-9_]{5,}$/.test(botUsername)){
+      hint.textContent='This bot link is invalid. Please request a fresh unlock link from your movie bot.';
+      showToast('This bot link is invalid. Please request a fresh unlock link.');
+      return;
+    }
+    unlock.disabled=true;
+    unlock.textContent='Opening Telegram…';
+    showToast('✅ Now go back and check your video. Your movie is ready!');
+    const destination='https://t.me/'+botUsername+'?start=unlock_'+encodeURIComponent(token);
+    setTimeout(()=>{
+      if(app&&typeof app.openTelegramLink==='function'){
+        app.openTelegramLink(destination);
+        setTimeout(()=>{try{app.close();}catch(e){}},800);
+      }else{
+        location.href=destination;
+      }
+    },1200);
+  });
+</script>
 </body>
 </html>
-```
