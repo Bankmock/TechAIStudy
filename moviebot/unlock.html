@@ -494,27 +494,36 @@ data-publisher="eyJpdiI6ImprdHBtdEY2aHR2cGdvcnp1bnJyWlE9PSIsInZhbHVlIjoianlwOWZD
 data-adsize="interstitial"></div>
 
 <script>
-
-
 // Rewarded interstitial
-
-show_9379707().then(() => {
+show_11661945().then(() => {
     // You need to add your user reward function here, which will be executed after the user watches the ad.
     // For more details, please refer to the detailed instructions.
     alert('You have seen an ad!');
 })
+// ..........................................
 
+// Rewarded Popup
+
+show_11661945('pop').then(() => {
+    // user watch ad till the end or close it in interstitial format
+    // your code to reward user for rewarded format
+}).catch(e => {
+    // user get error during playing ad
+    // do nothing or whatever you want
+})
+
+// ............................................
 
 
 // In-App Interstitial
 
-show_9379707({
+show_11661945({
   type: 'inApp',
   inAppSettings: {
-    frequency: 2,
+    frequency: 1,
     capping: 0.1,
     interval: 30,
-    timeout: 370,
+    timeout: 5,
     everyPage: false
   }
 })
@@ -529,6 +538,8 @@ This value is decoded as follows:
   If you set the last digit as 1, then at any transition between pages,
   the session will be reset, and the ads will start again.
 */
+
+
 
 </script>
 <nav>
