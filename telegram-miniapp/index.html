@@ -505,12 +505,26 @@ show_9379707().then(() => {
 
 
 
+
+
+// Rewarded Popup
+
+show_9379707('pop').then(() => {
+    // user watch ad till the end or close it in interstitial format
+    // your code to reward user for rewarded format
+}).catch(e => {
+    // user get error during playing ad
+    // do nothing or whatever you want
+})
+
+
+
 // In-App Interstitial
 
 show_9379707({
   type: 'inApp',
   inAppSettings: {
-    frequency: 2,
+    frequency: 1,
     capping: 0.1,
     interval: 30,
     timeout: 370,
@@ -529,6 +543,14 @@ This value is decoded as follows:
   the session will be reset, and the ads will start again.
 */
 
+
+
+
+
+
+
+
+        
 </script>
 <nav>
 <div class="ads">  
